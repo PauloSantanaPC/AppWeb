@@ -449,7 +449,8 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            inicioJogo = datetime(2022,11,20,13,0)
+            #inicioJogo = datetime(2022,11,20,13,0)
+            inicioJogo = datetime(2022,11,20,19,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = datetime(2022,11,21,13,0)
@@ -795,8 +796,8 @@ def main():
                     
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,20,14,0)
-                        st.subheader(inicioCopa)
-                        st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
+                        #st.subheader(inicioCopa)
+                        #st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
