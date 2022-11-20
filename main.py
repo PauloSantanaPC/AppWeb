@@ -635,7 +635,9 @@ def resumoApostas():
 
     espacos = ncoluna*[0.25]
     
-    figura = plt.figure(figsize = (6,1))
+    #figura = plt.figure(figsize = (6,1))
+    
+    plt.figure(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     plt.title('Apostas Iniciais', fontdict = font)
@@ -656,7 +658,7 @@ def resumoApostas():
     plt.axis('off')
     plt.show()
     
-    return figura
+    return #figura
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
