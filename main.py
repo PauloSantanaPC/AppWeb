@@ -245,7 +245,7 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
-    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Bahia')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
         
     #data_atual = datetime.now()
     #data_string = data_atual.strftime('%d/%m/%y %H:%M')
@@ -794,7 +794,7 @@ def main():
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
                     
                     if task1 == 'Apostas iniciais':                        
-                        inicioCopa = horarioJogo(2022,11,20,13,0)
+                        inicioCopa = horarioJogo(2022,11,20,14,0)
                         st.subheader(inicioCopa)
                         st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
