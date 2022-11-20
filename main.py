@@ -22,6 +22,7 @@ import pytz
 #import flag
 #import emoji
 import numpy as np # biblioteca Python usada para trabalhar com arrays
+import matplotlib
 import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 #from os import write
 #from numpy.core.fromnumeric import size
