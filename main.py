@@ -792,7 +792,7 @@ def main():
                         with st.form(key = 'include_bolao'):
                             apostaBolao = st.selectbox('Selecione a posição que ficará no bolão', options = opcoesBolao, index = 3)
                             botaoBolao = st.form_submit_button(label = 'Apostar')
-                        if botaoBolao and inicioCopa:
+                        if botaoBolao:# and inicioCopa:
                             usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
                             np.save(str(username),usuario)
                         if usuario[8] != '':
