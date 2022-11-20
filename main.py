@@ -274,7 +274,8 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            inicioJogo = horarioJogo(2022,11,20,13,0)
+            #inicioJogo = horarioJogo(2022,11,20,13,0)
+            inicioJogo = horarioJogo(2022,11,20,19,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = horarioJogo(2022,11,21,13,0)
