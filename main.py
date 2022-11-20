@@ -787,6 +787,7 @@ def main():
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,20,13,0)
                         st.subheader(inicioCopa)
+                        st.subheader(dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
