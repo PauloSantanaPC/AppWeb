@@ -847,8 +847,8 @@ def main():
                                 np.save(str(username),usuario)
                             if usuario[2*nomeGrupo+12] != '':
                                 st.subheader('Apostas registradas!')
-                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+11])]}')
                                 st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+12])]}')
+                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+13])]}')
 
                         #-----------------------------------------------------------------------------#
 
