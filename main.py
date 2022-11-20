@@ -625,7 +625,7 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
 #-----------------------------------------------------------------------------#
 
 # DB Management
-dados = sqlite3.connect('dados09.db')
+dados = sqlite3.connect('dados0.db')
 d = dados.cursor()
 
 def cria_tabela_usuarios():
@@ -657,7 +657,7 @@ def usuarioMestre():
         st.success('O usuário mestre foi criado.')
     else:
         for i in range(len(todos_os_usuarios())):
-            usuario = np.load(str(np.array(todos_os_usuarios())[:,0][i])+'.npy')#, delimiter=',', unpack = True, skiprows = 1)
+            usuario = np.load(str(np.array(todos_os_usuarios())[:,0][i])+'.npy')
             usuariosLista.append(usuario)
 
     return usuariosLista
@@ -696,7 +696,6 @@ def contagemRegressiva(ano,mes,dia,hora,minuto):
 
 # criando o usuario mestre
 usuariosLista = usuarioMestre()
-#usuariosLista = 1
 
 def main():
     
