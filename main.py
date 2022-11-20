@@ -709,38 +709,42 @@ def main():
 
     if choice == 'Home':
         
-        st.subheader('Home')
-        task = st.selectbox('Task',['Add Post','Analytics','Profiles'])
-        #task = st.sidebar.selectbox('Task',['Add Post','Analytics','Profiles'])
+        st.subheader('Acesso do administrador')
+        
+        username = st.text_input('Nome de usuário')
+        password = st.text_input('Senha', type = 'password')
+        if username == usuarioLista[0][0] and password == usuarioLista[0][1]:
+            #task = st.selectbox('Task',['Add Post','Analytics','Profiles'])
+            task = st.sidebar.selectbox('Task',['Add Post','Analytics','Profiles'])
 
-        if task == 'Add Post':
-            st.subheader('Add Your Post')
-        elif task == 'Analytics':
-            st.title('Analytics')
-        elif task == 'Profiles':
-            st.subheader('User Profiles')
-            #user_result = view_all_users() # lista com todos os usuários
-            #clean_db = pd.DataFrame(user_result, columns = ['Username','Password'])
-            #clean_db = pd.DataFrame(user_result)
-            #st.dataframe(clean_db)
-            #st.subheader(user_result[0])
-            #st.subheader(user_result[0][0])
-            #st.subheader(user_result[0][1])
-            #st.subheader(user_result[1])
-            #st.subheader(user_result[2])
-            #st.subheader(user_result[3])
-            #st.subheader(user_result[4])
-            #dados = login_user(user_result[0][0],user_result[0][1])
-            #st.subheader(np.array(view_all_users())[:,0])
+            if task == 'Add Post':
+                st.subheader('Add Your Post')
+            elif task == 'Analytics':
+                st.title('Analytics')
+            elif task == 'Profiles':
+                st.subheader('User Profiles')
+                #user_result = view_all_users() # lista com todos os usuários
+                #clean_db = pd.DataFrame(user_result, columns = ['Username','Password'])
+                #clean_db = pd.DataFrame(user_result)
+                #st.dataframe(clean_db)
+                #st.subheader(user_result[0])
+                #st.subheader(user_result[0][0])
+                #st.subheader(user_result[0][1])
+                #st.subheader(user_result[1])
+                #st.subheader(user_result[2])
+                #st.subheader(user_result[3])
+                #st.subheader(user_result[4])
+                #dados = login_user(user_result[0][0],user_result[0][1])
+                #st.subheader(np.array(view_all_users())[:,0])
 
-            todos_usuarios = todos_os_usuarios() # lista com todos os usuários
-            clean_db = pd.DataFrame(todos_usuarios)
-            st.dataframe(clean_db)
-            #st.subheader(np.array(todos_os_usuarios())[0][0])
-            #st.subheader(np.array(todos_os_usuarios())[:,0][0])
-            #st.subheader(np.where(np.array(todos_os_usuarios())[:,0] == 'usuarioTeste1')[0][0])
-            st.subheader(todos_os_usuarios())
-            st.subheader(usuariosLista)
+                todos_usuarios = todos_os_usuarios() # lista com todos os usuários
+                clean_db = pd.DataFrame(todos_usuarios)
+                st.dataframe(clean_db)
+                #st.subheader(np.array(todos_os_usuarios())[0][0])
+                #st.subheader(np.array(todos_os_usuarios())[:,0][0])
+                #st.subheader(np.where(np.array(todos_os_usuarios())[:,0] == 'usuarioTeste1')[0][0])
+                #st.subheader(todos_os_usuarios())
+                st.subheader(usuariosLista)
 
     #-----------------------------------------------------------------------------#
 
