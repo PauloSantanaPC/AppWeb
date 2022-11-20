@@ -247,7 +247,8 @@ def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
     #print(dataHoraMinutoAtual)
     #print('')
-    dataHoraMinutoJogo = datetime(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo)
+    #dataHoraMinutoJogo = datetime(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo)
+    dataHoraMinutoJogo = datetime(diaJogo,mesJogo,anoJogo,horaJogo,minutoJogo)
     #print(dataHoraMinutoJogo)
     #print('')
     if dataHoraMinutoAtual >= dataHoraMinutoJogo:
