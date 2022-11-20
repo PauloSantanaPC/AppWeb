@@ -786,6 +786,7 @@ def main():
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,20,13,0)
+                        st.subheader(inicioCopa)
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
@@ -841,8 +842,6 @@ def main():
 
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
                             # Datas e horários dos jogos
-
-
 
                             for nomeJogo in range(6):
                                 with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
