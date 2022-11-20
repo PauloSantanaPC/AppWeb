@@ -244,7 +244,7 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
-    dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(br).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
         
     #data_atual = datetime.now()
     #data_string = data_atual.strftime('%d/%m/%y %H:%M')
