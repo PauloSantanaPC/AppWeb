@@ -617,6 +617,47 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
 
     return inicioJogo
 
+def resumoApostas():
+
+    apostas1 = []
+    apostas2 = []
+    apostas3 = []
+    for j in range(1, len(usuariosLista), 1):
+        apostas1.append(listaSelecoes()[int(usuariosLista[j][9])])
+        apostas2.append(listaSelecoes()[int(usuariosLista[j][10])])
+        apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
+    
+    dadosApostasIniciais = np.array([apostas1,apostas2,apostas3])
+    rotuloColuna = np.delete(np.array(usuariosLista)[:,0], 0)
+    rotuloLinha  = ['Campeão','Vice-campeão','Terceiro colocado']
+    ncoluna = len(rotuloColuna)
+    nlinha  = len(rotuloLinha)
+
+    espacos = ncoluna*[0.25]
+    
+    figura = plt.figure(figsize = (6,1))
+    
+    font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
+    plt.title('Apostas Iniciais', fontdict = font)
+    
+    tabela = plt.table(cellText = dadosApostasIniciais,
+                       colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
+                       rowLabels = rotuloLinha,
+                       colLabels = rotuloColuna)
+    
+    celula = tabela.properties()["celld"]
+    for coluna in range(ncoluna):
+        for linha in range(nlinha+1):
+            celula[linha, coluna]._loc = 'center'
+                       
+    tabela.auto_set_font_size(False)
+    tabela.set_fontsize(20)
+    tabela.scale(2, 4)
+    plt.axis('off')
+    plt.show()
+    
+    return figura
+
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
@@ -1017,13 +1058,8 @@ def main():
                                             
                     elif task1 == 'Resumo das apostas':
 
-                        classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
-                        if st.button('Classificação Globo Esporte'):
-                            webbrowser.open_new_tab(classificacaoGE)
-                        
-                        simuladorGE = 'https://interativos.ge.globo.com/futebol/copa-do-mundo/especial/simulador-da-copa-do-mundo-2022'
-                        if st.button('Simulador Globo Esporte'):
-                            webbrowser.open_new_tab(simuladorGE)
+                        fig = resumoApostas()
+                        st.pyplot(fig)
 
                     elif task1 == 'Links externos':
 
