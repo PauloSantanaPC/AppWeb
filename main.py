@@ -244,11 +244,11 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
-    #dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
         
-    data_atual = datetime.now()
-    data_string = data_atual.strftime('%d/%m/%y %H:%M')
-    dataHoraMinutoAtual =datetime.strptime(data_string, '%d/%m/%y %H:%M')
+    #data_atual = datetime.now()
+    #data_string = data_atual.strftime('%d/%m/%y %H:%M')
+    #dataHoraMinutoAtual =datetime.strptime(data_string, '%d/%m/%y %H:%M')
 
     #print(dataHoraMinutoAtual)
     #print('')
@@ -787,14 +787,15 @@ def main():
             if result:
                 st.sidebar.success('Você está logado como {}'.format(username))
                 task = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
+                
                 if task == 'Copa do Mundo 2022':
                     st.title('Bolão da Copa do Mundo 2022')
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
+                    
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,20,13,0)
-                        #inicioCopa = horarioJogo(20,11,2022,13,0)
                         st.subheader(inicioCopa)
-                        #st.subheader(dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
+                        st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
