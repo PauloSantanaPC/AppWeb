@@ -18,6 +18,7 @@ from datetime import date, datetime, time
 from datetime import date, datetime, time,timedelta
 from time import strftime
 import time
+import pytz
 #import flag
 #import emoji
 import numpy as np # biblioteca Python usada para trabalhar com arrays
@@ -244,7 +245,7 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
-    dataHoraMinutoAtual = datetime.strptime(datetime.now(tz).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Bahia')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
         
     #data_atual = datetime.now()
     #data_string = data_atual.strftime('%d/%m/%y %H:%M')
