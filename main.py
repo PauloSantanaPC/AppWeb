@@ -713,7 +713,8 @@ def main():
         
         username = st.text_input('Nome de usuário')
         password = st.text_input('Senha', type = 'password')
-        if username == usuarioLista[0][0] and password == usuarioLista[0][1]:
+        #if username == usuarioLista[0][0] and password == usuarioLista[0][1]:
+        if username == 'usuarioMestre' and password == 'appBolao':
             #task = st.selectbox('Task',['Add Post','Analytics','Profiles'])
             task = st.sidebar.selectbox('Task',['Add Post','Analytics','Profiles'])
 
@@ -745,6 +746,8 @@ def main():
                 #st.subheader(np.where(np.array(todos_os_usuarios())[:,0] == 'usuarioTeste1')[0][0])
                 #st.subheader(todos_os_usuarios())
                 st.subheader(usuariosLista)
+        else:
+            st.subheader('Você não tem acesso')
 
     #-----------------------------------------------------------------------------#
 
