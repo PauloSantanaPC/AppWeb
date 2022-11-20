@@ -799,7 +799,7 @@ def main():
                 
                 if task == 'Copa do Mundo 2022':
                     st.title('Bolão da Copa do Mundo 2022')
-                    task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
+                    task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
                     
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,20,19,0)
@@ -1015,6 +1015,16 @@ def main():
                                                 #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                             
+                    elif task1 == 'Resumo das apostas':
+
+                        classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
+                        if st.button('Classificação Globo Esporte'):
+                            webbrowser.open_new_tab(classificacaoGE)
+                        
+                        simuladorGE = 'https://interativos.ge.globo.com/futebol/copa-do-mundo/especial/simulador-da-copa-do-mundo-2022'
+                        if st.button('Simulador Globo Esporte'):
+                            webbrowser.open_new_tab(simuladorGE)
+
                     elif task1 == 'Links externos':
 
                         classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
