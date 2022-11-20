@@ -774,7 +774,7 @@ def main():
             # pegar o índice do usuario
             indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
             usuario = usuariosLista[indiceUsuario]
-            st.subheader(usuario)
+            #st.subheader(usuario)
             #cria_tabela_usuarios()
 
             result = login_usuario(username,password)
