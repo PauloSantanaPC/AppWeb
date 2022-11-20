@@ -245,11 +245,11 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
     dataHoraMinutoAtual = datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-    print(dataHoraMinutoAtual)
-    print('')
+    #print(dataHoraMinutoAtual)
+    #print('')
     dataHoraMinutoJogo = datetime(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo)
-    print(dataHoraMinutoJogo)
-    print('')
+    #print(dataHoraMinutoJogo)
+    #print('')
     if dataHoraMinutoAtual >= dataHoraMinutoJogo:
         inicioJogo = False
         #print('acabou!')
@@ -785,14 +785,14 @@ def main():
                     st.title('Bolão da Copa do Mundo 2022')
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
                     if task1 == 'Apostas iniciais':                        
-                        inicioCopa = horarioJogo(2022,11,20,14,0)
+                        inicioCopa = horarioJogo(2022,11,20,13,0)
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
                         with st.form(key = 'include_bolao'):
                             apostaBolao = st.selectbox('Selecione a posição que ficará no bolão', options = opcoesBolao, index = 3)
                             botaoBolao = st.form_submit_button(label = 'Apostar')
-                        if botaoBolao:# and inicioCopa:
+                        if botaoBolao and inicioCopa:
                             usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
                             np.save(str(username),usuario)
                         if usuario[8] != '':
