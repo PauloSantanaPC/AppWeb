@@ -785,7 +785,7 @@ def main():
                     st.title('Bolão da Copa do Mundo 2022')
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Links externos'], index = 0)
                     if task1 == 'Apostas iniciais':                        
-                        inicioCopa = horarioJogo(2022,11,20,13,0)
+                        inicioCopa = horarioJogo(2022,11,20,14,0)
 
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         opcoes = [0,1,2,3,4]
@@ -1012,120 +1012,11 @@ def main():
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
 
             else:
-                #st.warning('Incorrect User/Password')
                 st.error('Usuário/senha inválidos')
 
 if __name__ == '__main__':
     main()
 
-# #st.subheader('Selecionar o campeonato')
-# #task = st.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
-# task = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
-# if task == 'Copa do Mundo 2022':
-#     aposta = 'https://interativos.ge.globo.com/futebol/copa-do-mundo/especial/simulador-da-copa-do-mundo-2022'
-#     if st.button(label = 'Clique aqui para apostar!'):
-#         #webbrowser.open_new_tab(aposta)
-#         st.title('Bem vinda(o) ao Bolão da Copa do Mundo 2022!')
-#         #st.empty().text(f"Hello, this is page")
-    
-#     #with st.form(key = "incluir_usuario"):
-#         #input_button_cadastro = st.form_submit_button("Apostar")
-# elif task == 'Outros':
-#     st.markdown('Dá uma seguradinha que estamos começando ainda ... 🎈')
-#     #simuladorGE = 'https://interativos.ge.globo.com/futebol/copa-do-mundo/especial/simulador-da-copa-do-mundo-2022'
-#     #if st.button('Simulador Globo Esporte'):
-#         #webbrowser.open_new_tab(simuladorGE)
-#     #st.subheader('Dá uma seguradinha que estamos começando ainda ...')
-
-# # DB Management
-# conn = sqlite3.connect('data.db')
-# #conn = sqlite3.connect('data1.db')
-# c = conn.cursor()
-
-# def create_usertable():
-#     c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT, password TEXT)')
-
-# def add_userdata(username,password):
-#     c.execute('INSERT INTO userstable(username,password) VALUES (?,?)',(username,password))
-#     conn.commit()
-#     #usuario = cadastroApostador(username,password)
-#     #return usuario
-
-# def login_user(username,password):
-#     #c.execute('SELECT * FROM userstable WHERE username = ? AND password = ?',(username,password))
-#     c.execute('SELECT * FROM userstable WHERE username = ? AND password = ?',(username,password))
-#     data = c.fetchall()
-#     return data
-
-# def view_all_users():
-#     c.execute('SELECT * FROM userstable')
-#     data = c.fetchall()
-#     return data
-
-#-----------------------------------------------------------------------------#
-
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
-
-#with st.form(key="incluir_usuario"):
-#    input_name = st.text_input(label="Insira o seu Nome Completo:")
-#    input_apelido = st.text_input(label="Insira o seu Apelido:")
-#    input_age = st.number_input(label="Insira sua idade", format="%d",step=1)
-#    input_senha = st.text_input(label="Crie uma senha:")
-#    input_button_cadastro = st.form_submit_button("Cadastrar")
-
-
-# #
-# #COLOCAR O CÓDIGO QUE VAI SALVAR O CADASTRO NO BANCO DE DADOS
-# #COLOCAR O CÓDIGO QUE VAI SALVAR O CADASTRO NO BANCO DE DADOS
-# #COLOCAR O CÓDIGO QUE VAI SALVAR O CADASTRO NO BANCO DE DADOS
-# #COLOCAR O CÓDIGO QUE VAI SALVAR O CADASTRO NO BANCO DE DADOS
-
-
-# page_cadastro_apostador = st.selectbox('Qual campeonato vai apostar',['Copa do Mundo','Outro'])
-
-# if page_cadastro_apostador=='Copa do Mundo':
-#     st.title('Seja Bem Vindo ao Bolão da Copa do Mundo')
-
-
-# st.sidebar.title('Menu')
-# page_cliente = st.sidebar.selectbox('o que deseja fazer?',['Cadastro de Dados','Alterar','Incluir','Consultar'])
-
-
-
-# if page_cliente=='Cadastro de Dados':
-
-#     st.title('Consultar Cliente')
-
-#     costumerList = []
-
-#     for item in clientecontroller.SelecionarTodos():
-#         costumerList.append([item.nome,item.idade,item.profissao])
-
-#     df = pd.DataFrame(
-#     costumerList,
-#     columns=['NOME','APELIDO','IDADE'])
-#     st.table(df)
-
-
-# if page_cliente=='Incluir':
-
-#     st.title('Incluir novo Cliente')
-
-#     with st.form(key="include_cliente"):
-#         input_name = st.text_input(label="Insira o seu Nome Completo:")
-#         input_age = st.number_input(label="Insira sua idade", format="%d",step=1)
-#         input_ocupation = st.selectbox("Selecione o seu nivel de conhecimento",options=["Desenvolvedor","Musica","Eng","eletrec","designer","Professor"])
-#         input_button_submit = st.form_submit_button("Enviar")
-
-
-#     if input_button_submit:
-        
-#         clientecontroller.incluir(cliente.cliente(0,input_name,input_age,input_ocupation))
-#         st.success("cliente incluido com sucesso")
-#         # cliente.nome = input_name
-#         # cliente.idade = input_age
-#         # cliente.profissao = input_ocupation
-
-#         # clientecontroller.incluir(cliente)
