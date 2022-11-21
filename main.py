@@ -1119,7 +1119,7 @@ def main():
                                     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
                                                                 ['Fase de grupos','Fase de grupos','Fase de grupos']]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    df.index = [np.array(usuariosLista)[usuario][0],'Aposta','Periodo da aposta']
+                                    df.index.name = [np.array(usuariosLista)[usuario][0],'Aposta','Periodo da aposta']
                                     st.table(df)
 
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
