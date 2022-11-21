@@ -1131,14 +1131,15 @@ def main():
                                             apostasGrupos.append(['Não apostou','Não apostou'])
                                     st.subheader(apostasGrupos)
 
-                                    df2 = pd.DataFrame(np.array([[apostaTerceiroColocado,apostaTerceiroColocado],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos'],
-                                                                 ['Fase de grupos','Fase de grupos']]),
+                                    #df2 = pd.DataFrame(np.array([[apostaTerceiroColocado,apostaTerceiroColocado],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos'],
+                                                                 #['Fase de grupos','Fase de grupos']]),
+                                    df2 = pd.DataFrame(np.array(apostasGrupos),
                                                         columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     #df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
