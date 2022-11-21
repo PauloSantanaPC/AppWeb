@@ -1091,7 +1091,7 @@ def main():
                            #st.header("An owl")
                            #st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 
-                        st.subheader(usuariosLista[usuario][0])
+                        st.subheader(usuariosLista)
                         bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
                         tabs = [bolao, usuario1, usuario2]
                         ntabs = ["Bolão", "Usuário1", "Usuário2"]
