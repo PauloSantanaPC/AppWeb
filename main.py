@@ -1125,8 +1125,8 @@ def main():
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    df.rename(columns={df.iloc[0]:'eu'}).drop(df.index[0])
-                                    df.index = ['Aposta inicial']
+                                    #df.rename(columns=df.iloc[0]).drop(df.index[0])
+                                    df.index = [np.array(usuariosLista)[usuario][0]]
                                     st.table(df)
 
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
