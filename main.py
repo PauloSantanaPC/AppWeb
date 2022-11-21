@@ -1127,8 +1127,9 @@ def main():
                                                                 ['Fase de grupos','Fase de grupos','Fase de grupos']]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     #df.rename(columns=df.iloc[0]).drop(df.index[0])
-                                    df.style.set_caption("Hello World")
-                                    df.index = [np.array(usuariosLista)[usuario][0],'Período da aposta']
+                                    #df.style.set_caption("Hello World")
+                                    df.index.name = 'eu'
+                                    df.index = [np.array(usuariosLista)[usuario][0],'Periodo da aposta']
                                     st.table(df)
 
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
