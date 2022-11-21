@@ -1093,10 +1093,16 @@ def main():
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         st.subheader(f'Campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]}')
-                                        st.subheader(f'Vice-campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]}')
-                                        st.subheader(f'Terceiro colocado - {listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]}')
                                     else:
                                         st.subheader(f'Não apostou no campeão')
+                                    if np.array(usuariosLista)[usuario][10] != '':
+                                        st.subheader(f'Vice-campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]}')
+                                    else:
+                                        st.subheader(f'Não apostou no vice-campeão')
+                                    if np.array(usuariosLista)[usuario][11] != '':
+                                        st.subheader(f'Terceiro colocado - {listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]}')
+                                    else:
+                                        st.subheader(f'Não apostou no terceiro colocado')
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
