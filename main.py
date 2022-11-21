@@ -1093,12 +1093,17 @@ def main():
 
                         #st.subheader(usuariosLista[0])
                         #tabs = [["Bolão",bolao], ["Usuário2",usuario1], ["Usuário2",usuario2]]
+                        #bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
+                        #tabs = [bolao, usuario1, usuario2]
+                        #ntabs = ["Bolão", "Usuário1", "Usuário2"]
                         bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
-                        tabs = [bolao, usuario1, usuario2]
-                        ntabs = ["Bolão", "Usuário1", "Usuário2"]
-                        for usuario in range(len(tabs)):
-                            with tabs[usuario]:
-                                st.header(f'Resumo das apostas: {ntabs[usuario]}')
+                        teste = [['Bolão',bolao],['Usuário 1',usuario1],['Usuário 2',usuario2]]
+                        #for usuario in range(len(tabs)):
+                        for usuario in range(len(teste)):
+                            #with tabs[usuario]:
+                            with teste[usuario][1]:
+                                #st.header(f'Resumo das apostas: {ntabs[usuario]}')
+                                st.header(f'Resumo das apostas: {teste[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
