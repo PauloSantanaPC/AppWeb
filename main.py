@@ -1083,7 +1083,7 @@ def main():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
-                        tabs[0] = 'Bolão'
+                        tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
@@ -1092,14 +1092,12 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
-                                    df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
-                                                      columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    #df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
+                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    #image = Image.open('CampoSLpaper.png')
-                                    #st.image(image, caption='Sunrise by the mountains')
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
@@ -1123,29 +1121,19 @@ def main():
                                     st.table(df1)
 
                                     apostasGrupos = []
-                                    #for apostaGrupo in range(12, 28, 1):
                                     for apostaGrupo in range(12, 28, 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
                                             apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
                                         else:
                                             apostasGrupos.append(['Não apostou','Não apostou'])
-                                    st.subheader(apostasGrupos)
 
-                                    #df2 = pd.DataFrame(np.array([[apostaTerceiroColocado,apostaTerceiroColocado],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos'],
-                                                                 #['Fase de grupos','Fase de grupos']]),
                                     df2 = pd.DataFrame(np.array(apostasGrupos),
                                                         columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     #df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df2)
                                     
-                                    st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
+                                    #st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
 
