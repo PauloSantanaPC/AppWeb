@@ -1077,20 +1077,7 @@ def main():
                         #figuraInicial = resumoApostas()
                         #st.pyplot(figuraInicial)
                         
-                        #tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
-
-                        #with tab1:
-                           #st.header("A cat")
-                           #st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
-
-                        #with tab2:
-                           #st.header("A dog")
-                           #st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
-
-                        #with tab3:
-                           #st.header("An owl")
-                           #st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
-
+                        #def criandoTabs():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
@@ -1100,10 +1087,11 @@ def main():
                             if usuario == 0:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
-                                    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+                                    st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                             else:
                                 with tabs[usuario]:
-                                    st.header(f'Resumo das apostas: {np.array(usuariosLista)[usuario][0]}')
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    st.subheader(f'Campeão - {np.array(usuariosLista)[usuario][9]}')
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
