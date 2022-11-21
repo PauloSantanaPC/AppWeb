@@ -1124,7 +1124,7 @@ def main():
 
                                     apostasGrupos = []
                                     #for apostaGrupo in range(12, 28, 1):
-                                    for apostaGrupo in range(8):
+                                    for apostaGrupo in range(12, 28, 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
                                             apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
                                         else:
