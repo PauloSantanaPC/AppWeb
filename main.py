@@ -647,7 +647,7 @@ def resumoApostas():
     espacos = ncoluna*[0.25]
     
     #figura = plt.figure(figsize = (6,1))
-    figura = st.pyplot.figure(figsize = (6,1))
+    figura = st.pyplot(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     #plt.title('Apostas Iniciais', fontdict = font)
@@ -1075,8 +1075,21 @@ def main():
                     elif task1 == 'Resumo das apostas':
                         st.subheader('Resumo das apostas')
                         st.subheader('Dá uma seguradinha que estamos começando ainda ... 🎈')
-                        figuraInicial = resumoApostas()
-                        st.pyplot(figuraInicial)
+                        #figuraInicial = resumoApostas()
+                        #st.pyplot(figuraInicial)
+                        tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+
+                        with tab1:
+                           st.header("A cat")
+                           st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+
+                        with tab2:
+                           st.header("A dog")
+                           st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+
+                        with tab3:
+                           st.header("An owl")
+                           st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 
                     elif task1 == 'Links externos':
 
