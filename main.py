@@ -623,9 +623,20 @@ def resumoApostas():
     apostas2 = []
     apostas3 = []
     for j in range(1, len(usuariosLista), 1):
-        apostas1.append(listaSelecoes()[int(usuariosLista[j][9])])
-        apostas2.append(listaSelecoes()[int(usuariosLista[j][10])])
-        apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
+        if usuariosLista[j][9] != '':
+            apostas1.append(listaSelecoes()[int(usuariosLista[j][9])])
+        else:
+            apostas1.append('Não apostou.')
+            
+        if usuariosLista[j][10] != '':
+            apostas2.append(listaSelecoes()[int(usuariosLista[j][10])])
+        else:
+            apostas2.append('Não apostou.')
+            
+        if usuariosLista[j][9] != '':
+            apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
+        else:
+            apostas3.append('Não apostou.')
     
     dadosApostasIniciais = np.array([apostas1,apostas2,apostas3])
     rotuloColuna = np.delete(np.array(usuariosLista)[:,0], 0)
