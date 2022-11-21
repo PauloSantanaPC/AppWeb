@@ -1131,9 +1131,9 @@ def main():
                                             apostasGrupos.append(['Não apostou'])
                                     st.subheader(apostasGrupos)
 
-                                    df2 = pd.DataFrame(np.array([[apostaTerceiroColocado],
-                                                                 ['Fase de grupos']]),
-                                                        columns = ('Campeão'))
+                                    df2 = pd.DataFrame(np.array([[apostaTerceiroColocado,apostaTerceiroColocado],
+                                                                 ['Fase de grupos','Fase de grupos']]),
+                                                        columns = ('Campeão','Vice-campeão'))
                                     df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     st.table(df2)
                                     
