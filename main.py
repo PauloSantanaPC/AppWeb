@@ -1124,17 +1124,17 @@ def main():
 
                                     apostasGrupos = []
                                     #for apostaGrupo in range(12, 28, 1):
-                                    for apostaGrupo in range(2):
+                                    for apostaGrupo in range(12, 14, 1):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
                                             apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])]])
                                         else:
                                             apostasGrupos.append(['Não apostou'])
 
-                                    df1 = pd.DataFrame(np.array([apostasGrupos]),
+                                    df2 = pd.DataFrame(np.array([apostasGrupos]),
                                                         columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
                                     #df1.index = ['1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A']
-                                    df1.index = ['a','b']
-                                    st.table(df1)
+                                    df2.index = ['a','b']
+                                    st.table(df2)
                                     
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
