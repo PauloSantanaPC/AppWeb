@@ -1094,10 +1094,11 @@ def main():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
+                        tabs[0] = 'Bolão'
                         tabs = st.tabs(tabs)
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
-                                with 'Bolão':
+                                with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
                             else:
