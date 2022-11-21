@@ -1098,7 +1098,7 @@ def main():
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    if listaUsuarios[usuario][8] != '':
+                                    if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Você vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
