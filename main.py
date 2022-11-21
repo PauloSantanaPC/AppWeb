@@ -1114,7 +1114,7 @@ def main():
                                     else:
                                         st.subheader(f'Não apostou no terceiro colocado')
                                         
-                                    df = pd.DataFrame(np.array([[1,2,3],['a','b','c']]),
+                                    df = pd.DataFrame(np.array([['a','b','c']]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     st.table(df)
 
