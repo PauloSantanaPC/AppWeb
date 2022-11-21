@@ -27,7 +27,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 #from numpy.core.fromnumeric import size
 #import Controllers.clientecontroller as clientecontroller
 #import models.cliente as cliente
-#import pandas as pd
+import pandas as pd
 #import plotly.figure_factory as ff
 from PIL import Image
 
@@ -1090,11 +1090,13 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
+                                    df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
+                                    st.table(df)
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    image = Image.open('CampoSLpaper.png')
-                                    st.image(image, caption='Sunrise by the mountains')
+                                    #image = Image.open('CampoSLpaper.png')
+                                    #st.image(image, caption='Sunrise by the mountains')
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         st.subheader(f'Campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]} (aposta realizada ...)')
