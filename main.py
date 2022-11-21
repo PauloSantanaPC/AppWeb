@@ -1125,6 +1125,9 @@ def main():
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    new_header = df.iloc[0] #grab the first row for the header
+                                    df = df[1:] #take the data less the header row
+                                    df.columns = new_header #set the header row as the df header
                                     df.index = ['Aposta inicial']
                                     st.table(df)
 
