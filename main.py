@@ -1116,6 +1116,7 @@ def main():
                                         
                                     df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    df.index = ['Aposta inicial']
                                     st.table(df)
 
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
