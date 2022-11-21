@@ -1130,7 +1130,8 @@ def main():
                                         else:
                                             apostasGrupos.append(['Não apostou'])
 
-                                    df2 = pd.DataFrame(np.array([apostasGrupos]),
+                                    #df2 = pd.DataFrame(np.array([apostasGrupos]),
+                                    df2 = pd.DataFrame(np.array(apostasGrupos),
                                                         columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
                                     #df1.index = ['1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A']
                                     df2.index = ['a','b']
