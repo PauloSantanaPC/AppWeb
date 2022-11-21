@@ -633,7 +633,7 @@ def resumoApostas():
         else:
             apostas2.append('Não apostou.')
             
-        if usuariosLista[j][9] != '':
+        if usuariosLista[j][11] != '':
             apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
         else:
             apostas3.append('Não apostou.')
