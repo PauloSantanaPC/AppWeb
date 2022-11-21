@@ -29,6 +29,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 #import models.cliente as cliente
 #import pandas as pd
 #import plotly.figure_factory as ff
+from PIL import Image
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1092,6 +1093,9 @@ def main():
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    image = Image.open('CampoSLpaper.png')
+                                    st.image(image, caption='Sunrise by the mountains')
+                                    
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         st.subheader(f'Campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]} (aposta realizada ...)')
                                     else:
