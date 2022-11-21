@@ -1092,25 +1092,13 @@ def main():
                            #st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 
                         #st.subheader(usuariosLista[0])
-                        #tabs = [["Bolão",bolao], ["Usuário2",usuario1], ["Usuário2",usuario2]]
-                        #bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
-                        #tabs = [bolao, usuario1, usuario2]
-                        #ntabs = ["Bolão", "Usuário1", "Usuário2"]
-                        
-                        #bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
-                        #bolao = st.tabs(["Bolão", "Dog", "Owl"])
-                        #teste = [['Bolão',bolao],['Usuário 1',usuario1],['Usuário 2',usuario2]]
                         teste = [['Bolão',0],['Usuário 1',1],['Usuário 2',2]]
-                        bolao = []
-                        for i in range(len(teste)):
-                            bolao.append(teste[i][0])
-                        bolao = st.tabs(bolao)
-                        #for usuario in range(len(tabs)):
+                        tabs = []
+                        for tab in range(len(teste)):
+                            tabs.append(teste[tab][0])
+                        tabs = st.tabs(tabs)
                         for usuario in range(len(teste)):
-                            #with tabs[usuario]:
-                            #with teste[usuario][1]:
-                            with bolao[usuario]:
-                                #st.header(f'Resumo das apostas: {ntabs[usuario]}')
+                            with tab[usuario]:
                                 st.header(f'Resumo das apostas: {teste[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
