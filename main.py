@@ -1100,7 +1100,7 @@ def main():
                             #with tabs[usuario]:
                             with usuariosLista[usuario]:
                                 #st.header('Resumo das apostas: 'ntabs[usuario])
-                                st.header('Resumo das apostas: 'usuariosLista[usuario])
+                                st.header(f'Resumo das apostas: {usuariosLista[usuario]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
