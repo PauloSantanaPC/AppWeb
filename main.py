@@ -1103,7 +1103,7 @@ def main():
                         teste = [['Bolão',0],['Usuário 1',1],['Usuário 2',2]]
                         bolao = []
                         for i in range(len(teste)):
-                            tab.append(teste[usuario][0])
+                            bolao.append(teste[usuario][0])
                         bolao = st.tabs(bolao)
                         #for usuario in range(len(tabs)):
                         for usuario in range(len(teste)):
