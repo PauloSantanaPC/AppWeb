@@ -1098,9 +1098,9 @@ def main():
                         tabs = [["Bolão",bolao], ["Usuário2",usuario1], ["Usuário2",usuario2]]
                         for usuario in range(len(tabs)):
                         #for usuario in range(1, len(usuariosLista), 1):
-                            with np.array(tabs[usuario])[:,0]:
+                            with np.array(tabs)[:,0][usuario]:
                             #with usuariosLista[usuario][0]:
-                                st.header(f'Resumo das apostas: {np.array(ntabs[usuario])[:,0]}')
+                                st.header(f'Resumo das apostas: {np.array(ntabs)[:,0][usuario]}')
                                 #st.header(f'Resumo das apostas: {ntabs[usuario]}')
                                 #st.header(f'Resumo das apostas: {usuariosLista[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
