@@ -1096,7 +1096,8 @@ def main():
                         tabs = []
                         #for tab in range(len(teste)):
                         for tab in range(len(usuariosLista)):
-                            tabs.append(teste[tab][0])
+                            #tabs.append(teste[tab][0])
+                            tabs.append(np.array(usuariosLista)[tab][0])
                         tabs = st.tabs(tabs)
                         #for usuario in range(len(teste)):
                         for usuario in range(len(usuariosLista)):
