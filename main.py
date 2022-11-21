@@ -1127,6 +1127,7 @@ def main():
                                                                 ['Fase de grupos','Fase de grupos','Fase de grupos']]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     #df.rename(columns=df.iloc[0]).drop(df.index[0])
+                                    df.style.set_caption("Hello World")
                                     df.index = [np.array(usuariosLista)[usuario][0],'Período da aposta']
                                     st.table(df)
 
