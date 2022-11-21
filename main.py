@@ -1131,6 +1131,11 @@ def main():
                                             apostasGrupos.append(['Não apostou'])
                                     st.subheader(apostasGrupos)
 
+                                    df2 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
+                                                        ['Fase de grupos','Fase de grupos','Fase de grupos']]),
+                                                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
+                                    st.table(df2)
                                     
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
