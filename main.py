@@ -1124,8 +1124,9 @@ def main():
 
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
-                                                      columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    df.rename(columns=df.iloc[0]).drop(df.index[0]) = 'eu'
+                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                                      columns = ('eu','Campeão','Vice-campeão','Terceiro colocado'))
+                                    df.rename(columns=df.iloc[0]).drop(df.index[0])
                                     df.index = ['Aposta inicial']
                                     st.table(df)
 
