@@ -1070,8 +1070,8 @@ def main():
                                             
                     elif task1 == 'Resumo das apostas':
                         st.subheader('Resumo das apostas')
-                        #figuraInicial = resumoApostas()
-                        #st.pyplot(figuraInicial)
+                        figuraInicial = resumoApostas()
+                        st.pyplot(figuraInicial)
 
                     elif task1 == 'Links externos':
 
