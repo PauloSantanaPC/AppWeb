@@ -647,14 +647,14 @@ def resumoApostas():
     espacos = ncoluna*[0.25]
     
     #figura = plt.figure(figsize = (6,1))
-    figura = matplotlib.pyplot.figure(figsize = (6,1))
+    figura = st.pyplot.figure(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     #plt.title('Apostas Iniciais', fontdict = font)
-    matplotlib.pyplot.title('Apostas Iniciais', fontdict = font)
+    st.pyplot.title('Apostas Iniciais', fontdict = font)
     
     #tabela = plt.table(cellText = dadosApostasIniciais,
-    tabela = matplotlib.pyplot.table(cellText = dadosApostasIniciais,
+    tabela = st.pyplot.table(cellText = dadosApostasIniciais,
                        colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
                        #colWidths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
                        rowLabels = rotuloLinha,
@@ -669,7 +669,7 @@ def resumoApostas():
     tabela.set_fontsize(20)
     tabela.scale(2, 4)
     #plt.axis('off')
-    matplotlib.pyplot.axis('off')
+    st.pyplot.axis('off')
     #plt.show()
     
     return figura
