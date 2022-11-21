@@ -1103,18 +1103,27 @@ def main():
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         st.subheader(f'Campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]} (aposta realizada ...)')
+                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]}
                                     else:
                                         st.subheader(f'Não apostou no campeão')
+                                        apostaCampeao = 'Não apostou no campeão'
+                                        
                                     if np.array(usuariosLista)[usuario][10] != '':
                                         st.subheader(f'Vice-campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]} (aposta realizada ...)')
+                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]}
                                     else:
                                         st.subheader(f'Não apostou no vice-campeão')
+                                        apostaViceCampeao = 'Não apostou no vice-campeão'
+                                        
                                     if np.array(usuariosLista)[usuario][11] != '':
                                         st.subheader(f'Terceiro colocado - {listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]} (aposta realizada ...)')
+                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]}
                                     else:
                                         st.subheader(f'Não apostou no terceiro colocado')
-                                        
-                                    df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
+                                        apostaTerceiroColocado = 'Não apostou no terceiro colocado'
+
+                                    #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])],listaSelecoes()[int(np.array(usuariosLista)[usuario][10])],listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
+                                    df = pd.DataFrame(np.array([apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     df.index = ['Aposta inicial']
                                     st.table(df)
