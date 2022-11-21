@@ -1103,21 +1103,21 @@ def main():
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
                                         st.subheader(f'Campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]} (aposta realizada ...)')
-                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]}
+                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
                                     else:
                                         st.subheader(f'Não apostou no campeão')
                                         apostaCampeao = 'Não apostou no campeão'
                                         
                                     if np.array(usuariosLista)[usuario][10] != '':
                                         st.subheader(f'Vice-campeão - {listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]} (aposta realizada ...)')
-                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]}
+                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]
                                     else:
                                         st.subheader(f'Não apostou no vice-campeão')
                                         apostaViceCampeao = 'Não apostou no vice-campeão'
                                         
                                     if np.array(usuariosLista)[usuario][11] != '':
                                         st.subheader(f'Terceiro colocado - {listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]} (aposta realizada ...)')
-                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]}
+                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
                                     else:
                                         st.subheader(f'Não apostou no terceiro colocado')
                                         apostaTerceiroColocado = 'Não apostou no terceiro colocado'
