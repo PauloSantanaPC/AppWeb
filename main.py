@@ -1115,14 +1115,25 @@ def main():
                                         apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
                                     else:
                                         apostaTerceiroColocado = 'Não apostou no terceiro colocado'
+                                        
+                                    df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
+                                                        ['Fase de grupos','Fase de grupos','Fase de grupos']]),
+                                                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
+                                    st.table(df1)
 
-                                    df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
-                                                                ['Fase de grupos','Fase de grupos','Fase de grupos']]),
-                                                      columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    #df.index.name = [np.array(usuariosLista)[usuario][0],'Aposta','Periodo da aposta']
-                                    df.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
-                                    st.table(df)
+                                    apostasGrupos = []
+                                    for apostaGrupo in range(12, 28, 1):
+                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][27])]])
+                                        else:
+                                            apostasGrupos.append(['Não apostou'])
 
+                                    df1 = pd.DataFrame(np.array([apostasGrupos]),
+                                                        columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
+                                    df1.index = ['1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A']
+                                    st.table(df1)
+                                    
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
