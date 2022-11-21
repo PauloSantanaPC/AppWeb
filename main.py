@@ -1091,7 +1091,7 @@ def main():
                            #st.header("An owl")
                            #st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 
-                        st.subheader(usuariosLista)
+                        st.subheader(usuariosLista[0])
                         bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
                         tabs = [bolao, usuario1, usuario2]
                         ntabs = ["Bolão", "Usuário1", "Usuário2"]
@@ -1099,7 +1099,7 @@ def main():
                         #for usuario in range(1, len(usuariosLista), 1):
                             with tabs[usuario]:
                             #with usuariosLista[usuario][0]:
-                                st.header('Resumo das apostas: {ntabs[usuario]}')
+                                st.header(f'Resumo das apostas: {ntabs[usuario]}')
                                 #st.header(f'Resumo das apostas: {usuariosLista[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
