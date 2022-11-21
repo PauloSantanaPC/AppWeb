@@ -14,15 +14,15 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import webbrowser
-#from datetime import date, datetime, time
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, time
+from datetime import date, datetime, time,timedelta
 from time import strftime
 import time
 import pytz
 #import flag
 #import emoji
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-#import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
+import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 #from os import write
 #from numpy.core.fromnumeric import size
 #import Controllers.clientecontroller as clientecontroller
@@ -637,7 +637,7 @@ def resumoApostas():
             apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
         else:
             apostas3.append('Não apostou.')
-    
+
     dadosApostasIniciais = np.array([apostas1,apostas2,apostas3])
     rotuloColuna = np.delete(np.array(usuariosLista)[:,0], 0)
     rotuloLinha  = ['Campeão','Vice-campeão','Terceiro colocado']
@@ -647,15 +647,13 @@ def resumoApostas():
     espacos = ncoluna*[0.25]
     
     figura = plt.figure(figsize = (6,1))
-    #figura = matplotlib.pyplot.figure(figsize = (6,1))
-    
+    #plt.figure(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     plt.title('Apostas Iniciais', fontdict = font)
     
     tabela = plt.table(cellText = dadosApostasIniciais,
                        colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
-                       #colWidths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
                        rowLabels = rotuloLinha,
                        colLabels = rotuloColuna)
     
@@ -669,7 +667,7 @@ def resumoApostas():
     tabela.scale(2, 4)
     plt.axis('off')
     #plt.show()
-    
+        
     return figura
 
 #-----------------------------------------------------------------------------#
