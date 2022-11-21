@@ -1094,7 +1094,7 @@ def main():
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     #df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    st.table(df)
+                                    #st.table(df)
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
