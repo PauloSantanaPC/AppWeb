@@ -1120,7 +1120,7 @@ def main():
                                                                 ['Fase de grupos','Fase de grupos','Fase de grupos']]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     #df.index.name = [np.array(usuariosLista)[usuario][0],'Aposta','Periodo da aposta']
-                                    df.index = ['Aposta','Periodo da aposta']
+                                    df.index = ['Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     st.table(df)
 
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
