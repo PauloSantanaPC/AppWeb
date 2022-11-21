@@ -1128,7 +1128,7 @@ def main():
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     #df.rename(columns=df.iloc[0]).drop(df.index[0])
                                     #df.style.set_caption("Hello World")
-                                    df.index = [np.array(usuariosLista)[usuario][0],'Periodo da aposta']
+                                    #df.index = [np.array(usuariosLista)[usuario][0],'Periodo da aposta']
                                     df.index.name = 'eu'
                                     st.table(df)
 
