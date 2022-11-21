@@ -1124,11 +1124,11 @@ def main():
 
                                     apostasGrupos = []
                                     #for apostaGrupo in range(12, 28, 1):
-                                    for apostaGrupo in range(12, 14, 1):
+                                    for apostaGrupo in range(8):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])]])
+                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
                                         else:
-                                            apostasGrupos.append(['Não apostou'])
+                                            apostasGrupos.append(['Não apostou','Não apostou'])
                                     st.subheader(apostasGrupos)
 
                                     df2 = pd.DataFrame(np.array([[apostaTerceiroColocado,apostaTerceiroColocado],
@@ -1139,7 +1139,7 @@ def main():
                                                                  ['Fase de grupos','Fase de grupos'],
                                                                  ['Fase de grupos','Fase de grupos'],
                                                                  ['Fase de grupos','Fase de grupos']]),
-                                                        columns = ('Primeiro colocado','Segundo colocado'))
+                                                        columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     #df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df2)
