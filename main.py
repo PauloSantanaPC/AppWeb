@@ -1098,9 +1098,9 @@ def main():
                         #for usuario in range(len(tabs)):
                         for usuario in range(1, len(usuariosLista), 1):
                             #with tabs[usuario]:
-                            with usuariosLista[usuario]:
+                            with usuariosLista[usuario][0]:
                                 #st.header('Resumo das apostas: 'ntabs[usuario])
-                                st.header(f'Resumo das apostas: {usuariosLista[usuario]}')
+                                st.header(f'Resumo das apostas: {usuariosLista[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
                     elif task1 == 'Links externos':
