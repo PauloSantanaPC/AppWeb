@@ -21,8 +21,8 @@ import time
 import pytz
 #import flag
 #import emoji
-import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 import numpy as np # biblioteca Python usada para trabalhar com arrays
+import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 #from os import write
 #from numpy.core.fromnumeric import size
 #import Controllers.clientecontroller as clientecontroller
@@ -275,7 +275,7 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Catar x Equador
             #inicioJogo = horarioJogo(2022,11,20,13,0)
-            inicioJogo = horarioJogo(2022,11,20,19,0)
+            inicioJogo = horarioJogo(2022,11,20,23,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = horarioJogo(2022,11,21,13,0)
@@ -451,7 +451,7 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Catar x Equador
             #inicioJogo = datetime(2022,11,20,13,0)
-            inicioJogo = datetime(2022,11,20,19,0)
+            inicioJogo = datetime(2022,11,20,23,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = datetime(2022,11,21,13,0)
@@ -635,9 +635,7 @@ def resumoApostas():
 
     espacos = ncoluna*[0.25]
     
-    #figura = plt.figure(figsize = (6,1))
-    
-    plt.figure(figsize = (6,1))
+    figura = plt.figure(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     plt.title('Apostas Iniciais', fontdict = font)
@@ -658,7 +656,7 @@ def resumoApostas():
     plt.axis('off')
     plt.show()
     
-    return #figura
+    return figura
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -669,7 +667,7 @@ def resumoApostas():
 #-----------------------------------------------------------------------------#
 
 # DB Management
-dados = sqlite3.connect('dados0.db')
+dados = sqlite3.connect('dados10.db')
 d = dados.cursor()
 
 def cria_tabela_usuarios():
@@ -832,7 +830,7 @@ def main():
             # pegar o índice do usuario
             indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
             usuario = usuariosLista[indiceUsuario]
-            #st.subheader(usuario)
+            #st.subheader(listaSelecoes()[int(usuariosLista[0][9])])
             #cria_tabela_usuarios()
 
             result = login_usuario(username,password)
@@ -845,7 +843,7 @@ def main():
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
                     
                     if task1 == 'Apostas iniciais':                        
-                        inicioCopa = horarioJogo(2022,11,20,19,0)
+                        inicioCopa = horarioJogo(2022,11,20,23,0)
                         #st.subheader(inicioCopa)
                         #st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
@@ -1059,9 +1057,9 @@ def main():
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                             
                     elif task1 == 'Resumo das apostas':
-
-                        fig = resumoApostas()
-                        st.pyplot(fig)
+                        st.subheader('Resumo das apostas')
+                        figuraInicial = resumoApostas()
+                        st.pyplot(figuraInicial)
 
                     elif task1 == 'Links externos':
 
@@ -1078,7 +1076,7 @@ def main():
 
             else:
                 st.error('Usuário/senha inválidos')
-
+            
 if __name__ == '__main__':
     main()
 
