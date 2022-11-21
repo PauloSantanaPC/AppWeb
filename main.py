@@ -1129,9 +1129,9 @@ def main():
                                             apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])]])
                                         else:
                                             apostasGrupos.append(['Não apostou'])
-
+                                    st.subheader(apostasGrupos)
                                     #df2 = pd.DataFrame(np.array([apostasGrupos]),
-                                    df2 = pd.DataFrame(np.array(apostasGrupos),
+                                    df2 = pd.DataFrame(np.array([[12],[34],[56]]),
                                                         columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
                                     #df1.index = ['1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A']
                                     df2.index = ['a','b']
