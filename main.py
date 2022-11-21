@@ -28,7 +28,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 #import Controllers.clientecontroller as clientecontroller
 #import models.cliente as cliente
 #import pandas as pd
-import plotly.figure_factory as ff
+#import plotly.figure_factory as ff
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
