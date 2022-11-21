@@ -1094,9 +1094,11 @@ def main():
                         #bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
                         bolao, usuario1, usuario2 = st.tabs(["Bolão", "Dog", "Owl"])
                         tabs = [bolao, usuario1, usuario2]
+                        ntabs = ["Bolão", "Usuário1", "Usuário2"]
                         for usuario in range(len(tabs)):
                             with tabs[usuario]:
-                                st.header(tabs[usuario])
+                                #st.header(tabs[usuario])
+                                st.header(ntabs[usuario])
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
 
                         #with bolao:
