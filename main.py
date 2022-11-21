@@ -28,6 +28,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 #import Controllers.clientecontroller as clientecontroller
 #import models.cliente as cliente
 #import pandas as pd
+import plotly.figure_factory as ff
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1073,7 +1074,7 @@ def main():
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                             
                     elif task1 == 'Resumo das apostas':
-                        st.subheader('Resumo das apostas')
+                        st.header('Resumo das apostas')
                         #figuraInicial = resumoApostas()
                         #st.pyplot(figuraInicial)
                         
