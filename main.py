@@ -22,7 +22,7 @@ import pytz
 #import flag
 #import emoji
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
+#import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 #from os import write
 #from numpy.core.fromnumeric import size
 #import Controllers.clientecontroller as clientecontroller
@@ -636,6 +636,8 @@ def resumoApostas():
     espacos = ncoluna*[0.25]
     
     figura = plt.figure(figsize = (6,1))
+    #figura = matplotlib.pyplot.figure(figsize = (6,1))
+    
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
     plt.title('Apostas Iniciais', fontdict = font)
