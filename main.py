@@ -1098,7 +1098,7 @@ def main():
                             tabs.append(teste[tab][0])
                         tabs = st.tabs(tabs)
                         for usuario in range(len(teste)):
-                            with tab[usuario]:
+                            with tabs[usuario]:
                                 st.header(f'Resumo das apostas: {teste[usuario][0]}')
                                 st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                             
