@@ -1126,7 +1126,7 @@ def main():
                                     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                       columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     #df.rename(columns=df.iloc[0]).drop(df.index[0])
-                                    df.rename(columns = {df.iloc[0],'eu'}).drop(df.index[0])
+                                    df.rename(columns={ df.columns[1]: "whatever" })
                                     df.index = ['Aposta inicial']
                                     st.table(df)
 
