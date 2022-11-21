@@ -644,17 +644,19 @@ def resumoApostas():
     ncoluna = len(rotuloColuna)
     nlinha  = len(rotuloLinha)
 
-    #espacos = ncoluna*[0.25]
+    espacos = ncoluna*[0.25]
     
     #figura = plt.figure(figsize = (6,1))
-    plt.figure(figsize = (6,1))
+    figura = matplotlib.pyplot.figure(figsize = (6,1))
     
     font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
-    plt.title('Apostas Iniciais', fontdict = font)
+    #plt.title('Apostas Iniciais', fontdict = font)
+    matplotlib.pyplot.title('Apostas Iniciais', fontdict = font)
     
-    tabela = plt.table(cellText = dadosApostasIniciais,
-                       #colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
-                       colWidths = [0.25, 0.25, 0.25],
+    #tabela = plt.table(cellText = dadosApostasIniciais,
+    tabela = matplotlib.pyplot.table(cellText = dadosApostasIniciais,
+                       colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
+                       #colWidths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
                        rowLabels = rotuloLinha,
                        colLabels = rotuloColuna)
     
@@ -666,10 +668,11 @@ def resumoApostas():
     tabela.auto_set_font_size(False)
     tabela.set_fontsize(20)
     tabela.scale(2, 4)
-    plt.axis('off')
+    #plt.axis('off')
+    matplotlib.pyplot.axis('off')
     #plt.show()
     
-    return# figura
+    return figura
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1072,8 +1075,8 @@ def main():
                     elif task1 == 'Resumo das apostas':
                         st.subheader('Resumo das apostas')
                         st.subheader('Dá uma seguradinha que estamos começando ainda ... 🎈')
-                        #figuraInicial = resumoApostas()
-                        #st.pyplot(figuraInicial)
+                        figuraInicial = resumoApostas()
+                        st.pyplot(figuraInicial)
 
                     elif task1 == 'Links externos':
 
