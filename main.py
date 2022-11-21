@@ -1132,9 +1132,10 @@ def main():
                                     st.subheader(apostasGrupos)
                                     #df2 = pd.DataFrame(np.array([apostasGrupos]),
                                     df2 = pd.DataFrame(np.array([[12],[34],[56]]),
-                                                        columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
+                                                        #columns = (f'Aposta - {np.array(usuariosLista)[usuario][0]}'))
+                                                       columns = ('Aposta'))
                                     #df1.index = ['1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A', '1° Grupo A']
-                                    df2.index = ['a','b']
+                                    df2.index = ['a','b','c']
                                     st.table(df2)
                                     
                                     st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
