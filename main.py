@@ -667,7 +667,7 @@ def resumoApostas():
     tabela.set_fontsize(20)
     tabela.scale(2, 4)
     plt.axis('off')
-    plt.show()
+    #plt.show()
     
     return figura
 
