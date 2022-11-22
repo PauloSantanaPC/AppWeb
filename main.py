@@ -1140,7 +1140,7 @@ def main():
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
                                     #df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
-                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado','Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado','1° Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
