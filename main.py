@@ -1098,8 +1098,10 @@ def main():
                                     opcoes = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         colunas.append(np.array(usuariosLista)[contadorUsuario][0])
-                                        if usuariosLista[usuario][8] != '':
+                                        if usuariosLista[contadorUsuario][8] != '':
                                             opcoes.append(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
+                                        else:
+                                            opcoes.append(f'Não acha nada.')
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
