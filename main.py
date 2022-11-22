@@ -1095,7 +1095,7 @@ def main():
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     colunas = []
                                     for i in range(1, len(usuariosLista), 1):
-                                        colunas.append(np.array(usuariosLista)[usuario][0])
+                                        colunas.append(np.array(usuariosLista)[i][0])
                                     colunas = tuple(colunas)
                                     df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
