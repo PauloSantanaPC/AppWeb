@@ -1105,7 +1105,7 @@ def main():
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
-                                    df = pd.DataFrame(np.array([[1,2,3,4],
+                                    df = pd.DataFrame(np.array([opcoes,
                                                                 [4,5,6,7],
                                                                 [1,2,3,4],
                                                                 [4,5,6,7]]),
