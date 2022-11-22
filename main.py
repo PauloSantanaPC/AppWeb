@@ -1093,8 +1093,13 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
-                                    df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
-                                                      columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    colunas = []
+                                    for i in range(1, len(usuariosLista), 1):
+                                        colunas.append(np.array(usuariosLista)[usuario][0])
+                                    colunas = tuple(colunas)
+                                    df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
+                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                                      columns = colunas)
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
