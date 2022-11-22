@@ -1125,22 +1125,27 @@ def main():
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
-                                    df = pd.DataFrame(np.array([opcoes,
-                                                                apostasCampeao,
-                                                                apostasViceCampeao,
-                                                                apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado,
-                                                               apostasTerceiroColocado]),
+                                    df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,apostasTerceiroColocado]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
                                     #df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
-                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado','1° Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
+                                                '1° Grupo A','2° Grupo A',
+                                                '1° Grupo B','2° Grupo B',
+                                                '1° Grupo C','2° Grupo C',
+                                                '1° Grupo D','2° Grupo D',
+                                                '1° Grupo E','2° Grupo E',
+                                                '1° Grupo F','2° Grupo F',
+                                                '1° Grupo G','2° Grupo G',
+                                                '1° Grupo H','2° Grupo H']
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
