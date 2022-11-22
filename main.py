@@ -1097,9 +1097,11 @@ def main():
                                     for i in range(1, len(usuariosLista), 1):
                                         colunas.append(np.array(usuariosLista)[i][0])
                                     colunas = tuple(colunas)
-                                    df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
+                                    #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
+                                    df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7],[1,2,3,4],[4,5,6,7]]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
+                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
