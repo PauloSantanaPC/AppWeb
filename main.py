@@ -1086,6 +1086,7 @@ def main():
                             tabs.append(np.array(usuariosLista)[tab][0])
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
+                        
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
@@ -1111,13 +1112,13 @@ def main():
                                         else:
                                             apostasCampeao.append('Não apostou no campeão')
 
-                                        if np.array(usuariosLista)[usuario][10] != '':
-                                            apostasViceCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[usuario][10])])
+                                        if np.array(usuariosLista)[contadorUsuario][10] != '':
+                                            apostasViceCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][10])])
                                         else:
                                             apostasViceCampeao.append('Não apostou no vice-campeão')
 
-                                        if np.array(usuariosLista)[usuario][11] != '':
-                                            apostasTerceiroColocado.append(listaSelecoes()[int(np.array(usuariosLista)[usuario][11])])
+                                        if np.array(usuariosLista)[contadorUsuario][11] != '':
+                                            apostasTerceiroColocado.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][11])])
                                         else:
                                             apostasTerceiroColocado.append('Não apostou no terceiro colocado')
 
