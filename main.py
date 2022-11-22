@@ -1137,6 +1137,7 @@ def main():
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df2)
                                     
+                                    
                                     #st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                         
                     elif task1 == 'Links externos':
