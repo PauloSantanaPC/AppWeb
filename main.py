@@ -1077,67 +1077,67 @@ def main():
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
-                        ##figuraInicial = resumoApostas()
-                        ##st.pyplot(figuraInicial)
+                        #figuraInicial = resumoApostas()
+                        #st.pyplot(figuraInicial)
                         
                         #def criandoTabs():
-                        #tabs = []
-                        #for tab in range(len(usuariosLista)):
-                            #tabs.append(np.array(usuariosLista)[tab][0])
-                        #tabs[0] = 'Classificação do Bolão'
-                        #tabs = st.tabs(tabs)
-                        #for usuario in range(len(usuariosLista)):
-                            #if usuario == 0:
-                                #with tabs[usuario]:
-                                    #st.header(f'Resumo das apostas do Bolão')
-                                    #st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
-                                    ##df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
-                                    ##df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
-                                    ##df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
-                                                      ##columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    ##st.table(df)
-                            #else:
-                                #with tabs[usuario]:
-                                    #st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    #if usuariosLista[usuario][8] != '':
-                                        #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
-                                        #st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
+                        tabs = []
+                        for tab in range(len(usuariosLista)):
+                            tabs.append(np.array(usuariosLista)[tab][0])
+                        tabs[0] = 'Classificação do Bolão'
+                        tabs = st.tabs(tabs)
+                        for usuario in range(len(usuariosLista)):
+                            if usuario == 0:
+                                with tabs[usuario]:
+                                    st.header(f'Resumo das apostas do Bolão')
+                                    st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
+                                    #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
+                                    #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
+                                    #df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
+                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    #st.table(df)
+                            else:
+                                with tabs[usuario]:
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    if usuariosLista[usuario][8] != '':
+                                        opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
+                                        st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
-                                    #if np.array(usuariosLista)[usuario][9] != '':
-                                        #apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
-                                    #else:
-                                        #apostaCampeao = 'Não apostou no campeão'
+                                    if np.array(usuariosLista)[usuario][9] != '':
+                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
+                                    else:
+                                        apostaCampeao = 'Não apostou no campeão'
                                         
-                                    #if np.array(usuariosLista)[usuario][10] != '':
-                                        #apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]
-                                    #else:
-                                        #apostaViceCampeao = 'Não apostou no vice-campeão'
+                                    if np.array(usuariosLista)[usuario][10] != '':
+                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]
+                                    else:
+                                        apostaViceCampeao = 'Não apostou no vice-campeão'
                                         
-                                    #if np.array(usuariosLista)[usuario][11] != '':
-                                        #apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
-                                    #else:
-                                        #apostaTerceiroColocado = 'Não apostou no terceiro colocado'
+                                    if np.array(usuariosLista)[usuario][11] != '':
+                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
+                                    else:
+                                        apostaTerceiroColocado = 'Não apostou no terceiro colocado'
                                         
-                                    #df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
-                                                        #['Fase de grupos','Fase de grupos','Fase de grupos']]),
-                                                        #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    #df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
-                                    #st.table(df1)
+                                    df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
+                                                        ['Fase de grupos','Fase de grupos','Fase de grupos']]),
+                                                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
+                                    st.table(df1)
 
-                                    #apostasGrupos = []
-                                    #for apostaGrupo in range(12, 28, 2):
-                                        #if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                            #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                        #else:
-                                            #apostasGrupos.append(['Não apostou','Não apostou'])
+                                    apostasGrupos = []
+                                    for apostaGrupo in range(12, 28, 2):
+                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                        else:
+                                            apostasGrupos.append(['Não apostou','Não apostou'])
 
-                                    #df2 = pd.DataFrame(np.array(apostasGrupos),
-                                                        #columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
-                                    ##df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
-                                    #df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
-                                    #st.table(df2)
+                                    df2 = pd.DataFrame(np.array(apostasGrupos),
+                                                        columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
+                                    #df2.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
+                                    df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    st.table(df2)
                                     
-                                    ##st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
+                                    #st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
                         
                     elif task1 == 'Links externos':
 
