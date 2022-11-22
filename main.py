@@ -1076,6 +1076,7 @@ def main():
                                             
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
+                        '''
                         #figuraInicial = resumoApostas()
                         #st.pyplot(figuraInicial)
                         
@@ -1137,7 +1138,7 @@ def main():
                                     st.table(df2)
                                     
                                     #st.image("https://static.streamlit.io/examples/cat.jpg", width = 200)
-                            
+                        '''   
                     elif task1 == 'Links externos':
 
                         classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
