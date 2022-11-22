@@ -1086,6 +1086,7 @@ def main():
                             tabs.append(np.array(usuariosLista)[tab][0])
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
+                        opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
                                 with tabs[usuario]:
@@ -1094,11 +1095,17 @@ def main():
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     colunas = []
-                                    for i in range(1, len(usuariosLista), 1):
-                                        colunas.append(np.array(usuariosLista)[i][0])
+                                    opcoes = []
+                                    for contadorUsuario in range(1, len(usuariosLista), 1):
+                                        colunas.append(np.array(usuariosLista)[contadorUsuario][0])
+                                        opcoes.append(st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !'))
                                     colunas = tuple(colunas)
+                                    st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
-                                    df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7],[1,2,3,4],[4,5,6,7]]),
+                                    df = pd.DataFrame(np.array([[1,2,3,4],
+                                                                [4,5,6,7],
+                                                                [1,2,3,4],
+                                                                [4,5,6,7]]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
                                     df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
@@ -1107,7 +1114,6 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
                                     if usuariosLista[usuario][8] != '':
-                                        opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
