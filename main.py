@@ -1098,7 +1098,7 @@ def main():
                                     opcoes = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         colunas.append(np.array(usuariosLista)[contadorUsuario][0])
-                                        opcoes.append(st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !'))
+                                        opcoes.append(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
