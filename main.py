@@ -1128,10 +1128,19 @@ def main():
                                     df = pd.DataFrame(np.array([opcoes,
                                                                 apostasCampeao,
                                                                 apostasViceCampeao,
-                                                                apostasTerceiroColocado]),
+                                                                apostasTerceiroColocado,
+                                                                apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado,
+                                                               apostasTerceiroColocado]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
-                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
+                                    #df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
+                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado','Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df)
                             else:
                                 with tabs[usuario]:
