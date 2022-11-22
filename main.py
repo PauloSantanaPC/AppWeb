@@ -1096,19 +1096,38 @@ def main():
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     colunas = []
                                     opcoes = []
+                                    apostasCampeao = []
+                                    apostasViceCampeao = []
+                                    apostasTerceiroColocado = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         colunas.append(np.array(usuariosLista)[contadorUsuario][0])
                                         if usuariosLista[contadorUsuario][8] != '':
                                             opcoes.append(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
                                         else:
                                             opcoes.append(f'Não acha nada.')
+
+                                        if np.array(usuariosLista)[contadorUsuario][9] != '':
+                                            apostasCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][9])])
+                                        else:
+                                            apostasCampeao.append('Não apostou no campeão')
+
+                                        if np.array(usuariosLista)[usuario][10] != '':
+                                            apostasViceCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[usuario][10])])
+                                        else:
+                                            apostasViceCampeao.append('Não apostou no vice-campeão')
+
+                                        if np.array(usuariosLista)[usuario][11] != '':
+                                            apostasTerceiroColocado.append(listaSelecoes()[int(np.array(usuariosLista)[usuario][11])])
+                                        else:
+                                            apostasTerceiroColocado.append('Não apostou no terceiro colocado')
+
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,
-                                                                [4,5,6,7],
-                                                                [1,2,3,4],
-                                                                [4,5,6,7]]),
+                                                                apostasCampeao,
+                                                                apostasViceCampeao,
+                                                                apostasTerceiroColocado]),
                                                       #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                                       columns = colunas)
                                     df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
@@ -1116,6 +1135,7 @@ def main():
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
