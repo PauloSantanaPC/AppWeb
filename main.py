@@ -861,7 +861,7 @@ def main():
                     task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
                     
                     if task1 == 'Apostas iniciais':                        
-                        inicioCopa = horarioJogo(2022,11,21,23,0)
+                        inicioCopa = horarioJogo(2022,12,1,23,0)
                         #st.subheader(inicioCopa)
                         #st.subheader(datetime.strptime(datetime.now().strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M'))
 
