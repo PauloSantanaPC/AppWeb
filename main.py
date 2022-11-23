@@ -1166,20 +1166,9 @@ def main():
                             else:
                                 with tabs[usuario]:
                                     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-                                    st.header(f'Resumo das apostas {dataHoraMinutoAtual} - {np.array(usuariosLista)[usuario][0]}')
-                                    #st.subheader(dataHoraMinutoAtual)
-                                    
-                                    st.subheader(f'Apostas jogos primeira fase:')
-                                    
-                                    #for contadorGrupo in range(8):
-                                        #for contadorJogo in range(6):
-                                            #if not horarioJogoGrupo(contadorGrupo,contadorJogo):
-                                                #if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
-                                                    #st.write('Aposta realizada!')
-                                                    #st.write(f'{grupos()[contadorGrupo][timeMandante]} {usuario1[28+2*6*nomeGrupo+2*nomeJogo]} x {usuario1[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][timeVisitante]}')
-                                                    #st.write('%s %s x %s %s'%(grupos()[nomeGrupo][timeMandante],usuario1[28+2*6*nomeGrupo+2*nomeJogo],usuario1[29+2*6*nomeGrupo+2*nomeJogo],grupos()[nomeGrupo][timeVisitante]))
-                                                #else:
-                                                    #st.write('Aposta NÃO realizada.')
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
+                                    st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
+
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]}')
                                         for contadorJogo in range(6):
