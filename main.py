@@ -1127,16 +1127,22 @@ def main():
                                         
                                         # apostas Iniciais Grupos
                                         for apostaGrupo in range(12, 28, 2):
-                                            if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                                apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                            listaApostasGruposUsuario = []
+                                            if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
+                                                #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
+                                                listaApostasGruposUsuario.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
+                                                apostasGrupos.append(listaApostasGruposUsuario)
                                             else:
-                                                apostasGrupos.append(['Não apostou','Não apostou'])
+                                                #apostasGrupos.append(['Não apostou','Não apostou'])
+                                                listaApostasGruposUsuario.append(['Não apostou','Não apostou'])
+                                                apostasGrupos.append(listaApostasGruposUsuario)
 
                                     colunas = tuple(colunas)
                                     st.subheader(apostasGrupos)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
-                                                                apostasGrupos[0][0],apostasGrupos[0][1],
+                                                                #apostasGrupos[0][0],apostasGrupos[0][1],
+                                                                apostasTerceiroColocado,apostasTerceiroColocado,
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
