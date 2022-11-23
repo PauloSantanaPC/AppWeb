@@ -1133,7 +1133,7 @@ def main():
                                                 apostasGrupos.append(['Não apostou','Não apostou'])
 
                                     colunas = tuple(colunas)
-                                    st.subheader(opcoes)
+                                    st.subheader(apostasGrupos)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 apostasGrupos[0][0],apostasGrupos[0][1],
