@@ -1126,8 +1126,9 @@ def main():
                                             apostasTerceiroColocado.append('Não apostou no terceiro colocado')
                                         
                                         # apostas Iniciais Grupos
+                                        listaApostasGruposUsuario = []
                                         for apostaGrupo in range(12, 28, 2):
-                                            listaApostasGruposUsuario = []
+                                            #listaApostasGruposUsuario = []
                                             if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
                                                 #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
                                                 listaApostasGruposUsuario.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
