@@ -1099,7 +1099,7 @@ def main():
                                         
                                     classificacaoBolao = np.array(classificacaoBolao, dtype = [('x', 'S1'), ('y1', int), ('y2', int), ('y3', int), ('y4', int), ('y5', int), ('y6', int)])
                                     st.subheader(classificacaoBolao)
-                                    st.subheader(classificacaoBolao.sort(order='x'))
+                                    st.subheader(classificacaoBolao.sort(order='y1'))
                                     df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
                                                                  [4,5,6,7,8,9],
                                                                  [4,5,6,7,8,9],
