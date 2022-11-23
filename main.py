@@ -1096,7 +1096,7 @@ def main():
 
                                     df0 = pd.DataFrame(np.array([[1,2,3],
                                                                  [4,5,6],
-                                                                 [7,8,9]])
+                                                                 [7,8,9]]),
                                                       columns = ('A','B','C'))
                                     
                                     df0.index = ['Bolão','Campeão','Vi2° Grupo H']
