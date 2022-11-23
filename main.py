@@ -1138,21 +1138,20 @@ def main():
                                                 apostasGrupos.append(listaApostasGruposUsuario)
 
                                     colunas = tuple(colunas)
-                                    st.subheader(apostasGrupos[0][0])
+                                    st.subheader(apostasGrupos[:,0])
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #apostasGrupos[0]
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado]),
-                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo A
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo B
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo C
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo D
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo E
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo F
+                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo G
+                                                                apostasTerceiroColocado,apostasTerceiroColocado]), # grupo H
                                                       columns = colunas)
-                                    #df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
+                                    
                                     df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
                                                 '1° Grupo A','2° Grupo A',
                                                 '1° Grupo B','2° Grupo B',
