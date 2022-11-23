@@ -1100,7 +1100,10 @@ def main():
                                     apostasCampeao = []
                                     apostasViceCampeao = []
                                     apostasTerceiroColocado = []
+                                    apostasGrupos = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
+                                        
+                                        # Apostas Iniciais bolão, campeão, vice e terceiro
                                         colunas.append(np.array(usuariosLista)[contadorUsuario][0])
                                         if usuariosLista[contadorUsuario][8] != '':
                                             opcoes.append(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
@@ -1121,12 +1124,19 @@ def main():
                                             apostasTerceiroColocado.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][11])])
                                         else:
                                             apostasTerceiroColocado.append('Não apostou no terceiro colocado')
+                                        
+                                        # apostas Iniciais Grupos
+                                        for apostaGrupo in range(12, 28, 2):
+                                            if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                                apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                            else:
+                                                apostasGrupos.append(['Não apostou','Não apostou'])
 
                                     colunas = tuple(colunas)
                                     st.subheader(opcoes)
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
-                                                                apostasTerceiroColocado,apostasTerceiroColocado,
+                                                                apostasGrupo[0][0],apostasGrupo[0][1],
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
                                                                 apostasTerceiroColocado,apostasTerceiroColocado,
