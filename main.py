@@ -1141,8 +1141,8 @@ def main():
 
                                     colunas = tuple(colunas)
                                     st.subheader(apostasGrupos)
-                                    st.subheader('Apostas Grupos')
-                                    #st.subheader(np.array(apostasGrupos)[:,0][:,0][0])
+                                    st.subheader('Apostas Primeiros do Grupo A')
+                                    st.subheader(np.array(apostasGrupos)[:,0][:,0])
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #apostasGrupos[0]
