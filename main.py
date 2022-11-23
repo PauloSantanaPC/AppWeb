@@ -1169,15 +1169,90 @@ def main():
                                     #st.subheader(dataHoraMinutoAtual)
                                     
                                     st.subheader(f'Apostas jogos primeira fase:')
+                                    
+                                    #for contadorGrupo in range(8):
+                                        #for contadorJogo in range(6):
+                                            #if not horarioJogoGrupo(contadorGrupo,contadorJogo):
+                                                #if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
+                                                    #st.write('Aposta realizada!')
+                                                    #st.write(f'{grupos()[contadorGrupo][timeMandante]} {usuario1[28+2*6*nomeGrupo+2*nomeJogo]} x {usuario1[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][timeVisitante]}')
+                                                    #st.write('%s %s x %s %s'%(grupos()[nomeGrupo][timeMandante],usuario1[28+2*6*nomeGrupo+2*nomeJogo],usuario1[29+2*6*nomeGrupo+2*nomeJogo],grupos()[nomeGrupo][timeVisitante]))
+                                                #else:
+                                                    #st.write('Aposta NÃO realizada.')
                                     for contadorGrupo in range(8):
                                         for contadorJogo in range(6):
+                                            #if dataHoraMinutoAtual > dataHoraMinutoJogo:
+                                            # rodada e jogo
+                                            #nomeRodada = int(input('Qual rodada você quer apostar? '))
+                                            if contadorJogo == 0 or contadorJogo == 1:
+                                                nomeRodada = 1
+                                            elif contadorJogo == 2 or contadorJogo == 3:
+                                                nomeRodada = 2
+                                            elif contadorJogo == 4 or contadorJogo == 5:
+                                                nomeRodada = 3
+
+
+                                            if nomeRodada == 1:
+                                                # Time i1 = 0
+                                                # Time i2 = 1
+                                                # Time i3 = 2
+                                                # Time i4 = 3
+                                                # rodada 1: Time i1 x Time i2
+                                                # rodada 1: Time i3 x Time i4
+                                                time1 = 0
+                                                time2 = 1
+                                                time3 = 2
+                                                time4 = 3
+                                                if contadorJogo == 0:
+                                                    timeMandante  = time1
+                                                    timeVisitante = time2
+                                                elif contadorJogo == 1:
+                                                    timeMandante  = time3
+                                                    timeVisitante = time4
+
+                                            elif nomeRodada == 2:
+                                                # Time i1 = 0
+                                                # Time i2 = 1
+                                                # Time i3 = 2
+                                                # Time i4 = 3
+                                                # rodada 2: Time i1 x Time i3
+                                                # rodada 2: Time i2 x Time i4
+                                                time1 = 0
+                                                time2 = 2
+                                                time3 = 1
+                                                time4 = 3
+                                                if contadorJogo == 2:
+                                                    timeMandante  = time1
+                                                    timeVisitante = time2
+                                                elif contadorJogo == 3:
+                                                    timeMandante  = time3
+                                                    timeVisitante = time4
+
+                                            elif nomeRodada == 3:
+                                                # Time i1 = 0
+                                                # Time i2 = 1
+                                                # Time i3 = 2
+                                                # Time i4 = 3
+                                                # rodada 3: Time i4 x Time i1
+                                                # rodada 3: Time i2 x Time i3
+                                                time1 = 3
+                                                time2 = 0
+                                                time3 = 1
+                                                time4 = 2
+                                                if contadorJogo == 4:
+                                                    timeMandante  = time1
+                                                    timeVisitante = time2
+                                                elif contadorJogo == 5:
+                                                    timeMandante  = time3
+                                                    timeVisitante = time4
+
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
-                                                if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
+                                                if usuario1[28+2*6*contadorGrupo+2*contadorJogo] != '':
                                                     st.write('Aposta realizada!')
-                                                    st.write(f'{grupos()[nomeGrupo][timeMandante]} {usuario1[28+2*6*nomeGrupo+2*nomeJogo]} x {usuario1[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][timeVisitante]}')
-                                                    #st.write('%s %s x %s %s'%(grupos()[nomeGrupo][timeMandante],usuario1[28+2*6*nomeGrupo+2*nomeJogo],usuario1[29+2*6*nomeGrupo+2*nomeJogo],grupos()[nomeGrupo][timeVisitante]))
+                                                    #print('%s %s x %s %s'%(grupos()[contadorGrupo][timeMandante],usuario1[28+2*6*contadorGrupo+2*contadorJogo],usuario1[29+2*6*contadorGrupo+2*contadorJogo],grupos()[contadorGrupo][timeVisitante]))
                                                 else:
                                                     st.write('Aposta NÃO realizada.')
+
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
