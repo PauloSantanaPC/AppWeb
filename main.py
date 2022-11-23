@@ -1093,13 +1093,16 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     
                                     st.subheader(f'Classificação do Bolão')
-                                    
+                                    st.subheader(usuariosLista[:,0])
+                                    #for contadorUsuario in range(1, len(usuariosLista), 1):
+                                        
                                     df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
                                                                  [4,5,6,7,8,9],
                                                                  [7,8,9,0,1,2]]),
-                                                      columns = ('pontos', 'cravadas', 'acertos', 'erros', 'nadas', 'naoapostas'))
+                                                      columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
                                     
-                                    df0.index = ['Bolão','Campeão','Vi2° Grupo H']
+                                    #df0.index = ['Bolão','Campeão','Vi2° Grupo H']
+                                    df0.index = []
                                     st.table(df0)
                                     
                                     st.subheader(f'Apostas iniciais')
