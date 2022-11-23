@@ -1167,8 +1167,15 @@ def main():
                                     
                                     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                                     st.subheader(dataHoraMinutoAtual)
-                                    st.subheader(f'Apostas jogos primeira fase:')
                                     
+                                    st.subheader(f'Apostas jogos primeira fase:')
+                                    for contadorGrupo in range(8):
+                                        for contadorJogo in range(6):
+                                            if not horarioJogoGrupo(contadorGrupo,contadorJogo):
+                                                if usuario[28+2*6*contadorGrupo+2*contadorJogo] != '':
+                                                    st.subheader('Aposta realizada!')
+                                                else:
+                                                    st.subheader('Aposta NÃO realizada.')
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
