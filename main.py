@@ -1096,7 +1096,7 @@ def main():
                                     st.subheader(np.delete(np.array(usuariosLista)[:,0],0))
                                     classificacaoBolao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
-                                        classificacaoBolao.append(tuple(usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2]))
+                                        classificacaoBolao.append(tuple([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2]]))
                                         
                                     st.subheader(classificacaoBolao)
                                     df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
