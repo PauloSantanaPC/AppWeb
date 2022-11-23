@@ -1077,10 +1077,6 @@ def main():
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
-                        #figuraInicial = resumoApostas()
-                        #st.pyplot(figuraInicial)
-                        
-                        #def criandoTabs():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
@@ -1093,8 +1089,10 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
+                                    #st.subheader(apostasGrupos)
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
+                                    
                                     colunas = []
                                     opcoes = []
                                     apostasCampeao = []
@@ -1140,10 +1138,6 @@ def main():
                                         apostasGrupos.append(listaApostasGruposUsuario)
 
                                     colunas = tuple(colunas)
-                                    #st.subheader(apostasGrupos)
-                                    #st.subheader('Apostas Primeiros do Grupo A')
-                                    #st.subheader(np.array(apostasGrupos)[:,0][:,0])
-                                    #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #np.array(apostasGrupos)[:,grupo][:,colocacao]
                                                                 np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
@@ -1154,13 +1148,6 @@ def main():
                                                                 np.array(apostasGrupos)[:,5][:,0],np.array(apostasGrupos)[:,5][:,1], # grupo F
                                                                 np.array(apostasGrupos)[:,6][:,0],np.array(apostasGrupos)[:,6][:,1], # grupo G
                                                                 np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo B
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo C
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo D
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo E
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo F
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo G
-                                                                #apostasTerceiroColocado,apostasTerceiroColocado]), # grupo H
                                                       columns = colunas)
                                     
                                     df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
@@ -1173,9 +1160,15 @@ def main():
                                                 '1° Grupo G','2° Grupo G',
                                                 '1° Grupo H','2° Grupo H']
                                     st.table(df)
+                            
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    
+                                    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+                                    st.subheader(dataHoraMinutoAtual)
+                                    st.subheader(f'Apostas jogos primeira fase:')
+                                    
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
