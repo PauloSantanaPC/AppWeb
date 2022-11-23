@@ -1180,6 +1180,7 @@ def main():
                                                 #else:
                                                     #st.write('Aposta NÃO realizada.')
                                     for contadorGrupo in range(8):
+                                        st.write(f'Grupo {grupos()[:,4][contadorGrupo]}')
                                         for contadorJogo in range(6):
                                             #if dataHoraMinutoAtual > dataHoraMinutoJogo:
                                             # rodada e jogo
@@ -1248,10 +1249,10 @@ def main():
 
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
                                                 if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
-                                                    st.write('Aposta realizada!')
-                                                    st.write(f'{grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
+                                                    #st.write('Aposta realizada!')
+                                                    st.write(f'Jogo {contadorJogo+1}: {grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
                                                 else:
-                                                    st.write('Aposta NÃO realizada.')
+                                                    st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
 
                                     
                                     if usuariosLista[usuario][8] != '':
