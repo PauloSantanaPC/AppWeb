@@ -1131,16 +1131,17 @@ def main():
                                             if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
                                                 #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
                                                 listaApostasGruposUsuario.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
-                                                apostasGrupos.append(listaApostasGruposUsuario)
+                                                #apostasGrupos.append(listaApostasGruposUsuario)
                                             else:
                                                 #apostasGrupos.append(['Não apostou','Não apostou'])
                                                 listaApostasGruposUsuario.append(['Não apostou','Não apostou'])
-                                                apostasGrupos.append(listaApostasGruposUsuario)
+                                                #apostasGrupos.append(listaApostasGruposUsuario)
+                                        apostasGrupos.append(listaApostasGruposUsuario)
 
                                     colunas = tuple(colunas)
                                     st.subheader(apostasGrupos)
                                     st.subheader('Apostas Grupos')
-                                    st.subheader(np.array(apostasGrupos)[:,0][:,0][0])
+                                    #st.subheader(np.array(apostasGrupos)[:,0][:,0][0])
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #apostasGrupos[0]
