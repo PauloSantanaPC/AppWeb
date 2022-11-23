@@ -1172,7 +1172,7 @@ def main():
                                     for contadorGrupo in range(8):
                                         for contadorJogo in range(6):
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
-                                                if usuario[28+2*6*contadorGrupo+2*contadorJogo] != '':
+                                                if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
                                                     st.subheader('Aposta realizada!')
                                                 else:
                                                     st.subheader('Aposta NÃO realizada.')
