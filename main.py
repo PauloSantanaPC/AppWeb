@@ -1093,11 +1093,11 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     
                                     st.subheader(f'Classificação do Bolão')
-
-                                    df0 = pd.DataFrame(np.array([[1,2,3],
-                                                                 [4,5,6],
-                                                                 [7,8,9]]),
-                                                      columns = ('A','B','C'))
+                                    
+                                    df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
+                                                                 [4,5,6,7,8,9],
+                                                                 [7,8,9,0,1,2]]),
+                                                      columns = ('pontos', 'cravadas', 'acertos', 'erros', 'nadas', 'naoapostas'))
                                     
                                     df0.index = ['Bolão','Campeão','Vi2° Grupo H']
                                     st.table(df0)
