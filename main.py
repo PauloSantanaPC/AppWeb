@@ -1082,7 +1082,7 @@ def main():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
-                        tabs[0] = 'Classificação do Bolão'
+                        tabs[0] = 'Resumo do Bolão'
                         tabs = st.tabs(tabs)
                         
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
@@ -1090,7 +1090,9 @@ def main():
                             if usuario == 0:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
+                                    st.subheader(f'Classificação do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
+                                    st.subheader(f'Apostas iniciais')
                                     #st.subheader(apostasGrupos)
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
