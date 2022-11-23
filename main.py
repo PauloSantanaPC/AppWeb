@@ -1147,13 +1147,20 @@ def main():
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #np.array(apostasGrupos)[:,grupo][:,colocacao]
                                                                 np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo B
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo C
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo D
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo E
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo F
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo G
-                                                                apostasTerceiroColocado,apostasTerceiroColocado]), # grupo H
+                                                                np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
+                                                                np.array(apostasGrupos)[:,2][:,0],np.array(apostasGrupos)[:,2][:,1], # grupo C
+                                                                np.array(apostasGrupos)[:,3][:,0],np.array(apostasGrupos)[:,3][:,1], # grupo D
+                                                                np.array(apostasGrupos)[:,4][:,0],np.array(apostasGrupos)[:,4][:,1], # grupo E
+                                                                np.array(apostasGrupos)[:,5][:,0],np.array(apostasGrupos)[:,5][:,1], # grupo F
+                                                                np.array(apostasGrupos)[:,6][:,0],np.array(apostasGrupos)[:,6][:,1], # grupo G
+                                                                np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo B
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo C
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo D
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo E
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo F
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado, # grupo G
+                                                                #apostasTerceiroColocado,apostasTerceiroColocado]), # grupo H
                                                       columns = colunas)
                                     
                                     df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
