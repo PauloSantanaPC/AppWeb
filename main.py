@@ -1249,7 +1249,7 @@ def main():
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
                                                 if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
                                                     st.write('Aposta realizada!')
-                                                    st.write(f'{grupos()[contadorGrupo][timeMandante]} {usuario1[28+2*6*contadorGrupo+2*contadorJogo]} x {usuario1[29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
+                                                    st.write(f'{grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
                                                 else:
                                                     st.write('Aposta NÃO realizada.')
 
