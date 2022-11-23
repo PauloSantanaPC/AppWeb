@@ -1164,10 +1164,9 @@ def main():
                             
                             else:
                                 with tabs[usuario]:
-                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    
                                     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-                                    st.subheader(dataHoraMinutoAtual)
+                                    st.header(f'Resumo das apostas {dataHoraMinutoAtual} - {np.array(usuariosLista)[usuario][0]}')
+                                    #st.subheader(dataHoraMinutoAtual)
                                     
                                     st.subheader(f'Apostas jogos primeira fase:')
                                     for contadorGrupo in range(8):
@@ -1175,6 +1174,7 @@ def main():
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
                                                 if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
                                                     st.write('Aposta realizada!')
+                                                    st.write('{grupos()[nomeGrupo][timeMandante]} {usuario1[28+2*6*nomeGrupo+2*nomeJogo]} x {usuario1[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][timeVisitante]}')
                                                     #st.write('%s %s x %s %s'%(grupos()[nomeGrupo][timeMandante],usuario1[28+2*6*nomeGrupo+2*nomeJogo],usuario1[29+2*6*nomeGrupo+2*nomeJogo],grupos()[nomeGrupo][timeVisitante]))
                                                 else:
                                                     st.write('Aposta NÃO realizada.')
