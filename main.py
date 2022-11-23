@@ -1093,6 +1093,9 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     
                                     st.subheader(f'Classificação do Bolão')
+                                    usuariosLista[1][2] = 2
+                                    usuariosLista[2][2] = 4
+                                    usuariosLista[3][2] = -1
                                     classificacaoBolao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         classificacaoBolao.append(tuple([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]]))
