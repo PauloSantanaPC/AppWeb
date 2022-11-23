@@ -1090,13 +1090,19 @@ def main():
                             if usuario == 0:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
-                                    st.subheader(f'Classificação do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
-                                    st.subheader(f'Apostas iniciais')
-                                    #st.subheader(apostasGrupos)
-                                    #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
-                                    #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     
+                                    st.subheader(f'Classificação do Bolão')
+
+                                    df0 = pd.DataFrame(np.array([[1,2,3],
+                                                                 [4,5,6],
+                                                                 [7,8,9]])
+                                                      columns = ('A','B','C'))
+                                    
+                                    df0.index = ['Bolão','Campeão','Vi2° Grupo H']
+                                    st.table(df0)
+                                    
+                                    st.subheader(f'Apostas iniciais')
                                     colunas = []
                                     opcoes = []
                                     apostasCampeao = []
