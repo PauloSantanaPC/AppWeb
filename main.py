@@ -1145,8 +1145,8 @@ def main():
                                     st.subheader(np.array(apostasGrupos)[:,0][:,0])
                                     #df = pd.DataFrame(np.array([[1,2,3,4],[4,5,6,7]]),
                                     df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
-                                                                #apostasGrupos[0]
-                                                                apostasTerceiroColocado,apostasTerceiroColocado, # grupo A
+                                                                #np.array(apostasGrupos)[:,grupo][:,colocacao]
+                                                                np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
                                                                 apostasTerceiroColocado,apostasTerceiroColocado, # grupo B
                                                                 apostasTerceiroColocado,apostasTerceiroColocado, # grupo C
                                                                 apostasTerceiroColocado,apostasTerceiroColocado, # grupo D
