@@ -1174,9 +1174,10 @@ def main():
                                         for contadorJogo in range(6):
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
                                                 if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
-                                                    st.subheader('Aposta realizada!')
+                                                    st.write('Aposta realizada!')
+                                                    #st.write('%s %s x %s %s'%(grupos()[nomeGrupo][timeMandante],usuario1[28+2*6*nomeGrupo+2*nomeJogo],usuario1[29+2*6*nomeGrupo+2*nomeJogo],grupos()[nomeGrupo][timeVisitante]))
                                                 else:
-                                                    st.subheader('Aposta NÃO realizada.')
+                                                    st.write('Aposta NÃO realizada.')
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
