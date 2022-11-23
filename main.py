@@ -1093,12 +1093,13 @@ def main():
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     
                                     st.subheader(f'Classificação do Bolão')
-                                    st.subheader(np.delete(np.array(usuariosLista)[:,0],0))
                                     classificacaoBolao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         classificacaoBolao.append(tuple([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]]))
                                         
+                                    classificacaoBolao = np.array(classificacaoBolao, dtype = [('x', 'S1'), ('y1', int), ('y2', int), ('y3', int), ('y4', int), ('y5', int), ('y6', int)])
                                     st.subheader(classificacaoBolao)
+                                    st.subheader(classificacaoBolao.sort(order='x'))
                                     df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
                                                                  [4,5,6,7,8,9],
                                                                  [4,5,6,7,8,9],
