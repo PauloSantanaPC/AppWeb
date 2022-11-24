@@ -1183,7 +1183,7 @@ def main():
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
 
                             elif nomeRodada == 2:
@@ -1229,7 +1229,7 @@ def main():
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
 
                             elif nomeRodada == 3:
@@ -1274,7 +1274,7 @@ def main():
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
 
                 rotuloColuna = ['P',  # pontuação
