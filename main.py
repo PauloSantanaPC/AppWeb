@@ -1112,10 +1112,10 @@ def main():
                                                                  #[4,5,6,7,8,9],
                                                                  #[4,5,6,7,8,9],
                                                                  #[7,8,9,0,1,2]]),
-                                    df0 = pd.DataFrame(np.array([classificacaoBolao[0],
-                                                                 classificacaoBolao[1],
-                                                                 classificacaoBolao[2],
-                                                                 classificacaoBolao[3]]),
+                                    df0 = pd.DataFrame(np.array([np.delete(np.array(classificacaoBolao[0]),0,0),
+                                                                 np.delete(np.array(classificacaoBolao[1]),0,0),
+                                                                 np.delete(np.array(classificacaoBolao[2]),0,0),
+                                                                 np.delete(np.array(classificacaoBolao[3]),0,0)]),
                                                        columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
                                     
                                     #df0.index = ['Bolão','Campeão','Vi2° Grupo H']
