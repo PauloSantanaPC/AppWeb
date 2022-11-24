@@ -1162,7 +1162,7 @@ def main():
                                     if botao_jogo_1 and not inicioJogo:
                                         #classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
                                         st.subheader(f'Registrou.')
-                                        registro[nomeGrupo][nomeJogo] = True
+                                        #registro[nomeGrupo][nomeJogo] = True
                                     #if registro[nomeGrupo][nomeJogo]:
                                     if not inicioJogo:
                                         st.subheader('Fim de jogo!')
