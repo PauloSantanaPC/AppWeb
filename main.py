@@ -1367,6 +1367,7 @@ def main():
             usuario = usuariosLista[indiceUsuario]
             #st.subheader(listaSelecoes()[int(usuariosLista[0][9])])
             #cria_tabela_usuarios()
+            usuarioMestre = np.load('usuarioMestre.npy')
 
             result = login_usuario(username,password)
             if result:
@@ -1480,9 +1481,11 @@ def main():
                                                 np.save(str(username),usuario)
                                             if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Aposta registrada!')
-                                                #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
-
+                                                if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                    st.subheader('Fim de jogo!')
+                                                    st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        
                                         elif nomeJogo == 1:
                                             #print('')
                                             #print('Jogo 2')
@@ -1613,12 +1616,6 @@ def main():
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
                                         dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
-
-                                    #st.subheader(np.delete(np.array(classificacaoBolao[0]),0,0))
-                                    #df0 = pd.DataFrame(np.array([np.delete(np.array(classificacaoBolao[0]),0,0),
-                                                                 #np.delete(np.array(classificacaoBolao[1]),0,0),
-                                                                 #np.delete(np.array(classificacaoBolao[2]),0,0),
-                                                                 #np.delete(np.array(classificacaoBolao[3]),0,0)]),
                                     df0 = pd.DataFrame(np.array(dadosClassificacao),
                                                        columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
                                     df0.index = np.delete(np.array(usuariosLista)[:,0],0)
