@@ -1109,13 +1109,13 @@ def main():
         password = st.text_input('Senha', type = 'password')
         #if username == usuarioLista[0][0] and password == usuarioLista[0][1]:
         if username == 'usuarioMestre' and password == 'appBolao':
-            #task = st.selectbox('Task',['Add Post','Analytics','Profiles'])
-            task = st.sidebar.selectbox('Task',['Add Post','Analytics','Profiles'])
+            #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
+            task = st.sidebar.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
 
-            if task == 'Add Post':
-                st.subheader('Add Your Post')
+            if task == 'Conexão':
+                st.subheader('Conectado')
                 
-            elif task == 'Analytics':
+            elif task == 'Fase de grupos':
                 #st.title('Analytics')
                 
                 st.title('Fase de Grupos')
@@ -1300,7 +1300,7 @@ def main():
                     #print(df)
                     st.table(df)
 
-            elif task == 'Profiles':
+            elif task == 'Usuários':
                 st.subheader('User Profiles')
                 #user_result = view_all_users() # lista com todos os usuários
                 #clean_db = pd.DataFrame(user_result, columns = ['Username','Password'])
