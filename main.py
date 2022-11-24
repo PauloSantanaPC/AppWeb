@@ -1173,7 +1173,7 @@ def main():
                                         #placar_selecao2 = usuario[29+2*6*nomeGrupo+2*nomeJogo]
                                         #st.subheader(placar_selecao2)
                                         #classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
-                                        classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                        classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                 elif nomeJogo == 1:
                                     #print('')
