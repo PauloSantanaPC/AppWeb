@@ -1120,6 +1120,7 @@ def main():
                 
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
+                indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
