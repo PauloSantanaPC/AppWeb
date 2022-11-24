@@ -825,7 +825,7 @@ def main():
                                     botao_jogo_1 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     #if botao_jogo_1:
-                                    if botao_jogo_1 and inicioJogo:
+                                    if botao_jogo_1 and not inicioJogo:
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
