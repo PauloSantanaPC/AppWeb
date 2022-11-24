@@ -1107,11 +1107,15 @@ def main():
                                     st.subheader(classificacaoBolao[2])
                                     st.subheader(classificacaoBolao[3])
                                     #st.subheader(classificacaoBolao.sort(order='y1'))
-                                    df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
-                                                                 [4,5,6,7,8,9],
-                                                                 [4,5,6,7,8,9],
-                                                                 [7,8,9,0,1,2]]),
-                                                      columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
+                                    #df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
+                                                                 #[4,5,6,7,8,9],
+                                                                 #[4,5,6,7,8,9],
+                                                                 #[7,8,9,0,1,2]]),
+                                    df0 = pd.DataFrame(np.array([classificacaoBolao[0],
+                                                                 classificacaoBolao[1],
+                                                                 classificacaoBolao[2],
+                                                                 classificacaoBolao[3]]),
+                                                       columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
                                     
                                     #df0.index = ['Bolão','Campeão','Vi2° Grupo H']
                                     df0.index = np.delete(np.array(usuariosLista)[:,0],0)
