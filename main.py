@@ -1177,7 +1177,7 @@ def main():
                                     aposta_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
                                     botao_jogo_2 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
-                                    if botao_jogo_1 and not inicioJogo:
+                                    if botao_jogo_2 and not inicioJogo:
                                         fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
                                         np.save(str(username),usuario)
                                         st.subheader(f'Registrou.')
