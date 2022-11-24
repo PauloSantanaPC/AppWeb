@@ -1116,8 +1116,6 @@ def main():
                 st.subheader('Conectado')
                 
             elif task == 'Fase de grupos':
-                #st.title('Analytics')
-                
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
@@ -1611,14 +1609,17 @@ def main():
                                     
                                     st.subheader(f'Classificação do Bolão')
                                     classificacaoBolao = []
+                                    dadosClassificacao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
+                                        dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario]),0,0))
 
                                     #st.subheader(np.delete(np.array(classificacaoBolao[0]),0,0))
-                                    df0 = pd.DataFrame(np.array([np.delete(np.array(classificacaoBolao[0]),0,0),
-                                                                 np.delete(np.array(classificacaoBolao[1]),0,0),
-                                                                 np.delete(np.array(classificacaoBolao[2]),0,0),
-                                                                 np.delete(np.array(classificacaoBolao[3]),0,0)]),
+                                    #df0 = pd.DataFrame(np.array([np.delete(np.array(classificacaoBolao[0]),0,0),
+                                                                 #np.delete(np.array(classificacaoBolao[1]),0,0),
+                                                                 #np.delete(np.array(classificacaoBolao[2]),0,0),
+                                                                 #np.delete(np.array(classificacaoBolao[3]),0,0)]),
+                                    df0 = pd.DataFrame(np.array(dadosClassificacao),
                                                        columns = ('Pontos', 'Cravadas', 'Acertos', 'Erros', 'Nadas', 'Não apostas'))
                                     df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                                     st.table(df0)
