@@ -829,10 +829,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
 
                                 elif nomeJogo == 1:
                                     #print('')
@@ -847,10 +847,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_3,aposta_selecao_4)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
-                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
 
                             elif nomeRodada == 2:
                                 # Time i1 = 0
@@ -877,10 +877,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
 
                                 elif nomeJogo == 3:
                                     #print('')
@@ -895,10 +895,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_3,aposta_selecao_4)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
-                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
 
                             elif nomeRodada == 3:
                                 # Time i1 = 0
@@ -924,10 +924,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
-                                        st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
 
                                 elif nomeJogo == 5:
                                     #print('')
@@ -942,10 +942,10 @@ def main():
                                         #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_3,aposta_selecao_4)
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        st.subheader('Aposta registrada!')
+                                    #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                        #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
-                                        st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                        #st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
 
                 
             elif task == 'Profiles':
