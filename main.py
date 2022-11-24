@@ -1182,7 +1182,7 @@ def main():
                                         #np.save(str(username),usuario)
                                         st.subheader(f'Apostou')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
-                                        #st.subheader('Aposta registrada!')
+                                        st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
                                         #st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
 
