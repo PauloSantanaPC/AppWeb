@@ -1099,14 +1099,14 @@ def main():
                                     classificacaoBolao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         #classificacaoBolao.append(tuple([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]]))
-                                        #classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
-                                        classificacaoBolao.append([usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
+                                        classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
+                                        #classificacaoBolao.append([usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
                                         
                                     #classificacaoBolao = np.array(classificacaoBolao, dtype = [('x', 'S10'), ('y1', int), ('y2', int), ('y3', int), ('y4', int), ('y5', int), ('y6', int)])
-                                    st.subheader(classificacaoBolao[0])
-                                    st.subheader(classificacaoBolao[1])
-                                    st.subheader(classificacaoBolao[2])
-                                    st.subheader(classificacaoBolao[3])
+                                    st.subheader(np.delete(np.array(classificacaoBolao[0]),0,0))
+                                    st.subheader(np.delete(np.array(classificacaoBolao[1]),0,0))
+                                    st.subheader(np.delete(np.array(classificacaoBolao[2]),0,0))
+                                    st.subheader(np.delete(np.array(classificacaoBolao[3]),0,0))
                                     #st.subheader(classificacaoBolao.sort(order='y1'))
                                     #df0 = pd.DataFrame(np.array([[1,2,3,4,5,6],
                                                                  #[4,5,6,7,8,9],
