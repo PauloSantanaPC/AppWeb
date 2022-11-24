@@ -1612,7 +1612,7 @@ def main():
                                     dadosClassificacao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
                                         classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
-                                        dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario]),0,0))
+                                        dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
 
                                     #st.subheader(np.delete(np.array(classificacaoBolao[0]),0,0))
                                     #df0 = pd.DataFrame(np.array([np.delete(np.array(classificacaoBolao[0]),0,0),
