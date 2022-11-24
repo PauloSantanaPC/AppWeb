@@ -820,9 +820,9 @@ def main():
                                     #print('')
                                     #print('Jogo 1')
                                     #print('%s X %s'%(grupos()[nomeGrupo][time1], grupos()[nomeGrupo][time2]))
-                                    aposta_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    aposta_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    botao_jogo_1 = st.form_submit_button(label = f'Apostar no jogo {nomeJogo+1}')
+                                    placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    botao_jogo_1 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     #if botao_jogo_1:
                                     if botao_jogo_1 and inicioJogo:
