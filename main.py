@@ -1502,7 +1502,10 @@ def main():
                                                 st.subheader('Aposta registrada!')
                                                 #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
-                                    
+                                            if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                st.subheader('Fim de jogo!')
+                                                st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+
                                     elif nomeRodada == 2:
                                         # Time i1 = 0
                                         # Time i2 = 1
@@ -1531,6 +1534,9 @@ def main():
                                                 st.subheader('Aposta registrada!')
                                                 #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                            if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                st.subheader('Fim de jogo!')
+                                                st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
 
                                         elif nomeJogo == 3:
                                             #print('')
@@ -1548,6 +1554,9 @@ def main():
                                                 st.subheader('Aposta registrada!')
                                                 #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                            if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                st.subheader('Fim de jogo!')
+                                                st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
 
                                     elif nomeRodada == 3:
                                         # Time i1 = 0
@@ -1576,6 +1585,9 @@ def main():
                                                 st.subheader('Aposta registrada!')
                                                 #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                            if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                st.subheader('Fim de jogo!')
+                                                st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
 
                                         elif nomeJogo == 5:
                                             #print('')
@@ -1593,7 +1605,10 @@ def main():
                                                 st.subheader('Aposta registrada!')
                                                 #st.write(f'{grupos()[nomeGrupo][time3]} {aposta_selecao_3} X {aposta_selecao_4} {grupos()[nomeGrupo][time4]}')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
-                                            
+                                            if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                                                st.subheader('Fim de jogo!')
+                                                st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
