@@ -1167,12 +1167,13 @@ def main():
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
-                                        usuario = np.load('usuarioMestre.npy')
-                                        placar_selecao1 = usuario[28+2*6*nomeGrupo+2*nomeJogo]
-                                        st.subheader(placar_selecao1)
-                                        placar_selecao2 = usuario[29+2*6*nomeGrupo+2*nomeJogo]
-                                        st.subheader(placar_selecao2)
-                                        classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                                        #usuario = np.load('usuarioMestre.npy')
+                                        #placar_selecao1 = usuario[28+2*6*nomeGrupo+2*nomeJogo]
+                                        #st.subheader(placar_selecao1)
+                                        #placar_selecao2 = usuario[29+2*6*nomeGrupo+2*nomeJogo]
+                                        #st.subheader(placar_selecao2)
+                                        #classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                                        classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogousuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
 
                                 elif nomeJogo == 1:
                                     #print('')
