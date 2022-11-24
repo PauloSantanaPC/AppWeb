@@ -1069,7 +1069,7 @@ def contagemRegressiva(ano,mes,dia,hora,minuto):
     # data e horário atual
     data_atual = datetime.now()
     data_string = data_atual.strftime('%d/%m/%y %H:%M')
-    data_convertida =datetime.strptime(data_string, '%d/%m/%y %H:%M')
+    data_convertida = datetime.strptime(data_string, '%d/%m/%y %H:%M')
     
     # looping para contar os minutos que faltam
     tempo = 0
@@ -1167,6 +1167,9 @@ def main():
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        usuario = np.load('usuarioMestre.npy')
+                                        placar_selecao_1 = usuario[28+2*6*nomeGrupo+2*nomeJogo]
+                                        placar_selecao_2 = usuario[29+2*6*nomeGrupo+2*nomeJogo]
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
 
                                 elif nomeJogo == 1:
