@@ -1160,7 +1160,7 @@ def main():
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     #if botao_jogo_1:
                                     if botao_jogo_1 and not inicioJogo:
-                                        fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_3,aposta_selecao_4)
+                                        fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         np.save(str(username),usuario)
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
