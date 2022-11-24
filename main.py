@@ -1120,6 +1120,7 @@ def main():
                 
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
+                usuario = usuariosLista[indiceUsuario]
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
 
@@ -1161,6 +1162,7 @@ def main():
                                     #if botao_jogo_1:
                                     if botao_jogo_1 and not inicioJogo:
                                         fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
+                                        #fazerApostaPrimeiraFase(0,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
                                         np.save(str(username),usuario)
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
