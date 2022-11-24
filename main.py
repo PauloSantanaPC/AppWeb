@@ -1120,6 +1120,7 @@ def main():
                 
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
+                registro = np.full((8,6), False)
                 for nomeGrupo in range(len(grupos()[:,0])):
 
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1159,10 +1160,12 @@ def main():
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     #if botao_jogo_1:
                                     if botao_jogo_1 and not inicioJogo:
+                                        #classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                                        st.subheader(f'Registrou.')
+                                        registro[nomeGrupo][nomeJogo] = True
+                                    if registro[nomeGrupo][nomeJogo]:
+                                        st.subheader('Fim de jogo!')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
-                                        #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_1,aposta_selecao_2)
-                                        #np.save(str(username),usuario)
-                                        st.subheader(f'Apostou')
                                     #if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         #st.subheader('Aposta registrada!')
                                         #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
