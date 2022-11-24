@@ -1091,6 +1091,7 @@ def contagemRegressiva(ano,mes,dia,hora,minuto):
 
 # criando o usuario mestre
 usuariosLista = usuarioMestre()
+registro = np.full((8,6), False)
 
 def main():
     
@@ -1120,7 +1121,7 @@ def main():
                 
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
-                registro = np.full((8,6), False)
+                #registro = np.full((8,6), False)
                 for nomeGrupo in range(len(grupos()[:,0])):
 
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
