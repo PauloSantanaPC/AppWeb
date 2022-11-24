@@ -1168,8 +1168,8 @@ def main():
                                         st.subheader(f'Registrou.')
                                     if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
-                                        #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                        classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
 
                                 elif nomeJogo == 1:
                                     #print('')
