@@ -1584,7 +1584,9 @@ def main():
                                                 classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 st.subheader(usuario)
-                                                st.subheader(f'A sua pontuação foi: {pontuacao}')
+                                                st.subheader(pontuacao)
+                                                st.subheader(type(pontuacao))
+                                                #st.subheader(f'A sua pontuação foi: {pontuacao}')
 
                                         elif nomeJogo == 1:
                                             #print('')
