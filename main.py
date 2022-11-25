@@ -1535,7 +1535,7 @@ def main():
                     elif task1 == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
                         classificacao = classificacaoInicial()
-                        st.subheader(usuario[2])
+                        st.subheader(type(usuario[2]))
                         #usuario[2] = 0
                         #usuario[3] = 0
                         #usuario[4] = 0
