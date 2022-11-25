@@ -281,6 +281,7 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
             #inicioJogo = horarioJogo(2022,12,20,23,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
+            #inicioJogo = horarioJogo(2022,11,21,13,0)
             inicioJogo = horarioJogo(2022,11,21,13,0)
         elif nomeJogo == 2:
             # Catar X Senegal
@@ -299,9 +300,11 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo B
         if nomeJogo == 0:
             # Inglaterra X Irã
+            #inicioJogo = horarioJogo(2022,11,21,10,0)
             inicioJogo = horarioJogo(2022,11,21,10,0)
         elif nomeJogo == 1:
             # Estados Unidos X País de Gales
+            #inicioJogo = horarioJogo(2022,11,21,16,0)
             inicioJogo = horarioJogo(2022,11,21,16,0)
         elif nomeJogo == 2:
             # Inglaterra X Estados Unidos
@@ -1123,8 +1126,8 @@ def main():
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                    
                     # Datas e horários dos jogos
-
                     for nomeJogo in range(6):
                         with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
@@ -1294,28 +1297,10 @@ def main():
                     st.table(df)
 
             elif task == 'Usuários':
-                st.subheader('User Profiles')
-                #user_result = view_all_users() # lista com todos os usuários
-                #clean_db = pd.DataFrame(user_result, columns = ['Username','Password'])
-                #clean_db = pd.DataFrame(user_result)
-                #st.dataframe(clean_db)
-                #st.subheader(user_result[0])
-                #st.subheader(user_result[0][0])
-                #st.subheader(user_result[0][1])
-                #st.subheader(user_result[1])
-                #st.subheader(user_result[2])
-                #st.subheader(user_result[3])
-                #st.subheader(user_result[4])
-                #dados = login_user(user_result[0][0],user_result[0][1])
-                #st.subheader(np.array(view_all_users())[:,0])
-
+                st.subheader('Usuários')
                 todos_usuarios = todos_os_usuarios() # lista com todos os usuários
                 clean_db = pd.DataFrame(todos_usuarios)
-                st.dataframe(clean_db)
-                #st.subheader(np.array(todos_os_usuarios())[0][0])
-                #st.subheader(np.array(todos_os_usuarios())[:,0][0])
-                #st.subheader(np.where(np.array(todos_os_usuarios())[:,0] == 'usuarioTeste1')[0][0])
-                #st.subheader(todos_os_usuarios())
+                #st.dataframe(clean_db)
                 st.subheader(usuariosLista)
         else:
             st.subheader('Você não tem acesso')
