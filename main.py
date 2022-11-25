@@ -1578,6 +1578,7 @@ def main():
                                             if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Aposta registrada!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                            st.subheader(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo])
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
