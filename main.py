@@ -1344,8 +1344,6 @@ def main():
             # pegar o índice do usuario
             indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
             usuario = usuariosLista[indiceUsuario]
-            #st.subheader(listaSelecoes()[int(usuariosLista[0][9])])
-            #cria_tabela_usuarios()
             usuarioMestre = np.load('usuarioMestre.npy')
 
             result = login_usuario(username,password)
@@ -1419,15 +1417,9 @@ def main():
                             # Datas e horários dos jogos
                             for nomeJogo in range(6):
                                 with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
-
-                                    #aposta_jogo_primeira_fase = st.selectbox('Escolha o jogo que deseja apostar', options = ['Jogo 1: ','Jogo 2: ','Jogo 3: ','Jogo 4: ','Jogo 5: ','Jogo 6: '], index = 0)
-                                    #if aposta_jogo_primeira_fase == 'Jogo 2: ':
-                                    #    aposta_selecao_1 = st.number_input(label = 'Seleção 4', min_value = 0, max_value = 20, step = 1, format = '%d')                                
-                                    #st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - RELÓGIO TIC TAC')
                                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
                                     
                                     # rodada e jogo
-                                    #nomeRodada = int(input('Qual rodada você quer apostar? '))
                                     if nomeJogo == 0 or nomeJogo == 1:
                                         nomeRodada = 1
                                     elif nomeJogo == 2 or nomeJogo == 3:
