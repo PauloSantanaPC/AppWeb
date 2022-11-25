@@ -1584,8 +1584,8 @@ def main():
                                                 classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #if not inicioJogo:
                                                 #usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                #resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                st.subheader(f'A sua pontuação foi: {resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))[1]} ponto(s)')
+                                                resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                #st.subheader(f'A sua pontuação foi: {resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))[1]} ponto(s)')
 
                                         elif nomeJogo == 1:
                                             #print('')
