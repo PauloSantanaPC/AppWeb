@@ -1298,9 +1298,8 @@ def main():
 
             elif task == 'Usuários':
                 st.subheader('Usuários')
-                todos_usuarios = todos_os_usuarios() # lista com todos os usuários
-                clean_db = pd.DataFrame(todos_usuarios)
-                #st.dataframe(clean_db)
+                clean_db = pd.DataFrame(todos_os_usuarios())
+                st.dataframe(clean_db)
                 st.subheader(usuariosLista)
         else:
             st.subheader('Você não tem acesso')
