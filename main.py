@@ -835,8 +835,8 @@ def classificacaoFaseGrupos(selecoes, nomeGrupo, nomeJogo, golMandante, golVisit
         # rodada 2: Time i2 x Time i4
         time1 = 0
         time2 = 2
-        time3 = 1
-        time4 = 3
+        time3 = 3
+        time4 = 1
         if nomeJogo == 2:
             
             # gols
