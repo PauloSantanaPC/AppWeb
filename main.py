@@ -280,8 +280,8 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
             #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
-            #inicioJogo = horarioJogo(2022,11,21,13,0)
-            inicioJogo = datetime(2023,1,1,10,0)
+            inicioJogo = horarioJogo(2022,11,21,13,0)
+            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Catar X Senegal
             #inicioJogo = horarioJogo(2022,11,25,10,0)
@@ -1585,7 +1585,7 @@ def main():
                         #usuario[6] = 0
                         #usuario[7] = 0
                         #np.save(str(username),usuario)
-                        st.subheader(usuariosLista[2])
+                        #st.subheader(usuariosLista[2])
 
                         for nomeGrupo in range(len(grupos()[:,0])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1796,7 +1796,7 @@ def main():
                             )
                             df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                             st.table(df)
-                        st.subheader(usuariosLista[2])
+                        #st.subheader(usuariosLista[2])
                         #np.save(str(username),usuario)
 
                     elif task1 == 'Resumo das apostas':
