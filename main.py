@@ -119,7 +119,6 @@ def fazerApostaPrimeiraFase(cadastroApostador, nomeGrupo, nomeJogo, golMandante,
     #-------------------------------------------------------------------------#        
     
     # rodada e jogo
-    #nomeRodada = int(input('Qual rodada você quer apostar? '))
     if nomeJogo == 0 or nomeJogo == 1:
         nomeRodada = 1
     elif nomeJogo == 2 or nomeJogo == 3:
@@ -271,25 +270,20 @@ def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
 def horarioJogoGrupo(nomeGrupo,nomeJogo):
     
     # datas e horários dos jogos da primeira fase
-    
     if nomeGrupo == 0:
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
             inicioJogo = horarioJogo(2022,11,20,23,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = horarioJogo(2022,11,21,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Catar X Senegal
             inicioJogo = horarioJogo(2022,11,25,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 3:
             # Holanda X Equador
             inicioJogo = horarioJogo(2022,11,25,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 4:
             # Holanda X Catar
             inicioJogo = horarioJogo(2022,11,29,12,0)
@@ -302,19 +296,15 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Inglaterra X Irã
             inicioJogo = horarioJogo(2022,11,21,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Estados Unidos X País de Gales
             inicioJogo = horarioJogo(2022,11,21,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Inglaterra X Estados Unidos
             inicioJogo = horarioJogo(2022,11,25,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 3:
             # País de Gales X Irã
             inicioJogo = horarioJogo(2022,11,25,7,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 4:
             # País de Gales X Inglaterra
             inicioJogo = horarioJogo(2022,11,29,16,0)
@@ -327,19 +317,15 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Argentina X Arábia Saudita
             inicioJogo = horarioJogo(2022,11,22,7,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # México X Polônia
             inicioJogo = horarioJogo(2022,11,22,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Argentina X México
             inicioJogo = horarioJogo(2022,11,26,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 3:
             # Polônia X Arábia Saudita
             inicioJogo = horarioJogo(2022,11,26,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 4:
             # Polônia X Argentina
             inicioJogo = horarioJogo(2022,11,30,16,0)
@@ -352,19 +338,15 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # França X Austrália
             inicioJogo = horarioJogo(2022,11,22,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Dinamarca X Tunísia
             inicioJogo = horarioJogo(2022,11,22,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # França X Dinamarca
             inicioJogo = horarioJogo(2022,11,26,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 3:
             # Tunísia X Austrália
             inicioJogo = horarioJogo(2022,11,26,7,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 4:
             # Tunísia X França
             inicioJogo = horarioJogo(2022,11,30,12,0)
@@ -377,11 +359,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Espanha X Costa Rica
             inicioJogo = horarioJogo(2022,11,23,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Alemanha X Japão
             inicioJogo = horarioJogo(2022,11,23,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Espanha X Alemanha
             inicioJogo = horarioJogo(2022,11,27,16,0)
@@ -400,11 +380,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Bélgica X Canadá
             inicioJogo = horarioJogo(2022,11,23,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Marrocos X Croácia
             inicioJogo = horarioJogo(2022,11,23,7,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Bélgica X Marrocos
             inicioJogo = horarioJogo(2022,11,27,10,0)
@@ -423,11 +401,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Brasil X Sérvia
             inicioJogo = horarioJogo(2022,11,24,16,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Suíça X Camarões
             inicioJogo = horarioJogo(2022,11,24,7,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Brasil X Suíça
             inicioJogo = horarioJogo(2022,11,28,13,0)
@@ -446,11 +422,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Portugal x Gana
             inicioJogo = horarioJogo(2022,11,24,13,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 1:
             # Uruguai X Coreia do Sul
             inicioJogo = horarioJogo(2022,11,24,10,0)
-            #inicioJogo = datetime(2023,1,1,10,0)
         elif nomeJogo == 2:
             # Portugal X Uruguai
             inicioJogo = horarioJogo(2022,11,28,16,0)
@@ -469,7 +443,6 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
 def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
     
     # datas e horários dos jogos da primeira fase
-    
     if nomeGrupo == 0:
         # Grupo A
         if nomeJogo == 0:
@@ -639,63 +612,6 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
             inicioJogo = datetime(2022,12,2,12,0)
 
     return inicioJogo
-
-def resumoApostas():
-
-    apostas1 = []
-    apostas2 = []
-    apostas3 = []
-    for j in range(1, len(usuariosLista), 1):
-        if usuariosLista[j][9] != '':
-            apostas1.append(listaSelecoes()[int(usuariosLista[j][9])])
-        else:
-            apostas1.append('Não apostou.')
-            
-        if usuariosLista[j][10] != '':
-            apostas2.append(listaSelecoes()[int(usuariosLista[j][10])])
-        else:
-            apostas2.append('Não apostou.')
-            
-        if usuariosLista[j][11] != '':
-            apostas3.append(listaSelecoes()[int(usuariosLista[j][11])])
-        else:
-            apostas3.append('Não apostou.')
-
-    dadosApostasIniciais = np.array([apostas1,apostas2,apostas3])
-    rotuloColuna = np.delete(np.array(usuariosLista)[:,0], 0)
-    rotuloLinha  = ['Campeão','Vice-campeão','Terceiro colocado']
-    ncoluna = len(rotuloColuna)
-    nlinha  = len(rotuloLinha)
-
-    espacos = ncoluna*[0.25]
-    
-    #figura = plt.figure(figsize = (6,1))
-    figura = st.pyplot(figsize = (6,1))
-    
-    font = {'family':'serif', 'color':'black', 'weight':'normal', 'size':24}
-    #plt.title('Apostas Iniciais', fontdict = font)
-    st.pyplot.title('Apostas Iniciais', fontdict = font)
-    
-    #tabela = plt.table(cellText = dadosApostasIniciais,
-    tabela = st.pyplot.table(cellText = dadosApostasIniciais,
-                       colWidths = espacos,#[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
-                       #colWidths = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
-                       rowLabels = rotuloLinha,
-                       colLabels = rotuloColuna)
-    
-    celula = tabela.properties()["celld"]
-    for coluna in range(ncoluna):
-        for linha in range(nlinha+1):
-            celula[linha, coluna]._loc = 'center'
-                       
-    tabela.auto_set_font_size(False)
-    tabela.set_fontsize(20)
-    tabela.scale(2, 4)
-    #plt.axis('off')
-    st.pyplot.axis('off')
-    #plt.show()
-    
-    return figura
 
 def classificacaoInicial():
     
