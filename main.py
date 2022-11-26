@@ -1293,11 +1293,11 @@ def main():
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                         if not inicioJogo:
-                                            for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                            for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 pontuacaoJogo = 0
-                                                listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
-                                                np.save(str(listaUsuarios[contadorUsuario]),listaUsuarios[contadorUsuario])
+                                                np.save(str(usuariosLista[contadorUsuario]),usuariosLista[contadorUsuario])
                                                 #np.save(str(username),usuario)
 
                                 elif nomeJogo == 1:
