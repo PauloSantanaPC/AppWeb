@@ -1780,7 +1780,7 @@ def main():
                                         classificacaoBolao.append([usuariosLista[contadorUsuario][0],usuariosLista[contadorUsuario][2],usuariosLista[contadorUsuario][3],usuariosLista[contadorUsuario][4],usuariosLista[contadorUsuario][5],usuariosLista[contadorUsuario][6],usuariosLista[contadorUsuario][7]])
                                         dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
                                     #df0 = pd.DataFrame(np.array(dadosClassificacao),
-                                    df0 = pd.DataFrame(np.array([0,0,0,0,0,0,0]),
+                                    df0 = pd.DataFrame(np.array([[0,0,0,0,0,0,0]]),
                                                        columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
                                     #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                                     st.table(df0)
