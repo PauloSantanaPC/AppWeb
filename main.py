@@ -1251,6 +1251,12 @@ def main():
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                    usuario[2] = 0
+                    usuario[3] = 0
+                    usuario[4] = 0
+                    usuario[5] = 0
+                    usuario[6] = 0
+                    usuario[7] = 0
                     
                     # Datas e horários dos jogos
                     for nomeJogo in range(6):
@@ -1543,12 +1549,12 @@ def main():
                     elif task1 == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
                         classificacao = classificacaoInicial()
-                        usuario[2] = 0
-                        usuario[3] = 0
-                        usuario[4] = 0
-                        usuario[5] = 0
-                        usuario[6] = 0
-                        usuario[7] = 0
+                        #usuario[2] = 0
+                        #usuario[3] = 0
+                        #usuario[4] = 0
+                        #usuario[5] = 0
+                        #usuario[6] = 0
+                        #usuario[7] = 0
                         #np.save(str(username),usuario)
                         st.subheader(usuariosLista[2])
 
