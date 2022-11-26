@@ -1535,7 +1535,7 @@ def main():
                     elif task1 == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
                         classificacao = classificacaoInicial()
-                        usuario[2] = 0
+                        usuario[2] = 1
                         usuario[3] = 0
                         usuario[4] = 0
                         usuario[5] = 0
