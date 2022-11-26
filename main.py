@@ -1251,12 +1251,15 @@ def main():
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
-                    #usuario[2] = 0
-                    #usuario[3] = 0
-                    #usuario[4] = 0
-                    #usuario[5] = 0
-                    #usuario[6] = 0
-                    #usuario[7] = 0
+                    for contadorUsuario in range(1, len(usuariosLista), 1):
+                        pontuacaoJogo = 0
+                        usuariosLista[contadorUsuario][2] = 0
+                        usuariosLista[contadorUsuario][3] = 0
+                        usuariosLista[contadorUsuario][4] = 0
+                        usuariosLista[contadorUsuario][5] = 0
+                        usuariosLista[contadorUsuario][6] = 0
+                        usuariosLista[contadorUsuario][7] = 0
+                        np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                     
                     # Datas e horários dos jogos
                     for nomeJogo in range(6):
@@ -1301,14 +1304,9 @@ def main():
                                         if not inicioJogo:
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 pontuacaoJogo = 0
-                                                usuariosLista[contadorUsuario][2] = 0
-                                                usuariosLista[contadorUsuario][3] = 0
-                                                usuariosLista[contadorUsuario][4] = 0
-                                                usuariosLista[contadorUsuario][5] = 0
-                                                usuariosLista[contadorUsuario][6] = 0
-                                                usuariosLista[contadorUsuario][7] = 0
                                                 #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                                                 ##st.subheader(str(usuariosLista[contadorUsuario][0]))
                                                 ##np.save(str(username),usuario)
