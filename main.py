@@ -1542,6 +1542,7 @@ def main():
                         usuario[6] = 0
                         usuario[7] = 0
                         #np.save(str(username),usuario)
+                        st.subheader(usuariosLista[1])
 
                         for nomeGrupo in range(len(grupos()[:,0])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1756,10 +1757,10 @@ def main():
                             )
                             df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                             st.table(df)
+                        st.subheader(usuariosLista[1])
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
-                        st.subheader(usuariosLista[1])
                         
                         tabs = []
                         for tab in range(len(usuariosLista)):
