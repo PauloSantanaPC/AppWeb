@@ -1314,7 +1314,7 @@ def main():
                                         fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
                                         np.save(str(username),usuario)
                                         st.subheader(f'Registrou.')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '' and inicioJogo:
+                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':# and inicioJogo:
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
