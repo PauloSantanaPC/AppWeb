@@ -1541,7 +1541,7 @@ def main():
                         usuario[5] = 0
                         usuario[6] = 0
                         usuario[7] = 0
-                        #np.save(str(username),usuario)
+                        np.save(str(username),usuario)
 
                         for nomeGrupo in range(len(grupos()[:,0])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
