@@ -946,7 +946,6 @@ def classificacaoFaseGrupos(selecoes, nomeGrupo, nomeJogo, golMandante, golVisit
 
     return selecoes
 
-
 def resultadoJogo(golMandante, golVisitante):
 
     '''
@@ -1075,10 +1074,6 @@ def resultadoApostadorFaseGrupos(usuario,pontuacao,golMandanteApostador,golVisit
 #=============================================================================#
 #-----------------------------------------------------------------------------#
 
-#st.title('Bolão')
-
-#-----------------------------------------------------------------------------#
-
 # DB Management
 dados = sqlite3.connect('dados10.db')
 d = dados.cursor()
@@ -1100,6 +1095,8 @@ def todos_os_usuarios():
     dado = d.fetchall()
     return dado
 
+#-----------------------------------------------------------------------------#
+
 def usuarioMestre():
     cria_tabela_usuarios()
     usuariosLista = []
@@ -1116,36 +1113,6 @@ def usuarioMestre():
             usuariosLista.append(usuario)
 
     return usuariosLista
-
-def contagemRegressiva(ano,mes,dia,hora,minuto):
-    '''
-    A entrada com a data e hora do jogo e
-    a saída a contagem regressiva
-    '''
-    # data e horário do jogo
-    #dataHoraJogo = datetime(2022,11,24,16,0)
-    dataHoraJogo = datetime(ano,mes,dia,hora,minuto)
-    
-    # data e horário atual
-    data_atual = datetime.now()
-    data_string = data_atual.strftime('%d/%m/%y %H:%M')
-    data_convertida = datetime.strptime(data_string, '%d/%m/%y %H:%M')
-    
-    # looping para contar os minutos que faltam
-    tempo = 0
-    while dataHoraJogo != data_convertida:
-        data_convertida = data_convertida + timedelta(minutes= 1)
-        tempo = tempo + 1
-            
-    # O tempo precisa ser em segundos
-    while tempo: 
-        mins, secs = divmod(tempo, 60) 
-        timer = '{:02d}:{:02d}'.format(mins, secs)
-        print(timer, end="\r")
-        time.sleep(1)
-        tempo -= 1
-        
-    return tempo
 
 #-----------------------------------------------------------------------------#
 
