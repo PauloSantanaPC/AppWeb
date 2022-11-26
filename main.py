@@ -451,16 +451,19 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Catar x Equador
             #inicioJogo = datetime(2022,11,20,13,0)
-            inicioJogo = datetime(2022,11,20,23,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
-            inicioJogo = datetime(2022,11,21,13,0)
+            #inicioJogo = datetime(2022,11,21,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Catar X Senegal
-            inicioJogo = datetime(2022,11,25,10,0)
+            #inicioJogo = datetime(2022,11,25,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 3:
             # Holanda X Equador
-            inicioJogo = datetime(2022,11,25,13,0)
+            #inicioJogo = datetime(2022,11,25,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 4:
             # Holanda X Catar
             inicioJogo = datetime(2022,11,29,12,0)
@@ -472,16 +475,20 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo B
         if nomeJogo == 0:
             # Inglaterra X Irã
-            inicioJogo = datetime(2022,11,21,10,0)
+            #inicioJogo = datetime(2022,11,21,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Estados Unidos X País de Gales
-            inicioJogo = datetime(2022,11,21,16,0)
+            #inicioJogo = datetime(2022,11,21,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Inglaterra X Estados Unidos
-            inicioJogo = datetime(2022,11,25,16,0)
+            #inicioJogo = datetime(2022,11,25,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 3:
             # País de Gales X Irã
-            inicioJogo = datetime(2022,11,25,7,0)
+            #inicioJogo = datetime(2022,11,25,7,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 4:
             # País de Gales X Inglaterra
             inicioJogo = datetime(2022,11,29,16,0)
@@ -493,16 +500,20 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo C
         if nomeJogo == 0:
             # Argentina X Arábia Saudita
-            inicioJogo = datetime(2022,11,22,7,0)
+            #inicioJogo = datetime(2022,11,22,7,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # México X Polônia
-            inicioJogo = datetime(2022,11,22,13,0)
+            #inicioJogo = datetime(2022,11,22,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Argentina X México
-            inicioJogo = datetime(2022,11,26,16,0)
+            #inicioJogo = datetime(2022,11,26,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 3:
             # Polônia X Arábia Saudita
-            inicioJogo = datetime(2022,11,26,10,0)
+            #inicioJogo = datetime(2022,11,26,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 4:
             # Polônia X Argentina
             inicioJogo = datetime(2022,11,30,16,0)
@@ -514,16 +525,20 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo D
         if nomeJogo == 0:
             # França X Austrália
-            inicioJogo = datetime(2022,11,22,16,0)
+            #inicioJogo = datetime(2022,11,22,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Dinamarca X Tunísia
-            inicioJogo = datetime(2022,11,22,10,0)
+            #inicioJogo = datetime(2022,11,22,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # França X Dinamarca
-            inicioJogo = datetime(2022,11,26,13,0)
+            #inicioJogo = datetime(2022,11,26,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 3:
             # Tunísia X Austrália
-            inicioJogo = datetime(2022,11,26,7,0)
+            #inicioJogo = datetime(2022,11,26,7,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 4:
             # Tunísia X França
             inicioJogo = datetime(2022,11,30,12,0)
@@ -535,10 +550,12 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo E
         if nomeJogo == 0:
             # Espanha X Costa Rica
-            inicioJogo = datetime(2022,11,23,13,0)
+            #inicioJogo = datetime(2022,11,23,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Alemanha X Japão
-            inicioJogo = datetime(2022,11,23,10,0)
+            #inicioJogo = datetime(2022,11,23,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Espanha X Alemanha
             inicioJogo = datetime(2022,11,27,16,0)
@@ -556,10 +573,12 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo F
         if nomeJogo == 0:
             # Bélgica X Canadá
-            inicioJogo = datetime(2022,11,23,16,0)
+            #inicioJogo = datetime(2022,11,23,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Marrocos X Croácia
-            inicioJogo = datetime(2022,11,23,7,0)
+            #inicioJogo = datetime(2022,11,23,7,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Bélgica X Marrocos
             inicioJogo = datetime(2022,11,27,10,0)
@@ -577,10 +596,12 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo G
         if nomeJogo == 0:
             # Brasil X Sérvia
-            inicioJogo = datetime(2022,11,24,16,0)
+            #inicioJogo = datetime(2022,11,24,16,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Suíça X Camarões
-            inicioJogo = datetime(2022,11,24,7,0)
+            #inicioJogo = datetime(2022,11,24,7,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Brasil X Suíça
             inicioJogo = datetime(2022,11,28,13,0)
@@ -598,10 +619,12 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo H
         if nomeJogo == 0:
             # Portugal x Gana
-            inicioJogo = datetime(2022,11,24,13,0)
+            #inicioJogo = datetime(2022,11,24,13,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 1:
             # Uruguai X Coreia do Sul
-            inicioJogo = datetime(2022,11,24,10,0)
+            #inicioJogo = datetime(2022,11,24,10,0)
+            inicioJogo = datetime(2022,1,1,10,0)
         elif nomeJogo == 2:
             # Portugal X Uruguai
             inicioJogo = datetime(2022,11,28,16,0)
