@@ -1264,9 +1264,7 @@ def main():
                 classificacao = classificacaoInicial()
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
-                pontuacaoJogo = 0
                 for contadorUsuario in range(1, len(usuariosLista), 1):
-                    #pontuacaoJogo = 0
                     usuariosLista[contadorUsuario][2] = 0
                     usuariosLista[contadorUsuario][3] = 0
                     usuariosLista[contadorUsuario][4] = 0
@@ -1315,29 +1313,16 @@ def main():
                                         fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
                                         np.save(str(username),usuario)
                                         st.subheader(f'Registrou.')
-                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':# and inicioJogo:
+                                    if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                         if not inicioJogo:
-                                            #pontuacaoJogo = 0
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
-                                                #pontuacaoJogo = 0
-                                                #st.subheader(type(usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f' gol mandante aposta {usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]}')
-                                                #st.subheader(type(usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f' gol visitante aposta {usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]}')
-                                                #st.subheader(type(usuario[28+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f' gol mandante jogo {usuario[28+2*6*nomeGrupo+2*nomeJogo]}')
-                                                #st.subheader(type(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f' gol visitante jogo {usuario[29+2*6*nomeGrupo+2*nomeJogo]}')
-                                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                pontuacaoJogo = 0
                                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
                                                 st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-                                                ##st.subheader(str(usuariosLista[contadorUsuario][0]))
-                                                ##np.save(str(username),usuario)
-                                            #st.subheader(usuariosLista)
 
                                 elif nomeJogo == 1:
                                     #print('')
