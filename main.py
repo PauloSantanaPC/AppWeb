@@ -1441,6 +1441,7 @@ def main():
                     df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                     st.table(df)
                 
+                st.subheader(usuariosLista)
                 classificacaoBolao = []
                 dadosClassificacao = []
                 for contadorUsuario in range(1, len(usuariosLista), 1):
