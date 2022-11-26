@@ -1321,7 +1321,7 @@ def main():
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 pontuacaoJogo = 0
                                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
-                                                st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                st.subheader(f'A sua pontuação do {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                                 elif nomeJogo == 1:
