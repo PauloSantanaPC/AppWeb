@@ -1137,7 +1137,7 @@ def resultadoApostadorFaseGrupos(usuario,pontuacao,golMandanteApostador,golVisit
             usuario[2] = int(usuario[2]) - 10
             pontuacao += -10
             
-    return pontuacao#usuario, pontuacao
+    return usuario, pontuacao
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1535,12 +1535,12 @@ def main():
                     elif task1 == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
                         classificacao = classificacaoInicial()
-                        #usuario[2] = 0
-                        #usuario[3] = 0
-                        #usuario[4] = 0
-                        #usuario[5] = 0
-                        #usuario[6] = 0
-                        #usuario[7] = 0
+                        usuario[2] = 0
+                        usuario[3] = 0
+                        usuario[4] = 0
+                        usuario[5] = 0
+                        usuario[6] = 0
+                        usuario[7] = 0
                         #np.save(str(username),usuario)
 
                         for nomeGrupo in range(len(grupos()[:,0])):
@@ -1585,13 +1585,12 @@ def main():
                                             if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Aposta registrada!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
-                                            #st.subheader(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo])
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                                 classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #if not inicioJogo:
-                                                #usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #pontuacaoJogo = 0
                                                 #pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #st.subheader(f'A sua pontuação foi: {resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))[1]} ponto(s)')
