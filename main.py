@@ -276,12 +276,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            #inicioJogo = horarioJogo(2022,11,20,13,0)
             inicioJogo = horarioJogo(2022,11,20,23,0)
-            #inicioJogo = horarioJogo(2022,12,20,23,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
-            #inicioJogo = horarioJogo(2022,11,21,13,0)
             inicioJogo = horarioJogo(2022,11,21,13,0)
         elif nomeJogo == 2:
             # Catar X Senegal
@@ -300,11 +297,9 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo B
         if nomeJogo == 0:
             # Inglaterra X Irã
-            #inicioJogo = horarioJogo(2022,11,21,10,0)
             inicioJogo = horarioJogo(2022,11,21,10,0)
         elif nomeJogo == 1:
             # Estados Unidos X País de Gales
-            #inicioJogo = horarioJogo(2022,11,21,16,0)
             inicioJogo = horarioJogo(2022,11,21,16,0)
         elif nomeJogo == 2:
             # Inglaterra X Estados Unidos
@@ -324,7 +319,6 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Argentina X Arábia Saudita
             inicioJogo = horarioJogo(2022,11,22,7,0)
-            #inicioJogo = horarioJogo(2022,12,22,7,0)
         elif nomeJogo == 1:
             # México X Polônia
             inicioJogo = horarioJogo(2022,11,22,13,0)
@@ -445,7 +439,6 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         elif nomeJogo == 5:
             # Gana X Uruguai
             inicioJogo = horarioJogo(2022,12,2,12,0)
-            #inicioJogo = horarioJogo(2022,11,20,9,0)
     
     return inicioJogo
 
