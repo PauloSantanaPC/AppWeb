@@ -1292,6 +1292,13 @@ def main():
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                                        if not inicioJogo:
+                                            for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                                pontuacaoJogo = 0
+                                                listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                np.save(str(listaUsuarios[contadorUsuario]),listaUsuarios[contadorUsuario])
+                                                #np.save(str(username),usuario)
 
                                 elif nomeJogo == 1:
                                     #print('')
@@ -1590,16 +1597,11 @@ def main():
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                                 classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                if not inicioJogo:
-                                                    st.subheader(usuario)
-                                                    pontuacaoJogo = 0
-                                                    usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                    st.subheader('Fim de jogo! parte 2')
-                                                    st.subheader(usuario)
-                                                    np.save(str(username),usuario)
-                                                    #st.subheader(f'A sua pontuação foi: {pontuacao}')
-                                                #pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                #st.subheader(f'A sua pontuação foi: {resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))[1]} ponto(s)')
+                                                #if not inicioJogo:
+                                                    #pontuacaoJogo = 0
+                                                    #usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                    #st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                    #np.save(str(username),usuario)
 
                                         elif nomeJogo == 1:
                                             #print('')
