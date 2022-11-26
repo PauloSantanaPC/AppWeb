@@ -1324,9 +1324,13 @@ def main():
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 #pontuacaoJogo = 0
                                                 st.subheader(type(usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]))
-                                                st.subheader(usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo])
+                                                st.subheader(f' gol mandante aposta {usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]}')
                                                 st.subheader(type(usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]))
-                                                st.subheader(usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo])
+                                                st.subheader(f' gol visitante aposta {usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]}')
+                                                st.subheader(type(usuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]))
+                                                st.subheader(f' gol mandante jogo {usuario[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]}')
+                                                st.subheader(type(usuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]))
+                                                st.subheader(f' gol visitante jogo {usuario[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]}')
                                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
