@@ -1323,17 +1323,17 @@ def main():
                                             #pontuacaoJogo = 0
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 #pontuacaoJogo = 0
+                                                st.subheader(type(usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo]))
                                                 st.subheader(usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo])
+                                                st.subheader(type(usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo]))
                                                 st.subheader(usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo])
                                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                st.subheader(usuariosLista[contadorUsuario][0])
                                                 st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
-                                                st.subheader(usuariosLista[contadorUsuario][3])
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                                                 ##st.subheader(str(usuariosLista[contadorUsuario][0]))
                                                 ##np.save(str(username),usuario)
-                                            st.subheader(usuariosLista)
+                                            #st.subheader(usuariosLista)
 
                                 elif nomeJogo == 1:
                                     #print('')
