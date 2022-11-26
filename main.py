@@ -1248,19 +1248,19 @@ def main():
                 classificacao = classificacaoInicial()
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
-                
+                for contadorUsuario in range(1, len(usuariosLista), 1):
+                    pontuacaoJogo = 0
+                    usuariosLista[contadorUsuario][2] = 0
+                    usuariosLista[contadorUsuario][3] = 0
+                    usuariosLista[contadorUsuario][4] = 0
+                    usuariosLista[contadorUsuario][5] = 0
+                    usuariosLista[contadorUsuario][6] = 0
+                    usuariosLista[contadorUsuario][7] = 0
+                    np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                st.subheader(usuariosLista)
+
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
-                    for contadorUsuario in range(1, len(usuariosLista), 1):
-                        pontuacaoJogo = 0
-                        usuariosLista[contadorUsuario][2] = 0
-                        usuariosLista[contadorUsuario][3] = 0
-                        usuariosLista[contadorUsuario][4] = 0
-                        usuariosLista[contadorUsuario][5] = 0
-                        usuariosLista[contadorUsuario][6] = 0
-                        usuariosLista[contadorUsuario][7] = 0
-                        np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-                    st.subheader(usuariosLista)
                     
                     # Datas e horários dos jogos
                     for nomeJogo in range(6):
