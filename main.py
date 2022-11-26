@@ -1121,7 +1121,6 @@ usuariosLista = usuarioMestre()
 
 def main():
     
-    #st.title('Bolão')
     ''' Simple Login App '''
     menu = ['Home','Cadastro','Login']
     choice = st.sidebar.selectbox('Menu',menu)
@@ -1129,12 +1128,10 @@ def main():
     #-----------------------------------------------------------------------------#
 
     if choice == 'Home':
-        
-        st.subheader('Acesso do administrador')
-        
+        st.subheader('Acesso do administrador')        
         username = st.text_input('Nome de usuário')
         password = st.text_input('Senha', type = 'password')
-        #if username == usuarioLista[0][0] and password == usuarioLista[0][1]:
+
         if username == 'usuarioMestre' and password == 'appBolao':
             #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
             task = st.sidebar.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
@@ -1155,7 +1152,6 @@ def main():
                     usuariosLista[contadorUsuario][6] = 0
                     usuariosLista[contadorUsuario][7] = 0
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-                #st.subheader(usuariosLista)
 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1163,7 +1159,7 @@ def main():
                     # Datas e horários dos jogos
                     for nomeJogo in range(6):
                         with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
-                            #st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
+                            st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
 
                             # rodada e jogo
                             if nomeJogo == 0 or nomeJogo == 1:
