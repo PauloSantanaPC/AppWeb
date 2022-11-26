@@ -1596,6 +1596,7 @@ def main():
                                                     usuario, pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                     st.subheader('Fim de jogo! parte 2')
                                                     st.subheader(usuario)
+                                                    np.save(str(username),usuario)
                                                     #st.subheader(f'A sua pontuação foi: {pontuacao}')
                                                 #pontuacao = resultadoApostadorFaseGrupos(usuario,pontuacaoJogo,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 #st.subheader(f'A sua pontuação foi: {resultadoApostadorFaseGrupos(usuario,usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo],int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))[1]} ponto(s)')
@@ -1758,7 +1759,7 @@ def main():
                             df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                             st.table(df)
                         st.subheader(usuariosLista[1])
-                        np.save(str(username),usuario)
+                        #np.save(str(username),usuario)
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
