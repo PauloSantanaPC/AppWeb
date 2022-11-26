@@ -1265,7 +1265,7 @@ def main():
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
                 for contadorUsuario in range(1, len(usuariosLista), 1):
-                    pontuacaoJogo = 0
+                    #pontuacaoJogo = 0
                     usuariosLista[contadorUsuario][2] = 0
                     usuariosLista[contadorUsuario][3] = 0
                     usuariosLista[contadorUsuario][4] = 0
