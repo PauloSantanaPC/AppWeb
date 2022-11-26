@@ -1340,7 +1340,13 @@ def main():
                                         st.subheader('Fim de jogo!')
                                         st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                
+                                        if not inicioJogo:
+                                            for contadorUsuario in range(1, len(usuariosLista), 1):
+                                                pontuacaoJogo = 0
+                                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                                st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+
                             elif nomeRodada == 2:
                                 # Time i1 = 0
                                 # Time i2 = 1
