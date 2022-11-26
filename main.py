@@ -1306,7 +1306,7 @@ def main():
                                                 pontuacaoJogo = 0
                                                 #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                                 resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
-                                                st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
+                                                #st.subheader(f'A sua pontuação foi: {pontuacao} ponto(s)')
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                                                 ##st.subheader(str(usuariosLista[contadorUsuario][0]))
                                                 ##np.save(str(username),usuario)
