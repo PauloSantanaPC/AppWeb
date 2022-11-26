@@ -1260,6 +1260,7 @@ def main():
                         usuariosLista[contadorUsuario][6] = 0
                         usuariosLista[contadorUsuario][7] = 0
                         np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                    st.subheader(usuariosLista)
                     
                     # Datas e horários dos jogos
                     for nomeJogo in range(6):
@@ -1310,6 +1311,7 @@ def main():
                                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                                                 ##st.subheader(str(usuariosLista[contadorUsuario][0]))
                                                 ##np.save(str(username),usuario)
+                                            st.subheader(usuariosLista)
 
                                 elif nomeJogo == 1:
                                     #print('')
