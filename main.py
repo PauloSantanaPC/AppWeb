@@ -1264,6 +1264,7 @@ def main():
                 classificacao = classificacaoInicial()
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
+                pontuacaoJogo = 0
                 for contadorUsuario in range(1, len(usuariosLista), 1):
                     #pontuacaoJogo = 0
                     usuariosLista[contadorUsuario][2] = 0
@@ -1319,7 +1320,7 @@ def main():
                                         st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                         classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                                         if not inicioJogo:
-                                            pontuacaoJogo = 0
+                                            #pontuacaoJogo = 0
                                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                                 #pontuacaoJogo = 0
                                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
