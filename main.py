@@ -1134,10 +1134,13 @@ def main():
 
         if username == 'usuarioMestre' and password == 'appBolao':
             #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
-            task = st.sidebar.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
+            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
 
             if task == 'Conexão':
                 st.subheader('Conectado')
+                
+            elif task == 'Testes':
+                st.subheader('Testes')
                 
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
