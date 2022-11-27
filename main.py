@@ -1142,6 +1142,8 @@ def main():
             elif task == 'Testes':
                 st.subheader('Testes')
 
+                opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
+                #opcoes = [0,1,2,3,4]
                 for contadorUsuario in range(1, len(usuariosLista), 1):
                     st.subheader(usuariosLista[contadorUsuario])
                     with st.form(key = 'include_bolao'):
