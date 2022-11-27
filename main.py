@@ -1200,7 +1200,7 @@ def main():
 
                         # Datas e horários dos jogos
                         for nomeJogo in range(6):
-                            with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
+                            with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])+str(contadorUsuario)):
                                 st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
 
                                 # rodada e jogo
