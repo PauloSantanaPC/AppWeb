@@ -1194,7 +1194,7 @@ def main():
                         #-----------------------------------------------------------------------------#
 
                     classificacao = classificacaoInicial()
-
+                    st.subheader(usuariosLista[contadorUsuario][0])
                     for nomeGrupo in range(len(grupos()[:,0])):
                         st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
 
