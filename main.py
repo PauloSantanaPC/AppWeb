@@ -1146,7 +1146,7 @@ def main():
                 #opcoes = [0,1,2,3,4]
                 for contadorUsuario in range(1, len(usuariosLista), 1):
                     st.subheader(usuariosLista[contadorUsuario])
-                    with st.form(key = 'include_bolao'):
+                    with st.form(key = 'includebolao'):
                         apostaBolao = st.selectbox('Selecione a posição que ficará no bolão', options = opcoesBolao, index = 3)
                         botaoBolao = st.form_submit_button(label = 'Apostar')
                     if botaoBolao:# and inicioCopa:
