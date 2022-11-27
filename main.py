@@ -1696,7 +1696,7 @@ def main():
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
                                     
-                                    st.subheader(f'Classificação do Bolão')
+                                    st.subheader(f'Classificação do Bolão - {dataHoraMinutoAtual}')
                                     classificacaoBolao = []
                                     dadosClassificacao = []
                                     for contadorUsuario in range(1, len(usuariosLista), 1):
