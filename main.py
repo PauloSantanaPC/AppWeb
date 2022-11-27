@@ -1773,7 +1773,6 @@ def main():
 
                             else:
                                 with tabs[usuario]:
-                                    #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
                                     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
 
