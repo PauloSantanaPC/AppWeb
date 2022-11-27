@@ -1141,7 +1141,20 @@ def main():
                 
             elif task == 'Testes':
                 st.subheader('Testes')
-                
+
+                for contadorUsuario in range(1, len(usuariosLista), 1):
+                    st.subheader(usuariosLista[contadorUsuario])
+                    with st.form(key = 'include_bolao'):
+                        apostaBolao = st.selectbox('Selecione a posição que ficará no bolão', options = opcoesBolao, index = 3)
+                        botaoBolao = st.form_submit_button(label = 'Apostar')
+                    if botaoBolao:# and inicioCopa:
+                        #usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
+                        usuariosLista[contadorUsuario][8] = opcoes[opcoesBolao.index(apostaBolao)]
+                        np.save(str(usuariosLista[contadorUsuario]),usuariosLista[contadorUsuario])
+                    if usuariosLista[contadorUsuario][8] != '':
+                        st.subheader('Aposta registrada!')
+                        st.write(f'Você vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
+
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
