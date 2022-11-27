@@ -1166,13 +1166,13 @@ def main():
                             apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
                             botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
                         if botaoApostaCampeao:# and inicioCopa:
-                            apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
-                            np.save(str(username),usuario)
-                        if usuario[9] != '':
+                            apostaPodio(usuariosLista[contadorUsuario],apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
+                            np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                        if usuariosLista[contadorUsuario][9] != '':
                             st.subheader('Apostas registradas!')
-                            st.write(f'Aposta campeão: {listaSelecoes()[int(usuario[9])]}')
-                            st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuario[10])]}')
-                            st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuario[11])]}')
+                            st.write(f'Aposta campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][9])]}')
+                            st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][10])]}')
+                            st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][11])]}')
                             
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
