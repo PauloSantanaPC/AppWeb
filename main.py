@@ -1688,7 +1688,7 @@ def main():
                             tabs.append(np.array(usuariosLista)[tab][0])
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
-                        
+                        dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                         opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
@@ -1773,7 +1773,7 @@ def main():
 
                             else:
                                 with tabs[usuario]:
-                                    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+                                    #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
                                     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
 
