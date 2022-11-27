@@ -1157,6 +1157,23 @@ def main():
                         st.subheader('Aposta registrada!')
                         st.write(f'Você vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
 
+                        #-----------------------------------------------------------------------------#
+
+                        st.title('Apostas iniciais - 13:00 20/11/2022')
+                        with st.form(key = 'include_campeao'+str(contadorUsuario)):
+                            apostaCampeao = st.selectbox('Quem será o campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
+                        if botaoApostaCampeao:# and inicioCopa:
+                            apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
+                            np.save(str(username),usuario)
+                        if usuario[9] != '':
+                            st.subheader('Apostas registradas!')
+                            st.write(f'Aposta campeão: {listaSelecoes()[int(usuario[9])]}')
+                            st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuario[10])]}')
+                            st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuario[11])]}')
+                            
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
