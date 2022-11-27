@@ -1173,6 +1173,24 @@ def main():
                             st.write(f'Aposta campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][9])]}')
                             st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][10])]}')
                             st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][11])]}')
+
+                        #-----------------------------------------------------------------------------#
+
+                        for nomeGrupo in range(len(grupos()[:,0])):
+                            st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                            with st.form(key = 'include_aposta_grupo_'+str(grupos()[nomeGrupo][-1])+str(contadorUsuario)):
+                                apostaPrimeiro = st.selectbox('Quem será o primeiro colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                                apostaSegundo  = st.selectbox('Quem será o segundo colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                                botaoApostaGrupos = st.form_submit_button(label = 'Apostar no grupo '+str(grupos()[nomeGrupo][-1]))
+                            if botaoApostaGrupos:# and inicioCopa:
+                                apostaGrupos(usuariosLista[contadorUsuario],nomeGrupo,apostaPrimeiro,apostaSegundo)
+                                np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                            if usuariosLista[contadorUsuario][2*nomeGrupo+12] != '':
+                                st.subheader('Apostas registradas!')
+                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+12])]}')
+                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+13])]}')
+
+                        #-----------------------------------------------------------------------------#
                             
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
