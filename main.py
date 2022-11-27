@@ -1152,7 +1152,7 @@ def main():
                     if botaoBolao:# and inicioCopa:
                         #usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
                         usuariosLista[contadorUsuario][8] = opcoes[opcoesBolao.index(apostaBolao)]
-                        np.save(str(usuariosLista[contadorUsuario]),usuariosLista[contadorUsuario])
+                        np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
                     if usuariosLista[contadorUsuario][8] != '':
                         st.subheader('Aposta registrada!')
                         st.write(f'Você vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
