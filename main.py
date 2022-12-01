@@ -2006,6 +2006,42 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
                                     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
+                                    
+                                    if usuariosLista[usuario][8] != '':
+                                        st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
+                                    
+                                    if np.array(usuariosLista)[usuario][9] != '':
+                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
+                                    else:
+                                        apostaCampeao = 'Não apostou no campeão'
+                                        
+                                    if np.array(usuariosLista)[usuario][10] != '':
+                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]
+                                    else:
+                                        apostaViceCampeao = 'Não apostou no vice-campeão'
+                                        
+                                    if np.array(usuariosLista)[usuario][11] != '':
+                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
+                                    else:
+                                        apostaTerceiroColocado = 'Não apostou no terceiro colocado'
+                                        
+                                    df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
+                                                        ['Fase de grupos','Fase de grupos','Fase de grupos']]),
+                                                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+                                    df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
+                                    st.table(df1)
+
+                                    apostasGrupos = []
+                                    for apostaGrupo in range(12, 28, 2):
+                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                        else:
+                                            apostasGrupos.append(['Não apostou','Não apostou'])
+
+                                    df2 = pd.DataFrame(np.array(apostasGrupos),
+                                                        columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
+                                    df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    st.table(df2)
 
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
@@ -2078,43 +2114,7 @@ def main():
                                                     st.write(f'Jogo {contadorJogo+1}: {grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
                                                 else:
                                                     st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
-                                    
-                                    if usuariosLista[usuario][8] != '':
-                                        st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
-                                    
-                                    if np.array(usuariosLista)[usuario][9] != '':
-                                        apostaCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][9])]
-                                    else:
-                                        apostaCampeao = 'Não apostou no campeão'
-                                        
-                                    if np.array(usuariosLista)[usuario][10] != '':
-                                        apostaViceCampeao = listaSelecoes()[int(np.array(usuariosLista)[usuario][10])]
-                                    else:
-                                        apostaViceCampeao = 'Não apostou no vice-campeão'
-                                        
-                                    if np.array(usuariosLista)[usuario][11] != '':
-                                        apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
-                                    else:
-                                        apostaTerceiroColocado = 'Não apostou no terceiro colocado'
-                                        
-                                    df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
-                                                        ['Fase de grupos','Fase de grupos','Fase de grupos']]),
-                                                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
-                                    st.table(df1)
-
-                                    apostasGrupos = []
-                                    for apostaGrupo in range(12, 28, 2):
-                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                            apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                        else:
-                                            apostasGrupos.append(['Não apostou','Não apostou'])
-
-                                    df2 = pd.DataFrame(np.array(apostasGrupos),
-                                                        columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
-                                    df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
-                                    st.table(df2)
-
+                                                    
                     elif task1 == 'Links externos':
 
                         classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
