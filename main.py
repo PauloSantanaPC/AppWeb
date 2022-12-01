@@ -2030,7 +2030,7 @@ def main():
                                     df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     st.table(df1)
 
-                                    st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
+                                    st.subheader(f'Apostas grupos - {dataHoraMinutoAtual}:')
                                     classificadosGrupos = np.array(['Holanda','Senegal',
                                                                     'Inglaterra','Estados Unidos',
                                                                     'Argentina','Polônia',
@@ -2093,6 +2093,7 @@ def main():
                                     st.table(df2)
                                     st.subheader(f'Apostas dos classificados dos grupos: {pontuacaoGrupos} ponto(s)')
                                     #-------------------------------------------
+                                    st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
                                         for contadorJogo in range(6):
