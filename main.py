@@ -1979,7 +1979,7 @@ def main():
                                         apostasGrupos.append(listaApostasGruposUsuario)
 
                                     colunas = tuple(colunas)
-                                    df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
+                                    dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
                                                                 #np.array(apostasGrupos)[:,grupo][:,colocacao]
                                                                 np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
                                                                 np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
@@ -1991,7 +1991,7 @@ def main():
                                                                 np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
                                                       columns = colunas)
                                     
-                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
+                                    dfa.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
                                                 '1° Grupo A','2° Grupo A',
                                                 '1° Grupo B','2° Grupo B',
                                                 '1° Grupo C','2° Grupo C',
@@ -2000,8 +2000,32 @@ def main():
                                                 '1° Grupo F','2° Grupo F',
                                                 '1° Grupo G','2° Grupo G',
                                                 '1° Grupo H','2° Grupo H']
-                                    st.table(df)
+                                    st.table(dfa)
 
+                                    st.subheader(f'Apostas classificados nos grupos')
+                                    dfb = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
+                                                                #np.array(apostasGrupos)[:,grupo][:,colocacao]
+                                                                np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
+                                                                np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
+                                                                np.array(apostasGrupos)[:,2][:,0],np.array(apostasGrupos)[:,2][:,1], # grupo C
+                                                                np.array(apostasGrupos)[:,3][:,0],np.array(apostasGrupos)[:,3][:,1], # grupo D
+                                                                np.array(apostasGrupos)[:,4][:,0],np.array(apostasGrupos)[:,4][:,1], # grupo E
+                                                                np.array(apostasGrupos)[:,5][:,0],np.array(apostasGrupos)[:,5][:,1], # grupo F
+                                                                np.array(apostasGrupos)[:,6][:,0],np.array(apostasGrupos)[:,6][:,1], # grupo G
+                                                                np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
+                                                      columns = colunas)
+                                    
+                                    dfb.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
+                                                '1° Grupo A','2° Grupo A',
+                                                '1° Grupo B','2° Grupo B',
+                                                '1° Grupo C','2° Grupo C',
+                                                '1° Grupo D','2° Grupo D',
+                                                '1° Grupo E','2° Grupo E',
+                                                '1° Grupo F','2° Grupo F',
+                                                '1° Grupo G','2° Grupo G',
+                                                '1° Grupo H','2° Grupo H']
+                                    st.table(dfb)
+                                    
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
