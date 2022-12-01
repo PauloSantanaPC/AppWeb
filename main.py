@@ -2042,22 +2042,82 @@ def main():
                                                         columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df2)
-                                    
+
+                                    classificadosGrupos = np.array(['Holanda','Senegal',
+                                                                    'Inglaterra','Estados Unidos',
+                                                                    'Argentina','Polônia',
+                                                                    'França','Austrália',
+                                                                    'Japão','Espanha',
+                                                                    'Marrocos','Croácia',
+                                                                    '','',
+                                                                    '',''])
+
                                     pontuacaoApostasGrupos = []
+                                    pontuacaoGrupos = 0
                                     for apostaGrupo in range(12, 28, 2):
+                                    #for contador in range(0, len(classificadosGrupos), 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                            #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                            pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],0,listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])],0])
+                                        #if apostasGrupos[contador] != '':
+                                            pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                            #pontuacaoApostasGrupos.append([apostasGrupos[contador],apostasGrupos[contador+1]])
+                                            if listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([30,30])
+                                                pontuacaoGrupos += 60
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([30,0])
+                                                pontuacaoGrupos += 30
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([21,21])
+                                                pontuacaoGrupos += 42
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([21,0])
+                                                pontuacaoGrupos += 21
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,30])
+                                                pontuacaoGrupos += 30
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,0])
+                                                pontuacaoGrupos += 0
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([30,0])
+                                                pontuacaoGrupos += 30
                                         else:
-                                            #apostasGrupos.append(['Não apostou','Não apostou'])
-                                            pontuacaoApostasGrupos.append(['Não apostou','Não apostou',0,0])
+                                            pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
+                                            pontuacaoApostasGrupos.append([0,0])
 
                                     df3 = pd.DataFrame(np.array(pontuacaoApostasGrupos),
-                                                        #columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
-                                                       columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
-                                    df3.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                                       columns = ('Primeiro colocado','Segundo colocado'))
+                                    df3.index = ['Grupo A - aposta',
+                                                 'Grupo A - pontuação',
+                                                 'Grupo B - aposta',
+                                                 'Grupo B - pontuação',
+                                                 'Grupo C - aposta',
+                                                 'Grupo C - pontuação',
+                                                 'Grupo D - aposta',
+                                                 'Grupo D - pontuação',
+                                                 'Grupo E - aposta',
+                                                 'Grupo E - pontuação',
+                                                 'Grupo F - aposta',
+                                                 'Grupo F - pontuação',
+                                                 'Grupo G - aposta',
+                                                 'Grupo G - pontuação',
+                                                 'Grupo H - aposta',
+                                                 'Grupo H - pontuação']
                                     st.table(df3)
-                                    
+                                    st.table(f'Pontuação = {pontuacaoGrupos}')
+                                    #-------------------------------------------
+                                    #pontuacaoApostasGrupos = []
+                                    #for apostaGrupo in range(12, 28, 2):
+                                        #if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            #pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],0,listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])],0])
+                                        #else:
+                                            #pontuacaoApostasGrupos.append(['Não apostou','Não apostou',0,0])
+
+                                    #df3 = pd.DataFrame(np.array(pontuacaoApostasGrupos),
+                                                       #columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
+                                    #df3.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    #st.table(df3)
+                                    #-------------------------------------------
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
                                         for contadorJogo in range(6):
