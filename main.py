@@ -2104,7 +2104,7 @@ def main():
                                                  'Grupo H - aposta',
                                                  'Grupo H - pontuação']
                                     st.table(df3)
-                                    st.table(f'Pontuação = {pontuacaoGrupos}')
+                                    st.subheader(f'Pontuação = {pontuacaoGrupos}')
                                     #-------------------------------------------
                                     #pontuacaoApostasGrupos = []
                                     #for apostaGrupo in range(12, 28, 2):
