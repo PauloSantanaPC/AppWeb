@@ -2005,7 +2005,6 @@ def main():
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
-                                    st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
@@ -2031,6 +2030,7 @@ def main():
                                     df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     st.table(df1)
 
+                                    st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
                                     apostasGrupos = []
                                     for apostaGrupo in range(12, 28, 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
