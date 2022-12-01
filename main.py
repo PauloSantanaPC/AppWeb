@@ -2042,7 +2042,21 @@ def main():
                                                         columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     df2.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df2)
+                                    
+                                    pontuacaoApostasGrupos = []
+                                    for apostaGrupo in range(12, 28, 2):
+                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                            pontuacaoApostasGrupos.append([0,0])
+                                        else:
+                                            #apostasGrupos.append(['Não apostou','Não apostou'])
+                                            pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
 
+                                    df3 = pd.DataFrame(np.array(pontuacaoApostasGrupos),
+                                                        columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
+                                    df3.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
+                                    st.table(df3)
+                                    
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
                                         for contadorJogo in range(6):
