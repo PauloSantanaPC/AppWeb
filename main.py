@@ -2047,14 +2047,14 @@ def main():
                                     for apostaGrupo in range(12, 28, 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
                                             #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                            pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])],0,0])
+                                            pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],0,listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])],0])
                                         else:
                                             #apostasGrupos.append(['Não apostou','Não apostou'])
                                             pontuacaoApostasGrupos.append(['Não apostou','Não apostou',0,0])
 
                                     df3 = pd.DataFrame(np.array(pontuacaoApostasGrupos),
                                                         #columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
-                                                       columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação primeiro colocado',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação segundo colocado'))
+                                                       columns = (f'Primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação primeiro colocado - {np.array(usuariosLista)[usuario][0]}',f'Segundo colocado - {np.array(usuariosLista)[usuario][0]}',f'Pontuação segundo colocado - {np.array(usuariosLista)[usuario][0]}'))
                                     df3.index = ['Grupo A','Grupo B','Grupo C','Grupo D','Grupo E','Grupo F','Grupo G','Grupo H']
                                     st.table(df3)
                                     
