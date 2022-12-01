@@ -2042,11 +2042,8 @@ def main():
                                     pontuacaoApostasGrupos = []
                                     pontuacaoGrupos = 0
                                     for apostaGrupo in range(12, 28, 2):
-                                    #for contador in range(0, len(classificadosGrupos), 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                        #if apostasGrupos[contador] != '':
                                             pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                            #pontuacaoApostasGrupos.append([apostasGrupos[contador],apostasGrupos[contador+1]])
                                             if listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                 pontuacaoApostasGrupos.append([30,30])
                                                 pontuacaoGrupos += 60
@@ -2093,6 +2090,7 @@ def main():
                                     st.table(df2)
                                     st.subheader(f'Apostas dos classificados dos grupos: {pontuacaoGrupos} ponto(s)')
                                     #-------------------------------------------
+                                    
                                     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
                                     for contadorGrupo in range(8):
                                         st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
