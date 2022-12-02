@@ -1950,13 +1950,10 @@ def main():
                                 st.subheader('Apostas INVÁLIDAS!')
                                 st.write(f'Tente realizar as apostas novamente.')
                             else:
-                                st.write(f'Certo')
                                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
                                 usuario[126+3*nomeJogo] = apostaOitavasJogo1
                                 #usuario[126+3*nomeJogo] = opcoesOitavasJogo1.index(apostaOitavasJogo1)
-                                ##st.write(f'Certo de novo 1 - {apostaOitavasJogo1}')
-                                ##st.write(f'Certo de novo 2 - {opcoesOitavasJogo1.index(apostaOitavasJogo1)}')
-                                ##np.save(str(username),usuario)
+                                np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
                             st.write(f'Você NÃO pode realizar as apostas.')
