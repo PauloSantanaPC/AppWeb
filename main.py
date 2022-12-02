@@ -1962,7 +1962,7 @@ def main():
                         if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
                             st.subheader('Aposta registrada!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
-                            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+                            st.write(f'Aposta classificação: {opcoesOitavasJogo1.index(usuario[126+3*nomeJogo])}')
                         if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
