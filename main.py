@@ -1612,9 +1612,9 @@ def main():
                 #usuario.append(faseEliminatorias)
                 #np.append(usuario, 32*[''])
                 for contadorUsuarios in range(len(usuariosLista)):
-                    np.append(usuariosLista[contadorUsuarios], 32*[''])
+                    #np.append(usuariosLista[contadorUsuarios], 32*[''])
                     st.subheader(usuariosLista[contadorUsuarios][0])
-                    st.subheader(type(usuariosLista[contadorUsuarios]))
+                    st.subheader(len(usuariosLista[contadorUsuarios]))
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
