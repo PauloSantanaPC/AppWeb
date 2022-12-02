@@ -2035,7 +2035,7 @@ def main():
                                     st.subheader(apostadorPontuacaoApostasGrupos)
                                     st.subheader('Apostador pontuação grupos')
                                     st.subheader(apostadorPontuacaoApostasGrupos[0])
-                                    st.subheader(apostadorPontuacaoApostasGrupos[:,0])
+                                    st.subheader(np.array(apostadorPontuacaoApostasGrupos[:,0]))
                                     dfb = pd.DataFrame(np.array([np.array(apostadorPontuacaoGrupos),
                                                                  #np.array(apostasGrupos)[:,0][:,0],np.array([apostadorPontuacaoApostasGrupos[0]]),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array([0,0,0,0,0,0]),
