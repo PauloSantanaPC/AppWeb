@@ -1606,6 +1606,14 @@ def main():
 
             elif task == 'Usuários':
                 st.subheader('Usuários')
+
+                faseEliminatorias = 32*['']
+                st.subheader(faseEliminatorias)
+                #usuario.append(faseEliminatorias)
+                #np.append(usuario, 32*[''])
+                st.subheader(type(usuario))
+                st.subheader(usuario)
+                
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
                 st.subheader(usuariosLista)
@@ -1915,13 +1923,6 @@ def main():
                     elif task1 == 'Apostas nas fases eliminatórias':
                         st.title('Apostas nas fases eliminatórias')
                         
-                        faseEliminatorias = 32*['']
-                        st.subheader(faseEliminatorias)
-                        #usuario.append(faseEliminatorias)
-                        np.append(usuario, 32*[''])
-                        st.subheader(type(usuario))
-                        st.subheader(usuario)
-
                         st.header('Oitavas de final')
                         #-----------------------------
                         opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
