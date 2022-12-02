@@ -1922,8 +1922,8 @@ def main():
                             apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo1[0], min_value = 0, max_value = 10, step = 1, format = '%d')
                             apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo1[1], min_value = 0, max_value = 10, step = 1, format = '%d')
                             botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
-                        if botaoApostaOitavasJogo1:# and inicioCopa:
-                            st.write(f'Aqui')
+                        if botaoApostaOitavasJogo1 and inicioCopa:
+                            #st.write(f'Aqui')
                             if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2:
                                 st.subheader('Apostas NÃO registradas!')
                                 st.write(f'Tente realizar as apostas novamente.')
@@ -1934,7 +1934,9 @@ def main():
                                 st.write(f'Certo')
                                 #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
                                 #np.save(str(username),usuario)
-                                
+                        elif botaoApostaOitavasJogo1 and not inicioCopa:
+                            st.subheader('O jogo já começou!')
+                            st.write(f'Você NÃO pode realizar as apostas.')
                             #------------------------------------
                         #if usuario[2*nomeGrupo+12] != '':
                             #st.subheader('Apostas registradas!')
