@@ -1922,6 +1922,8 @@ def main():
                         st.title('Apostas nas fases eliminatórias')
                         
                         st.header('Oitavas de final')
+                        st.subheader(usuario[0])
+                        st.subheader(len(usuario))
                         #-----------------------------
                         opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                         #-----------------------------
