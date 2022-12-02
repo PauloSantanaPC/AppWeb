@@ -1953,7 +1953,8 @@ def main():
                             else:
                                 st.write(f'Certo')
                                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
-                                usuario[126+3*nomeJogo] = apostasOitavasJogo1
+                                #usuario[126+3*nomeJogo] = apostasOitavasJogo1
+                                st.write(f'Certo de novo - {apostasOitavasJogo1}')
                                 np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
