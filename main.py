@@ -1951,7 +1951,6 @@ def main():
                                 st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write(f'Certo')
-                                #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
                                 usuario[124+2*nomeJogo], usuario[125+2*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
                                 np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
@@ -1960,9 +1959,11 @@ def main():
                         if usuario[124+2*nomeJogo] != '':
                             st.subheader('Aposta registrada!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
+                            st.write(f'Aposta classificação: {apostaOitavasJogo1}')
                         if usuarioMestre[124+2*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
+                            st.write(f'Seleção classificada: ... ')
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
