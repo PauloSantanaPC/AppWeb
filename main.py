@@ -2026,15 +2026,15 @@ def main():
                                                     pontuacaoApostasGrupos.append([30,0])
                                                     pontuacaoGrupos += 30
                                             else:
-                                                pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
+                                                #pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
 
                                     st.subheader('Apostas grupos')
                                     st.subheader(apostadorPontuacaoApostasGrupos)
-                                    st.subheader('Pontuação grupos')
-                                    st.subheader(apostadorPontuacaoGrupos)
+                                    #st.subheader('Pontuação grupos')
+                                    #st.subheader(apostadorPontuacaoGrupos)
                                     dfb = pd.DataFrame(np.array([np.array(apostadorPontuacaoGrupos),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array([0,0,0,0,0,0]),
                                                                  np.array(apostasGrupos)[:,0][:,1],np.array([0,0,0,0,0,0]), # grupo A
