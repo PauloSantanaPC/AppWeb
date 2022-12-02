@@ -2048,22 +2048,22 @@ def main():
                                                                  np.array(apostasGrupos)[:,7][:,1],np.array([0,0,0,0,0,0])]), # grupo H
                                                       columns = colunas)
                                     dfb.index = ['Pontuação total',
-                                                 '1° grupo A','Pontuação 1° grupo A',
-                                                 '2° Grupo A','Pontuação 1° grupo A',
-                                                 '1° grupo B','Pontuação 1° grupo B',
-                                                 '2° Grupo B','Pontuação 1° grupo B',
-                                                 '1° grupo C','Pontuação 1° grupo C',
-                                                 '2° Grupo C','Pontuação 1° grupo C',
-                                                 '1° grupo D','Pontuação 1° grupo D',
-                                                 '2° Grupo D','Pontuação 1° grupo D',
-                                                 '1° grupo E','Pontuação 1° grupo E',
-                                                 '2° Grupo E','Pontuação 1° grupo E',
-                                                 '1° grupo F','Pontuação 1° grupo F',
-                                                 '2° Grupo F','Pontuação 1° grupo F',
-                                                 '1° grupo G','Pontuação 1° grupo G',
-                                                 '2° Grupo G','Pontuação 1° grupo G',
-                                                 '1° grupo H','Pontuação 1° grupo H',
-                                                 '2° Grupo H','Pontuação 1° grupo H']
+                                                 '1° grupo A','1° grupo A - pontuação',
+                                                 '2° Grupo A','2° grupo A - pontuação',
+                                                 '1° grupo B','1° grupo B - pontuação',
+                                                 '2° Grupo B','2° grupo B - pontuação',
+                                                 '1° grupo C','1° grupo C - pontuação',
+                                                 '2° Grupo C','2° grupo C - pontuação',
+                                                 '1° grupo D','1° grupo D - pontuação',
+                                                 '2° Grupo D','2° grupo D - pontuação',
+                                                 '1° grupo E','1° grupo E - pontuação',
+                                                 '2° Grupo E','2° grupo E - pontuação',
+                                                 '1° grupo F','1° grupo F - pontuação',
+                                                 '2° Grupo F','2° grupo F - pontuação',
+                                                 '1° grupo G','1° grupo G - pontuação',
+                                                 '2° Grupo G','2° grupo G - pontuação',
+                                                 '1° grupo H','1° grupo H - pontuação',
+                                                 '2° Grupo H','2° grupo H - pontuação']
                                     st.table(dfb)
                                     
                                     #dfb = pd.DataFrame(np.array(pontuacaoApostasGrupos),
