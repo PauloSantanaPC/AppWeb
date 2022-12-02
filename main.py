@@ -1607,11 +1607,12 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
-                faseEliminatorias = 32*['']
-                st.subheader(faseEliminatorias)
+                #faseEliminatorias = 32*['']
+                #st.subheader(faseEliminatorias)
                 #usuario.append(faseEliminatorias)
                 #np.append(usuario, 32*[''])
                 for contadorUsuarios in range(len(usuariosLista)):
+                    np.append(usuariosLista[contadorUsuarios], 32*[''])
                     st.subheader(usuariosLista[contadorUsuarios][0])
                     st.subheader(type(usuariosLista[contadorUsuarios]))
                 
