@@ -1918,6 +1918,7 @@ def main():
                         faseEliminatorias = 32*['']
                         st.subheader(faseEliminatorias)
                         #usuario.append(faseEliminatorias)
+                        st.subheader(type(usuario))
                         st.subheader(usuario)
 
                         st.header('Oitavas de final')
