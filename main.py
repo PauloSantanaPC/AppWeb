@@ -1946,7 +1946,6 @@ def main():
                             apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo1[1], min_value = 0, max_value = 10, step = 1, format = '%d')
                             botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
                         if botaoApostaOitavasJogo1 and horarioOitavasJogo1:
-                            #st.write(f'Aqui')
                             if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
                                 st.subheader('Apostas INVÁLIDAS!')
                                 st.write(f'Tente realizar as apostas novamente.')
@@ -1954,7 +1953,8 @@ def main():
                                 st.write(f'Certo')
                                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
                                 #usuario[126+3*nomeJogo] = apostaOitavasJogo1
-                                st.write(f'Certo de novo - {apostaOitavasJogo1}')
+                                st.write(f'Certo de novo 1 - {apostaOitavasJogo1}')
+                                st.write(f'Certo de novo 2 - {opcoesOitavasJogo1.index(apostaOitavasJogo1)}')
                                 np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
