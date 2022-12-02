@@ -2003,7 +2003,7 @@ def main():
                                         pontuacaoGrupos = 0
                                         for apostaGrupo in range(12, 28, 2):
                                             if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
-                                                pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
+                                                #pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
                                                 if listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                     pontuacaoApostasGrupos.append([30,30])
                                                     pontuacaoGrupos += 60
