@@ -1923,8 +1923,8 @@ def main():
                         st.title('Apostas nas fases eliminatórias')
                         
                         st.header('Oitavas de final')
-                        st.subheader(usuario[0])
-                        st.subheader(len(usuario))
+                        #st.subheader(usuario[0])
+                        #st.subheader(len(usuario))
                         #-----------------------------
                         opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                         #-----------------------------
@@ -1937,6 +1937,7 @@ def main():
                         horarioOitavasJogo7 = horarioJogo(2022,12,3,12,0)
                         horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
                         #-----------------------------
+                        nomeJogo = 0
                         st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
                         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo1'):
                             apostaOitavasJogo1 = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo1, index = 0)
@@ -1951,11 +1952,11 @@ def main():
                             else:
                                 st.write(f'Certo')
                                 #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
-                                #np.save(str(username),usuario)
+                                usuario[124+2*nomeJogo], usuario[125+2*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
+                                np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
                             st.write(f'Você NÃO pode realizar as apostas.')
-                        nomeJogo = 0
                         if usuario[124+2*nomeJogo] != '':
                             st.subheader('Aposta registrada!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
