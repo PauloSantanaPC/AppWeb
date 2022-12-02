@@ -1929,7 +1929,7 @@ def main():
                         
                         st.header('Oitavas de final')
                         #-----------------------------
-                        #opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
+                        opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                         opcoesOitavas = ['Holanda','Estados Unidos','Argentina','Austrália','Japão','Croácia','1G','2H','Inglaterra','Senegal','França','Polônia','Marrocos','Espanha','1H','2G']
                         #-----------------------------
                         horarioOitavasJogo1 = horarioJogo(2022,12,3,12,0)
@@ -1942,6 +1942,7 @@ def main():
                         horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
                         #-----------------------------
                         nomeJogo = 0
+                        st.subheader('opcoesOitavasJogo+str(nomeJogo+1)')
                         st.subheader(opcoesOitavasJogo+str(nomeJogo+1))
                         #opcoesOitavasJogo+str(nomeJogo+1) = [opcoesOitavas[2*nomeJogo],opcoesOitavas[2*nomeJogo+1]]
                         #st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
