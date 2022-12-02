@@ -1981,9 +1981,6 @@ def main():
                                         
                                     #--------------------------------
 
-                                    st.subheader(f'Apostas iniciais')
-                                    
-                                    st.subheader(f'Apostas classificados nos grupos')
                                     classificadosGrupos = np.array(['Holanda','Senegal',
                                                                     'Inglaterra','Estados Unidos',
                                                                     'Argentina','Polônia',
@@ -2029,7 +2026,9 @@ def main():
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
                                     
                                     #-------------------------------------------
-                                        
+                                    
+
+                                    st.subheader(f'Apostas campeão, final e terceiro colocado')
                                     colunas = tuple(colunas)
                                     dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,]),
                                                       columns = colunas)
@@ -2038,11 +2037,7 @@ def main():
 
                                     #-------------------------------------------
                                     
-                                    #st.subheader('Apostas grupos')
-                                    #st.subheader(apostadorPontuacaoApostasGrupos)
-                                    #st.subheader('Apostador pontuação grupos')
-                                    #st.subheader(apostadorPontuacaoApostasGrupos[0])
-                                    #st.subheader(np.array(apostadorPontuacaoApostasGrupos)[:,0][:,0]) # grupo A primeir colocado
+                                    st.subheader(f'Apostas classificados nos grupos')
                                     dfb = pd.DataFrame(np.array([np.array(apostadorPontuacaoGrupos),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array(np.array(apostadorPontuacaoApostasGrupos)[:,0][:,0]),
                                                                  np.array(apostasGrupos)[:,0][:,1],np.array(np.array(apostadorPontuacaoApostasGrupos)[:,0][:,1]), # grupo A
