@@ -1915,26 +1915,37 @@ def main():
                         st.title('Apostas nas fases eliminatórias')
 
                         st.header('Oitavas de final')
+                        #-----------------------------
+                        opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
+                        #-----------------------------
+                        horarioOitavasJogo1 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo2 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo3 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo4 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo5 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo6 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo7 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
+                        #-----------------------------
                         st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
                         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo1'):
-                            opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                             apostaOitavasJogo1 = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo1, index = 0)
                             apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo1[0], min_value = 0, max_value = 10, step = 1, format = '%d')
                             apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo1[1], min_value = 0, max_value = 10, step = 1, format = '%d')
                             botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
-                        if botaoApostaOitavasJogo1 and horarioJogo(2022,12,2,0,0):
+                        if botaoApostaOitavasJogo1 and horarioOitavasJogo1:
                             #st.write(f'Aqui')
-                            if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2:
+                            if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
                                 st.subheader('Apostas NÃO registradas!')
                                 st.write(f'Tente realizar as apostas novamente.')
-                            elif apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                st.subheader('Apostas NÃO registradas!')
-                                st.write(f'Tente realizar as apostas novamente.')
+                            #elif apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
+                                #st.subheader('Apostas NÃO registradas!')
+                                #st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write(f'Certo')
                                 #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
                                 #np.save(str(username),usuario)
-                        elif botaoApostaOitavasJogo1 and not horarioJogo(2022,12,2,0,0):
+                        elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
                             st.write(f'Você NÃO pode realizar as apostas.')
                             #------------------------------------
