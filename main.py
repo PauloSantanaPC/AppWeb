@@ -1912,7 +1912,23 @@ def main():
                             st.table(df)
 
                     elif task1 == 'Apostas nas fases eliminatórias':
-                        st.header('Apostas nas fases eliminatórias')
+                        #st.header('Apostas nas fases eliminatórias')
+                        st.title('Apostas nas fases eliminatórias')
+                        
+                        st.header('Oitavas de final')
+                        st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                        with st.form(key = 'include_aposta_eliminatorias_oitavas'):
+                            apostaPrimeiro = st.selectbox('Quem será o primeiro colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                            apostaSegundo  = st.selectbox('Quem será o segundo colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                            botaoApostaGrupos = st.form_submit_button(label = 'Apostar no grupo '+str(grupos()[nomeGrupo][-1]))
+                        if botaoApostaGrupos:# and inicioCopa:
+                            st.write(f'Aqui')
+                            #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
+                            #np.save(str(username),usuario)
+                        if usuario[2*nomeGrupo+12] != '':
+                            st.subheader('Apostas registradas!')
+                            st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+12])]}')
+                            st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+13])]}')
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
