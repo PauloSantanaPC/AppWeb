@@ -1922,6 +1922,14 @@ def main():
                             botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
                         if botaoApostaOitavasJogo1:# and inicioCopa:
                             st.write(f'Aqui')
+                            apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo1[0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo1[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            botaoOitavasJogo1 = st.form_submit_button(label = f'Apostar no jogo {nomeJogo+1}')
+                            if botaoOitavasJogo1:# and inicioJogo:
+                                st.write(f'Aqui')
+                                #fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,aposta_selecao_3,aposta_selecao_4)
+                                #np.save(str(username),usuario)
+                            #inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                             #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
                             #np.save(str(username),usuario)
                         #if usuario[2*nomeGrupo+12] != '':
