@@ -1952,7 +1952,7 @@ def main():
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
                         if usuarioMestre[124+2*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
-                            st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1}')
+                            st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
