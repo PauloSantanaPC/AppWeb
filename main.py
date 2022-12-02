@@ -1607,14 +1607,10 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
-                #faseEliminatorias = 32*['']
-                #st.subheader(faseEliminatorias)
-                #usuario.append(faseEliminatorias)
-                #np.append(usuario, 32*[''])
-                for contadorUsuarios in range(len(usuariosLista)):
-                    usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
-                    st.subheader(usuariosLista[contadorUsuarios][0])
-                    st.subheader(len(usuariosLista[contadorUsuarios]))
+                ##for contadorUsuarios in range(len(usuariosLista)):
+                    ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
+                    ##st.subheader(usuariosLista[contadorUsuarios][0])
+                    ##st.subheader(len(usuariosLista[contadorUsuarios]))
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
