@@ -2317,7 +2317,8 @@ def main():
 
                 elif task == 'Outros':
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
-
+                    usuario5 = np.load('usuario5.npy')
+                    st.header(usuario5)
             else:
                 st.error('Usuário/senha inválidos')
             
