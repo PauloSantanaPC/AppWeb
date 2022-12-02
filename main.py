@@ -1612,7 +1612,7 @@ def main():
                 #usuario.append(faseEliminatorias)
                 #np.append(usuario, 32*[''])
                 for contadorUsuarios in range(len(usuariosLista)):
-                    #np.append(usuariosLista[contadorUsuarios], 32*[''])
+                    usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
                     st.subheader(usuariosLista[contadorUsuarios][0])
                     st.subheader(len(usuariosLista[contadorUsuarios]))
                 
