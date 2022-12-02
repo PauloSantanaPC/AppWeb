@@ -1952,21 +1952,21 @@ def main():
                             else:
                                 st.write(f'Certo')
                                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
-                                #usuario[126+3*nomeJogo] = apostaOitavasJogo1
-                                st.write(f'Certo de novo 1 - {apostaOitavasJogo1}')
-                                st.write(f'Certo de novo 2 - {opcoesOitavasJogo1.index(apostaOitavasJogo1)}')
+                                usuario[126+3*nomeJogo] = opcoesOitavasJogo1.index(apostaOitavasJogo1)
+                                #st.write(f'Certo de novo 1 - {apostaOitavasJogo1}')
+                                #st.write(f'Certo de novo 2 - {opcoesOitavasJogo1.index(apostaOitavasJogo1)}')
                                 np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
                             st.write(f'Você NÃO pode realizar as apostas.')
-                        if usuario[124+2*nomeJogo] != '':
+                        if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
                             st.subheader('Aposta registrada!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
                             st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-                        if usuarioMestre[124+2*nomeJogo] != '':
+                        if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
-                            st.write(f'Seleção classificada: ... ')
+                            st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
