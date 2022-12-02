@@ -1960,11 +1960,11 @@ def main():
                         #-----------------------------
                         nomeJogo = 0
                         st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][0]}')
-                        #with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
-                            #apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo+str(nomeJogo+1), index = 0)
-                            #apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[0], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            #apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            #botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
+                        with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
+                            apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
+                            apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
                         #if botaoApostaOitavasJogo and horarioOitavasJogo+str(nomeJogo+1):
                             #if apostaOitavasJogo == opcoesOitavasJogo+str(nomeJogo+1)[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo+str(nomeJogo+1) == opcoesOitavasJogo+str(nomeJogo+1)[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
                                 #st.subheader('Apostas INVÁLIDAS!')
