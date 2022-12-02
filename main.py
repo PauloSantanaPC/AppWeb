@@ -1942,32 +1942,33 @@ def main():
                         horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
                         #-----------------------------
                         nomeJogo = 0
-                        opcoesOitavasJogo+str(nomeJogo+1) = [opcoesOitavas[2*nomeJogo],opcoesOitavas[2*nomeJogo+1]]
-                        st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
-                        with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
-                            apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo+str(nomeJogo+1), index = 0)
-                            apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[0], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
-                        if botaoApostaOitavasJogo and horarioOitavasJogo+str(nomeJogo+1):
-                            if apostaOitavasJogo == opcoesOitavasJogo+str(nomeJogo+1)[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo+str(nomeJogo+1) == opcoesOitavasJogo+str(nomeJogo+1)[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                st.subheader('Apostas INVÁLIDAS!')
-                                st.write(f'Tente realizar as apostas novamente.')
-                            else:
-                                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
-                                usuario[126+3*nomeJogo] = apostaOitavasJogo+str(nomeJogo+1)
-                                np.save(str(username),usuario)
-                        elif botaoApostaOitavasJogo and not horarioOitavasJogo+str(nomeJogo+1):
-                            st.subheader('O jogo já começou!')
-                            st.write(f'Você NÃO pode realizar as apostas.')
-                        if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
-                            st.subheader('Aposta registrada!')
-                            st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
-                            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-                        if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
-                            st.subheader('Fim de jogo!')
-                            st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
-                            st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+                        st.subheader(opcoesOitavasJogo+str(nomeJogo+1))
+                        #opcoesOitavasJogo+str(nomeJogo+1) = [opcoesOitavas[2*nomeJogo],opcoesOitavas[2*nomeJogo+1]]
+                        #st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
+                        #with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
+                            #apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo+str(nomeJogo+1), index = 0)
+                            #apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            #apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            #botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
+                        #if botaoApostaOitavasJogo and horarioOitavasJogo+str(nomeJogo+1):
+                            #if apostaOitavasJogo == opcoesOitavasJogo+str(nomeJogo+1)[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo+str(nomeJogo+1) == opcoesOitavasJogo+str(nomeJogo+1)[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
+                                #st.subheader('Apostas INVÁLIDAS!')
+                                #st.write(f'Tente realizar as apostas novamente.')
+                            #else:
+                                #usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
+                                #usuario[126+3*nomeJogo] = apostaOitavasJogo+str(nomeJogo+1)
+                                #np.save(str(username),usuario)
+                        #elif botaoApostaOitavasJogo and not horarioOitavasJogo+str(nomeJogo+1):
+                            #st.subheader('O jogo já começou!')
+                            #st.write(f'Você NÃO pode realizar as apostas.')
+                        #if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+                            #st.subheader('Aposta registrada!')
+                            #st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
+                            #st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+                        #if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
+                            #st.subheader('Fim de jogo!')
+                            #st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
+                            #st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
 
                             #for contadorUsuario in range(1, len(usuariosLista), 1):
                                 #pontuacaoJogo = 0
