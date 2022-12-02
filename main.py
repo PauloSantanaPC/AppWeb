@@ -2074,8 +2074,8 @@ def main():
                                                                     'França','Austrália',
                                                                     'Japão','Espanha',
                                                                     'Marrocos','Croácia',
-                                                                    '','',
-                                                                    '',''])
+                                                                    'Brasil','Suíça',
+                                                                    'Portugal','Coreia do Sul'])
                                     
                                     apostadorPontuacaoApostasGrupos = []
                                     apostadorPontuacaoGrupos = []
