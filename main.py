@@ -2029,7 +2029,7 @@ def main():
                                             pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                             pontuacaoApostasGrupos.append([0,0])
                                             
-                                    dfb = pd.DataFrame(np.array([np.array([0,0,0,0,0,0])
+                                    dfb = pd.DataFrame(np.array([np.array([0,0,0,0,0,0]),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
                                                                  np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
                                                                  np.array(apostasGrupos)[:,2][:,0],np.array(apostasGrupos)[:,2][:,1], # grupo C
