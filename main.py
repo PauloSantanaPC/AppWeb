@@ -1934,11 +1934,11 @@ def main():
                         opcoesOitavas1 = ['Holanda','Estados Unidos']
                         opcoesOitavas2 = ['Argentina','Austrália']
                         opcoesOitavas3 = ['Japão','Croácia']
-                        opcoesOitavas4 = ['1G','Coreia do Sul']
+                        opcoesOitavas4 = ['Brasil','Coreia do Sul']
                         opcoesOitavas5 = ['Inglaterra','Senegal']
                         opcoesOitavas6 = ['França','Polônia']
                         opcoesOitavas7 = ['Marrocos','Espanha']
-                        opcoesOitavas8 = ['Portugal','2G']
+                        opcoesOitavas8 = ['Portugal','Suíça']
                         opcoesOitavas  = [opcoesOitavas1,
                                           opcoesOitavas2,
                                           opcoesOitavas3,
@@ -1965,7 +1965,6 @@ def main():
                                            horarioOitavas7,
                                            horarioOitavas8]
                         #-----------------------------
-                        #nomeJogo = 0
                         for nomeJogo in range(8):
                             st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]}')
                             with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
