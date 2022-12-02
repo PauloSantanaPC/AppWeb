@@ -1611,14 +1611,14 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
-                #usuario5 = np.load('usuario5.npy')
-                #st.header(usuario5[0])
-                #st.header(usuario5)
-                for contadorUsuarios in range(len(usuariosLista)):
-                    usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 48*[''])
-                    st.subheader(usuariosLista[contadorUsuarios][0])
-                    st.subheader(len(usuariosLista[contadorUsuarios]))
-                    np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
+                ##usuario5 = np.load('usuario5.npy')
+                ##st.header(usuario5[0])
+                ##st.header(usuario5)
+                #for contadorUsuarios in range(len(usuariosLista)):
+                    #usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 48*[''])
+                    #st.subheader(usuariosLista[contadorUsuarios][0])
+                    #st.subheader(len(usuariosLista[contadorUsuarios]))
+                    #np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
@@ -1966,14 +1966,14 @@ def main():
                                            horarioOitavas8]
                         #-----------------------------
                         nomeJogo = 0
-                        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][0]}')
+                        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]}')
                         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
                             apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
                             apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
                             apostaOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
                             botaoApostaOitavas = st.form_submit_button(label = 'Apostar')
                         if botaoApostaOitavas and horarioOitavas[nomeJogo]:
-                            if apostaOitavas == opcoesOitavas[nomeJogo+1][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas[nomeJogo+1] == opcoesOitavas[nomeJogo+1][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
+                            if apostaOitavas == opcoesOitavas[nomeJogo][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas[nomeJogo] == opcoesOitavas[nomeJogo][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
                                 st.subheader('Apostas INVÁLIDAS!')
                                 st.write(f'Tente realizar as apostas novamente.')
                             else:
