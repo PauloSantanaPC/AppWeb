@@ -1981,17 +1981,17 @@ def main():
                                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
                                 usuario[126+3*nomeJogo] = apostaOitavas
                                 np.save(str(username),usuario)
-                        #elif botaoApostaOitavasJogo and not horarioOitavasJogo+str(nomeJogo+1):
-                            #st.subheader('O jogo já começou!')
-                            #st.write(f'Você NÃO pode realizar as apostas.')
-                        #if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
-                            #st.subheader('Aposta registrada!')
-                            #st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
-                            #st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-                        #if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
-                            #st.subheader('Fim de jogo!')
-                            #st.write(f'{opcoesOitavasJogo+str(nomeJogo+1)[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo+str(nomeJogo+1)[1]}')
-                            #st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+                        elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
+                            st.subheader('O jogo já começou!')
+                            st.write(f'Você NÃO pode realizar as apostas.')
+                        if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+                            st.subheader('Aposta registrada!')
+                            st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+                        if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                            st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
 
                             #for contadorUsuario in range(1, len(usuariosLista), 1):
                                 #pontuacaoJogo = 0
