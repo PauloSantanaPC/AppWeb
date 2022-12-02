@@ -1943,7 +1943,7 @@ def main():
                         #-----------------------------
                         nomeJogo = 0
                         st.subheader('opcoesOitavasJogo+str(nomeJogo+1)')
-                        st.subheader(opcoesOitavasJogo+str(nomeJogo+1))
+                        st.subheader(opcoesOitavas+str(Jogo)+str(nomeJogo+1))
                         #opcoesOitavasJogo+str(nomeJogo+1) = [opcoesOitavas[2*nomeJogo],opcoesOitavas[2*nomeJogo+1]]
                         #st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
                         #with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
