@@ -1135,7 +1135,7 @@ def main():
 
         if username == 'usuarioMestre' and password == 'appBolao':
             #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
-            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
+            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Fase Eliminatórias','Usuários'])
 
             if task == 'Conexão':
                 st.subheader('Conectado')
@@ -1604,6 +1604,10 @@ def main():
                 df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
 
+
+            elif task == 'Fase Eliminatórias':
+                st.title('Fase Eliminatórias')
+
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
@@ -1965,6 +1969,12 @@ def main():
                             st.subheader('Fim de jogo!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
                             st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+
+                            #for contadorUsuario in range(1, len(usuariosLista), 1):
+                                #pontuacaoJogo = 0
+                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                #st.subheader(f'A sua pontuação do {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
