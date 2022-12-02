@@ -1933,7 +1933,21 @@ def main():
                         st.header('Oitavas de final')
                         #-----------------------------
                         opcoesOitavas1 = ['Holanda','Estados Unidos']
-                        opcoesOitavas = ['Holanda','Estados Unidos','Argentina','Austrália','Japão','Croácia','1G','2H','Inglaterra','Senegal','França','Polônia','Marrocos','Espanha','1H','2G']
+                        opcoesOitavas2 = ['Argentina','Austrália']
+                        opcoesOitavas3 = ['Japão','Croácia']
+                        opcoesOitavas4 = ['1G','Coreia do Sul']
+                        opcoesOitavas5 = ['Inglaterra','Senegal']
+                        opcoesOitavas6 = ['França','Polônia']
+                        opcoesOitavas7 = ['Marrocos','Espanha']
+                        opcoesOitavas8 = ['Portugal','2G']
+                        opcoesOitavas  = [opcoesOitavas1,
+                                          opcoesOitavas2,
+                                          opcoesOitavas3,
+                                          opcoesOitavas4,
+                                          opcoesOitavas5,
+                                          opcoesOitavas6,
+                                          opcoesOitavas7,
+                                          opcoesOitavas8]
                         #-----------------------------
                         horarioOitavasJogo1 = horarioJogo(2022,12,3,12,0)
                         horarioOitavasJogo2 = horarioJogo(2022,12,3,12,0)
@@ -1945,10 +1959,7 @@ def main():
                         horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
                         #-----------------------------
                         nomeJogo = 0
-                        st.subheader('opcoesOitavasJogo+str(nomeJogo+1)')
-                        st.subheader(opcoesOitavas+str(nomeJogo+1))
-                        #opcoesOitavasJogo+str(nomeJogo+1) = [opcoesOitavas[2*nomeJogo],opcoesOitavas[2*nomeJogo+1]]
-                        #st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
+                        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][0]}')
                         #with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
                             #apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo+str(nomeJogo+1), index = 0)
                             #apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo+str(nomeJogo+1)[0], min_value = 0, max_value = 10, step = 1, format = '%d')
