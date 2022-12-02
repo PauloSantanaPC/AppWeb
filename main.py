@@ -1192,7 +1192,7 @@ def main():
                                 st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+12])]}')
                                 st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+13])]}')
 
-                        #-----------------------------------------------------------------------------#
+                    #-----------------------------------------------------------------------------#
 
                     classificacao = classificacaoInicial()
                     st.subheader(usuariosLista[contadorUsuario][0])
@@ -1611,9 +1611,9 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
-                usuario5 = np.load('usuario5.npy')
-                st.header(usuario5[0])
-                st.header(usuario5)
+                #usuario5 = np.load('usuario5.npy')
+                #st.header(usuario5[0])
+                #st.header(usuario5)
                 ##for contadorUsuarios in range(len(usuariosLista)):
                     ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
                     ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 16*[''])
