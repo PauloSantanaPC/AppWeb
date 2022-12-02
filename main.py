@@ -1920,7 +1920,7 @@ def main():
                             opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                             apostaOitavasJogo1 = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo1, index = 0)
                             botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
-                        if botaoAposta:# and inicioCopa:
+                        if botaoApostaOitavasJogo1:# and inicioCopa:
                             st.write(f'Aqui')
                             #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
                             #np.save(str(username),usuario)
