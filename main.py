@@ -1969,18 +1969,18 @@ def main():
                         nomeJogo = 0
                         st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][0]}')
                         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
-                            apostaOitavasJogo = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
-                            apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                            botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
-                        if botaoApostaOitavasJogo and horarioOitavas[nomeJogo]:
-                            if apostaOitavasJogo == opcoesOitavas[nomeJogo+1][0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavas[nomeJogo+1] == opcoesOitavas[nomeJogo+1][1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
+                            apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
+                            apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            apostaOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            botaoApostaOitavas = st.form_submit_button(label = 'Apostar')
+                        if botaoApostaOitavas and horarioOitavas[nomeJogo]:
+                            if apostaOitavas == opcoesOitavas[nomeJogo+1][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas[nomeJogo+1] == opcoesOitavas[nomeJogo+1][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
                                 st.subheader('Apostas INVÁLIDAS!')
                                 st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write('Aqui')
-                                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
-                                usuario[126+3*nomeJogo] = apostaOitavasJogo+str(nomeJogo+1)
+                                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
+                                usuario[126+3*nomeJogo] = apostaOitavas
                                 np.save(str(username),usuario)
                         #elif botaoApostaOitavasJogo and not horarioOitavasJogo+str(nomeJogo+1):
                             #st.subheader('O jogo já começou!')
