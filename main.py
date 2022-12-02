@@ -1924,8 +1924,8 @@ def main():
                         st.title('Apostas nas fases eliminatórias')
                         
                         st.header('Oitavas de final')
-                        st.subheader(usuario[0])
-                        st.subheader(len(usuario))
+                        #st.subheader(usuario[0])
+                        #st.subheader(len(usuario))
                         #-----------------------------
                         opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                         #-----------------------------
@@ -1952,7 +1952,8 @@ def main():
                                 st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write(f'Certo')
-                                usuario[124+2*nomeJogo], usuario[125+2*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
+                                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
+                                usuario[126+3*nomeJogo] = apostasOitavasJogo1
                                 np.save(str(username),usuario)
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
@@ -1960,7 +1961,7 @@ def main():
                         if usuario[124+2*nomeJogo] != '':
                             st.subheader('Aposta registrada!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
-                            st.write(f'Aposta classificação: {apostaOitavasJogo1}')
+                            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
                         if usuarioMestre[124+2*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
                             st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1]}')
