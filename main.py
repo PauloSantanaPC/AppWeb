@@ -1611,6 +1611,9 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
+                usuario5 = np.load('usuario5.npy')
+                st.header(usuario5[0])
+                st.header(usuario5)
                 ##for contadorUsuarios in range(len(usuariosLista)):
                     ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
                     ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 16*[''])
@@ -2317,8 +2320,7 @@ def main():
 
                 elif task == 'Outros':
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
-                    usuario5 = np.load('usuario5.npy')
-                    st.header(usuario5)
+                    
             else:
                 st.error('Usuário/senha inválidos')
             
