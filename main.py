@@ -1607,12 +1607,12 @@ def main():
             elif task == 'Usuários':
                 st.subheader('Usuários')
 
-                for contadorUsuarios in range(len(usuariosLista)):
+                ##for contadorUsuarios in range(len(usuariosLista)):
                     ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 32*[''])
-                    usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 16*[''])
-                    st.subheader(usuariosLista[contadorUsuarios][0])
-                    st.subheader(len(usuariosLista[contadorUsuarios]))
-                    np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
+                    ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 16*[''])
+                    ##st.subheader(usuariosLista[contadorUsuarios][0])
+                    ##st.subheader(len(usuariosLista[contadorUsuarios]))
+                    ##np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
@@ -1924,8 +1924,8 @@ def main():
                         st.title('Apostas nas fases eliminatórias')
                         
                         st.header('Oitavas de final')
-                        #st.subheader(usuario[0])
-                        #st.subheader(len(usuario))
+                        st.subheader(usuario[0])
+                        st.subheader(len(usuario))
                         #-----------------------------
                         opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                         #-----------------------------
