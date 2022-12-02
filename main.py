@@ -1949,14 +1949,22 @@ def main():
                                           opcoesOitavas7,
                                           opcoesOitavas8]
                         #-----------------------------
-                        horarioOitavasJogo1 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo2 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo3 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo4 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo5 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo6 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo7 = horarioJogo(2022,12,3,12,0)
-                        horarioOitavasJogo8 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas2 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas3 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas4 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas5 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas6 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas7 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas8 = horarioJogo(2022,12,3,12,0)
+                        horarioOitavas  = [horarioOitavas1,
+                                           horarioOitavas2,
+                                           horarioOitavas3,
+                                           horarioOitavas4,
+                                           horarioOitavas5,
+                                           horarioOitavas6,
+                                           horarioOitavas7,
+                                           horarioOitavas8]
                         #-----------------------------
                         nomeJogo = 0
                         st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][0]}')
@@ -1965,14 +1973,15 @@ def main():
                             apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
                             apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
                             botaoApostaOitavasJogo = st.form_submit_button(label = 'Apostar')
-                        #if botaoApostaOitavasJogo and horarioOitavasJogo+str(nomeJogo+1):
-                            #if apostaOitavasJogo == opcoesOitavasJogo+str(nomeJogo+1)[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo+str(nomeJogo+1) == opcoesOitavasJogo+str(nomeJogo+1)[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                #st.subheader('Apostas INVÁLIDAS!')
-                                #st.write(f'Tente realizar as apostas novamente.')
-                            #else:
-                                #usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
-                                #usuario[126+3*nomeJogo] = apostaOitavasJogo+str(nomeJogo+1)
-                                #np.save(str(username),usuario)
+                        if botaoApostaOitavasJogo and horarioOitavas[nomeJogo]:
+                            if apostaOitavasJogo == opcoesOitavas[nomeJogo+1][0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavas[nomeJogo+1] == opcoesOitavas[nomeJogo+1][1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
+                                st.subheader('Apostas INVÁLIDAS!')
+                                st.write(f'Tente realizar as apostas novamente.')
+                            else:
+                                st.write('Aqui')
+                                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasJogo1Selecao1, apostaOitavasJogo1Selecao2
+                                usuario[126+3*nomeJogo] = apostaOitavasJogo+str(nomeJogo+1)
+                                np.save(str(username),usuario)
                         #elif botaoApostaOitavasJogo and not horarioOitavasJogo+str(nomeJogo+1):
                             #st.subheader('O jogo já começou!')
                             #st.write(f'Você NÃO pode realizar as apostas.')
