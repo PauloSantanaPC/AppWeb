@@ -1911,6 +1911,9 @@ def main():
                             df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                             st.table(df)
 
+                    elif task1 == 'Apostas fase eliminatórias':
+                        st.header('Apostas fase eliminatórias')
+
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
