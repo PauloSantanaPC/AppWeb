@@ -1916,10 +1916,10 @@ def main():
                         
                         st.header('Oitavas de final')
                         st.subheader(f'Jogo 1 - Holanda x Estados Unidos')
-                        with st.form(key = 'include_aposta_eliminatorias_oitavas'):
+                        with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo1'):
                             opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
-                            aposta = st.selectbox('Quem será o primeiro colocado?', options = opcoesOitavasJogo1, index = 0)
-                            botaoAposta = st.form_submit_button(label = 'Apostar no jogo')
+                            apostaOitavasJogo1 = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo1, index = 0)
+                            botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
                         if botaoAposta:# and inicioCopa:
                             st.write(f'Aqui')
                             #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
