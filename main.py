@@ -1925,15 +1925,17 @@ def main():
                         if botaoApostaOitavasJogo1:# and inicioCopa:
                             st.write(f'Aqui')
                             if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2:
-                                st.write(f'Errado')
+                                st.subheader('Apostas NÃO registradas!')
+                                st.write(f'Tente realizar as apostas novamente.')
                             elif apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                st.write(f'Errado')
+                                st.subheader('Apostas NÃO registradas!')
+                                st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write(f'Certo')
+                                #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
+                                #np.save(str(username),usuario)
                                 
                             #------------------------------------
-                            #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
-                            #np.save(str(username),usuario)
                         #if usuario[2*nomeGrupo+12] != '':
                             #st.subheader('Apostas registradas!')
                             #st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+12])]}')
