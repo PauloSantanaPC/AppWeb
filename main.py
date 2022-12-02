@@ -93,7 +93,8 @@ def cadastroApostador(login,senha):
     apostador = [login, senha, pontos, cravadas, acertos, erros, nadas, naoapostas]
     numeroApostasIniciais = 20
     numeroApostasPrimeiraFase = 96
-    numeroTotal = numeroApostasIniciais + numeroApostasPrimeiraFase
+    numeroApostasSegundaFase = 32
+    numeroTotal = numeroApostasIniciais + numeroApostasPrimeiraFase + numeroApostasSegundaFase
     for aposta in range(numeroTotal):
         apostador.append('')
     
@@ -1936,11 +1937,8 @@ def main():
                         if botaoApostaOitavasJogo1 and horarioOitavasJogo1:
                             #st.write(f'Aqui')
                             if apostaOitavasJogo1 == opcoesOitavasJogo1[0] and apostaOitavasJogo1Selecao1 < apostaOitavasJogo1Selecao2 or apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                st.subheader('Apostas NÃO registradas!')
+                                st.subheader('Apostas INVÁLIDAS!')
                                 st.write(f'Tente realizar as apostas novamente.')
-                            #elif apostaOitavasJogo1 == opcoesOitavasJogo1[1] and apostaOitavasJogo1Selecao2 < apostaOitavasJogo1Selecao1:
-                                #st.subheader('Apostas NÃO registradas!')
-                                #st.write(f'Tente realizar as apostas novamente.')
                             else:
                                 st.write(f'Certo')
                                 #apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
@@ -1948,11 +1946,14 @@ def main():
                         elif botaoApostaOitavasJogo1 and not horarioOitavasJogo1:
                             st.subheader('O jogo já começou!')
                             st.write(f'Você NÃO pode realizar as apostas.')
-                            #------------------------------------
-                        #if usuario[2*nomeGrupo+12] != '':
-                            #st.subheader('Apostas registradas!')
-                            #st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+12])]}')
-                            #st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+13])]}')
+                        nomeJogo = 0
+                        if usuario[124+2*nomeJogo] != '':
+                            st.subheader('Aposta registrada!')
+                            st.write(f'{opcoesOitavasJogo1[0]} {usuario[124+2*nomeJogo]} X {usuario[125+2*nomeJogo]} {opcoesOitavasJogo1[1}')
+                        if usuarioMestre[124+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            #st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                            st.write(f'{opcoesOitavasJogo1[0]} {usuarioMestre[124+2*nomeJogo]} X {usuarioMestre[125+2*nomeJogo]} {opcoesOitavasJogo1[1}')
 
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
