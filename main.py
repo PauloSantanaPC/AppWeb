@@ -1984,8 +1984,53 @@ def main():
                                     dfa.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
                                     st.table(dfa)
 
+                                    #--------------------------------
+                                    
                                     st.subheader(f'Apostas classificados nos grupos')
-                                    dfb = pd.DataFrame(np.array([np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
+
+                                    
+
+                                    st.subheader(f'Apostas grupos - {dataHoraMinutoAtual}:')
+                                    classificadosGrupos = np.array(['Holanda','Senegal',
+                                                                    'Inglaterra','Estados Unidos',
+                                                                    'Argentina','Polônia',
+                                                                    'França','Austrália',
+                                                                    'Japão','Espanha',
+                                                                    'Marrocos','Croácia',
+                                                                    '','',
+                                                                    '',''])
+                                    pontuacaoApostasGrupos = []
+                                    pontuacaoGrupos = 0
+                                    for apostaGrupo in range(12, 28, 2):
+                                        if np.array(usuariosLista)[usuario][apostaGrupo] != '':
+                                            pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
+                                            if listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([30,30])
+                                                pontuacaoGrupos += 60
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([30,0])
+                                                pontuacaoGrupos += 30
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([21,21])
+                                                pontuacaoGrupos += 42
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([21,0])
+                                                pontuacaoGrupos += 21
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,30])
+                                                pontuacaoGrupos += 30
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,0])
+                                                pontuacaoGrupos += 0
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                                pontuacaoApostasGrupos.append([30,0])
+                                                pontuacaoGrupos += 30
+                                        else:
+                                            pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
+                                            pontuacaoApostasGrupos.append([0,0])
+                                            
+                                    dfb = pd.DataFrame(np.array([np.array([0,0,0,0,0,0])
+                                                                 np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
                                                                  np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
                                                                  np.array(apostasGrupos)[:,2][:,0],np.array(apostasGrupos)[:,2][:,1], # grupo C
                                                                  np.array(apostasGrupos)[:,3][:,0],np.array(apostasGrupos)[:,3][:,1], # grupo D
@@ -1994,7 +2039,8 @@ def main():
                                                                  np.array(apostasGrupos)[:,6][:,0],np.array(apostasGrupos)[:,6][:,1], # grupo G
                                                                  np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
                                                       columns = colunas)
-                                    dfb.index = ['1° Grupo A','2° Grupo A',
+                                    dfb.index = ['Pontuação total',
+                                                 '1° Grupo A','2° Grupo A',
                                                  '1° Grupo B','2° Grupo B',
                                                  '1° Grupo C','2° Grupo C',
                                                  '1° Grupo D','2° Grupo D',
@@ -2004,6 +2050,28 @@ def main():
                                                  '1° Grupo H','2° Grupo H']
                                     st.table(dfb)
                                     
+                                    #dfb = pd.DataFrame(np.array(pontuacaoApostasGrupos),
+                                                       #columns = ('Primeiro colocado','Segundo colocado'))
+                                    #dfb.index = ['Grupo A - aposta',
+                                                 #'Grupo A - pontuação',
+                                                 #'Grupo B - aposta',
+                                                 #'Grupo B - pontuação',
+                                                 #'Grupo C - aposta',
+                                                 #'Grupo C - pontuação',
+                                                 #'Grupo D - aposta',
+                                                 #'Grupo D - pontuação',
+                                                 #'Grupo E - aposta',
+                                                 #'Grupo E - pontuação',
+                                                 #'Grupo F - aposta',
+                                                 #'Grupo F - pontuação',
+                                                 #'Grupo G - aposta',
+                                                 #'Grupo G - pontuação',
+                                                 #'Grupo H - aposta',
+                                                 #'Grupo H - pontuação']
+                                    #st.table(dfb)
+                                    #st.subheader(f'Apostas dos classificados dos grupos: {pontuacaoGrupos} ponto(s)')
+                                    #-------------------------------------------
+
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
