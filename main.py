@@ -1919,11 +1919,11 @@ def main():
                         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo1'):
                             opcoesOitavasJogo1 = ['Holanda','Estados Unidos']
                             apostaOitavasJogo1 = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavasJogo1, index = 0)
-                            botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar na seleção')
-                        if botaoApostaOitavasJogo1:# and inicioCopa:
-                            st.write(f'Aqui')
                             apostaOitavasJogo1Selecao1 = st.number_input(label = opcoesOitavasJogo1[0], min_value = 0, max_value = 10, step = 1, format = '%d')
                             apostaOitavasJogo1Selecao2 = st.number_input(label = opcoesOitavasJogo1[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                            botaoApostaOitavasJogo1 = st.form_submit_button(label = 'Apostar')
+                        if botaoApostaOitavasJogo1:# and inicioCopa:
+                            st.write(f'Aqui')
                             #botaoApostaOitavasJogo2 = st.form_submit_button(label = 'Apostar na seleção')
                             #botaoOitavasJogo1 = st.form_submit_button(label = f'Apostar no jogo')
                             #if botaoOitavasJogo1:# and inicioJogo:
