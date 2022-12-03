@@ -1965,6 +1965,7 @@ def main():
                                            horarioOitavas7,
                                            horarioOitavas8]
                         #-----------------------------
+                        
                         for nomeJogo in range(8):
                             st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]}')
                             with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
@@ -2111,6 +2112,7 @@ def main():
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
+                                        usuariosLista[contadorUsuario][2] = pontuacaoGrupos
                                     
                                     #-------------------------------------------
                                     
