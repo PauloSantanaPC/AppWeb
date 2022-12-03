@@ -2114,7 +2114,6 @@ def main():
                                     
                                     #-------------------------------------------
                                     
-
                                     st.subheader(f'Apostas campeão, final e terceiro colocado')
                                     colunas = tuple(colunas)
                                     dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,]),
@@ -2199,8 +2198,8 @@ def main():
                                                                     'França','Austrália',
                                                                     'Japão','Espanha',
                                                                     'Marrocos','Croácia',
-                                                                    '','',
-                                                                    '',''])
+                                                                    'Brasil','Suíça',
+                                                                    'Portugal','Coreia do Sul'])
                                     pontuacaoApostasGrupos = []
                                     pontuacaoGrupos = 0
                                     for apostaGrupo in range(12, 28, 2):
