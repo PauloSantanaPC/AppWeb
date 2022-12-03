@@ -1999,8 +1999,8 @@ def main():
                         dataOitavas2 = datetime(2022,12,3,16,0)
                         dataOitavas3 = datetime(2022,12,5,12,0)
                         dataOitavas4 = datetime(2022,12,5,16,0)
-                        dataOitavas5 = datetime(2022,12,4,12,0)
-                        dataOitavas6 = datetime(2022,12,4,16,0)
+                        dataOitavas5 = datetime(2022,12,4,16,0)
+                        dataOitavas6 = datetime(2022,12,4,12,0)
                         dataOitavas7 = datetime(2022,12,6,12,0)
                         dataOitavas8 = datetime(2022,12,6,16,0)
                         dataOitavas  = [dataOitavas1,
