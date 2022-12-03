@@ -1419,6 +1419,7 @@ def main():
                     st.subheader(usuariosLista[contadorUsuario][2])
                     usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
                     st.subheader(usuariosLista[contadorUsuario][2])
+                    np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
