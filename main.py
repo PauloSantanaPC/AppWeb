@@ -1395,7 +1395,7 @@ def main():
                                                 'Brasil','Suíça',
                                                 'Portugal','Coreia do Sul'])
 
-                apostadorPontuacaoGrupos = []
+                #apostadorPontuacaoGrupos = []
                 for contadorUsuario in range(1, len(usuariosLista), 1):
                     pontuacaoGrupos = 0
                     for apostaGrupo in range(12, 28, 2):
@@ -1414,11 +1414,11 @@ def main():
                                 pontuacaoGrupos += 0
                             elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                 pontuacaoGrupos += 21
-                    apostadorPontuacaoGrupos.append(pontuacaoGrupos)
-                    st.subheader(usuariosLista[contadorUsuario][0])
-                    st.subheader(usuariosLista[contadorUsuario][2])
+                    #apostadorPontuacaoGrupos.append(pontuacaoGrupos)
+                    #st.subheader(usuariosLista[contadorUsuario][0])
+                    #st.subheader(usuariosLista[contadorUsuario][2])
                     usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
-                    st.subheader(usuariosLista[contadorUsuario][2])
+                    #st.subheader(usuariosLista[contadorUsuario][2])
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                 for nomeGrupo in range(len(grupos()[:,0])):
