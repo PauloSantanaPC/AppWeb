@@ -2112,8 +2112,12 @@ def main():
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
-                                        usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
                                     
+                                        # salvando a pontuacao dos usuarios
+                                        st.subheader(usuariosLista[contadorUsuario][2])
+                                        usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
+                                        st.subheader(usuariosLista[contadorUsuario][2])
+
                                     #-------------------------------------------
                                     
                                     st.subheader(f'Apostas campeão, final e terceiro colocado')
@@ -2124,7 +2128,7 @@ def main():
                                     st.table(dfa)
 
                                     #-------------------------------------------
-                                    
+                                        
                                     st.subheader(f'Apostas classificados nos grupos')
                                     dfb = pd.DataFrame(np.array([np.array(apostadorPontuacaoGrupos),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array(np.array(apostadorPontuacaoApostasGrupos)[:,0][:,0]),
