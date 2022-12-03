@@ -1730,7 +1730,8 @@ def main():
                             apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
                             apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
                             botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
-                        if botaoApostaCampeao and inicioCopa:
+                        #if botaoApostaCampeao and inicioCopa:
+                        if botaoApostaCampeao and not inicioCopa:
                             apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
                             np.save(str(username),usuario)
                         if usuario[9] != '':
