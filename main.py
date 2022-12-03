@@ -1385,6 +1385,41 @@ def main():
                     usuariosLista[contadorUsuario][7] = 0
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
+
+                classificadosGrupos = np.array(['Holanda','Senegal',
+                                                'Inglaterra','Estados Unidos',
+                                                'Argentina','Polônia',
+                                                'França','Austrália',
+                                                'Japão','Espanha',
+                                                'Marrocos','Croácia',
+                                                'Brasil','Suíça',
+                                                'Portugal','Coreia do Sul'])
+
+                apostadorPontuacaoGrupos = []
+                for contadorUsuario in range(1, len(usuariosLista), 1):
+                    pontuacaoGrupos = 0
+                    for apostaGrupo in range(12, 28, 2):
+                        if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
+                            if listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                pontuacaoGrupos += 60
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                pontuacaoGrupos += 30
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                pontuacaoGrupos += 42
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo-12]:
+                                pontuacaoGrupos += 21
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                                pontuacaoGrupos += 30
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                pontuacaoGrupos += 0
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                                pontuacaoGrupos += 21
+                    apostadorPontuacaoGrupos.append(pontuacaoGrupos)
+                    st.subheader(usuariosLista[contadorUsuario][0])
+                    st.subheader(usuariosLista[contadorUsuario][2])
+                    usuariosLista[contadorUsuario][2] = usuariosLista[contadorUsuario][2] + pontucaoGrupos
+                    st.subheader(usuariosLista[contadorUsuario][2])
+
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
                     
@@ -1601,7 +1636,7 @@ def main():
                     dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
                 df0 = pd.DataFrame(np.array(dadosClassificacao),
                                    columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
-                df0.index = np.delete(np.array(usuariosLista)[:,0],0)
+                #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
 
 
@@ -2112,14 +2147,6 @@ def main():
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
-                                    
-                                        # salvando a pontuacao dos usuarios
-                                        st.subheader(usuariosLista[contadorUsuario][0])
-                                        st.subheader(usuariosLista[contadorUsuario][2])
-                                        usuariosLista[contadorUsuario][2] = 0#int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
-                                        st.subheader(usuariosLista[contadorUsuario][2])
-                                        np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-                                        
 
                                     #-------------------------------------------
                                     
