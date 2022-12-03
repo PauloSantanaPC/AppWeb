@@ -2252,7 +2252,11 @@ def main():
                                                        horarioOitavas6,
                                                        horarioOitavas7,
                                                        horarioOitavas8]
-                                    
+                                    #-----------------------------
+
+                                    for nomeJogo in range(8):
+                                        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+
                                     #for contadorOitavas in range(8):
                                         #st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
                                         #for contadorJogo in range(6):
