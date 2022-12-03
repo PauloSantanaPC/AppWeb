@@ -2112,7 +2112,7 @@ def main():
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
-                                        usuariosLista[contadorUsuario][2] = pontuacaoGrupos
+                                        usuariosLista[contadorUsuario][2] += pontuacaoGrupos
                                     
                                     #-------------------------------------------
                                     
