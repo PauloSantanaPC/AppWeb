@@ -2253,9 +2253,8 @@ def main():
                                                        horarioOitavas7,
                                                        horarioOitavas8]
                                     #-----------------------------
-
                                     for nomeJogo in range(8):
-                                        st.write(f'Jogo {nomeJogo+1}')
+                                        st.write(f'Jogo {nomeJogo+1} - {np.array(usuariosLista)[usuario][0]}')
                                         #if not horarioOitavas[nomeJogo]:
                                         if horarioOitavas[nomeJogo]:
                                             if np.array(usuariosLista)[usuario][124+3*nomeJogo] != '':
@@ -2263,17 +2262,6 @@ def main():
                                                 st.write(f'Classificado: {np.array(usuariosLista)[usuario][126+3*nomeJogo]}')
                                             else:
                                                 st.write(f'Aposta NÃO realizada.')
-                                                    
-                                    #for contadorOitavas in range(8):
-                                        #st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
-                                        #for contadorJogo in range(6):
-                                            #if not horarioJogoGrupo(contadorGrupo,contadorJogo):
-                                                #if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
-                                                    ##st.write('Aposta realizada!')
-                                                    #st.write(f'Jogo {contadorJogo+1}: {grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
-                                                #else:
-                                                    #st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
-                                                    
                                     #-------------------------------------------
                                     
                                     if usuariosLista[usuario][8] != '':
