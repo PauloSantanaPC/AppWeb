@@ -1999,7 +1999,7 @@ def main():
                         for nomeJogo in range(8):
                             #datetime(2022,12,2,12,0)
                             st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]}')
-                            st.write(datetime(2022,12,3,12,0))
+                            st.subheader(datetime(2022,12,3,12,0))
                             with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
                                 apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
                                 apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
