@@ -1995,11 +1995,28 @@ def main():
                                            horarioOitavas7,
                                            horarioOitavas8]
                         #-----------------------------
-                        
+                        dataOitavas1 = datetime(2022,12,3,12,0)
+                        dataOitavas2 = datetime(2022,12,3,16,0)
+                        dataOitavas3 = datetime(2022,12,5,12,0)
+                        dataOitavas4 = datetime(2022,12,5,16,0)
+                        dataOitavas5 = datetime(2022,12,4,12,0)
+                        dataOitavas6 = datetime(2022,12,4,16,0)
+                        dataOitavas7 = datetime(2022,12,6,12,0)
+                        dataOitavas8 = datetime(2022,12,6,16,0)
+                        dataOitavas  = [dataOitavas1,
+                                        dataOitavas2,
+                                        dataOitavas3,
+                                        dataOitavas4,
+                                        dataOitavas5,
+                                        dataOitavas6,
+                                        dataOitavas7,
+                                        dataOitavas8]
+                        #-----------------------------
                         for nomeJogo in range(8):
-                            #datetime(2022,12,2,12,0)
                             st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]}')
-                            st.subheader(datetime(2022,12,3,12,0))
+                            #st.subheader(datetime(2022,12,3,12,0))
+                            st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+                                
                             with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
                                 apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
                                 apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
