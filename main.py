@@ -2212,7 +2212,21 @@ def main():
 
                             else:
                                 with tabs[usuario]:
-                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
+                                    
+                                    st.subheader(f'Apostas fase eliminatórias - {dataHoraMinutoAtual}:')
+                                    
+                                    #for contadorGrupo in range(8):
+                                        #st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]}')
+                                        #for contadorJogo in range(6):
+                                            #if not horarioJogoGrupo(contadorGrupo,contadorJogo):
+                                                #if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
+                                                    ##st.write('Aposta realizada!')
+                                                    #st.write(f'Jogo {contadorJogo+1}: {grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
+                                                #else:
+                                                    #st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
+                                                    
+                                    #-------------------------------------------
                                     
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
