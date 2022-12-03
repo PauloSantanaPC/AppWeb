@@ -1417,7 +1417,7 @@ def main():
                     apostadorPontuacaoGrupos.append(pontuacaoGrupos)
                     st.subheader(usuariosLista[contadorUsuario][0])
                     st.subheader(usuariosLista[contadorUsuario][2])
-                    usuariosLista[contadorUsuario][2] = usuariosLista[contadorUsuario][2] + pontucaoGrupos
+                    usuariosLista[contadorUsuario][2] = usuariosLista[contadorUsuario][2] + pontuacaoGrupos
                     st.subheader(usuariosLista[contadorUsuario][2])
 
                 for nomeGrupo in range(len(grupos()[:,0])):
