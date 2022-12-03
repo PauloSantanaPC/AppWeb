@@ -1644,10 +1644,10 @@ def main():
                 ##usuario5 = np.load('usuario5.npy')
                 ##st.header(usuario5[0])
                 ##st.header(usuario5)
-                #for contadorUsuarios in range(len(usuariosLista)):
+                for contadorUsuarios in range(len(usuariosLista)):
                     #usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 48*[''])
-                    #st.subheader(usuariosLista[contadorUsuarios][0])
-                    #st.subheader(len(usuariosLista[contadorUsuarios]))
+                    st.subheader(usuariosLista[contadorUsuarios][0])
+                    st.subheader(len(usuariosLista[contadorUsuarios]))
                     #np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
