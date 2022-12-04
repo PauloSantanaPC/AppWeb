@@ -1834,9 +1834,9 @@ def main():
                         if not horarioOitavas[nomeJogo]:
                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                 pontuacaoJogo = 0
-                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][124+3*nomeJogo],usuariosLista[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
-                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoriaSelecao(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][126+3*nomeJogo],usuario[126+3*nomeJogo])
-                                st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                usuariosLista[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][124+3*nomeJogo],usuariosLista[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
+                                usuariosLista[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][126+3*nomeJogo],usuario[126+3*nomeJogo])
+                                st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                 #--------------------------------------------------
