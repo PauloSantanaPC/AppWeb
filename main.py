@@ -1386,92 +1386,6 @@ def main():
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                 #--------------------------------------------------
-
-                st.header('Oitavas de final')
-                #-----------------------------
-                opcoesOitavas1 = ['Holanda','Estados Unidos']
-                opcoesOitavas2 = ['Argentina','Austrália']
-                opcoesOitavas3 = ['Japão','Croácia']
-                opcoesOitavas4 = ['Brasil','Coreia do Sul']
-                opcoesOitavas5 = ['Inglaterra','Senegal']
-                opcoesOitavas6 = ['França','Polônia']
-                opcoesOitavas7 = ['Marrocos','Espanha']
-                opcoesOitavas8 = ['Portugal','Suíça']
-                opcoesOitavas  = [opcoesOitavas1,
-                                  opcoesOitavas2,
-                                  opcoesOitavas3,
-                                  opcoesOitavas4,
-                                  opcoesOitavas5,
-                                  opcoesOitavas6,
-                                  opcoesOitavas7,
-                                  opcoesOitavas8]
-                #-----------------------------
-                horarioOitavas1 = horarioJogo(2022,12,3,12,0)
-                horarioOitavas2 = horarioJogo(2022,12,3,16,0)
-                horarioOitavas3 = horarioJogo(2022,12,5,12,0)
-                horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-                horarioOitavas5 = horarioJogo(2022,12,4,16,0)
-                horarioOitavas6 = horarioJogo(2022,12,4,12,0)
-                horarioOitavas7 = horarioJogo(2022,12,6,12,0)
-                horarioOitavas8 = horarioJogo(2022,12,6,16,0)
-                horarioOitavas  = [horarioOitavas1,
-                                   horarioOitavas2,
-                                   horarioOitavas3,
-                                   horarioOitavas4,
-                                   horarioOitavas5,
-                                   horarioOitavas6,
-                                   horarioOitavas7,
-                                   horarioOitavas8]
-                #-----------------------------
-                dataOitavas1 = datetime(2022,12,3,12,0)
-                dataOitavas2 = datetime(2022,12,3,16,0)
-                dataOitavas3 = datetime(2022,12,5,12,0)
-                dataOitavas4 = datetime(2022,12,5,16,0)
-                dataOitavas5 = datetime(2022,12,4,16,0)
-                dataOitavas6 = datetime(2022,12,4,12,0)
-                dataOitavas7 = datetime(2022,12,6,12,0)
-                dataOitavas8 = datetime(2022,12,6,16,0)
-                dataOitavas  = [dataOitavas1,
-                                dataOitavas2,
-                                dataOitavas3,
-                                dataOitavas4,
-                                dataOitavas5,
-                                dataOitavas6,
-                                dataOitavas7,
-                                dataOitavas8]
-
-                for nomeJogo in range(8):
-                    st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
-                    with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
-                        placarOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
-                        placarOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
-                        placarOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                        botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
-                    if botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
-                        if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
-                            st.subheader('Placar INVÁLIDO!')
-                            st.write(f'Tente postar novamente.')
-                        else:
-                            usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
-                            usuario[126+3*nomeJogo] = placarOitavas
-                            np.save(str(username),usuario)
-                    elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
-                        st.subheader('O jogo ainda não começou!')
-                        st.write(f'Você NÃO pode postar o placar.')
-                    if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
-                        st.subheader('Fim de Jogo!')
-                        st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-                        st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-                        if not horarioOitavas[nomeJogo]:
-                            for contadorUsuario in range(1, len(usuariosLista), 1):
-                                st.subheader('Placar registrado.')
-                                #pontuacaoJogo = 0
-                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
-                                #st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
-                                #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-
-
-                #--------------------------------------------------
                 
                 classificadosGrupos = np.array(['Holanda','Senegal',
                                                 'Inglaterra','Estados Unidos',
@@ -1723,6 +1637,91 @@ def main():
                                    columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
                 #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
+
+                st.header('Oitavas de final')
+                #-----------------------------
+                opcoesOitavas1 = ['Holanda','Estados Unidos']
+                opcoesOitavas2 = ['Argentina','Austrália']
+                opcoesOitavas3 = ['Japão','Croácia']
+                opcoesOitavas4 = ['Brasil','Coreia do Sul']
+                opcoesOitavas5 = ['Inglaterra','Senegal']
+                opcoesOitavas6 = ['França','Polônia']
+                opcoesOitavas7 = ['Marrocos','Espanha']
+                opcoesOitavas8 = ['Portugal','Suíça']
+                opcoesOitavas  = [opcoesOitavas1,
+                                  opcoesOitavas2,
+                                  opcoesOitavas3,
+                                  opcoesOitavas4,
+                                  opcoesOitavas5,
+                                  opcoesOitavas6,
+                                  opcoesOitavas7,
+                                  opcoesOitavas8]
+                #-----------------------------
+                horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+                horarioOitavas2 = horarioJogo(2022,12,3,16,0)
+                horarioOitavas3 = horarioJogo(2022,12,5,12,0)
+                horarioOitavas4 = horarioJogo(2022,12,5,16,0)
+                horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+                horarioOitavas6 = horarioJogo(2022,12,4,12,0)
+                horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+                horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+                horarioOitavas  = [horarioOitavas1,
+                                   horarioOitavas2,
+                                   horarioOitavas3,
+                                   horarioOitavas4,
+                                   horarioOitavas5,
+                                   horarioOitavas6,
+                                   horarioOitavas7,
+                                   horarioOitavas8]
+                #-----------------------------
+                dataOitavas1 = datetime(2022,12,3,12,0)
+                dataOitavas2 = datetime(2022,12,3,16,0)
+                dataOitavas3 = datetime(2022,12,5,12,0)
+                dataOitavas4 = datetime(2022,12,5,16,0)
+                dataOitavas5 = datetime(2022,12,4,16,0)
+                dataOitavas6 = datetime(2022,12,4,12,0)
+                dataOitavas7 = datetime(2022,12,6,12,0)
+                dataOitavas8 = datetime(2022,12,6,16,0)
+                dataOitavas  = [dataOitavas1,
+                                dataOitavas2,
+                                dataOitavas3,
+                                dataOitavas4,
+                                dataOitavas5,
+                                dataOitavas6,
+                                dataOitavas7,
+                                dataOitavas8]
+
+                for nomeJogo in range(8):
+                    st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+                    with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
+                        placarOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
+                        placarOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placarOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
+                    if botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
+                        if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
+                            st.subheader('Placar INVÁLIDO!')
+                            st.write(f'Tente postar novamente.')
+                        else:
+                            usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
+                            usuario[126+3*nomeJogo] = placarOitavas
+                            np.save(str(username),usuario)
+                    elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
+                        st.subheader('O jogo ainda não começou!')
+                        st.write(f'Você NÃO pode postar o placar.')
+                    if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+                        st.subheader('Fim de Jogo!')
+                        st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                        st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+                        if not horarioOitavas[nomeJogo]:
+                            for contadorUsuario in range(1, len(usuariosLista), 1):
+                                st.subheader('Placar registrado.')
+                                #pontuacaoJogo = 0
+                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                #st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+
+                #--------------------------------------------------
 
             elif task == 'Usuários':
                 st.subheader('Usuários')
