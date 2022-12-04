@@ -1170,6 +1170,23 @@ def resultadoApostadorFaseEliminatoria(usuario,pontuacao,golMandanteApostador,go
             
     return usuario, pontuacao
 
+def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador,selecaoClassificada):
+    
+    '''
+    
+    Função que contabiliza os pontos do usuario para um jogo na fase eliminatoria pela seleção classificada
+    
+    '''
+    
+    if selecaoClassificada == selecaoApostador:
+        usuario[2] = int(usuario[2]) + 30
+        pontuacao += 20
+    else:
+        usuario[2] = int(usuario[2]) + 0
+        pontuacao += 0
+            
+    return usuario, pontuacao
+
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
@@ -1811,13 +1828,14 @@ def main():
                         st.write(f'Você NÃO pode postar o placar.')
                     if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
                         st.subheader('Fim de Jogo!')
+                        st.subheader('Placar registrado.')
                         st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                         st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
                         if not horarioOitavas[nomeJogo]:
                             for contadorUsuario in range(1, len(usuariosLista), 1):
-                                st.subheader('Placar registrado.')
                                 pontuacaoJogo = 0
                                 usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][124+3*nomeJogo],usuariosLista[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
+                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoriaSelecao(usuariosLista[contadorUsuario],pontuacao,usuariosLista[contadorUsuario][126+3*nomeJogo],usuario[126+3*nomeJogo])
                                 st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
