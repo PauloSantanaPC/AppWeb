@@ -1447,7 +1447,7 @@ def main():
                         placarOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
                         placarOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
                         botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
-                    if botaoPlacarOitavas and horarioOitavas[nomeJogo]:
+                    if botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
                         if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
                             st.subheader('Apostas INVÁLIDAS!')
                             st.write(f'Tente realizar as apostas novamente.')
@@ -1455,9 +1455,9 @@ def main():
                             usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
                             usuario[126+3*nomeJogo] = placarOitavas
                             np.save(str(username),usuario)
-                    elif botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
-                        st.subheader('O jogo já começou!')
-                        st.write(f'Você NÃO pode realizar as apostas.')
+                    elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
+                        st.subheader('O jogo ainda não começou!')
+                        st.write(f'Você NÃO pode postar o placar.')
                     if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
                         st.subheader('Aposta registrada!')
                         st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
