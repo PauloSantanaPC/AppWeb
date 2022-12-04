@@ -1449,8 +1449,8 @@ def main():
                         botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
                     if botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
                         if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
-                            st.subheader('Apostas INVÁLIDAS!')
-                            st.write(f'Tente realizar as apostas novamente.')
+                            st.subheader('Placar INVÁLIDO!')
+                            st.write(f'Tente postar novamente.')
                         else:
                             usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
                             usuario[126+3*nomeJogo] = placarOitavas
@@ -1459,14 +1459,15 @@ def main():
                         st.subheader('O jogo ainda não começou!')
                         st.write(f'Você NÃO pode postar o placar.')
                     if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
-                        st.subheader('Aposta registrada!')
+                        st.subheader('Fim de Jogo!')
                         st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                         st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-                        #if not inicioJogo:
-                            #for contadorUsuario in range(1, len(usuariosLista), 1):
+                        if not horarioOitavas[nomeJogo]:
+                            for contadorUsuario in range(1, len(usuariosLista), 1):
+                                st.subheader('Placar registrado.')
                                 #pontuacaoJogo = 0
                                 #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
-                                #st.subheader(f'A sua pontuação do {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                #st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
                                 #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
 
