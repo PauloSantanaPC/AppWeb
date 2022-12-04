@@ -1446,16 +1446,16 @@ def main():
                         placarOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
                         placarOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
                         placarOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                        botaoplacarOitavas = st.form_submit_button(label = 'Placar')
-                    if botaoApostaOitavas and horarioOitavas[nomeJogo]:
-                        if apostaOitavas == opcoesOitavas[nomeJogo][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas == opcoesOitavas[nomeJogo][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
+                        botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
+                    if botaoPlacarOitavas and horarioOitavas[nomeJogo]:
+                        if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
                             st.subheader('Apostas INVÁLIDAS!')
                             st.write(f'Tente realizar as apostas novamente.')
                         else:
-                            usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
-                            usuario[126+3*nomeJogo] = apostaOitavas
+                            usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
+                            usuario[126+3*nomeJogo] = placarOitavas
                             np.save(str(username),usuario)
-                    elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
+                    elif botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
                         st.subheader('O jogo já começou!')
                         st.write(f'Você NÃO pode realizar as apostas.')
                     if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
