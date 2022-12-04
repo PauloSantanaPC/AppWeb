@@ -1408,11 +1408,11 @@ def main():
                                 pontuacaoGrupos += 21
                             elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                 pontuacaoGrupos += 30
-                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
-                                pontuacaoGrupos += 0
                             elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                 pontuacaoGrupos += 21
-
+                            elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                pontuacaoGrupos += 0
+                                
                     usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
@@ -1634,7 +1634,7 @@ def main():
                                    columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
                 #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
-
+                
             elif task == 'Fase Eliminatórias':
                 st.title('Fase Eliminatórias')
 
