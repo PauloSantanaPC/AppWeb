@@ -93,8 +93,7 @@ def cadastroApostador(login,senha):
     apostador = [login, senha, pontos, cravadas, acertos, erros, nadas, naoapostas]
     numeroApostasIniciais = 20
     numeroApostasPrimeiraFase = 96
-    numeroApostasSegundaFase = 32
-    numeroTotal = numeroApostasIniciais + numeroApostasPrimeiraFase + numeroApostasSegundaFase
+    numeroTotal = numeroApostasIniciais + numeroApostasPrimeiraFase
     for aposta in range(numeroTotal):
         apostador.append('')
     
@@ -275,7 +274,7 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            inicioJogo = horarioJogo(2022,11,20,23,0)
+            inicioJogo = horarioJogo(2022,11,20,13,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = horarioJogo(2022,11,21,13,0)
@@ -1129,12 +1128,12 @@ def main():
     #-----------------------------------------------------------------------------#
 
     if choice == 'Home':
-        st.subheader('Acesso do administrador')        
+        st.subheader('Acesso do administrador')
         username = st.text_input('Nome de usuário')
         password = st.text_input('Senha', type = 'password')
 
         if username == 'usuarioMestre' and password == 'appBolao':
-            #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
+            #task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
             task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Fase Eliminatórias','Usuários'])
 
             if task == 'Conexão':
@@ -1192,7 +1191,7 @@ def main():
                                 st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+12])]}')
                                 st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+13])]}')
 
-                    #-----------------------------------------------------------------------------#
+                        #-----------------------------------------------------------------------------#
 
                     classificacao = classificacaoInicial()
                     st.subheader(usuariosLista[contadorUsuario][0])
@@ -1371,6 +1370,7 @@ def main():
                                             st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                             classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
+
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
@@ -1385,6 +1385,91 @@ def main():
                     usuariosLista[contadorUsuario][7] = 0
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
+                #--------------------------------------------------
+
+                st.header('Oitavas de final')
+                #-----------------------------
+                opcoesOitavas1 = ['Holanda','Estados Unidos']
+                opcoesOitavas2 = ['Argentina','Austrália']
+                opcoesOitavas3 = ['Japão','Croácia']
+                opcoesOitavas4 = ['Brasil','Coreia do Sul']
+                opcoesOitavas5 = ['Inglaterra','Senegal']
+                opcoesOitavas6 = ['França','Polônia']
+                opcoesOitavas7 = ['Marrocos','Espanha']
+                opcoesOitavas8 = ['Portugal','Suíça']
+                opcoesOitavas  = [opcoesOitavas1,
+                                  opcoesOitavas2,
+                                  opcoesOitavas3,
+                                  opcoesOitavas4,
+                                  opcoesOitavas5,
+                                  opcoesOitavas6,
+                                  opcoesOitavas7,
+                                  opcoesOitavas8]
+                #-----------------------------
+                horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+                horarioOitavas2 = horarioJogo(2022,12,3,16,0)
+                horarioOitavas3 = horarioJogo(2022,12,5,12,0)
+                horarioOitavas4 = horarioJogo(2022,12,5,16,0)
+                horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+                horarioOitavas6 = horarioJogo(2022,12,4,12,0)
+                horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+                horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+                horarioOitavas  = [horarioOitavas1,
+                                   horarioOitavas2,
+                                   horarioOitavas3,
+                                   horarioOitavas4,
+                                   horarioOitavas5,
+                                   horarioOitavas6,
+                                   horarioOitavas7,
+                                   horarioOitavas8]
+                #-----------------------------
+                dataOitavas1 = datetime(2022,12,3,12,0)
+                dataOitavas2 = datetime(2022,12,3,16,0)
+                dataOitavas3 = datetime(2022,12,5,12,0)
+                dataOitavas4 = datetime(2022,12,5,16,0)
+                dataOitavas5 = datetime(2022,12,4,16,0)
+                dataOitavas6 = datetime(2022,12,4,12,0)
+                dataOitavas7 = datetime(2022,12,6,12,0)
+                dataOitavas8 = datetime(2022,12,6,16,0)
+                dataOitavas  = [dataOitavas1,
+                                dataOitavas2,
+                                dataOitavas3,
+                                dataOitavas4,
+                                dataOitavas5,
+                                dataOitavas6,
+                                dataOitavas7,
+                                dataOitavas8]
+
+                for nomeJogo in range(8):
+                    st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+                    with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
+                        apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
+                        apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        apostaOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botaoApostaOitavas = st.form_submit_button(label = 'Apostar')
+                    if botaoApostaOitavas and horarioOitavas[nomeJogo]:
+                        if apostaOitavas == opcoesOitavas[nomeJogo][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas == opcoesOitavas[nomeJogo][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
+                            st.subheader('Apostas INVÁLIDAS!')
+                            st.write(f'Tente realizar as apostas novamente.')
+                        else:
+                            usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
+                            usuario[126+3*nomeJogo] = apostaOitavas
+                            np.save(str(username),usuario)
+                    elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
+                        st.subheader('O jogo já começou!')
+                        st.write(f'Você NÃO pode realizar as apostas.')
+                    if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+                        st.subheader('Aposta registrada!')
+                        st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                        st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+                    if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
+                        st.subheader('Fim de jogo!')
+                        st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                        st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+
+
+                #--------------------------------------------------
+                
                 classificadosGrupos = np.array(['Holanda','Senegal',
                                                 'Inglaterra','Estados Unidos',
                                                 'Argentina','Polônia',
@@ -1412,9 +1497,10 @@ def main():
                                 pontuacaoGrupos += 21
                             elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
                                 pontuacaoGrupos += 0
-                                
+
                     usuariosLista[contadorUsuario][2] = int(usuariosLista[contadorUsuario][2]) + pontuacaoGrupos
                     np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+
 
                 for nomeGrupo in range(len(grupos()[:,0])):
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1632,7 +1718,7 @@ def main():
                     dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
                 df0 = pd.DataFrame(np.array(dadosClassificacao),
                                    columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
-                #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
+                df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
                 
             elif task == 'Fase Eliminatórias':
@@ -1640,15 +1726,12 @@ def main():
 
             elif task == 'Usuários':
                 st.subheader('Usuários')
-
-                ##usuario5 = np.load('usuario5.npy')
-                ##st.header(usuario5[0])
-                ##st.header(usuario5)
-                #for contadorUsuarios in range(len(usuariosLista)):
-                    #usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 48*[''])
-                    #st.subheader(usuariosLista[contadorUsuarios][0])
-                    #st.subheader(len(usuariosLista[contadorUsuarios]))
-                    #np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
+                
+                ##for contadorUsuarios in range(len(usuariosLista)):
+                    ##usuariosLista[contadorUsuarios] = np.append(usuariosLista[contadorUsuarios], 48*[''])
+                    ##st.subheader(usuariosLista[contadorUsuarios][0])
+                    ##st.subheader(len(usuariosLista[contadorUsuarios]))
+                    ##np.save(str(usuariosLista[contadorUsuarios][0]),usuariosLista[contadorUsuarios])
                 
                 clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
@@ -1730,8 +1813,8 @@ def main():
                             apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
                             apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
                             botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
-                        #if botaoApostaCampeao and inicioCopa:
-                        if botaoApostaCampeao and not inicioCopa:
+                        if botaoApostaCampeao and inicioCopa:
+                        #if botaoApostaCampeao and not inicioCopa:
                             apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
                             np.save(str(username),usuario)
                         if usuario[9] != '':
@@ -1739,7 +1822,7 @@ def main():
                             st.write(f'Aposta campeão: {listaSelecoes()[int(usuario[9])]}')
                             st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuario[10])]}')
                             st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuario[11])]}')
-
+ 
                         #-----------------------------------------------------------------------------#
 
                         for nomeGrupo in range(len(grupos()[:,0])):
@@ -1936,7 +2019,7 @@ def main():
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
                                                 classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
-
+                                                
                         rotuloColuna = ['P',  # pontuação
                                         'J',  # jogos
                                         'V',  # vitórias
@@ -1957,6 +2040,7 @@ def main():
                             df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                             st.table(df)
 
+                            
                     elif task1 == 'Apostas nas fases eliminatórias':
                         st.title('Apostas nas fases eliminatórias')
                         
@@ -1983,8 +2067,8 @@ def main():
                         horarioOitavas2 = horarioJogo(2022,12,3,16,0)
                         horarioOitavas3 = horarioJogo(2022,12,5,12,0)
                         horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-                        horarioOitavas5 = horarioJogo(2022,12,4,12,0)
-                        horarioOitavas6 = horarioJogo(2022,12,4,16,0)
+                        horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+                        horarioOitavas6 = horarioJogo(2022,12,4,12,0)
                         horarioOitavas7 = horarioJogo(2022,12,6,12,0)
                         horarioOitavas8 = horarioJogo(2022,12,6,16,0)
                         horarioOitavas  = [horarioOitavas1,
@@ -2040,12 +2124,6 @@ def main():
                                 st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                                 st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
 
-                            #for contadorUsuario in range(1, len(usuariosLista), 1):
-                                #pontuacaoJogo = 0
-                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
-                                #st.subheader(f'A sua pontuação do {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
-                                #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
-
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
@@ -2070,11 +2148,10 @@ def main():
                                         dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
                                     df0 = pd.DataFrame(np.array(dadosClassificacao),
                                                        columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
-                                    #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
+                                    df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                                     st.table(df0)
                                     
-                                    #--------------------------------
-                                    
+                                    #------------------                                    
                                     colunas = []
                                     opcoes = []
                                     apostasCampeao = []
@@ -2148,18 +2225,18 @@ def main():
                                                 elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                     pontuacaoApostasGrupos.append([0,30])
                                                     pontuacaoGrupos += 30
-                                                elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
-                                                    pontuacaoApostasGrupos.append([0,0])
-                                                    pontuacaoGrupos += 0
                                                 elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                                     pontuacaoApostasGrupos.append([0,21])
                                                     pontuacaoGrupos += 21
+                                                elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                    pontuacaoApostasGrupos.append([0,0])
+                                                    pontuacaoGrupos += 0
                                             else:
                                                 #pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                                 pontuacaoApostasGrupos.append([0,0])
                                         apostadorPontuacaoApostasGrupos.append(pontuacaoApostasGrupos)
                                         apostadorPontuacaoGrupos.append(pontuacaoGrupos)
-
+                                    
                                     #-------------------------------------------
                                     
                                     st.subheader(f'Apostas campeão, final e terceiro colocado - {dataHoraMinutoAtual}')
@@ -2170,7 +2247,7 @@ def main():
                                     st.table(dfa)
 
                                     #-------------------------------------------
-                                        
+                                    
                                     st.subheader(f'Apostas classificados nos grupos')
                                     dfb = pd.DataFrame(np.array([np.array(apostadorPontuacaoGrupos),
                                                                  np.array(apostasGrupos)[:,0][:,0],np.array(np.array(apostadorPontuacaoApostasGrupos)[:,0][:,0]),
@@ -2210,12 +2287,10 @@ def main():
                                     st.table(dfb)
                                     
                                     #-------------------------------------------
-
+                            
                             else:
                                 with tabs[usuario]:
-                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
-                                    
-                                    st.subheader(f'Apostas fase eliminatórias - {dataHoraMinutoAtual}:')
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
 
                                     #-----------------------------
                                     st.subheader('Oitavas de final')
@@ -2241,8 +2316,8 @@ def main():
                                     horarioOitavas2 = horarioJogo(2022,12,3,16,0)
                                     horarioOitavas3 = horarioJogo(2022,12,5,12,0)
                                     horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-                                    horarioOitavas5 = horarioJogo(2022,12,4,12,0)
-                                    horarioOitavas6 = horarioJogo(2022,12,4,16,0)
+                                    horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+                                    horarioOitavas6 = horarioJogo(2022,12,4,12,0)
                                     horarioOitavas7 = horarioJogo(2022,12,6,12,0)
                                     horarioOitavas8 = horarioJogo(2022,12,6,16,0)
                                     horarioOitavas  = [horarioOitavas1,
@@ -2256,8 +2331,8 @@ def main():
                                     #-----------------------------
                                     for nomeJogo in range(8):
                                         st.write(f'Jogo {nomeJogo+1} - {np.array(usuariosLista)[usuario][0]}')
-                                        #if not horarioOitavas[nomeJogo]:
-                                        if horarioOitavas[nomeJogo]:
+                                        if not horarioOitavas[nomeJogo]:
+                                        #if horarioOitavas[nomeJogo]:
                                             if np.array(usuariosLista)[usuario][124+3*nomeJogo] != '':
                                                 st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(usuariosLista)[usuario][124+3*nomeJogo]}x{np.array(usuariosLista)[usuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                                                 st.write(f'Classificado: {np.array(usuariosLista)[usuario][126+3*nomeJogo]}')
@@ -2282,7 +2357,8 @@ def main():
                                         apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
                                     else:
                                         apostaTerceiroColocado = 'Não apostou no terceiro colocado'
-                                        
+                                    
+                                    st.subheader(f'Apostas principais - {dataHoraMinutoAtual}:')
                                     df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                         columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}']
@@ -2295,8 +2371,8 @@ def main():
                                                                     'França','Austrália',
                                                                     'Japão','Espanha',
                                                                     'Marrocos','Croácia',
-                                                                    'Brasil','Suíça',
-                                                                    'Portugal','Coreia do Sul'])
+                                                                    '','',
+                                                                    '',''])
                                     pontuacaoApostasGrupos = []
                                     pontuacaoGrupos = 0
                                     for apostaGrupo in range(12, 28, 2):
@@ -2317,12 +2393,12 @@ def main():
                                             elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                 pontuacaoApostasGrupos.append([0,30])
                                                 pontuacaoGrupos += 30
-                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
-                                                pontuacaoApostasGrupos.append([0,0])
-                                                pontuacaoGrupos += 0
                                             elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                                 pontuacaoApostasGrupos.append([0,21])
                                                 pontuacaoGrupos += 21
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,0])
+                                                pontuacaoGrupos += 0
                                         else:
                                             pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                             pontuacaoApostasGrupos.append([0,0])
@@ -2388,8 +2464,8 @@ def main():
                                                 # rodada 2: Time i2 x Time i4
                                                 time1 = 0
                                                 time2 = 2
-                                                time3 = 1
-                                                time4 = 3
+                                                time3 = 3
+                                                time4 = 1
                                                 if contadorJogo == 2:
                                                     timeMandante  = time1
                                                     timeVisitante = time2
@@ -2417,11 +2493,10 @@ def main():
 
                                             if not horarioJogoGrupo(contadorGrupo,contadorJogo):
                                                 if np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo] != '':
-                                                    #st.write('Aposta realizada!')
                                                     st.write(f'Jogo {contadorJogo+1}: {grupos()[contadorGrupo][timeMandante]} {np.array(usuariosLista)[usuario][28+2*6*contadorGrupo+2*contadorJogo]} x {np.array(usuariosLista)[usuario][29+2*6*contadorGrupo+2*contadorJogo]} {grupos()[contadorGrupo][timeVisitante]}')
                                                 else:
                                                     st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
-                                                    
+
                     elif task1 == 'Links externos':
 
                         classificacaoGE = 'https://ge.globo.com/futebol/copa-do-mundo/2022/'
@@ -2434,7 +2509,7 @@ def main():
 
                 elif task == 'Outros':
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
-                    
+
             else:
                 st.error('Usuário/senha inválidos')
             
