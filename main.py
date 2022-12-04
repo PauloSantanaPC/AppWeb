@@ -2148,7 +2148,7 @@ def main():
                                         dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
                                     df0 = pd.DataFrame(np.array(dadosClassificacao),
                                                        columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
-                                    df0.index = np.delete(np.array(usuariosLista)[:,0],0)
+                                    #df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                                     st.table(df0)
                                     
                                     #------------------                                    
