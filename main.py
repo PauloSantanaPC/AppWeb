@@ -1817,7 +1817,7 @@ def main():
                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                 st.subheader('Placar registrado.')
                                 pontuacaoJogo = 0
-                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][124+3*nomeJogo],usuariosLista[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
                                 st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
                                 np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
