@@ -2162,7 +2162,7 @@ def main():
 
                                     #-------------------------------------------
                                     
-                                    st.subheader(f'Apostas campeão, final e terceiro colocado')
+                                    st.subheader(f'Apostas campeão, final e terceiro colocado - {dataHoraMinutoAtual}')
                                     colunas = tuple(colunas)
                                     dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,]),
                                                       columns = colunas)
@@ -2283,11 +2283,8 @@ def main():
                                     else:
                                         apostaTerceiroColocado = 'Não apostou no terceiro colocado'
                                         
-                                    #df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado],
-                                                        #['Fase de grupos','Fase de grupos','Fase de grupos']]),
                                     df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                         columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    #df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}','Periodo da aposta']
                                     df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}']
                                     st.table(df1)
 
