@@ -1070,6 +1070,106 @@ def resultadoApostadorFaseGrupos(usuario,pontuacao,golMandanteApostador,golVisit
             
     return usuario, pontuacao
 
+def resultadoApostadorFaseEliminatoria(usuario,pontuacao,golMandanteApostador,golVisitanteApostador,golMandanteJogo,golVisitanteJogo):
+    
+    '''
+    
+    Função que contabiliza os pontos do usuario para um jogo na fase eliminatoria
+    
+    '''
+    
+    vitoria, empate, derrota = resultadoJogo(golMandanteJogo,golVisitanteJogo)
+    vitoriaApostador, empateApostador, derrotaApostador = resultadoJogo(golMandanteApostador,golVisitanteApostador)
+    if vitoria:
+        if vitoriaApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 20
+                pontuacao += 20
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 14
+                pontuacao += 14
+        elif derrotaApostador:
+            # erro
+            usuario[5] = int(usuario[5]) + 1
+            usuario[2] = int(usuario[2]) - 14
+            pontuacao += -14
+        elif empateApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 20
+            pontuacao += -20
+            
+    #-------------------------------------------------------------------------#
+            
+    elif empate:
+        if vitoriaApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        elif derrotaApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        elif empateApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 20
+                pontuacao += 20
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 14
+                pontuacao += 14
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 20
+            pontuacao += -20
+    
+    #-------------------------------------------------------------------------#
+    
+    elif derrota:
+        if vitoriaApostador:
+            # erro
+            usuario[5] = int(usuario[5]) + 1
+            usuario[2] = int(usuario[2]) - 14
+            pontuacao += -14
+        elif derrotaApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 20
+                pontuacao += 20
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 14
+                pontuacao += 14
+        elif empateApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 20
+            pontuacao += -20
+            
+    return usuario, pontuacao
+
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
@@ -1716,10 +1816,10 @@ def main():
                         if not horarioOitavas[nomeJogo]:
                             for contadorUsuario in range(1, len(usuariosLista), 1):
                                 st.subheader('Placar registrado.')
-                                #pontuacaoJogo = 0
-                                #usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
-                                #st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
-                                #np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                                pontuacaoJogo = 0
+                                usuariosLista[contadorUsuario], pontuacao = resultadoApostadorFaseEliminatoria(usuariosLista[contadorUsuario],pontuacaoJogo,usuariosLista[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],usuariosLista[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                st.subheader(f'A pontuação de {usuariosLista[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
 
                 #--------------------------------------------------
 
