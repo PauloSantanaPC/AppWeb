@@ -1133,8 +1133,8 @@ def main():
         password = st.text_input('Senha', type = 'password')
 
         if username == 'usuarioMestre' and password == 'appBolao':
-            #task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
-            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Fase Eliminatórias','Usuários'])
+            task = st.sidebar.selectbox('Task',['Conexão','Testes','Placares','Usuários'])
+            #task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Fase Eliminatórias','Usuários'])
 
             if task == 'Conexão':
                 st.subheader('Conectado')
@@ -1371,8 +1371,8 @@ def main():
                                             classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
 
-            elif task == 'Fase de grupos':
-                st.title('Fase de Grupos')
+            elif task == 'Placares':
+                st.title('Placares')
                 classificacao = classificacaoInicial()
                 indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
                 usuario = usuariosLista[indiceUsuario]
@@ -1720,9 +1720,6 @@ def main():
                                    columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
                 df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
-                
-            elif task == 'Fase Eliminatórias':
-                st.title('Fase Eliminatórias')
 
             elif task == 'Usuários':
                 st.subheader('Usuários')
