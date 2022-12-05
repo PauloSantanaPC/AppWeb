@@ -1184,7 +1184,7 @@ def main():
 
             if task == 'Conexão':
                 st.subheader('Conectado')
-                st.sidebar.success('Você está logado como {}'.format(username))
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
                 
             elif task == 'Reset':
                 st.subheader('Reset de dados')
