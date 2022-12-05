@@ -1188,15 +1188,18 @@ def main():
                 
             elif task == 'Reset':
                 st.title('Reset de dados')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
 
             elif task == 'Placares':
                 st.title('Placares dos jogos')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
 
 
             elif task == 'Usuários':
                 st.title('Usuários')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
                 st.header(f'Usuários {np.array(listaUsuarios)[:,0]}')
-                st.subheader('Acesso do administrador')
+                st.subheader(listaUsuarios)
 
         else:
             st.subheader('Você não tem acesso')
