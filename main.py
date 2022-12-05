@@ -1179,7 +1179,7 @@ def main():
                 st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
 
             else:
-                st.error('Usuário/senha inválidos')
+                st.sidebar.error('Usuário/senha inválidos')
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
