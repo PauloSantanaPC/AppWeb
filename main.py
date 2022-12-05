@@ -1174,7 +1174,7 @@ def lerUsuarios():
 # criando o usuario mestre
 #usuariosLista = usuarioMestre()
 #listaUsuarios = lerUsuarios()
-usuario1 = np.load('usuario1.npy', allow_pickle = True)
+usuario1 = np.load('usuario1.npy')
 
 def main():
     
