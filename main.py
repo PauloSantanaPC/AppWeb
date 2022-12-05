@@ -1099,7 +1099,8 @@ def lerUsuarios():
     '''
     usuarioMestre = np.load('usuarioMestre.npy')
     usuario1 = np.load('usuario1.npy')
-    listaUsuarios = [usuarioMestre,usuario1]
+    usuario2 = np.load('usuario2.npy')
+    listaUsuarios = [usuarioMestre,usuario1,usuario2]
 
     return listaUsuarios
 
