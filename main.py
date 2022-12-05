@@ -1205,6 +1205,10 @@ def main():
             usuario = usuariosLista[indiceUsuario]
             usuarioMestre = np.load('usuarioMestre.npy')
 
+            result = login_usuario(username,password)
+            if result:
+                st.sidebar.success('Você está logado como {}'.format(username))
+
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
