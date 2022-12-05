@@ -1099,6 +1099,8 @@ def usuarioMestre():
     return usuariosLista
 
 #-----------------------------------------------------------------------------#
+#=============================================================================#
+#-----------------------------------------------------------------------------#
 
 # criando o usuario mestre
 usuariosLista = usuarioMestre()
@@ -1118,6 +1120,22 @@ def main():
 
         if username == 'usuarioMestre' and password == 'appBolao':
             task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
+
+            if task == 'Conexão':
+                st.subheader('Conectado')
+                
+            elif task == 'Testes':
+                st.subheader('Testes')
+
+            elif task == 'Placares':
+                st.title('Placares')
+
+
+            elif task == 'Usuários':
+                st.subheader('Usuários')
+
+        else:
+            st.subheader('Você não tem acesso')
 
     #-----------------------------------------------------------------------------#
 
