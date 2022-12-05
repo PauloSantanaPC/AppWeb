@@ -1,13 +1,17 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # Projeto - Bolão da Copa do Mundo
 # Novembro 2022
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # importanto bibliotecas
 import streamlit as st
@@ -21,9 +25,11 @@ import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # funções
 
@@ -46,6 +52,8 @@ def grupos():
     
     return grupos
 
+#-----------------------------------------------------------------------------#
+
 def listaSelecoes():
 
     '''
@@ -64,6 +72,8 @@ def listaSelecoes():
                 'Portugal','Gana','Uruguai','Coreia do Sul'] # seleções da copa do mundo 2022
     
     return selecoes
+
+#-----------------------------------------------------------------------------#
 
 def cadastroApostador(login,senha):
     
@@ -90,6 +100,8 @@ def cadastroApostador(login,senha):
     
     return apostador
 
+#-----------------------------------------------------------------------------#
+
 def fazerApostaPrimeiraFase(cadastroApostador, nomeGrupo, nomeJogo, golMandante, golVisitante):
 
     # apostas - colocar botões
@@ -113,6 +125,8 @@ def fazerApostaPrimeiraFase(cadastroApostador, nomeGrupo, nomeJogo, golMandante,
     
     return cadastroApostador
 
+#-----------------------------------------------------------------------------#
+
 def apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado):
     
     # apostas podio
@@ -121,6 +135,8 @@ def apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado):
     usuario[11] = listaSelecoes().index(apostaTerceiroColocado) #apostaTerceiroColocado
 
     return
+
+#-----------------------------------------------------------------------------#
 
 def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
     
@@ -152,6 +168,8 @@ def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
 
     return
 
+#-----------------------------------------------------------------------------#
+
 def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
     # data e horário atual
     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
@@ -163,6 +181,8 @@ def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
         inicioJogo = True
     
     return inicioJogo
+
+#-----------------------------------------------------------------------------#
 
 def horarioJogoGrupo(nomeGrupo,nomeJogo):
     
@@ -337,6 +357,8 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
     
     return inicioJogo
 
+#-----------------------------------------------------------------------------#
+
 def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
     
     # datas e horários dos jogos da primeira fase
@@ -510,6 +532,8 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
 
     return inicioJogo
 
+#-----------------------------------------------------------------------------#
+
 def classificacaoInicial():
     
     '''
@@ -537,6 +561,8 @@ def classificacaoInicial():
         selecoes.append(s)
     
     return selecoes
+
+#-----------------------------------------------------------------------------#
 
 def classificacaoFaseGrupos(selecoes, nomeGrupo, nomeJogo, golMandante, golVisitante):
 
@@ -812,6 +838,8 @@ def classificacaoFaseGrupos(selecoes, nomeGrupo, nomeJogo, golMandante, golVisit
 
     return selecoes
 
+#-----------------------------------------------------------------------------#
+
 def resultadoJogo(golMandante, golVisitante):
 
     '''
@@ -835,6 +863,8 @@ def resultadoJogo(golMandante, golVisitante):
             derrota = True
 
     return vitoria, empate, derrota
+
+#-----------------------------------------------------------------------------#
 
 def resultadoApostadorFaseGrupos(usuario,pontuacao,golMandanteApostador,golVisitanteApostador,golMandanteJogo,golVisitanteJogo):
     
@@ -936,6 +966,7 @@ def resultadoApostadorFaseGrupos(usuario,pontuacao,golMandanteApostador,golVisit
             
     return usuario, pontuacao
 
+#-----------------------------------------------------------------------------#
 
 def resultadoApostadorFaseEliminatoria(usuario,pontuacao,golMandanteApostador,golVisitanteApostador,golMandanteJogo,golVisitanteJogo):
     
@@ -1037,6 +1068,8 @@ def resultadoApostadorFaseEliminatoria(usuario,pontuacao,golMandanteApostador,go
             
     return usuario, pontuacao
 
+#-----------------------------------------------------------------------------#
+
 def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador,selecaoClassificada):
     
     '''
@@ -1054,25 +1087,35 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
             
     return usuario, pontuacao
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # DB Management
 dados = sqlite3.connect('dados.db')
 d = dados.cursor()
 
+#-----------------------------------------------------------------------------#
+
 def cria_tabela_usuarios():
     d.execute("CREATE TABLE IF NOT EXISTS tabela(login TEXT, senha TEXT)")
+
+#-----------------------------------------------------------------------------#
 
 def adicionar_dados_usuarios(login, senha):
     d.execute("INSERT INTO tabela(login, senha) VALUES(?, ?)", (login, senha))
     dados.commit()
 
+#-----------------------------------------------------------------------------#
+
 def login_usuario(username,password):
     d.execute('SELECT * FROM tabela WHERE login = ? AND senha = ?',(username,password))
     dado = d.fetchall()
     return dado
+
+#-----------------------------------------------------------------------------#
 
 def todos_os_usuarios():
     d.execute('SELECT * FROM tabela')
@@ -1098,9 +1141,11 @@ def usuarioMestre():
 
     return usuariosLista
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # criando o usuario mestre
 usuariosLista = usuarioMestre()
@@ -1111,6 +1156,8 @@ def main():
     menu = ['Home','Cadastro','Login']
     choice = st.sidebar.selectbox('Menu',menu)
 
+    #-----------------------------------------------------------------------------#
+    #=============================================================================#
     #-----------------------------------------------------------------------------#
 
     if choice == 'Home':
@@ -1138,18 +1185,35 @@ def main():
             st.subheader('Você não tem acesso')
 
     #-----------------------------------------------------------------------------#
+    #=============================================================================#
+    #-----------------------------------------------------------------------------#
 
     elif choice == 'Cadastro':
         st.subheader('Criar nova conta')
 
     #-----------------------------------------------------------------------------#
+    #=============================================================================#
+    #-----------------------------------------------------------------------------#
 
     elif choice == 'Login':
-        st.title('Bolão da Copa do Mundo 2022')
+        username = st.sidebar.text_input('Nome de usuário')
+        password = st.sidebar.text_input('Senha', type = 'password')
 
-if __name__ == '__main__':
-    main()
+        if st.sidebar.checkbox('Login'):
+            # pegar o índice do usuario
+            indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
+            usuario = usuariosLista[indiceUsuario]
+            usuarioMestre = np.load('usuarioMestre.npy')
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
 #-----------------------------------------------------------------------------#
+
+if __name__ == '__main__':
+    main()
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#-----------------------------------------------------------------------------#
+#=============================================================================#
+#-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
