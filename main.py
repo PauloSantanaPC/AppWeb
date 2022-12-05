@@ -1229,7 +1229,7 @@ def main():
             # pegar o índice do usuario
             #indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == username)[0][0]
-            usuario = usuariosLista[indiceUsuario]
+            usuario = listaUsuarios[indiceUsuario]
             st.sidebar.success('Ok')
             #usuarioMestre = np.load('usuarioMestre.npy')
 
