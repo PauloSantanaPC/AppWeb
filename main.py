@@ -1185,19 +1185,19 @@ def main():
                     st.title('Bolão da Copa do Mundo 2022')
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
-                    if task1 == 'Apostas iniciais':
+                    if taskInterno == 'Apostas iniciais':
                         st.title('Apostas Iniciais')
 
-                    elif task1 == 'Apostas fase de grupos':
+                    elif taskInterno == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
 
-                    elif task1 == 'Apostas nas fases eliminatórias':
+                    elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.title('Apostas nas fases eliminatórias')
 
-                    elif task1 == 'Resumo das apostas':
+                    elif taskInterno == 'Resumo das apostas':
                         st.header('Resumo das apostas')
 
-                    elif task1 == 'Links externos':
+                    elif taskInterno == 'Links externos':
                         st.header('Em breve ...')
 
                 elif task == 'Outros':
