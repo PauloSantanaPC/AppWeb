@@ -1128,7 +1128,6 @@ def main():
         nomeUsuario  = st.text_input('Nome de usuário')
         senhaUsuario = st.text_input('Senha', type = 'password')
 
-        #if nomeUsuario == 'usuarioMestre' and senhaUsuario == 'appBolao':
         if nomeUsuario == listaUsuarios[0][0] and senhaUsuario == listaUsuarios[0][1]:
             task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
 
@@ -1166,19 +1165,30 @@ def main():
     #-----------------------------------------------------------------------------#
 
     elif choice == 'Login':
-        nomeUsuario = st.sidebar.text_input('Nome de usuário')
+        nomeUsuario  = st.sidebar.text_input('Nome de usuário')
         senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
 
         if st.sidebar.checkbox('Login'):
-            # pegar o índice do usuario
+            # pegar o usuario mestre
+            usuarioMestre = np.load('usuarioMestre.npy')
+            # pegar o usuario
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
             usuario = listaUsuarios[indiceUsuario]
-            usuarioMestre = np.load('usuarioMestre.npy')
-            
+
+
             if nomeUsuario == usuario[0] and senhaUsuario == usuario[1]:
+                # confirmação do login
                 st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+                task = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
+
+                if task == 'Copa do Mundo 2022':
+                    st.title('Bolão da Copa do Mundo 2022')
+
+                elif task == 'Outros':
+                    st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
 
             else:
+                # não confirmação do login
                 st.sidebar.error('Usuário/senha inválidos')
 
 #-----------------------------------------------------------------------------#
