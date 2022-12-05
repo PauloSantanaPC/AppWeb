@@ -1128,7 +1128,8 @@ def main():
         nomeUsuario  = st.text_input('Nome de usuário')
         senhaUsuario = st.text_input('Senha', type = 'password')
 
-        if nomeUsuario == 'usuarioMestre' and senhaUsuario == 'appBolao':
+        #if nomeUsuario == 'usuarioMestre' and senhaUsuario == 'appBolao':
+        if nomeUsuario == listaUsuarios[0][0] and senhaUsuario == listaUsuarios[0][1]:
             task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
 
             if task == 'Conexão':
