@@ -1113,6 +1113,11 @@ def main():
 
     if choice == 'Home':
         st.subheader('Acesso do administrador')
+        username = st.text_input('Nome de usuário')
+        password = st.text_input('Senha', type = 'password')
+
+        if username == 'usuarioMestre' and password == 'appBolao':
+            task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
 
     #-----------------------------------------------------------------------------#
 
