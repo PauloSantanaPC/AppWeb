@@ -1183,18 +1183,20 @@ def main():
             task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
 
             if task == 'Conexão':
-                st.subheader('Conectado')
+                st.title('Conectado')
                 st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
                 
             elif task == 'Reset':
-                st.subheader('Reset de dados')
+                st.title('Reset de dados')
 
             elif task == 'Placares':
                 st.title('Placares dos jogos')
 
 
             elif task == 'Usuários':
-                st.subheader('Usuários')
+                st.title('Usuários')
+                st.header(f'Usuários {np.array(listaUsuarios)[:,0]}')
+                st.subheader('Acesso do administrador')
 
         else:
             st.subheader('Você não tem acesso')
