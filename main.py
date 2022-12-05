@@ -1093,56 +1093,6 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
 #-----------------------------------------------------------------------------#
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-# DB Management
-dados = sqlite3.connect('dados.db')
-d = dados.cursor()
-
-#-----------------------------------------------------------------------------#
-
-def cria_tabela_usuarios():
-    d.execute("CREATE TABLE IF NOT EXISTS tabela(login TEXT, senha TEXT)")
-
-#-----------------------------------------------------------------------------#
-
-def adicionar_dados_usuarios(login, senha):
-    d.execute("INSERT INTO tabela(login, senha) VALUES(?, ?)", (login, senha))
-    dados.commit()
-
-#-----------------------------------------------------------------------------#
-
-def login_usuario(username,password):
-    d.execute('SELECT * FROM tabela WHERE login = ? AND senha = ?',(username,password))
-    dado = d.fetchall()
-    return dado
-
-#-----------------------------------------------------------------------------#
-
-def todos_os_usuarios():
-    d.execute('SELECT * FROM tabela')
-    dado = d.fetchall()
-    return dado
-
-#-----------------------------------------------------------------------------#
-
-def usuarioMestre():
-    cria_tabela_usuarios()
-    usuariosLista = []
-    # definindo a lista de usuarios e o usuario mestre
-    if len(todos_os_usuarios()) == 0:
-        cadastro = cadastroApostador('usuarioMestre','appBolao')
-        np.save('usuarioMestre',cadastro)
-        usuariosLista.append(cadastro)
-        adicionar_dados_usuarios('usuarioMestre','appBolao')
-        st.success('O usuário mestre foi criado.')
-    else:
-        for i in range(len(todos_os_usuarios())):
-            usuario = np.load(str(np.array(todos_os_usuarios())[:,0][i])+'.npy')
-            usuariosLista.append(usuario)
-
-    return usuariosLista
-
-#-----------------------------------------------------------------------------#
-
 def lerUsuarios():
     '''
     Função para ler os usuários.
@@ -1160,9 +1110,7 @@ def lerUsuarios():
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # criando o usuario mestre
-#usuariosLista = usuarioMestre()
 listaUsuarios = lerUsuarios()
-#usuario1 = np.load('usuario1.npy')
 
 def main():
     
