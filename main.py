@@ -1173,7 +1173,8 @@ def lerUsuarios():
 
 # criando o usuario mestre
 #usuariosLista = usuarioMestre()
-listaUsuarios = lerUsuarios()
+#listaUsuarios = lerUsuarios()
+usuario1 = np.load('usuario1.npy')
 
 def main():
     
