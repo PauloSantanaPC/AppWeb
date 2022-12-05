@@ -1173,9 +1173,10 @@ def main():
             # pegar o índice do usuario
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
             usuario = listaUsuarios[indiceUsuario]
-            #st.sidebar.success('Ok')
             usuarioMestre = np.load('usuarioMestre.npy')
-            st.sidebar.success('Ok')
+            #st.sidebar.success('Ok')
+            if nomeUsuario == usuario[0] and senhaUsuario == usuario[1]:
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
 
             #result = login_usuario(username,password)
             #if result:
