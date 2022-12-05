@@ -1141,6 +1141,30 @@ def usuarioMestre():
 
     return usuariosLista
 
+#-----------------------------------------------------------------------------#
+
+def lerUsuarios():
+    #cria_tabela_usuarios()
+    #listaUsuarios = []
+    # definindo a lista de usuarios e o usuario mestre
+    #if len(todos_os_usuarios()) == 0:
+        #cadastro = cadastroApostador('usuarioMestre','appBolao')
+        #np.save('usuarioMestre',cadastro)
+        #usuariosLista.append(cadastro)
+        #adicionar_dados_usuarios('usuarioMestre','appBolao')
+        #st.success('O usuário mestre foi criado.')
+    #else:
+        #for i in range(len(todos_os_usuarios())):
+            #usuario = np.load(str(np.array(todos_os_usuarios())[:,0][i])+'.npy')
+            #usuariosLista.append(usuario)
+
+    #cadastro = cadastroApostador('usuarioMestre','appBolaoCopa')
+    #np.load('usuarioMestre.npy')
+    usuario1 = np.load('usuario1.npy')
+    listaUsuarios = [usuario1]
+
+    return listaUsuarios
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1148,7 +1172,8 @@ def usuarioMestre():
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 # criando o usuario mestre
-usuariosLista = usuarioMestre()
+#usuariosLista = usuarioMestre()
+listaUsuarios = lerUsuarios()
 
 def main():
     
