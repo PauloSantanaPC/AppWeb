@@ -1144,24 +1144,12 @@ def usuarioMestre():
 #-----------------------------------------------------------------------------#
 
 def lerUsuarios():
-    #cria_tabela_usuarios()
-    #listaUsuarios = []
-    # definindo a lista de usuarios e o usuario mestre
-    #if len(todos_os_usuarios()) == 0:
-        #cadastro = cadastroApostador('usuarioMestre','appBolao')
-        #np.save('usuarioMestre',cadastro)
-        #usuariosLista.append(cadastro)
-        #adicionar_dados_usuarios('usuarioMestre','appBolao')
-        #st.success('O usuário mestre foi criado.')
-    #else:
-        #for i in range(len(todos_os_usuarios())):
-            #usuario = np.load(str(np.array(todos_os_usuarios())[:,0][i])+'.npy')
-            #usuariosLista.append(usuario)
-
-    #cadastro = cadastroApostador('usuarioMestre','appBolaoCopa')
-    #np.load('usuarioMestre.npy')
+    '''
+    Função para ler os usuários.
+    '''
+    usuarioMestre = np.load('usuarioMestre.npy')
     usuario1 = np.load('usuario1.npy')
-    listaUsuarios = [usuario1]
+    listaUsuarios = [usuarioMestre,usuario1]
 
     return listaUsuarios
 
@@ -1188,20 +1176,21 @@ def main():
 
     if choice == 'Home':
         st.subheader('Acesso do administrador')
-        username = st.text_input('Nome de usuário')
-        password = st.text_input('Senha', type = 'password')
+        nomeUsuario  = st.text_input('Nome de usuário')
+        senhaUsuario = st.text_input('Senha', type = 'password')
 
-        if username == 'usuarioMestre' and password == 'appBolao':
+        if nomeUsuario == 'usuarioMestre' and senhaUsuario == 'appBolao':
             task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
 
             if task == 'Conexão':
                 st.subheader('Conectado')
+                st.sidebar.success('Você está logado como {}'.format(username))
                 
-            elif task == 'Testes':
-                st.subheader('Testes')
+            elif task == 'Reset':
+                st.subheader('Reset de dados')
 
             elif task == 'Placares':
-                st.title('Placares')
+                st.title('Placares dos jogos')
 
 
             elif task == 'Usuários':
@@ -1227,11 +1216,11 @@ def main():
 
         if st.sidebar.checkbox('Login'):
             # pegar o índice do usuario
-            #indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == username)[0][0]
             usuario = listaUsuarios[indiceUsuario]
+            #st.sidebar.success('Ok')
+            usuarioMestre = np.load('usuarioMestre.npy')
             st.sidebar.success('Ok')
-            #usuarioMestre = np.load('usuarioMestre.npy')
 
             #result = login_usuario(username,password)
             #if result:
