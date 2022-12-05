@@ -1173,8 +1173,8 @@ def lerUsuarios():
 
 # criando o usuario mestre
 #usuariosLista = usuarioMestre()
-#listaUsuarios = lerUsuarios()
-usuario1 = np.load('usuario1.npy')
+listaUsuarios = lerUsuarios()
+#usuario1 = np.load('usuario1.npy')
 
 def main():
     
@@ -1227,13 +1227,15 @@ def main():
 
         if st.sidebar.checkbox('Login'):
             # pegar o índice do usuario
-            indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
+            #indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == username)[0][0]
+            indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == username)[0][0]
             usuario = usuariosLista[indiceUsuario]
-            usuarioMestre = np.load('usuarioMestre.npy')
+            st.sidebar.success('Ok')
+            #usuarioMestre = np.load('usuarioMestre.npy')
 
-            result = login_usuario(username,password)
-            if result:
-                st.sidebar.success('Você está logado como {}'.format(username))
+            #result = login_usuario(username,password)
+            #if result:
+                #st.sidebar.success('Você está logado como {}'.format(username))
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
