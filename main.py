@@ -1774,6 +1774,8 @@ def apostasGruposApostador(contadorUsuario):
 
 def apostasFaseGruposApostador(contadorUsuario):
 
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+
     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
     for contadorGrupo in range(8):
     st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(listaUsuarios)[contadorUsuario][0]}')
