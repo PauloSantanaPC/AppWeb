@@ -1135,8 +1135,8 @@ def apostasIniciais(usuario):
         apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
-    if botaoApostaCampeao and inicioCopa:
-    #if botaoApostaCampeao and not inicioCopa:
+    #if botaoApostaCampeao and inicioCopa:
+    if botaoApostaCampeao and not inicioCopa:
         apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
         np.save(str(username),usuario)
     if usuario[9] != '':
@@ -1249,8 +1249,6 @@ def main():
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
                     if taskInterno == 'Apostas iniciais':
-                        st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
-                        #st.header('Não consegui fazer')
                         usuario = apostasIniciais(usuario)
 
                     elif taskInterno == 'Apostas fase de grupos':
