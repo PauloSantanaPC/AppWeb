@@ -1363,8 +1363,6 @@ def apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre):
 
 def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
 
-    st.title('Apostas nas fases eliminatórias')
-
     st.subheader('Oitavas de final')
     #-----------------------------
     opcoesOitavas1 = ['Holanda','Estados Unidos']
@@ -1539,6 +1537,23 @@ def main():
 
                     elif taskInterno == 'Resumo das apostas':
                         st.header('Resumo das apostas')
+
+                        tabs = []
+                        for tab in range(len(usuariosLista)):
+                            tabs.append(np.array(usuariosLista)[tab][0])
+
+                        tabs[0] = 'Classificação do Bolão'
+                        tabs = st.tabs(tabs)
+                        #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+                        #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
+                        for contadorUsuario in range(len(usuariosLista)):
+                            if usuario == 0:
+                                with tabs[contadorUsuario]:
+                                    st.header(f'Resumo das apostas do Bolão')
+                            else:
+                                with tabs[contadorUsuario]:
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[contadorUsuario][0]}')                                    
+
 
                     elif taskInterno == 'Links externos':
                         st.header('Em breve ...')
