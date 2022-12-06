@@ -1110,7 +1110,7 @@ def lerUsuarios():
 
 #-----------------------------------------------------------------------------#
 
-def apostasIniciais(usuario):
+def apostasIniciais(usuario,nomeUsuario):
 
     st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
 
@@ -1252,7 +1252,7 @@ def main():
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
                     if taskInterno == 'Apostas iniciais':
-                        usuario = apostasIniciais(usuario)
+                        usuario = apostasIniciais(usuario,nomeUsuario)
 
                     elif taskInterno == 'Apostas fase de grupos':
                         st.header('Fase de Grupos')
