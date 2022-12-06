@@ -1509,6 +1509,7 @@ def classificacaoDoBolao():
 
 def classificacaoBolaoGrupos():
 
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
     classificadosGrupos = np.array(['Holanda','Senegal',
                                     'Inglaterra','Estados Unidos',
                                     'Argentina','Polônia',
