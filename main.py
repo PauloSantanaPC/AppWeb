@@ -1971,6 +1971,10 @@ def main():
                 elif task == 'Outros':
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
 
+            elif nomeUsuario == usuario[0] and senhaUsuario != usuario[1]:
+                # não confirmação do login
+                st.sidebar.error('senha inválida')
+
             else:
                 # não confirmação do login
                 st.sidebar.error('Usuário/senha inválidos')
