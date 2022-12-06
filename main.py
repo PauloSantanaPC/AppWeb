@@ -1470,7 +1470,6 @@ def classificacaoDoBolao():
 def classificacaoBolaoGrupos():
 
     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-
     
     #------------------                                    
     colunas = []
@@ -1613,6 +1612,8 @@ def classificacaoBolaoGrupos():
 
 def apostasApostador(contadorUsuario):
 
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    
     #-----------------------------
     st.subheader('Oitavas de final')
     #-----------------------------
