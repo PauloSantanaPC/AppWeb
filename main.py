@@ -1425,7 +1425,7 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
         if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
             st.subheader('Aposta registrada!')
             st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+            st.write(f'Aposta classificação: {listaSelecoes()[usuario[126+3*nomeJogo]]}')
         if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
             st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
