@@ -1609,6 +1609,90 @@ def classificacaoBolaoGrupos():
 
     return
 
+#-----------------------------------------------------------------------------#
+
+def apostasApostador(contadorUsuario):
+
+    #-----------------------------
+    st.subheader('Oitavas de final')
+    #-----------------------------
+
+    opcoesOitavas1 = ['Holanda','Estados Unidos']
+    opcoesOitavas2 = ['Argentina','Austrália']
+    opcoesOitavas3 = ['Japão','Croácia']
+    opcoesOitavas4 = ['Brasil','Coreia do Sul']
+    opcoesOitavas5 = ['Inglaterra','Senegal']
+    opcoesOitavas6 = ['França','Polônia']
+    opcoesOitavas7 = ['Marrocos','Espanha']
+    opcoesOitavas8 = ['Portugal','Suíça']
+    opcoesOitavas  = [opcoesOitavas1,
+                      opcoesOitavas2,
+                      opcoesOitavas3,
+                      opcoesOitavas4,
+                      opcoesOitavas5,
+                      opcoesOitavas6,
+                      opcoesOitavas7,
+                      opcoesOitavas8]
+    
+    #-----------------------------
+    
+    horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+    horarioOitavas2 = horarioJogo(2022,12,3,16,0)
+    horarioOitavas3 = horarioJogo(2022,12,5,12,0)
+    horarioOitavas4 = horarioJogo(2022,12,5,16,0)
+    horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+    horarioOitavas6 = horarioJogo(2022,12,4,12,0)
+    horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+    horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+    horarioOitavas  = [horarioOitavas1,
+                       horarioOitavas2,
+                       horarioOitavas3,
+                       horarioOitavas4,
+                       horarioOitavas5,
+                       horarioOitavas6,
+                       horarioOitavas7,
+                       horarioOitavas8]
+
+    #-----------------------------
+    
+    for nomeJogo in range(8):
+        st.write(f'Jogo {nomeJogo+1} - {np.array(listaUsuarios)[contadorUsuario][0]}')
+        if not horarioOitavas[nomeJogo]:
+        #if horarioOitavas[nomeJogo]:
+            if np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo] != '':
+                st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                st.write(f'Classificado: {np.array(listaUsuarios)[contadorUsuario][126+3*nomeJogo]}')
+            else:
+                st.write(f'Aposta NÃO realizada.')
+    
+    #-------------------------------------------
+    
+    if listaUsuarios[contadorUsuario][8] != '':
+        st.subheader(f'Acha que vai ser o {opcoesBolao[int(listaUsuarios[contadorUsuario][8])]} !')
+    
+    if np.array(listaUsuarios)[contadorUsuario][9] != '':
+        apostaCampeao = listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][9])]
+    else:
+        apostaCampeao = 'Não apostou no campeão'
+        
+    if np.array(listaUsuarios)[contadorUsuario][10] != '':
+        apostaViceCampeao = listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][10])]
+    else:
+        apostaViceCampeao = 'Não apostou no vice-campeão'
+        
+    if np.array(listaUsuarios)[contadorUsuario][11] != '':
+        apostaTerceiroColocado = listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][11])]
+    else:
+        apostaTerceiroColocado = 'Não apostou no terceiro colocado'
+    
+    st.subheader(f'Apostas principais - {dataHoraMinutoAtual}:')
+    df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
+                        columns = ('Campeão','Vice-campeão','Terceiro colocado'))
+    df.index = [f'Aposta - {np.array(listaUsuarios)[contadorUsuario][0]}']
+    st.table(df)
+
+    return
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1714,6 +1798,7 @@ def main():
                                     st.header(f'Resumo das apostas do Bolão')
                                     classificacaoDoBolao()
                                     classificacaoBolaoGrupos()
+                                    apostasApostador(contadorUsuario)
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
