@@ -1521,7 +1521,9 @@ def classificacaoBolaoGrupos():
     
     apostadorPontuacaoApostasGrupos = []
     apostadorPontuacaoGrupos = []
+    colunas = []
     for contadorUsuario in range(1, len(listaUsuarios), 1):
+        colunas.append(np.array(listaUsuarios)[contadorUsuario][0])
         pontuacaoApostasGrupos = []
         pontuacaoGrupos = 0
         for apostaGrupo in range(12, 28, 2):
