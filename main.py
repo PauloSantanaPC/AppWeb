@@ -1649,10 +1649,6 @@ def apostasOitavasApostador(contadorUsuario):
         #if horarioOitavas[nomeJogo]:
             if np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo] != '':
                 st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-                #st.write(f'Classificado: {np.array(listaUsuarios)[contadorUsuario][126+3*nomeJogo]}')
-                st.write(f'Classificado: {contadorUsuario}')
-                st.write(f'Classificado: {126+3*nomeJogo}')
-                st.write(f'Classificado: {listaUsuarios[contadorUsuario][126+3*nomeJogo]}')
                 st.write(f'Classificado: {listaSelecoes()[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
             else:
                 st.write(f'Aposta NÃO realizada.')
@@ -1846,7 +1842,9 @@ def apostasFaseGruposApostador(contadorUsuario):
 
 def lerUsuarios():
     '''
+    
     Função para ler os usuários.
+    
     '''
     usuarioMestre = np.load('usuarioMestre.npy')
     Paulo  = np.load('Paulo.npy')
@@ -1855,11 +1853,11 @@ def lerUsuarios():
     Marcos = np.load('Marcos.npy')
     Rafa   = np.load('Rafa.npy')
     Taio   = np.load('Taio.npy')
-    #listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
     usuario1 = np.load('usuario1.npy')
     usuario2 = np.load('usuario2.npy')
     usuario3 = np.load('usuario3.npy')
     listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
+    #listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
 
     return listaUsuarios
 
@@ -1904,7 +1902,7 @@ def main():
             elif task == 'Placares':
                 st.title('Placares dos jogos')
                 st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-
+                placarJogos(nomeUsuario)
 
             elif task == 'Usuários':
                 st.title('Usuários')
@@ -2008,3 +2006,343 @@ if __name__ == '__main__':
 #=============================================================================#
 #-----------------------------------------------------------------------------#
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+def placarJogos(nomeUsuario):
+
+    classificacao = classificacaoInicial()
+    indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == nomeUsuario)[0][0]
+    usuario = listaUsuarios[indiceUsuario]
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+        listaUsuarios[contadorUsuario][2] = 0
+        listaUsuarios[contadorUsuario][3] = 0
+        listaUsuarios[contadorUsuario][4] = 0
+        listaUsuarios[contadorUsuario][5] = 0
+        listaUsuarios[contadorUsuario][6] = 0
+        listaUsuarios[contadorUsuario][7] = 0
+        np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+    
+    classificadosGrupos = np.array(['Holanda','Senegal',
+                                    'Inglaterra','Estados Unidos',
+                                    'Argentina','Polônia',
+                                    'França','Austrália',
+                                    'Japão','Espanha',
+                                    'Marrocos','Croácia',
+                                    'Brasil','Suíça',
+                                    'Portugal','Coreia do Sul'])
+    
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+        pontuacaoGrupos = 0
+        for apostaGrupo in range(12, 28, 2):
+            if np.array(listaUsuarios)[contadorUsuario][apostaGrupo] != '':
+                if listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                    pontuacaoGrupos += 60
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                    pontuacaoGrupos += 30
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                    pontuacaoGrupos += 42
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo-12]:
+                    pontuacaoGrupos += 21
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
+                    pontuacaoGrupos += 30
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
+                    pontuacaoGrupos += 21
+                elif listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                    pontuacaoGrupos += 0
+
+        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoGrupos
+        np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+
+    for nomeGrupo in range(len(grupos()[:,0])):
+        st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+        
+        # Datas e horários dos jogos
+        for nomeJogo in range(6):
+            with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
+                st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
+
+                # rodada e jogo
+                if nomeJogo == 0 or nomeJogo == 1:
+                    nomeRodada = 1
+                elif nomeJogo == 2 or nomeJogo == 3:
+                    nomeRodada = 2
+                elif nomeJogo == 4 or nomeJogo == 5:
+                    nomeRodada = 3
+
+                if nomeRodada == 1:
+                    # Time i1 = 0
+                    # Time i2 = 1
+                    # Time i3 = 2
+                    # Time i4 = 3
+                    # rodada 1: Time i1 x Time i2
+                    # rodada 1: Time i3 x Time i4
+                    time1 = 0
+                    time2 = 1
+                    time3 = 2
+                    time4 = 3
+                    if nomeJogo == 0:
+                        #print('Jogo 1')
+                        placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_1 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_1 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+                    elif nomeJogo == 1:
+                        #print('Jogo 2')
+                        placar_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_2 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_2 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+                elif nomeRodada == 2:
+                    # Time i1 = 0
+                    # Time i2 = 1
+                    # Time i3 = 2
+                    # Time i4 = 3
+                    # rodada 2: Time i1 x Time i3
+                    # rodada 2: Time i2 x Time i4
+                    # rodada 2: Time i4 x Time i2 ALTERADA
+                    time1 = 0
+                    time2 = 2
+                    time3 = 3
+                    time4 = 1
+                    if nomeJogo == 2:
+                        #print('Jogo 3')
+                        placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_3 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_3 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+                    elif nomeJogo == 3:
+                        #print('Jogo 4')
+                        placar_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_4 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_4 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+                elif nomeRodada == 3:
+                    # Time i1 = 0
+                    # Time i2 = 1
+                    # Time i3 = 2
+                    # Time i4 = 3
+                    # rodada 3: Time i4 x Time i1
+                    # rodada 3: Time i2 x Time i3
+                    time1 = 3
+                    time2 = 0
+                    time3 = 1
+                    time4 = 2
+                    if nomeJogo == 4:
+                        #print('Jogo 5')
+                        placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_5 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_5 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_1,placar_selecao_2)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+                    elif nomeJogo == 5:
+                        #print('Jogo 6')
+                        placar_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        placar_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
+                        botao_jogo_6 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
+                        inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
+                        if botao_jogo_6 and not inicioJogo:
+                            fazerApostaPrimeiraFase(usuario,nomeGrupo,nomeJogo,placar_selecao_3,placar_selecao_4)
+                            np.save(str(nomeUsuario),usuario)
+                            st.subheader(f'Registrou.')
+                        if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
+                            st.subheader('Fim de jogo!')
+                            st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                            classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
+                            if not inicioJogo:
+                                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                                    pontuacaoJogo = 0
+                                    listaUsuarios[contadorUsuario], pontuacao = resultadoApostadorFaseGrupos(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][28+2*6*nomeGrupo+2*nomeJogo],listaUsuarios[contadorUsuario][29+2*6*nomeGrupo+2*nomeJogo],usuario[28+2*6*nomeGrupo+2*nomeJogo],usuario[29+2*6*nomeGrupo+2*nomeJogo])
+                                    st.subheader(f'A sua pontuação do {listaUsuarios[contadorUsuario][0]} foi: {pontuacao} ponto(s)')
+                                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    rotuloColuna = ['P',  # pontuação
+                    'J',  # jogos
+                    'V',  # vitórias
+                    'E',  # empates
+                    'D',  # derrotas
+                    'GP', # gols pró
+                    'GC', # gols contra
+                    'SG'] # saldo de gols
+    for contadorClassificacao in range(len(classificacao)):
+        classificacao[contadorClassificacao].pop(-1)
+        df = pd.DataFrame(np.array([[classificacao[contadorClassificacao][0][1],classificacao[contadorClassificacao][0][2],classificacao[contadorClassificacao][0][3],classificacao[contadorClassificacao][0][4],classificacao[contadorClassificacao][0][5],classificacao[contadorClassificacao][0][6],classificacao[contadorClassificacao][0][7],classificacao[contadorClassificacao][0][8]],
+                                    [classificacao[contadorClassificacao][1][1],classificacao[contadorClassificacao][1][2],classificacao[contadorClassificacao][1][3],classificacao[contadorClassificacao][1][4],classificacao[contadorClassificacao][1][5],classificacao[contadorClassificacao][1][6],classificacao[contadorClassificacao][1][7],classificacao[contadorClassificacao][1][8]],
+                                    [classificacao[contadorClassificacao][2][1],classificacao[contadorClassificacao][2][2],classificacao[contadorClassificacao][2][3],classificacao[contadorClassificacao][2][4],classificacao[contadorClassificacao][2][5],classificacao[contadorClassificacao][2][6],classificacao[contadorClassificacao][2][7],classificacao[contadorClassificacao][2][8]],
+                                    [classificacao[contadorClassificacao][3][1],classificacao[contadorClassificacao][3][2],classificacao[contadorClassificacao][3][3],classificacao[contadorClassificacao][3][4],classificacao[contadorClassificacao][3][5],classificacao[contadorClassificacao][3][6],classificacao[contadorClassificacao][3][7],classificacao[contadorClassificacao][3][8]]
+                                    ]),
+                    columns = tuple(rotuloColuna)
+        )
+        df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
+        st.table(df)
+    
+    st.subheader(listaUsuarios)
+    classificacaoBolao = []
+    dadosClassificacao = []
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+        classificacaoBolao.append([listaUsuarios[contadorUsuario][0],listaUsuarios[contadorUsuario][2],listaUsuarios[contadorUsuario][3],listaUsuarios[contadorUsuario][4],listaUsuarios[contadorUsuario][5],listaUsuarios[contadorUsuario][6],listaUsuarios[contadorUsuario][7]])
+        dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
+    df0 = pd.DataFrame(np.array(dadosClassificacao),
+                       columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
+    df0.index = np.delete(np.array(listaUsuarios)[:,0],0)
+    st.table(df0)
+    
+
+    st.header('Oitavas de final')
+    #-----------------------------
+    opcoesOitavas1 = ['Holanda','Estados Unidos']
+    opcoesOitavas2 = ['Argentina','Austrália']
+    opcoesOitavas3 = ['Japão','Croácia']
+    opcoesOitavas4 = ['Brasil','Coreia do Sul']
+    opcoesOitavas5 = ['Inglaterra','Senegal']
+    opcoesOitavas6 = ['França','Polônia']
+    opcoesOitavas7 = ['Marrocos','Espanha']
+    opcoesOitavas8 = ['Portugal','Suíça']
+    opcoesOitavas  = [opcoesOitavas1,
+                      opcoesOitavas2,
+                      opcoesOitavas3,
+                      opcoesOitavas4,
+                      opcoesOitavas5,
+                      opcoesOitavas6,
+                      opcoesOitavas7,
+                      opcoesOitavas8]
+    #-----------------------------
+    horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+    horarioOitavas2 = horarioJogo(2022,12,3,16,0)
+    horarioOitavas3 = horarioJogo(2022,12,5,12,0)
+    horarioOitavas4 = horarioJogo(2022,12,5,16,0)
+    horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+    horarioOitavas6 = horarioJogo(2022,12,4,12,0)
+    horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+    horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+    horarioOitavas  = [horarioOitavas1,
+                       horarioOitavas2,
+                       horarioOitavas3,
+                       horarioOitavas4,
+                       horarioOitavas5,
+                       horarioOitavas6,
+                       horarioOitavas7,
+                       horarioOitavas8]
+    #-----------------------------
+    dataOitavas1 = datetime(2022,12,3,12,0)
+    dataOitavas2 = datetime(2022,12,3,16,0)
+    dataOitavas3 = datetime(2022,12,5,12,0)
+    dataOitavas4 = datetime(2022,12,5,16,0)
+    dataOitavas5 = datetime(2022,12,4,16,0)
+    dataOitavas6 = datetime(2022,12,4,12,0)
+    dataOitavas7 = datetime(2022,12,6,12,0)
+    dataOitavas8 = datetime(2022,12,6,16,0)
+    dataOitavas  = [dataOitavas1,
+                    dataOitavas2,
+                    dataOitavas3,
+                    dataOitavas4,
+                    dataOitavas5,
+                    dataOitavas6,
+                    dataOitavas7,
+                    dataOitavas8]
+
+    for nomeJogo in range(8):
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+        with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
+            placarOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
+            placarOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            placarOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoPlacarOitavas = st.form_submit_button(label = 'Placar')
+        if botaoPlacarOitavas and not horarioOitavas[nomeJogo]:
+            if placarOitavas == opcoesOitavas[nomeJogo][0] and placarOitavasSelecao1 < placarOitavasSelecao2 or placarOitavas == opcoesOitavas[nomeJogo][1] and placarOitavasSelecao2 < placarOitavasSelecao1:
+                st.subheader('Placar INVÁLIDO!')
+                st.write(f'Tente postar novamente.')
+            else:
+                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
+                usuario[126+3*nomeJogo] = placarOitavas
+                np.save(str(nomeUsuario),usuario)
+        elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
+            st.subheader('O jogo ainda não começou!')
+            st.write(f'Você NÃO pode postar o placar.')
+        if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+            st.subheader('Fim de Jogo!')
+            st.subheader('Placar registrado.')
+            st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+            if not horarioOitavas[nomeJogo]:
+                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                    pontuacaoJogo = 0
+                    listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][124+3*nomeJogo],listaUsuarios[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
+                    listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][126+3*nomeJogo],usuario[126+3*nomeJogo])
+                    st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    return
