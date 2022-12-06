@@ -1169,7 +1169,7 @@ def apostasIniciais(usuario,nomeUsuario):
 
 #-----------------------------------------------------------------------------#
 
-def apostasFaseGrupos(usuario,nomeUsuario):
+def apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre):
 
     st.title('Fase de Grupos')
     classificacao = classificacaoInicial()
@@ -1430,7 +1430,6 @@ def main():
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
             usuario = listaUsuarios[indiceUsuario]
 
-
             if nomeUsuario == usuario[0] and senhaUsuario == usuario[1]:
                 # confirmação do login
                 st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
@@ -1445,7 +1444,7 @@ def main():
 
                     elif taskInterno == 'Apostas fase de grupos':
                         st.header('Fase de Grupos')
-                        usuario = apostasFaseGrupos(usuario,nomeUsuario)
+                        usuario = apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre)
 
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
