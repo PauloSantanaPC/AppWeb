@@ -1653,7 +1653,7 @@ def apostasOitavasApostador(contadorUsuario):
                 st.write(f'Classificado: {contadorUsuario}')
                 st.write(f'Classificado: {126+3*nomeJogo}')
                 st.write(f'Classificado: {listaUsuarios[contadorUsuario][126+3*nomeJogo]}')
-                #st.write(f'Classificado: {listaSelecoes[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
+                st.write(f'Classificado: {listaSelecoes()[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
             else:
                 st.write(f'Aposta NÃO realizada.')
     
