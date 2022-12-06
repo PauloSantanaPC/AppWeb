@@ -26,7 +26,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
 
 # pegando as funções externas
-import apostasIniciais.incluirApostasIniciais as apostas
+from arquivoApostasIniciais import apostasIniciais
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
@@ -1190,7 +1190,7 @@ def main():
 
                     if taskInterno == 'Apostas iniciais':
                         st.header('Apostas Iniciais')
-                        apostas.incluirApostasIniciais()
+                        apostasIniciais()
 
                     elif taskInterno == 'Apostas fase de grupos':
                         st.header('Fase de Grupos')
