@@ -1664,6 +1664,7 @@ def apostasPrincipaisApostador(contadorUsuario):
 
     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
 
+    opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
     if listaUsuarios[contadorUsuario][8] != '':
         st.subheader(f'Acha que vai ser o {opcoesBolao[int(listaUsuarios[contadorUsuario][8])]} !')
     
