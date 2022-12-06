@@ -1547,7 +1547,7 @@ def main():
                         #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                         #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for contadorUsuario in range(len(listaUsuarios)):
-                            if usuario == 0:
+                            if contadorUsuario == 0:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                             else:
