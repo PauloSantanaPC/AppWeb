@@ -1361,11 +1361,11 @@ def apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre):
 
 #-----------------------------------------------------------------------------#
 
-apostasOitavas(usuario,nomeUsuario,usuarioMestre)
+def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
 
     st.title('Apostas nas fases eliminatórias')
 
-    st.header('Oitavas de final')
+    st.subheader('Oitavas de final')
     #-----------------------------
     opcoesOitavas1 = ['Holanda','Estados Unidos']
     opcoesOitavas2 = ['Argentina','Austrália']
