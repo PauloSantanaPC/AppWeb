@@ -130,17 +130,6 @@ def fazerApostaPrimeiraFase(cadastroApostador, nomeGrupo, nomeJogo, golMandante,
 
 #-----------------------------------------------------------------------------#
 
-def apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado):
-    
-    # apostas podio
-    usuario[9] = listaSelecoes().index(apostaCampeao) #apostaCampeao
-    usuario[10] = listaSelecoes().index(apostaViceCampeao) #apostaViceCampeao
-    usuario[11] = listaSelecoes().index(apostaTerceiroColocado) #apostaTerceiroColocado
-
-    return
-
-#-----------------------------------------------------------------------------#
-
 def apostaGrupos(usuario,nomeGrupo,apostaPrimeiroGrupo,apostaSegundoGrupo):
     
     # apostas grupos
@@ -184,6 +173,17 @@ def horarioJogo(anoJogo,mesJogo,diaJogo,horaJogo,minutoJogo):
         inicioJogo = True
     
     return inicioJogo
+
+#-----------------------------------------------------------------------------#
+
+def apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado):
+    
+    # apostas podio
+    usuario[9] = listaSelecoes().index(apostaCampeao) #apostaCampeao
+    usuario[10] = listaSelecoes().index(apostaViceCampeao) #apostaViceCampeao
+    usuario[11] = listaSelecoes().index(apostaTerceiroColocado) #apostaTerceiroColocado
+
+    return
 
 #-----------------------------------------------------------------------------#
 
@@ -1189,8 +1189,9 @@ def main():
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
                     if taskInterno == 'Apostas iniciais':
-                        st.title('A')
-                        apostasIniciais()
+                        st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
+                        st.header('Não consegui fazer')
+                        #apostasIniciais()
 
                     elif taskInterno == 'Apostas fase de grupos':
                         st.header('Fase de Grupos')
