@@ -1924,7 +1924,7 @@ def main():
                 login = True
                 break
             elif contadorUsuario == len(listaUsuarios)-1:
-                st.sidebar.error('Usuário inexistente')
+                st.sidebar.error('Usuário inexistente.')
                 login = False
 
         if st.sidebar.checkbox('Login') and login:
@@ -1982,7 +1982,7 @@ def main():
 
             else:
                 # não confirmação do login
-                st.sidebar.error('Usuário/senha inválidos')
+                st.sidebar.error('Senha inválida.')
 
 #-----------------------------------------------------------------------------#
 #=============================================================================#
