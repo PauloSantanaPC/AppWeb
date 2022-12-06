@@ -26,7 +26,7 @@ import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
 
 # pegando as funções externas
-from arquivoApostasIniciais import apostasIniciais
+from arquivoApostasIniciais import *
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
