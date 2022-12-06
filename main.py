@@ -129,7 +129,7 @@ def main():
                     if taskInterno == 'Apostas iniciais':
                         st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
                         #st.header('Não consegui fazer')
-                        apostasIniciais()
+                        apostasIniciais(usuario)
 
                     elif taskInterno == 'Apostas fase de grupos':
                         st.header('Fase de Grupos')
