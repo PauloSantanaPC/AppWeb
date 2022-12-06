@@ -2161,7 +2161,8 @@ def placarJogos(nomeUsuario):
                 st.write(f'Tente postar novamente.')
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
-                usuario[126+3*nomeJogo] = placarOitavas
+                #usuario[126+3*nomeJogo] = placarOitavas
+                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaOitavas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
             st.subheader('O jogo ainda não começou!')
@@ -2170,7 +2171,8 @@ def placarJogos(nomeUsuario):
             st.subheader('Fim de Jogo!')
             st.subheader('Placar registrado.')
             st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-            st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+            #st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
+            st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
             if not horarioOitavas[nomeJogo]:
                 for contadorUsuario in range(1, len(listaUsuarios), 1):
                     pontuacaoJogo = 0
