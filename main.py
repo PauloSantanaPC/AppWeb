@@ -1610,7 +1610,7 @@ def classificacaoBolaoGrupos():
 
 #-----------------------------------------------------------------------------#
 
-def apostasApostador(contadorUsuario):
+def apostasOitavasApostador(contadorUsuario):
 
     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
 
@@ -1667,6 +1667,12 @@ def apostasApostador(contadorUsuario):
                 st.write(f'Aposta NÃO realizada.')
     
     #-------------------------------------------
+
+    return
+
+#-----------------------------------------------------------------------------#
+
+def apostasPrincipaisApostador(contadorUsuario):
     
     if listaUsuarios[contadorUsuario][8] != '':
         st.subheader(f'Acha que vai ser o {opcoesBolao[int(listaUsuarios[contadorUsuario][8])]} !')
@@ -1802,7 +1808,8 @@ def main():
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
-                                    apostasApostador(contadorUsuario)
+                                    apostasOitavasApostador(contadorUsuario)
+                                    apostasPrincipaisApostador(contadorUsuario)
 
                     elif taskInterno == 'Links externos':
                         st.header('Em breve ...')
