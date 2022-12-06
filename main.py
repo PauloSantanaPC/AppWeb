@@ -1097,19 +1097,6 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
 #-----------------------------------------------------------------------------#
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-def lerUsuarios():
-    '''
-    Função para ler os usuários.
-    '''
-    usuarioMestre = np.load('usuarioMestre.npy')
-    usuario1 = np.load('usuario1.npy')
-    usuario2 = np.load('usuario2.npy')
-    listaUsuarios = [usuarioMestre,usuario1,usuario2]
-
-    return listaUsuarios
-
-#-----------------------------------------------------------------------------#
-
 def apostasIniciais(usuario,nomeUsuario):
 
     st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
@@ -1849,6 +1836,20 @@ def apostasFaseGruposApostador(contadorUsuario):
                     st.write(f'Jogo {contadorJogo+1}: Aposta NÃO realizada.')
 
     return
+
+#-----------------------------------------------------------------------------#
+
+def lerUsuarios():
+    '''
+    Função para ler os usuários.
+    '''
+    usuarioMestre = np.load('usuarioMestre.npy')
+    usuario1 = np.load('usuario1.npy')
+    usuario2 = np.load('usuario2.npy')
+    usuario3 = np.load('usuario3.npy')
+    listaUsuarios = [usuarioMestre,usuario1,usuario2]
+
+    return listaUsuarios
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
