@@ -1416,7 +1416,6 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
                 st.write(f'Tente realizar as apostas novamente.')
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
-                #usuario[126+3*nomeJogo] = apostaOitavas
                 usuario[126+3*nomeJogo] = listaSelecoes().index(apostaOitavas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
@@ -1516,7 +1515,6 @@ def classificacaoBolaoGrupos():
         pontuacaoGrupos = 0
         for apostaGrupo in range(12, 28, 2):
             if np.array(listaUsuarios)[contadorUsuario][apostaGrupo] != '':
-                #pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])]])
                 if listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                     pontuacaoApostasGrupos.append([30,30])
                     pontuacaoGrupos += 60
@@ -1651,7 +1649,8 @@ def apostasOitavasApostador(contadorUsuario):
         #if horarioOitavas[nomeJogo]:
             if np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo] != '':
                 st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-                st.write(f'Classificado: {np.array(listaUsuarios)[contadorUsuario][126+3*nomeJogo]}')
+                #st.write(f'Classificado: {np.array(listaUsuarios)[contadorUsuario][126+3*nomeJogo]}')
+                st.write(f'Classificado: {listaSelecoes[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
             else:
                 st.write(f'Aposta NÃO realizada.')
     
