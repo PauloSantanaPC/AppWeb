@@ -1465,6 +1465,7 @@ def classificacaoBolaoGrupos():
     apostasViceCampeao = []
     apostasTerceiroColocado = []
     apostasGrupos = []
+    opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
     for contadorUsuario in range(1, len(listaUsuarios), 1):
         
         # Apostas Iniciais bolão, campeão, vice e terceiro
