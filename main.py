@@ -1865,7 +1865,8 @@ def lerUsuarios():
 def placarJogos(nomeUsuario):
 
     classificacao = classificacaoInicial()
-    indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == nomeUsuario)[0][0]
+    #indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == nomeUsuario)[0][0]
+    indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
     usuario = listaUsuarios[indiceUsuario]
     for contadorUsuario in range(1, len(listaUsuarios), 1):
         listaUsuarios[contadorUsuario][2] = 0
@@ -2201,7 +2202,7 @@ def placarJogos(nomeUsuario):
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
     return
-    
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
