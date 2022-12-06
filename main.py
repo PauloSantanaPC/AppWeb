@@ -1861,6 +1861,9 @@ def lerUsuarios():
 # pegando os usuarios
 listaUsuarios = lerUsuarios()
 
+# pegar o usuario mestre
+usuarioMestre = np.load('usuarioMestre.npy')
+
 def main():
     
     ''' Simple Login App '''
@@ -1916,9 +1919,15 @@ def main():
         nomeUsuario  = st.sidebar.text_input('Nome de usuário')
         senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
 
-        if st.sidebar.checkbox('Login'):
-            # pegar o usuario mestre
-            usuarioMestre = np.load('usuarioMestre.npy')
+        for contadorUsuario in range(len(listaUsuarios)):
+            if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
+                login = True
+                break
+            elif contadorUsuario == len(listaUsuarios)-1:
+                st.sidebar.error('Usuário inexistente')
+                login = False
+
+        if st.sidebar.checkbox('Login') and login:
             # pegar o usuario
             indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
             usuario = listaUsuarios[indiceUsuario]
@@ -1970,10 +1979,6 @@ def main():
 
                 elif task == 'Outros':
                     st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
-
-            elif nomeUsuario == usuario[0] and senhaUsuario != usuario[1]:
-                # não confirmação do login
-                st.sidebar.error('senha inválida')
 
             else:
                 # não confirmação do login
