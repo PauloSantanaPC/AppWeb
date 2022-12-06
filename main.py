@@ -1846,17 +1846,17 @@ def lerUsuarios():
     Função para ler os usuários.
     '''
     usuarioMestre = np.load('usuarioMestre.npy')
-    #Paulo  = np.load('Paulo.npy')
-    #Bola   = np.load('Bola.npy')
-    #Thiti  = np.load('Thiti.npy')
-    #Marcos = np.load('Marcos.npy')
-    #Rafa   = np.load('Rafa.npy')
-    #Taio   = np.load('Taio.npy')
+    Paulo  = np.load('Paulo.npy')
+    Bola   = np.load('Bola.npy')
+    Thiti  = np.load('Thiti.npy')
+    Marcos = np.load('Marcos.npy')
+    Rafa   = np.load('Rafa.npy')
+    Taio   = np.load('Taio.npy')
     #listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
     usuario1 = np.load('usuario1.npy')
     usuario2 = np.load('usuario2.npy')
     usuario3 = np.load('usuario3.npy')
-    listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3]
+    listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
 
     return listaUsuarios
 
