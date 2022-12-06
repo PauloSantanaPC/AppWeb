@@ -1843,7 +1843,6 @@ def apostasFaseGruposApostador(contadorUsuario):
 def placarJogos(nomeUsuario):
 
     classificacao = classificacaoInicial()
-    #indiceUsuario = np.where(np.array(todos_os_usuarios())[:,0] == nomeUsuario)[0][0]
     indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
     usuario = listaUsuarios[indiceUsuario]
     for contadorUsuario in range(1, len(listaUsuarios), 1):
@@ -2162,7 +2161,7 @@ def placarJogos(nomeUsuario):
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
                 #usuario[126+3*nomeJogo] = placarOitavas
-                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaOitavas)
+                usuario[126+3*nomeJogo] = listaSelecoes().index(placarOitavas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
             st.subheader('O jogo ainda não começou!')
