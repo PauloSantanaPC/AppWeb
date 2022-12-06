@@ -1447,7 +1447,7 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
 
 #-----------------------------------------------------------------------------#
 
-def apostasUsuariosCampeao():
+def classificacaoDoBolao():
 
     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
     st.subheader(f'Classificação do Bolão - {dataHoraMinutoAtual}')
@@ -1608,7 +1608,7 @@ def main():
                             if contadorUsuario == 0:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas do Bolão')
-                                    apostasUsuariosCampeao()
+                                    classificacaoDoBolao()
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
