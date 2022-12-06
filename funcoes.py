@@ -1093,9 +1093,9 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
 #-----------------------------------------------------------------------------#
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
-def apostasIniciais():
+def apostasIniciais(usuario):
 
-	#st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
+	st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
 
     #-----------------------------------------------------------------------------#
 
@@ -1151,6 +1151,7 @@ def apostasIniciais():
     #-----------------------------------------------------------------------------#
 
     return
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
