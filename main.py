@@ -1445,6 +1445,66 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
 
     return usuario
 
+#-----------------------------------------------------------------------------#
+
+def apostasUsuariosCampeao():
+
+    st.subheader(f'Classificação do Bolão - {dataHoraMinutoAtual}')
+
+    opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+    classificacaoBolao = []
+    dadosClassificacao = []
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+        classificacaoBolao.append([listaUsuarios[contadorUsuario][0],listaUsuarios[contadorUsuario][2],listaUsuarios[contadorUsuario][3],listaUsuarios[contadorUsuario][4],listaUsuarios[contadorUsuario][5],listaUsuarios[contadorUsuario][6],listaUsuarios[contadorUsuario][7]])
+        dadosClassificacao.append(np.delete(np.array(classificacaoBolao[contadorUsuario-1]),0,0))
+    df = pd.DataFrame(np.array(dadosClassificacao),
+                       columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
+    df.index = np.delete(np.array(listaUsuarios)[:,0],0)
+    st.table(df)
+    
+    #------------------                                    
+    colunas = []
+    opcoes = []
+    apostasCampeao = []
+    apostasViceCampeao = []
+    apostasTerceiroColocado = []
+    apostasGrupos = []
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+        
+        # Apostas Iniciais bolão, campeão, vice e terceiro
+        colunas.append(np.array(listaUsuarios)[contadorUsuario][0])
+        if listaUsuarios[contadorUsuario][8] != '':
+            opcoes.append(f'Acha que vai ser o {opcoesBolao[int(listaUsuarios[contadorUsuario][8])]} !')
+        else:
+            opcoes.append(f'Não acha nada.')
+
+        if np.array(listaUsuarios)[contadorUsuario][9] != '':
+            apostasCampeao.append(listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][9])])
+        else:
+            apostasCampeao.append('Não apostou no campeão')
+
+        if np.array(listaUsuarios)[contadorUsuario][10] != '':
+            apostasViceCampeao.append(listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][10])])
+        else:
+            apostasViceCampeao.append('Não apostou no vice-campeão')
+
+        if np.array(listaUsuarios)[contadorUsuario][11] != '':
+            apostasTerceiroColocado.append(listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][11])])
+        else:
+            apostasTerceiroColocado.append('Não apostou no terceiro colocado')
+
+        # apostas Iniciais Grupos
+        listaApostasGruposUsuario = []
+        for apostaGrupo in range(12, 28, 2):
+            if np.array(listaUsuarios)[contadorUsuario][apostaGrupo] != '':
+                listaApostasGruposUsuario.append([listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(listaUsuarios)[contadorUsuario][apostaGrupo+1])]])
+            else:
+                listaApostasGruposUsuario.append(['Não apostou','Não apostou'])
+        apostasGrupos.append(listaApostasGruposUsuario)
+
+    return
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1544,12 +1604,11 @@ def main():
 
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
-                        #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-                        #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for contadorUsuario in range(len(listaUsuarios)):
                             if contadorUsuario == 0:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas do Bolão')
+                                    apostasUsuariosCampeao()
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
