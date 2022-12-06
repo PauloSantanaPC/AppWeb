@@ -1778,7 +1778,7 @@ def apostasFaseGruposApostador(contadorUsuario):
 
     st.subheader(f'Apostas jogos primeira fase - {dataHoraMinutoAtual}:')
     for contadorGrupo in range(8):
-    st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(listaUsuarios)[contadorUsuario][0]}')
+        st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(listaUsuarios)[contadorUsuario][0]}')
     for contadorJogo in range(6):
         # rodada e jogo
         if contadorJogo == 0 or contadorJogo == 1:
