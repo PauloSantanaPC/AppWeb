@@ -25,6 +25,9 @@ import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
 
+# pegando as funções externas
+import apostasIniciais.incluirApostasIniciais as apostas
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -1186,13 +1189,14 @@ def main():
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
                     if taskInterno == 'Apostas iniciais':
-                        st.title('Apostas Iniciais')
+                        st.header('Apostas Iniciais')
+                        apostas.incluirApostasIniciais()
 
                     elif taskInterno == 'Apostas fase de grupos':
-                        st.title('Fase de Grupos')
+                        st.header('Fase de Grupos')
 
                     elif taskInterno == 'Apostas nas fases eliminatórias':
-                        st.title('Apostas nas fases eliminatórias')
+                        st.header('Apostas nas fases eliminatórias')
 
                     elif taskInterno == 'Resumo das apostas':
                         st.header('Resumo das apostas')
