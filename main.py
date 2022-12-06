@@ -1416,7 +1416,8 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
                 st.write(f'Tente realizar as apostas novamente.')
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
-                usuario[126+3*nomeJogo] = apostaOitavas
+                #usuario[126+3*nomeJogo] = apostaOitavas
+                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaCampeao)
                 np.save(str(nomeUsuario),usuario)
         elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
             st.subheader('O jogo já começou!')
