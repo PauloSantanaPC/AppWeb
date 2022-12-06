@@ -32,7 +32,7 @@ import pandas as pd
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 def apostasIniciais():
-
+	
 	st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
 
     #-----------------------------------------------------------------------------#
