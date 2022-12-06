@@ -1107,13 +1107,17 @@ def lerUsuarios():
     listaUsuarios = [usuarioMestre,usuario1,usuario2]
 
     return listaUsuarios
+
+#-----------------------------------------------------------------------------#
+
 def apostasIniciais(usuario):
 
     st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
 
     #-----------------------------------------------------------------------------#
 
-    inicioCopa = horarioJogo(2022,11,22,10,0)
+    #inicioCopa = horarioJogo(2022,11,22,10,0)
+    inicioCopa = horarioJogo(2023,11,22,10,0)
     opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
     opcoes = [0,1,2,3,4]
 
@@ -1122,7 +1126,7 @@ def apostasIniciais(usuario):
         botaoBolao = st.form_submit_button(label = 'Apostar')
     if botaoBolao and inicioCopa:
         usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
-        np.save(str(username),usuario)
+        np.save(str(nomeUsuario),usuario)
     if usuario[8] != '':
         st.subheader('Aposta registrada!')
         st.write(f'Você vai ser o {opcoesBolao[int(usuario[8])]} !')
@@ -1135,10 +1139,9 @@ def apostasIniciais(usuario):
         apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
-    #if botaoApostaCampeao and inicioCopa:
-    if botaoApostaCampeao and not inicioCopa:
+    if botaoApostaCampeao and inicioCopa:
         apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
-        np.save(str(username),usuario)
+        np.save(str(nomeUsuario),usuario)
     if usuario[9] != '':
         st.subheader('Apostas registradas!')
         st.write(f'Aposta campeão: {listaSelecoes()[int(usuario[9])]}')
@@ -1156,7 +1159,7 @@ def apostasIniciais(usuario):
             botaoApostaGrupos = st.form_submit_button(label = 'Apostar no grupo '+str(grupos()[nomeGrupo][-1]))
         if botaoApostaGrupos and inicioCopa:
             apostaGrupos(usuario,nomeGrupo,apostaPrimeiro,apostaSegundo)
-            np.save(str(username),usuario)
+            np.save(str(nomeUsuario),usuario)
         if usuario[2*nomeGrupo+12] != '':
             st.subheader('Apostas registradas!')
             st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuario[2*nomeGrupo+12])]}')
