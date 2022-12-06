@@ -1844,11 +1844,17 @@ def lerUsuarios():
     Função para ler os usuários.
     '''
     usuarioMestre = np.load('usuarioMestre.npy')
+    #Paulo  = np.load('Paulo.npy')
+    #Bola   = np.load('Bola.npy')
+    #Thiti  = np.load('Thiti.npy')
+    #Marcos = np.load('Marcos.npy')
+    #Rafa   = np.load('Rafa.npy')
+    #Taio   = np.load('Taio.npy')
+    #listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
     usuario1 = np.load('usuario1.npy')
     usuario2 = np.load('usuario2.npy')
-    #usuario3 = np.load('usuario3.npy')
-    #listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3]
-    listaUsuarios = [usuarioMestre,usuario1,usuario2]
+    usuario3 = np.load('usuario3.npy')
+    listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3]
 
     return listaUsuarios
 
@@ -1919,13 +1925,14 @@ def main():
         nomeUsuario  = st.sidebar.text_input('Nome de usuário')
         senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
 
-        for contadorUsuario in range(len(listaUsuarios)):
-            if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
-                login = True
-                break
-            elif contadorUsuario == len(listaUsuarios)-1:
-                st.sidebar.error('Usuário inexistente.')
-                login = False
+        if nomeUsuario != '':
+            for contadorUsuario in range(len(listaUsuarios)):
+                if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
+                    login = True
+                    break
+                elif contadorUsuario == len(listaUsuarios)-1:
+                    st.sidebar.error('Usuário inexistente.')
+                    login = False
 
         if st.sidebar.checkbox('Login') and login:
             # pegar o usuario
