@@ -1539,21 +1539,20 @@ def main():
                         st.header('Resumo das apostas')
 
                         tabs = []
-                        for tab in range(len(usuariosLista)):
-                            tabs.append(np.array(usuariosLista)[tab][0])
+                        for tab in range(len(listaUsuarios)):
+                            tabs.append(np.array(listaUsuarios)[tab][0])
 
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
                         #dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
                         #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
-                        for contadorUsuario in range(len(usuariosLista)):
+                        for contadorUsuario in range(len(listaUsuarios)):
                             if usuario == 0:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                             else:
                                 with tabs[contadorUsuario]:
-                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[contadorUsuario][0]}')                                    
-
+                                    st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
 
                     elif taskInterno == 'Links externos':
                         st.header('Em breve ...')
