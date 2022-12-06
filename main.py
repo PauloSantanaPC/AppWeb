@@ -2000,7 +2000,7 @@ def placarJogos(nomeUsuario):
                             st.subheader(f'Registrou.')
                         if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                             st.subheader('Fim de jogo!')
-                            st.write(f'{grupos()[nomeGrupo][time3]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                            st.write(f'{grupos()[nomeGrupo][time4]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time3]}')
                             classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuario[28+2*6*nomeGrupo+2*nomeJogo]),int(usuario[29+2*6*nomeGrupo+2*nomeJogo]))
                             if not inicioJogo:
                                 for contadorUsuario in range(1, len(listaUsuarios), 1):
@@ -2093,7 +2093,6 @@ def placarJogos(nomeUsuario):
     df0.index = np.delete(np.array(listaUsuarios)[:,0],0)
     st.table(df0)
     
-
     st.header('Oitavas de final')
     #-----------------------------
     opcoesOitavas1 = ['Holanda','Estados Unidos']
@@ -2160,7 +2159,6 @@ def placarJogos(nomeUsuario):
                 st.write(f'Tente postar novamente.')
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = placarOitavasSelecao1, placarOitavasSelecao2
-                #usuario[126+3*nomeJogo] = placarOitavas
                 usuario[126+3*nomeJogo] = listaSelecoes().index(placarOitavas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoPlacarOitavas and horarioOitavas[nomeJogo]:
@@ -2170,8 +2168,7 @@ def placarJogos(nomeUsuario):
             st.subheader('Fim de Jogo!')
             st.subheader('Placar registrado.')
             st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-            #st.write(f'Aposta classificação: {usuario[126+3*nomeJogo]}')
-            st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
             if not horarioOitavas[nomeJogo]:
                 for contadorUsuario in range(1, len(listaUsuarios), 1):
                     pontuacaoJogo = 0
