@@ -1189,7 +1189,6 @@ def main():
                     taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
 
                     if taskInterno == 'Apostas iniciais':
-                        st.header('Apostas Iniciais')
                         apostasIniciais()
 
                     elif taskInterno == 'Apostas fase de grupos':
