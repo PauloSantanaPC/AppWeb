@@ -1861,151 +1861,6 @@ def lerUsuarios():
 
     return listaUsuarios
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-#-----------------------------------------------------------------------------#
-#=============================================================================#
-#-----------------------------------------------------------------------------#
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-
-# pegando os usuarios
-listaUsuarios = lerUsuarios()
-
-# pegar o usuario mestre
-usuarioMestre = np.load('usuarioMestre.npy')
-
-def main():
-    
-    ''' Simple Login App '''
-    menu = ['Home','Cadastro','Login']
-    choice = st.sidebar.selectbox('Menu',menu)
-
-    #-----------------------------------------------------------------------------#
-    #=============================================================================#
-    #-----------------------------------------------------------------------------#
-
-    if choice == 'Home':
-        st.subheader('Acesso do administrador')
-        nomeUsuario  = st.text_input('Nome de usuário')
-        senhaUsuario = st.text_input('Senha', type = 'password')
-
-        if nomeUsuario == listaUsuarios[0][0] and senhaUsuario == listaUsuarios[0][1]:
-            task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
-
-            if task == 'Conexão':
-                st.title('Conectado')
-                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-                
-            elif task == 'Reset':
-                st.title('Reset de dados')
-                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-
-            elif task == 'Placares':
-                st.title('Placares dos jogos')
-                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-                placarJogos(nomeUsuario)
-
-            elif task == 'Usuários':
-                st.title('Usuários')
-                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-                st.header(f'Usuários: {np.array(listaUsuarios)[:,0]}')
-                st.subheader(listaUsuarios)
-
-        else:
-            st.subheader('Você não tem acesso')
-
-    #-----------------------------------------------------------------------------#
-    #=============================================================================#
-    #-----------------------------------------------------------------------------#
-
-    elif choice == 'Cadastro':
-        st.subheader('Criar nova conta')
-
-    #-----------------------------------------------------------------------------#
-    #=============================================================================#
-    #-----------------------------------------------------------------------------#
-
-    elif choice == 'Login':
-        nomeUsuario  = st.sidebar.text_input('Nome de usuário')
-        senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
-
-        if nomeUsuario != '':
-            for contadorUsuario in range(len(listaUsuarios)):
-                if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
-                    login = True
-                    break
-                elif contadorUsuario == len(listaUsuarios)-1:
-                    st.sidebar.error('Usuário inexistente.')
-                    login = False
-
-        if st.sidebar.checkbox('Login') and login:
-            # pegar o usuario
-            indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
-            usuario = listaUsuarios[indiceUsuario]
-
-            if nomeUsuario == usuario[0] and senhaUsuario == usuario[1]:
-                # confirmação do login
-                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
-                task = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
-
-                if task == 'Copa do Mundo 2022':
-                    st.title('Bolão da Copa do Mundo 2022')
-                    taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
-
-                    if taskInterno == 'Apostas iniciais':
-                        usuario = apostasIniciais(usuario,nomeUsuario)
-
-                    elif taskInterno == 'Apostas fase de grupos':
-                        usuario = apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre)
-
-                    elif taskInterno == 'Apostas nas fases eliminatórias':
-                        st.header('Apostas nas fases eliminatórias')
-                        usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
-
-                    elif taskInterno == 'Resumo das apostas':
-                        st.header('Resumo das apostas')
-
-                        tabs = []
-                        for tab in range(len(listaUsuarios)):
-                            tabs.append(np.array(listaUsuarios)[tab][0])
-
-                        tabs[0] = 'Classificação do Bolão'
-                        tabs = st.tabs(tabs)
-                        for contadorUsuario in range(len(listaUsuarios)):
-                            if contadorUsuario == 0:
-                                with tabs[contadorUsuario]:
-                                    st.header(f'Resumo das apostas do Bolão')
-                                    classificacaoDoBolao()
-                                    classificacaoBolaoGrupos()
-                            else:
-                                with tabs[contadorUsuario]:
-                                    st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
-                                    apostasOitavasApostador(contadorUsuario)
-                                    apostasPrincipaisApostador(contadorUsuario)
-                                    apostasGruposApostador(contadorUsuario)
-                                    apostasFaseGruposApostador(contadorUsuario)
-
-                    elif taskInterno == 'Links externos':
-                        st.header('Em breve ...')
-
-                elif task == 'Outros':
-                    st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
-
-            else:
-                # não confirmação do login
-                st.sidebar.error('Senha inválida.')
-
-#-----------------------------------------------------------------------------#
-#=============================================================================#
-#-----------------------------------------------------------------------------#
-
-if __name__ == '__main__':
-    main()
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-#-----------------------------------------------------------------------------#
-#=============================================================================#
-#-----------------------------------------------------------------------------#
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 def placarJogos(nomeUsuario):
 
@@ -2346,3 +2201,149 @@ def placarJogos(nomeUsuario):
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
     return
+    
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#-----------------------------------------------------------------------------#
+#=============================================================================#
+#-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+# pegando os usuarios
+listaUsuarios = lerUsuarios()
+
+# pegar o usuario mestre
+usuarioMestre = np.load('usuarioMestre.npy')
+
+def main():
+    
+    ''' Simple Login App '''
+    menu = ['Home','Cadastro','Login']
+    choice = st.sidebar.selectbox('Menu',menu)
+
+    #-----------------------------------------------------------------------------#
+    #=============================================================================#
+    #-----------------------------------------------------------------------------#
+
+    if choice == 'Home':
+        st.subheader('Acesso do administrador')
+        nomeUsuario  = st.text_input('Nome de usuário')
+        senhaUsuario = st.text_input('Senha', type = 'password')
+
+        if nomeUsuario == listaUsuarios[0][0] and senhaUsuario == listaUsuarios[0][1]:
+            task = st.sidebar.selectbox('Task',['Conexão','Reset','Placares','Usuários'])
+
+            if task == 'Conexão':
+                st.title('Conectado')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+                
+            elif task == 'Reset':
+                st.title('Reset de dados')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+
+            elif task == 'Placares':
+                st.title('Placares dos jogos')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+                placarJogos(nomeUsuario)
+
+            elif task == 'Usuários':
+                st.title('Usuários')
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+                st.header(f'Usuários: {np.array(listaUsuarios)[:,0]}')
+                st.subheader(listaUsuarios)
+
+        else:
+            st.subheader('Você não tem acesso')
+
+    #-----------------------------------------------------------------------------#
+    #=============================================================================#
+    #-----------------------------------------------------------------------------#
+
+    elif choice == 'Cadastro':
+        st.subheader('Criar nova conta')
+
+    #-----------------------------------------------------------------------------#
+    #=============================================================================#
+    #-----------------------------------------------------------------------------#
+
+    elif choice == 'Login':
+        nomeUsuario  = st.sidebar.text_input('Nome de usuário')
+        senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
+
+        if nomeUsuario != '':
+            for contadorUsuario in range(len(listaUsuarios)):
+                if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
+                    login = True
+                    break
+                elif contadorUsuario == len(listaUsuarios)-1:
+                    st.sidebar.error('Usuário inexistente.')
+                    login = False
+
+        if st.sidebar.checkbox('Login') and login:
+            # pegar o usuario
+            indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
+            usuario = listaUsuarios[indiceUsuario]
+
+            if nomeUsuario == usuario[0] and senhaUsuario == usuario[1]:
+                # confirmação do login
+                st.sidebar.success('Você está logado como {}'.format(nomeUsuario))
+                task = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Copa do Mundo 2022','Outros'], index = 1)
+
+                if task == 'Copa do Mundo 2022':
+                    st.title('Bolão da Copa do Mundo 2022')
+                    taskInterno = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
+
+                    if taskInterno == 'Apostas iniciais':
+                        usuario = apostasIniciais(usuario,nomeUsuario)
+
+                    elif taskInterno == 'Apostas fase de grupos':
+                        usuario = apostasFaseGrupos(usuario,nomeUsuario,usuarioMestre)
+
+                    elif taskInterno == 'Apostas nas fases eliminatórias':
+                        st.header('Apostas nas fases eliminatórias')
+                        usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
+
+                    elif taskInterno == 'Resumo das apostas':
+                        st.header('Resumo das apostas')
+
+                        tabs = []
+                        for tab in range(len(listaUsuarios)):
+                            tabs.append(np.array(listaUsuarios)[tab][0])
+
+                        tabs[0] = 'Classificação do Bolão'
+                        tabs = st.tabs(tabs)
+                        for contadorUsuario in range(len(listaUsuarios)):
+                            if contadorUsuario == 0:
+                                with tabs[contadorUsuario]:
+                                    st.header(f'Resumo das apostas do Bolão')
+                                    classificacaoDoBolao()
+                                    classificacaoBolaoGrupos()
+                            else:
+                                with tabs[contadorUsuario]:
+                                    st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
+                                    apostasOitavasApostador(contadorUsuario)
+                                    apostasPrincipaisApostador(contadorUsuario)
+                                    apostasGruposApostador(contadorUsuario)
+                                    apostasFaseGruposApostador(contadorUsuario)
+
+                    elif taskInterno == 'Links externos':
+                        st.header('Em breve ...')
+
+                elif task == 'Outros':
+                    st.title('Dá uma seguradinha que estamos começando ainda ... 🎈')
+
+            else:
+                # não confirmação do login
+                st.sidebar.error('Senha inválida.')
+
+#-----------------------------------------------------------------------------#
+#=============================================================================#
+#-----------------------------------------------------------------------------#
+
+if __name__ == '__main__':
+    main()
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#-----------------------------------------------------------------------------#
+#=============================================================================#
+#-----------------------------------------------------------------------------#
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
