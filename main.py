@@ -1650,7 +1650,10 @@ def apostasOitavasApostador(contadorUsuario):
             if np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo] != '':
                 st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][124+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                 #st.write(f'Classificado: {np.array(listaUsuarios)[contadorUsuario][126+3*nomeJogo]}')
-                st.write(f'Classificado: {listaSelecoes[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
+                st.write(f'Classificado: {contadorUsuario}')
+                st.write(f'Classificado: {126+3*nomeJogo}')
+                st.write(f'Classificado: {listaUsuarios[contadorUsuario][126+3*nomeJogo]}')
+                #st.write(f'Classificado: {listaSelecoes[int(listaUsuarios[contadorUsuario][126+3*nomeJogo])]}')
             else:
                 st.write(f'Aposta NÃO realizada.')
     
