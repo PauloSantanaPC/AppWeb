@@ -1462,6 +1462,15 @@ def classificacaoDoBolao():
                        columns = ('Pontos','Cravadas','Acertos','Erros','Nadas','Não apostas'))
     df.index = np.delete(np.array(listaUsuarios)[:,0],0)
     st.table(df)
+
+    return
+
+#-----------------------------------------------------------------------------#
+
+def classificacaoBolaoGrupos():
+
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+
     
     #------------------                                    
     colunas = []
@@ -1503,13 +1512,6 @@ def classificacaoDoBolao():
                 listaApostasGruposUsuario.append(['Não apostou','Não apostou'])
         apostasGrupos.append(listaApostasGruposUsuario)
 
-    return
-
-#-----------------------------------------------------------------------------#
-
-def classificacaoBolaoGrupos():
-
-    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
     classificadosGrupos = np.array(['Holanda','Senegal',
                                     'Inglaterra','Estados Unidos',
                                     'Argentina','Polônia',
@@ -1521,9 +1523,7 @@ def classificacaoBolaoGrupos():
     
     apostadorPontuacaoApostasGrupos = []
     apostadorPontuacaoGrupos = []
-    colunas = []
     for contadorUsuario in range(1, len(listaUsuarios), 1):
-        colunas.append(np.array(listaUsuarios)[contadorUsuario][0])
         pontuacaoApostasGrupos = []
         pontuacaoGrupos = 0
         for apostaGrupo in range(12, 28, 2):
