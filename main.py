@@ -1432,7 +1432,7 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
             else:
                 usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
                 usuario[126+3*nomeJogo] = apostaOitavas
-                np.save(str(username),usuario)
+                np.save(str(nomeUsuario),usuario)
         elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
             st.subheader('O jogo já começou!')
             st.write(f'Você NÃO pode realizar as apostas.')
