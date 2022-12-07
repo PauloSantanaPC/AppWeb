@@ -2233,7 +2233,7 @@ def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
         if usuario[148+3*nomeJogo] != '' and usuario[150+3*nomeJogo] != '':
             st.subheader('Aposta registrada!')
             st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[148+3*nomeJogo]} X {usuario[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
-            st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
+            st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[150+3*nomeJogo])]}')
         if usuarioMestre[148+3*nomeJogo] != '' and usuarioMestre[150+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
             st.write(f'{opcoesQuartas[nomeJogo][0]} {usuarioMestre[148+3*nomeJogo]} X {usuarioMestre[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
