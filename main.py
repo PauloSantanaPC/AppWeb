@@ -1101,7 +1101,7 @@ def apostasIniciais(usuario,nomeUsuario):
 
     st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
     dataJanela = datetime(2022,12,9,12,0)
-    st.subheader('Fim da Janela de Apostas - {dataJanela}')
+    st.subheader(f'Fim da Janela de Apostas - {dataJanela}')
 
     inicioJanela = horarioJogo(2022,12,9,12,0)
     inicioCopa   = horarioJogo(2023,11,22,10,0)
