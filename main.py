@@ -1101,8 +1101,8 @@ def apostasIniciais(usuario,nomeUsuario):
 
     st.header('Apostas Campeão, Final da Copa do Mundo, Terceiro Colocado e Classificados nos Grupos')
 
-    #inicioCopa = horarioJogo(2022,11,22,10,0)
-    inicioCopa = horarioJogo(2023,11,22,10,0)
+    inicioJanela = horarioJogo(2022,12,9,12,0)
+    inicioCopa   = horarioJogo(2023,11,22,10,0)
     opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
     opcoes = [0,1,2,3,4]
 
@@ -1124,7 +1124,7 @@ def apostasIniciais(usuario,nomeUsuario):
         apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
         botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
-    if botaoApostaCampeao and inicioCopa:
+    if botaoApostaCampeao and inicioJanela:
         apostaPodio(usuario,apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
         np.save(str(nomeUsuario),usuario)
     if usuario[9] != '':
