@@ -2183,60 +2183,60 @@ def placarJogos(nomeUsuario):
 
 def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
 
-    st.subheader('Oitavas de final')
+    st.subheader('Quartas de final')
     #-----------------------------
     opcoesOitavas1 = ['Holanda','Estados Unidos']
     opcoesOitavas2 = ['Argentina','Austrália']
     opcoesOitavas3 = ['Japão','Croácia']
     opcoesOitavas4 = ['Brasil','Coreia do Sul']
-    opcoesOitavas5 = ['Inglaterra','Senegal']
-    opcoesOitavas6 = ['França','Polônia']
-    opcoesOitavas7 = ['Marrocos','Espanha']
-    opcoesOitavas8 = ['Portugal','Suíça']
+    #opcoesOitavas5 = ['Inglaterra','Senegal']
+    #opcoesOitavas6 = ['França','Polônia']
+    #opcoesOitavas7 = ['Marrocos','Espanha']
+    #opcoesOitavas8 = ['Portugal','Suíça']
     opcoesOitavas  = [opcoesOitavas1,
                       opcoesOitavas2,
                       opcoesOitavas3,
-                      opcoesOitavas4,
-                      opcoesOitavas5,
-                      opcoesOitavas6,
-                      opcoesOitavas7,
-                      opcoesOitavas8]
+                      opcoesOitavas4]#,
+                      #opcoesOitavas5,
+                      #opcoesOitavas6,
+                      #opcoesOitavas7,
+                      #opcoesOitavas8]
     #-----------------------------
     horarioOitavas1 = horarioJogo(2022,12,3,12,0)
     horarioOitavas2 = horarioJogo(2022,12,3,16,0)
     horarioOitavas3 = horarioJogo(2022,12,5,12,0)
     horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-    horarioOitavas5 = horarioJogo(2022,12,4,16,0)
-    horarioOitavas6 = horarioJogo(2022,12,4,12,0)
-    horarioOitavas7 = horarioJogo(2022,12,6,12,0)
-    horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+    #horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+    #horarioOitavas6 = horarioJogo(2022,12,4,12,0)
+    #horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+    #horarioOitavas8 = horarioJogo(2022,12,6,16,0)
     horarioOitavas  = [horarioOitavas1,
                        horarioOitavas2,
                        horarioOitavas3,
-                       horarioOitavas4,
-                       horarioOitavas5,
-                       horarioOitavas6,
-                       horarioOitavas7,
-                       horarioOitavas8]
+                       horarioOitavas4]#,
+                       #horarioOitavas5,
+                       #horarioOitavas6,
+                       #horarioOitavas7,
+                       #horarioOitavas8]
     #-----------------------------
     dataOitavas1 = datetime(2022,12,3,12,0)
     dataOitavas2 = datetime(2022,12,3,16,0)
     dataOitavas3 = datetime(2022,12,5,12,0)
     dataOitavas4 = datetime(2022,12,5,16,0)
-    dataOitavas5 = datetime(2022,12,4,16,0)
-    dataOitavas6 = datetime(2022,12,4,12,0)
-    dataOitavas7 = datetime(2022,12,6,12,0)
-    dataOitavas8 = datetime(2022,12,6,16,0)
+    #dataOitavas5 = datetime(2022,12,4,16,0)
+    #dataOitavas6 = datetime(2022,12,4,12,0)
+    #dataOitavas7 = datetime(2022,12,6,12,0)
+    #dataOitavas8 = datetime(2022,12,6,16,0)
     dataOitavas  = [dataOitavas1,
                     dataOitavas2,
                     dataOitavas3,
-                    dataOitavas4,
-                    dataOitavas5,
-                    dataOitavas6,
-                    dataOitavas7,
-                    dataOitavas8]
+                    dataOitavas4]#,
+                    #dataOitavas5,
+                    #dataOitavas6,
+                    #dataOitavas7,
+                    #dataOitavas8]
     #-----------------------------
-    for nomeJogo in range(8):
+    for nomeJogo in range(4):
         st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
         with st.form(key = 'incluirApostaFaseEliminatoriasOitavasJogo'+str(nomeJogo+1)):
             apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
