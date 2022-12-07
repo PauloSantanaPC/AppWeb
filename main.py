@@ -2245,6 +2245,49 @@ def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
 
 #-----------------------------------------------------------------------------#
 
+def apostasQuartasApostador(contadorUsuario):
+
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+
+    #-----------------------------
+    st.subheader('Quartas de final')
+    #-----------------------------
+
+    opcoesQuartas1 = ['Brasil','Croácia']
+    opcoesQuartas2 = ['Holanda','Argentina']
+    opcoesQuartas3 = ['Inglaterra','França']
+    opcoesQuartas4 = ['Marrocos','Portugal']
+    opcoesQuartas  = [opcoesQuartas1,
+                      opcoesQuartas2,
+                      opcoesQuartas3,
+                      opcoesQuartas4]
+    #-----------------------------
+    horarioQuartas1 = horarioJogo(2022,12,9,12,0)
+    horarioQuartas2 = horarioJogo(2022,12,9,16,0)
+    horarioQuartas3 = horarioJogo(2022,12,10,16,0)
+    horarioQuartas4 = horarioJogo(2022,12,10,12,0)
+    horarioQuartas  = [horarioQuartas1,
+                       horarioQuartas2,
+                       horarioQuartas3,
+                       horarioQuartas4]
+    #-----------------------------
+
+    for nomeJogo in range(4):
+        st.write(f'Jogo {nomeJogo+1} - {np.array(listaUsuarios)[contadorUsuario][0]}')
+        if not horarioQuartas[nomeJogo]:
+        #if horarioOitavas[nomeJogo]:
+            if np.array(listaUsuarios)[contadorUsuario][148+3*nomeJogo] != '':
+                st.write(f'{opcoesQuartas[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][148+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
+                st.write(f'Classificado: {listaSelecoes()[int(listaUsuarios[contadorUsuario][150+3*nomeJogo])]}')
+            else:
+                st.write(f'Aposta NÃO realizada.')
+    
+    #-------------------------------------------
+
+    return
+
+#-----------------------------------------------------------------------------#
+
 def lerUsuarios():
     '''
     
@@ -2258,11 +2301,11 @@ def lerUsuarios():
     Marcos = np.load('Marcos.npy')
     Rafa   = np.load('Rafa.npy')
     Taio   = np.load('Taio.npy')
-    usuario1 = np.load('usuario1.npy')
-    usuario2 = np.load('usuario2.npy')
-    usuario3 = np.load('usuario3.npy')
-    listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
-    #listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
+    #usuario1 = np.load('usuario1.npy')
+    #usuario2 = np.load('usuario2.npy')
+    #usuario3 = np.load('usuario3.npy')
+    #listaUsuarios = [usuarioMestre,usuario1,usuario2,usuario3,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
+    listaUsuarios = [usuarioMestre,Paulo,Bola,Thiti,Marcos,Rafa,Taio]
 
     return listaUsuarios
 
@@ -2385,6 +2428,7 @@ def main():
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
+                                    apostasQuartasApostador(contadorUsuario)
                                     apostasOitavasApostador(contadorUsuario)
                                     apostasPrincipaisApostador(contadorUsuario)
                                     apostasGruposApostador(contadorUsuario)
