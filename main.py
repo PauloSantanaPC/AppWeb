@@ -2185,82 +2185,58 @@ def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
 
     st.subheader('Quartas de final')
     #-----------------------------
-    opcoesOitavas1 = ['Holanda','Estados Unidos']
-    opcoesOitavas2 = ['Argentina','Austrália']
-    opcoesOitavas3 = ['Japão','Croácia']
-    opcoesOitavas4 = ['Brasil','Coreia do Sul']
-    #opcoesOitavas5 = ['Inglaterra','Senegal']
-    #opcoesOitavas6 = ['França','Polônia']
-    #opcoesOitavas7 = ['Marrocos','Espanha']
-    #opcoesOitavas8 = ['Portugal','Suíça']
-    opcoesOitavas  = [opcoesOitavas1,
-                      opcoesOitavas2,
-                      opcoesOitavas3,
-                      opcoesOitavas4]#,
-                      #opcoesOitavas5,
-                      #opcoesOitavas6,
-                      #opcoesOitavas7,
-                      #opcoesOitavas8]
+    opcoesQuartas1 = ['Brasil','Croácia']
+    opcoesQuartas2 = ['Holanda','Argentina']
+    opcoesQuartas3 = ['Inglaterra','França']
+    opcoesQuartas4 = ['Marrocos','Portugal']
+    opcoesQuartas  = [opcoesQuartas1,
+                      opcoesQuartas2,
+                      opcoesQuartas3,
+                      opcoesQuartas4]
     #-----------------------------
-    horarioOitavas1 = horarioJogo(2022,12,3,12,0)
-    horarioOitavas2 = horarioJogo(2022,12,3,16,0)
-    horarioOitavas3 = horarioJogo(2022,12,5,12,0)
-    horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-    #horarioOitavas5 = horarioJogo(2022,12,4,16,0)
-    #horarioOitavas6 = horarioJogo(2022,12,4,12,0)
-    #horarioOitavas7 = horarioJogo(2022,12,6,12,0)
-    #horarioOitavas8 = horarioJogo(2022,12,6,16,0)
-    horarioOitavas  = [horarioOitavas1,
-                       horarioOitavas2,
-                       horarioOitavas3,
-                       horarioOitavas4]#,
-                       #horarioOitavas5,
-                       #horarioOitavas6,
-                       #horarioOitavas7,
-                       #horarioOitavas8]
+    horarioQuartas1 = horarioJogo(2022,12,9,12,0)
+    horarioQuartas2 = horarioJogo(2022,12,9,16,0)
+    horarioQuartas3 = horarioJogo(2022,12,10,16,0)
+    horarioQuartas4 = horarioJogo(2022,12,10,12,0)
+    horarioQuartas  = [horarioQuartas1,
+                       horarioQuartas2,
+                       horarioQuartas3,
+                       horarioQuartas4]
     #-----------------------------
-    dataOitavas1 = datetime(2022,12,3,12,0)
-    dataOitavas2 = datetime(2022,12,3,16,0)
-    dataOitavas3 = datetime(2022,12,5,12,0)
-    dataOitavas4 = datetime(2022,12,5,16,0)
-    #dataOitavas5 = datetime(2022,12,4,16,0)
-    #dataOitavas6 = datetime(2022,12,4,12,0)
-    #dataOitavas7 = datetime(2022,12,6,12,0)
-    #dataOitavas8 = datetime(2022,12,6,16,0)
-    dataOitavas  = [dataOitavas1,
-                    dataOitavas2,
-                    dataOitavas3,
-                    dataOitavas4]#,
-                    #dataOitavas5,
-                    #dataOitavas6,
-                    #dataOitavas7,
-                    #dataOitavas8]
+    dataQuartas1 = datetime(2022,12,9,12,0)
+    dataQuartas2 = datetime(2022,12,9,16,0)
+    dataQuartas3 = datetime(2022,12,10,16,0)
+    dataQuartas4 = datetime(2022,12,10,12,0)
+    dataQuartas  = [dataQuartas1,
+                    dataQuartas2,
+                    dataQuartas3,
+                    dataQuartas4]
     #-----------------------------
     for nomeJogo in range(4):
-        st.subheader(f'Jogo {nomeJogo+1} - {opcoesOitavas[nomeJogo][0]} x {opcoesOitavas[nomeJogo][1]} - {dataOitavas[nomeJogo]}')
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesQuartas[nomeJogo][0]} x {opcoesQuartas[nomeJogo][1]} - {dataQuartas[nomeJogo]}')
         with st.form(key = 'incluirApostaFaseEliminatoriasQuartasJogo'+str(nomeJogo+1)):
-            apostaOitavas = st.selectbox('Qual será a seleção classificada?', options = opcoesOitavas[nomeJogo], index = 0)
-            apostaOitavasSelecao1 = st.number_input(label = opcoesOitavas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
-            apostaOitavasSelecao2 = st.number_input(label = opcoesOitavas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-            botaoApostaOitavas = st.form_submit_button(label = 'Apostar')
-        if botaoApostaOitavas and horarioOitavas[nomeJogo]:
-            if apostaOitavas == opcoesOitavas[nomeJogo][0] and apostaOitavasSelecao1 < apostaOitavasSelecao2 or apostaOitavas == opcoesOitavas[nomeJogo][1] and apostaOitavasSelecao2 < apostaOitavasSelecao1:
+            apostaQuartas = st.selectbox('Qual será a seleção classificada?', options = opcoesQuartas[nomeJogo], index = 0)
+            apostaQuartasSelecao1 = st.number_input(label = opcoesQuartas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            apostaQuartasSelecao2 = st.number_input(label = opcoesQuartas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoApostaQuartas = st.form_submit_button(label = 'Apostar')
+        if botaoApostaQuartas and horarioQuartas[nomeJogo]:
+            if apostaQuartas == opcoesQuartas[nomeJogo][0] and apostaQuartasSelecao1 < apostaQuartasSelecao2 or apostaQuartas == opcoesQuartas[nomeJogo][1] and apostaQuartasSelecao2 < apostaQuartasSelecao1:
                 st.subheader('Apostas INVÁLIDAS!')
                 st.write(f'Tente realizar as apostas novamente.')
             else:
-                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaOitavasSelecao1, apostaOitavasSelecao2
-                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaOitavas)
+                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaQuartasSelecao1, apostaQuartasSelecao2
+                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaQuartas)
                 np.save(str(nomeUsuario),usuario)
-        elif botaoApostaOitavas and not horarioOitavas[nomeJogo]:
+        elif botaoApostaQuartas and not horarioQuartas[nomeJogo]:
             st.subheader('O jogo já começou!')
             st.write(f'Você NÃO pode realizar as apostas.')
         if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
             st.subheader('Aposta registrada!')
-            st.write(f'{opcoesOitavas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
             st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
         if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
-            st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
             st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
 
     return usuario
@@ -2386,8 +2362,8 @@ def main():
 
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
-                        usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
+                        usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
                     elif taskInterno == 'Resumo das apostas':
                         st.header('Resumo das apostas')
