@@ -1428,7 +1428,7 @@ def apostasOitavas(usuario,nomeUsuario,usuarioMestre):
         if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
             st.write(f'{opcoesOitavas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
-            st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[126+3*nomeJogo])]}')
 
     return usuario
 
