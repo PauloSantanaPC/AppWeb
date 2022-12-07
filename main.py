@@ -2224,20 +2224,20 @@ def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
                 st.subheader('Apostas INVÁLIDAS!')
                 st.write(f'Tente realizar as apostas novamente.')
             else:
-                usuario[124+3*nomeJogo], usuario[125+3*nomeJogo] = apostaQuartasSelecao1, apostaQuartasSelecao2
-                usuario[126+3*nomeJogo] = listaSelecoes().index(apostaQuartas)
+                usuario[148+3*nomeJogo], usuario[149+3*nomeJogo] = apostaQuartasSelecao1, apostaQuartasSelecao2
+                usuario[150+3*nomeJogo] = listaSelecoes().index(apostaQuartas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoApostaQuartas and not horarioQuartas[nomeJogo]:
             st.subheader('O jogo já começou!')
             st.write(f'Você NÃO pode realizar as apostas.')
-        if usuario[124+3*nomeJogo] != '' and usuario[126+3*nomeJogo] != '':
+        if usuario[148+3*nomeJogo] != '' and usuario[150+3*nomeJogo] != '':
             st.subheader('Aposta registrada!')
-            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[124+3*nomeJogo]} X {usuario[125+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[148+3*nomeJogo]} X {usuario[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
             st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[126+3*nomeJogo])]}')
-        if usuarioMestre[124+3*nomeJogo] != '' and usuarioMestre[126+3*nomeJogo] != '':
+        if usuarioMestre[148+3*nomeJogo] != '' and usuarioMestre[150+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
-            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuarioMestre[124+3*nomeJogo]} X {usuarioMestre[125+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
-            st.write(f'Seleção classificada: {usuarioMestre[126+3*nomeJogo]}')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuarioMestre[148+3*nomeJogo]} X {usuarioMestre[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
+            st.write(f'Seleção classificada: {usuarioMestre[150+3*nomeJogo]}')
 
     return usuario
 
