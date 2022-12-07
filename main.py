@@ -1967,8 +1967,10 @@ def placarJogos(nomeUsuario):
                     # rodada 2: Time i4 x Time i2 ALTERADA
                     time1 = 0
                     time2 = 2
-                    time3 = 3
-                    time4 = 1
+                    #time3 = 3
+                    #time4 = 1
+                    time3 = 1
+                    time4 = 3
                     if nomeJogo == 2:
                         #print('Jogo 3')
                         placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
