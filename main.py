@@ -24,6 +24,7 @@ import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
+import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 
 # pegando as funções externas
 #from funcoes import *
@@ -2410,7 +2411,7 @@ def main():
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         fn = 'scatter.png'
                         img = st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
-                        #plt.savefig(img, format='png')
+                        plt.savefig(img, format='png')
                         btn = st.download_button(label="Download image",data=img,file_name=fn,mime="image/png")
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
