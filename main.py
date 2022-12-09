@@ -2419,7 +2419,7 @@ def main():
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         #===================================
                         my_large_df = pd.DataFrame(np.array(usuario))
-                        #st.table(df)
+                        st.table(my_large_df)
                         #@st.cache
                         def convert_df(df):
                             # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -2427,13 +2427,11 @@ def main():
 
                         csv = convert_df(my_large_df)
 
-                        st.download_button(
-                            label="Download data as CSV",
-                            data=csv,
-                            file_name='large_df.csv',
-                            mime='text/csv',
-                        )                        
-                        #st.download_button(label = 'download dados', df, file_name='dados')#None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
+                        st.download_button(label = "Download apostas quartas de final",
+                                            data = csv,
+                                            file_name='large_df.csv',
+                                            mime='text/csv',
+                                            )                        
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
