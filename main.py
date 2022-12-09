@@ -24,7 +24,6 @@ import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
 import pandas as pd
-import matplotlib.pyplot as plt # biblioteca para criar visualizações estáticas, animadas e interativas em Python
 
 # pegando as funções externas
 #from funcoes import *
@@ -2435,7 +2434,7 @@ def main():
                         # just like with any other button.
                         if st.download_button(...):
                             st.write('Thanks for downloading!')
-                            
+
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
                     elif taskInterno == 'Resumo das apostas':
