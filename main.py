@@ -2425,7 +2425,7 @@ def main():
                         df = pd.DataFrame(np.array([usuario[0],usuario[1]]))
                         tabela = st.table(df)                        
                         st.download_button(label = "Download ",
-                                            data = tabela,
+                                            data = df,
                                             file_name='tabela.csv',
                                             mime='text/csv',
                                             )
