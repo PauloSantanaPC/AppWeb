@@ -2420,7 +2420,7 @@ def main():
                         #===================================
                         df = pd.DataFrame(np.array(usuario))
                         #st.table(df)
-                        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+                        st.download_button(label = 'download dados', df, file_name='dados')#None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
