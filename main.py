@@ -2437,7 +2437,8 @@ def main():
 
                         from io import BytesIO
                         buf = BytesIO()
-                        img.save(buf, format="JPEG")
+                        #img.save(buf, format="JPEG")
+                        st.image(buf, caption='Sunrise by the mountains')
                         byte_im = buf.getvalue()
 
                         btn = col.download_button(
