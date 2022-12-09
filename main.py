@@ -2418,9 +2418,22 @@ def main():
                         st.header('Apostas nas fases eliminatórias')
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         #===================================
-                        df = pd.DataFrame(np.array(usuario))
+                        my_large_df = pd.DataFrame(np.array(usuario))
                         #st.table(df)
-                        st.download_button(label = 'download dados', df, file_name='dados')#None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
+                        #@st.cache
+                        def convert_df(df):
+                            # IMPORTANT: Cache the conversion to prevent computation on every rerun
+                            return df.to_csv().encode('utf-8')
+
+                        csv = convert_df(my_large_df)
+
+                        st.download_button(
+                            label="Download data as CSV",
+                            data=csv,
+                            file_name='large_df.csv',
+                            mime='text/csv',
+                        )                        
+                        #st.download_button(label = 'download dados', df, file_name='dados')#None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
