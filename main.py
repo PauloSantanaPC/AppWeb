@@ -2212,17 +2212,17 @@ def placarJogos(nomeUsuario):
     for nomeJogo in range(4):
         st.subheader(f'Jogo {nomeJogo+1} - {opcoesQuartas[nomeJogo][0]} x {opcoesQuartas[nomeJogo][1]} - {dataQuartas[nomeJogo]}')
         with st.form(key = 'incluirApostaFaseEliminatoriasQuartasJogo'+str(nomeJogo+1)):
-            apostaQuartas = st.selectbox('Qual será a seleção classificada?', options = opcoesQuartas[nomeJogo], index = 0)
-            apostaQuartasSelecao1 = st.number_input(label = opcoesQuartas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
-            apostaQuartasSelecao2 = st.number_input(label = opcoesQuartas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-            botaoApostaQuartas = st.form_submit_button(label = 'Apostar')
-        if botaoApostaQuartas and horarioQuartas[nomeJogo]:
-            if apostaQuartas == opcoesQuartas[nomeJogo][0] and apostaQuartasSelecao1 < apostaQuartasSelecao2 or apostaQuartas == opcoesQuartas[nomeJogo][1] and apostaQuartasSelecao2 < apostaQuartasSelecao1:
+            placarQuartas = st.selectbox('Qual será a seleção classificada?', options = opcoesQuartas[nomeJogo], index = 0)
+            placarQuartasSelecao1 = st.number_input(label = opcoesQuartas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            placarQuartasSelecao2 = st.number_input(label = opcoesQuartas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoPlacarQuartas = st.form_submit_button(label = 'Apostar')
+        if botaoPLacarQuartas and horarioQuartas[nomeJogo]:
+            if placarQuartas == opcoesQuartas[nomeJogo][0] and placarQuartasSelecao1 < placarQuartasSelecao2 or placarQuartas == opcoesQuartas[nomeJogo][1] and placarQuartasSelecao2 < placarQuartasSelecao1:
                 st.subheader('Apostas INVÁLIDAS!')
                 st.write(f'Tente realizar as apostas novamente.')
             else:
-                usuario[148+3*nomeJogo], usuario[149+3*nomeJogo] = apostaQuartasSelecao1, apostaQuartasSelecao2
-                usuario[150+3*nomeJogo] = listaSelecoes().index(apostaQuartas)
+                usuario[148+3*nomeJogo], usuario[149+3*nomeJogo] = placarQuartasSelecao1, placarQuartasSelecao2
+                usuario[150+3*nomeJogo] = listaSelecoes().index(placarQuartas)
                 np.save(str(nomeUsuario),usuario)
         elif botaoPlacarQuartas and horarioQuartas[nomeJogo]:
             st.subheader('O jogo ainda não começou!')
