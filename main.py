@@ -2419,7 +2419,7 @@ def main():
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         #===================================
                         my_large_df = pd.DataFrame(np.array(usuario))
-                        st.table(my_large_df)
+                        #st.table(my_large_df)
                         #@st.cache
                         def convert_df(df):
                             # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -2431,7 +2431,21 @@ def main():
                                             data = csv,
                                             file_name='large_df.csv',
                                             mime='text/csv',
-                                            )                        
+                                            )               
+
+                        #===================================
+
+                        from io import BytesIO
+                        buf = BytesIO()
+                        img.save(buf, format="JPEG")
+                        byte_im = buf.getvalue()
+
+                        btn = col.download_button(
+                              label="Download Image",
+                              data=byte_im,
+                              file_name="imagename.png",
+                              mime="image/jpeg",
+                              )
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
