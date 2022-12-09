@@ -2408,7 +2408,10 @@ def main():
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
-                        btn = st.download_button(label = "Download image", data = usuario, file_name = fn, mime = "image/png")
+                        fn = 'scatter.png'
+                        img = usuario
+                        #plt.savefig(img, format='png')
+                        btn = st.download_button(label="Download image",data=img,file_name=fn,mime="image/png")
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
                     elif taskInterno == 'Resumo das apostas':
