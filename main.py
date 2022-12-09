@@ -2419,7 +2419,7 @@ def main():
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         #===================================
                         df = pd.DataFrame(np.array(usuario))
-                        st.table(df)
+                        #st.table(df)
                         st.markdown(get_table_download_link(df), unsafe_allow_html=True)
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
