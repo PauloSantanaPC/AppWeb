@@ -23,6 +23,7 @@ from time import strftime
 import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
+import dataframe_image as dfImage
 
 # pegando as funções externas
 #from funcoes import *
@@ -2426,7 +2427,7 @@ def main():
                         #===================================
 
                         df = pd.DataFrame(np.array([usuario[0],usuario[1]]))
-                        df.export(df,"mytable.png")
+                        dfImage.export(df,"mytable.png")
                         
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
