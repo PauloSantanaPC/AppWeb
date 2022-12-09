@@ -23,7 +23,6 @@ from time import strftime
 import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-import dataframe_image as dfImage
 
 # pegando as funções externas
 #from funcoes import *
@@ -2410,7 +2409,6 @@ def main():
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         #===================================
                         my_large_df = pd.DataFrame(np.array(usuario))
-                        #st.table(my_large_df)
                         #@st.cache
                         def convert_df(df):
                             # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -2422,13 +2420,15 @@ def main():
                                             data = csv,
                                             file_name='large_df.csv',
                                             mime='text/csv',
-                                            )               
-
-                        #===================================
+                                            )          
 
                         df = pd.DataFrame(np.array([usuario[0],usuario[1]]))
-                        dfImage.export(df,"mytable.png")
-                        
+                        tabela = st.table(df)                        
+                        st.download_button(label = "Download ",
+                                            data = csv,
+                                            file_name='tabela.csv',
+                                            mime='text/csv',
+                                            )
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
