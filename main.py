@@ -23,7 +23,7 @@ from time import strftime
 import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-import pandas as pd
+from dataframe_to_image import dataframe_to_image
 
 # pegando as funções externas
 #from funcoes import *
@@ -2435,18 +2435,16 @@ def main():
 
                         #===================================
 
-                        from io import BytesIO
-                        buf = BytesIO()
-                        #img.save(buf, format="JPEG")
-                        st.image(buf, caption='Sunrise by the mountains')
-                        byte_im = buf.getvalue()
+                        #creating the dataframe
+                        #df = pd.DataFrame()
+                        #df['date'] = ['2021-06-01', '2021-06-02', '2021-06-03']
+                        #df['calories'] = [1950, 2100, 1500]
+                        #df['sleep hours'] = [9, 7.5, 8.2]
+                        #df['gym'] = [True, False, False]
+                        #converting to image
+                        df = pd.DataFrame(np.array([usuario[0],usuario[1]]))
+                        dataframe_to_image.convert(df,visualisation_library='matplotlib')
 
-                        btn = col.download_button(
-                              label="Download Image",
-                              data=byte_im,
-                              file_name="imagename.png",
-                              mime="image/jpeg",
-                              )
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
