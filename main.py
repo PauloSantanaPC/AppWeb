@@ -23,19 +23,9 @@ from time import strftime
 import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-from dataframe_to_image import dataframe_to_image
 
 # pegando as funções externas
 #from funcoes import *
-
-def get_table_download_link(df):
-    """Generates a link allowing the data in a given panda dataframe to be downloaded
-    in:  dataframe
-    out: href string
-    """
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
-    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
@@ -2435,16 +2425,9 @@ def main():
 
                         #===================================
 
-                        #creating the dataframe
-                        #df = pd.DataFrame()
-                        #df['date'] = ['2021-06-01', '2021-06-02', '2021-06-03']
-                        #df['calories'] = [1950, 2100, 1500]
-                        #df['sleep hours'] = [9, 7.5, 8.2]
-                        #df['gym'] = [True, False, False]
-                        #converting to image
                         df = pd.DataFrame(np.array([usuario[0],usuario[1]]))
-                        dataframe_to_image.convert(df,visualisation_library='matplotlib')
-
+                        df.export(df,"mytable.png")
+                        
                         #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
