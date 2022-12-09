@@ -2178,6 +2178,68 @@ def placarJogos(nomeUsuario):
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
+    #=============================
+
+    st.subheader('Quartas de final')
+    #-----------------------------
+    opcoesQuartas1 = ['Brasil','Croácia']
+    opcoesQuartas2 = ['Holanda','Argentina']
+    opcoesQuartas3 = ['Inglaterra','França']
+    opcoesQuartas4 = ['Marrocos','Portugal']
+    opcoesQuartas  = [opcoesQuartas1,
+                      opcoesQuartas2,
+                      opcoesQuartas3,
+                      opcoesQuartas4]
+    #-----------------------------
+    horarioQuartas1 = horarioJogo(2022,12,9,12,0)
+    horarioQuartas2 = horarioJogo(2022,12,9,16,0)
+    horarioQuartas3 = horarioJogo(2022,12,10,16,0)
+    horarioQuartas4 = horarioJogo(2022,12,10,12,0)
+    horarioQuartas  = [horarioQuartas1,
+                       horarioQuartas2,
+                       horarioQuartas3,
+                       horarioQuartas4]
+    #-----------------------------
+    dataQuartas1 = datetime(2022,12,9,12,0)
+    dataQuartas2 = datetime(2022,12,9,16,0)
+    dataQuartas3 = datetime(2022,12,10,16,0)
+    dataQuartas4 = datetime(2022,12,10,12,0)
+    dataQuartas  = [dataQuartas1,
+                    dataQuartas2,
+                    dataQuartas3,
+                    dataQuartas4]
+    #-----------------------------
+    for nomeJogo in range(4):
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesQuartas[nomeJogo][0]} x {opcoesQuartas[nomeJogo][1]} - {dataQuartas[nomeJogo]}')
+        with st.form(key = 'incluirApostaFaseEliminatoriasQuartasJogo'+str(nomeJogo+1)):
+            apostaQuartas = st.selectbox('Qual será a seleção classificada?', options = opcoesQuartas[nomeJogo], index = 0)
+            apostaQuartasSelecao1 = st.number_input(label = opcoesQuartas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            apostaQuartasSelecao2 = st.number_input(label = opcoesQuartas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoApostaQuartas = st.form_submit_button(label = 'Apostar')
+        if botaoApostaQuartas and horarioQuartas[nomeJogo]:
+            if apostaQuartas == opcoesQuartas[nomeJogo][0] and apostaQuartasSelecao1 < apostaQuartasSelecao2 or apostaQuartas == opcoesQuartas[nomeJogo][1] and apostaQuartasSelecao2 < apostaQuartasSelecao1:
+                st.subheader('Apostas INVÁLIDAS!')
+                st.write(f'Tente realizar as apostas novamente.')
+            else:
+                usuario[148+3*nomeJogo], usuario[149+3*nomeJogo] = apostaQuartasSelecao1, apostaQuartasSelecao2
+                usuario[150+3*nomeJogo] = listaSelecoes().index(apostaQuartas)
+                np.save(str(nomeUsuario),usuario)
+        elif botaoPlacarQuartas and horarioQuartas[nomeJogo]:
+            st.subheader('O jogo ainda não começou!')
+            st.write(f'Você NÃO pode postar o placar.')
+        if usuario[148+3*nomeJogo] != '' and usuario[150+3*nomeJogo] != '':
+            st.subheader('Fim de Jogo!')
+            st.subheader('Placar registrado.')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[148+3*nomeJogo]} X {usuario[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[150+3*nomeJogo])]}')
+            if not horarioQuartas[nomeJogo]:
+                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                    pontuacaoJogo = 0
+                    listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][148+3*nomeJogo],listaUsuarios[contadorUsuario][149+3*nomeJogo],usuario[148+3*nomeJogo],usuario[149+3*nomeJogo])
+                    listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][150+3*nomeJogo],usuario[150+3*nomeJogo])
+                    st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
     return
 
 #-----------------------------------------------------------------------------#
