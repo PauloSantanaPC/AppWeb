@@ -28,6 +28,15 @@ import pandas as pd
 # pegando as funções externas
 #from funcoes import *
 
+def get_table_download_link(df):
+    """Generates a link allowing the data in a given panda dataframe to be downloaded
+    in:  dataframe
+    out: href string
+    """
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
@@ -2408,33 +2417,11 @@ def main():
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
-                        # Text files
-                        text_contents = '''Foo, Bar
-                                        123, 456
-                                        789, 000
-                                        '''
-                        # Different ways to use the API
-                        st.download_button('Download CSV', text_contents, 'text/csv')
-                        st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
-
-                        with open('myfile.csv') as f:
-                            st.download_button('Download CSV', f)  # Defaults to 'text/plain'
-                        # ---
-                        
-                        # Binary files
-                        binary_contents = b'whatever'
-
-                        # Different ways to use the API
-                        st.download_button('Download file', binary_contents)  # Defaults to 'application/octet-stream'
-
-                        with open('myfile.zip', 'rb') as f:
-                            st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
-
-                        # You can also grab the return value of the button,
-                        # just like with any other button.
-                        if st.download_button(...):
-                            st.write('Thanks for downloading!')
-
+                        #===================================
+                        df = pd.DataFrame(np.array(usuario))
+                        st.table(df)
+                        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+                        #===================================
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
                     elif taskInterno == 'Resumo das apostas':
