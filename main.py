@@ -1689,7 +1689,9 @@ def apostasPrincipaisApostador(contadorUsuario):
     df = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                         columns = ('Campeão','Vice-campeão','Terceiro colocado'))
     df.index = [f'Aposta - {np.array(listaUsuarios)[contadorUsuario][0]}']
-    st.table(df)
+    horarioSemi1 = horarioJogo(2022,12,13,16,0)
+    if not horarioSemi1:
+        st.table(df)
 
     return
 
