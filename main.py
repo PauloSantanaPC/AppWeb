@@ -2349,6 +2349,92 @@ def apostasQuartasApostador(contadorUsuario):
 
 #-----------------------------------------------------------------------------#
 
+def apostasSemi(usuario,nomeUsuario,usuarioMestre):
+
+    #-----------------------------
+    st.subheader('Semi-finais')
+    #-----------------------------
+
+    opcoesSemi1 = ['Argentina','Croácia']
+    opcoesSemi2 = ['França','Marrocos']
+    opcoesSemi  = [opcoesSemi1,
+                   opcoesSemi2]
+    #-----------------------------
+    horarioSemi1 = horarioJogo(2022,12,13,16,0)
+    horarioSemi2 = horarioJogo(2022,12,14,16,0)
+    horarioSemi  = [horarioSemi1,
+                    horarioSemi2]
+    #-----------------------------
+    dataSemi1 = datetime(2022,12,13,16,0)
+    dataSemi2 = datetime(2022,12,14,16,0)
+    dataSemi  = [dataSemi1,
+                 dataSemi2]
+    #-----------------------------
+    for nomeJogo in range(2):
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesSemi[nomeJogo][0]} x {opcoesSemi[nomeJogo][1]} - {dataSemi[nomeJogo]}')
+        with st.form(key = 'incluirApostaFaseEliminatoriasSemiJogo'+str(nomeJogo+1)):
+            apostaSemi = st.selectbox('Qual será a seleção classificada?', options = opcoesSemi[nomeJogo], index = 0)
+            apostaSemiSelecao1 = st.number_input(label = opcoesSemi[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            apostaSemiSelecao2 = st.number_input(label = opcoesSemi[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoApostaSemi = st.form_submit_button(label = 'Apostar')
+        if botaoApostaSemi and horarioSemi[nomeJogo]:
+            if apostaSemi == opcoesSemi[nomeJogo][0] and apostaSemiSelecao1 < apostaSemiSelecao2 or apostaSemi == opcoesSemi[nomeJogo][1] and apostaSemiSelecao2 < apostaSemiSelecao1:
+                st.subheader('Apostas INVÁLIDAS!')
+                st.write(f'Tente realizar as apostas novamente.')
+            else:
+                usuario[160+3*nomeJogo], usuario[161+3*nomeJogo] = apostaSemiSelecao1, apostaSemiSelecao2
+                usuario[162+3*nomeJogo] = listaSelecoes().index(apostaSemi)
+                np.save(str(nomeUsuario),usuario)
+        elif botaoApostaSemi and not horarioSemi[nomeJogo]:
+            st.subheader('O jogo já começou!')
+            st.write(f'Você NÃO pode realizar as apostas.')
+        if usuario[160+3*nomeJogo] != '' and usuario[162+3*nomeJogo] != '':
+            st.subheader('Aposta registrada!')
+            st.write(f'{opcoesSemi[nomeJogo][0]} {usuario[160+3*nomeJogo]} X {usuario[161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
+            st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[162+3*nomeJogo])]}')
+        if usuarioMestre[160+3*nomeJogo] != '' and usuarioMestre[162+3*nomeJogo] != '':
+            st.subheader('Fim de jogo!')
+            st.write(f'{opcoesSemi[nomeJogo][0]} {usuarioMestre[160+3*nomeJogo]} X {usuarioMestre[161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
+            st.write(f'Seleção classificada: {usuarioMestre[162+3*nomeJogo]}')
+
+    return usuario
+
+#-----------------------------------------------------------------------------#
+
+def apostasSemiApostador(contadorUsuario):
+
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+
+    #-----------------------------
+    st.subheader('Semi-finais')
+    #-----------------------------
+
+    opcoesSemi1 = ['Argentina','Croácia']
+    opcoesSemi2 = ['França','Marrocos']
+    opcoesSemi  = [opcoesSemi1,
+                   opcoesSemi2]
+    #-----------------------------
+    horarioSemi1 = horarioJogo(2022,12,13,16,0)
+    horarioSemi2 = horarioJogo(2022,12,14,16,0)
+    horarioSemi  = [horarioSemi1,
+                    horarioSemi2]
+    #-----------------------------
+
+    for nomeJogo in range(2):
+        st.write(f'Jogo {nomeJogo+1} - {np.array(listaUsuarios)[contadorUsuario][0]}')
+        if not horarioSemi[nomeJogo]:
+            if np.array(listaUsuarios)[contadorUsuario][160+3*nomeJogo] != '':
+                st.write(f'{opcoesSemi[nomeJogo][0]} {np.array(listaUsuarios)[contadorUsuario][160+3*nomeJogo]}x{np.array(listaUsuarios)[contadorUsuario][161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
+                st.write(f'Classificado: {listaSelecoes()[int(listaUsuarios[contadorUsuario][162+3*nomeJogo])]}')
+            else:
+                st.write(f'Aposta NÃO realizada.')
+    
+    #-------------------------------------------
+
+    return
+
+#-----------------------------------------------------------------------------#
+
 def lerUsuarios():
     '''
     
@@ -2468,6 +2554,7 @@ def main():
 
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
+                        usuario = apostasSemi(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasOitavas(usuario,nomeUsuario,usuarioMestre)
 
@@ -2489,6 +2576,7 @@ def main():
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
+                                    apostasSemiApostador(contadorUsuario)
                                     apostasQuartasApostador(contadorUsuario)
                                     apostasOitavasApostador(contadorUsuario)
                                     apostasPrincipaisApostador(contadorUsuario)
