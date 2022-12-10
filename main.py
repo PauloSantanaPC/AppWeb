@@ -1550,7 +1550,9 @@ def classificacaoBolaoGrupos():
     dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,]),
                       columns = colunas)
     dfa.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
-    st.table(dfa)
+    horarioSemi1 = horarioJogo(2022,12,13,16,0)
+    if horarioSemi1:
+        st.table(dfa)
 
     #-------------------------------------------
     
