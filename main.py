@@ -1102,7 +1102,7 @@ def apostasIniciais(usuario,nomeUsuario):
     dataJanela = datetime(2022,12,9,12,0)
     st.subheader(f'Fim da Janela de Apostas - {dataJanela}')
 
-    inicioJanela = horarioJogo(2022,12,9,12,0)
+    inicioJanela = horarioJogo(2022,12,13,16,0)
     inicioCopa   = horarioJogo(2023,11,22,10,0)
     opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
     opcoes = [0,1,2,3,4]
