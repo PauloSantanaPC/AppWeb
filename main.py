@@ -1901,7 +1901,7 @@ def apostasQuartas(usuario,nomeUsuario,usuarioMestre):
         if usuarioMestre[148+3*nomeJogo] != '' and usuarioMestre[150+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
             st.write(f'{opcoesQuartas[nomeJogo][0]} {usuarioMestre[148+3*nomeJogo]} X {usuarioMestre[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
-            st.write(f'Seleção classificada: {usuarioMestre[150+3*nomeJogo]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[150+3*nomeJogo])]}')
 
     return usuario
 
