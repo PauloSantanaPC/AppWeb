@@ -2466,7 +2466,7 @@ def placarJogos(nomeUsuario):
             placarSemiSelecao1 = st.number_input(label = opcoesSemi[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
             placarSemiSelecao2 = st.number_input(label = opcoesSemi[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
             botaoPlacarSemi = st.form_submit_button(label = 'PLacar')
-        if botaoPlacarSemi and horarioSemi[nomeJogo]:
+        if botaoPlacarSemi and not horarioSemi[nomeJogo]:
             if placarSemi == opcoesSemi[nomeJogo][0] and placarSemiSelecao1 < placarSemiSelecao2 or placarSemi == opcoesSemi[nomeJogo][1] and placarSemiSelecao2 < placarSemiSelecao1:
                 st.subheader('placar INVÁLIDO!')
                 st.write(f'Tente realizar as apostas novamente.')
