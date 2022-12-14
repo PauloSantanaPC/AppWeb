@@ -2527,13 +2527,13 @@ def placarJogos(nomeUsuario):
         st.subheader('Placar registrado.')
         st.write(f'{opcoesTerceiro[0]} {usuario[166]} X {usuario[167]} {opcoesTerceiro[1]}')
         st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[168])]}')    
-        #if not horarioTerceiro:
-            #for contadorUsuario in range(1, len(listaUsuarios), 1):
-                #pontuacaoJogo = 0
-                #listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][163],listaUsuarios[contadorUsuario][164],usuario[163],usuario[164])
-                #listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][165],usuario[165])
-                #st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
-                #np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+        if not horarioTerceiro:
+            for contadorUsuario in range(1, len(listaUsuarios), 1):
+                pontuacaoJogo = 0
+                listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][166],listaUsuarios[contadorUsuario][167],usuario[166],usuario[167])
+                listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][168],usuario[168])
+                st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
 
     return
