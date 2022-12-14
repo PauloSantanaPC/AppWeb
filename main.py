@@ -2677,6 +2677,51 @@ def placarJogos(nomeUsuario):
                 st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                 np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
+    #=============================
+
+    #-----------------------------
+    st.subheader('FINAL DA COPA DO MUNDO')
+    #-----------------------------
+
+    #-----------------------------
+    opcoesFinal = ['Argentina','França']
+    #-----------------------------
+    horarioFinal = [horarioJogo(2022,12,18,12,0)]
+    #-----------------------------
+    dataFinal = datetime(2022,12,18,12,0)
+    #-----------------------------
+    
+    #-----------------------------
+    st.subheader(f'Final - {opcoesFinal[0]} x {opcoesFinal[1]} - {dataFinal}')
+    with st.form(key = 'incluirPlacarFinal'):
+        placarFinal = st.selectbox('Qual seleção ficará na terceira posição?', options = opcoesFinal, index = 0)
+        placarFinalSelecao1 = st.number_input(label = opcoesFinal[0], min_value = 0, max_value = 10, step = 1, format = '%d')
+        placarFinalSelecao2 = st.number_input(label = opcoesFinal[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+        botaoPlacarFinal = st.form_submit_button(label = 'Placar')
+    if botaoPlacarFinal and not horarioFinal:
+        if placarFinal == opcoesFinal[0] and placarFinalSelecao1 < placarFinalSelecao2 or placarFinal == opcoesFinal[1] and placarFinalSelecao2 < placarFinalSelecao1:
+            st.subheader('placar INVÁLIDO!')
+            st.write(f'Tente realizar as apostas novamente.')
+        else:
+            usuario[169], usuario[170] = placarFinalSelecao1, placarFinalSelecao2
+            usuario[171] = listaSelecoes().index(placarFinal)
+            np.save(str(nomeUsuario),usuario)
+    elif botaoPlacarFinal and horarioFinal:
+        st.subheader('O jogo ainda não começou!')
+        st.write(f'Você NÃO pode postar o placar.')
+    if usuario[169] != '' and usuario[171] != '':
+        st.subheader('Fim de Jogo!')
+        st.subheader('Placar registrado.')
+        st.write(f'{opcoesFinal[0]} {usuario[169]} X {usuario[170]} {opcoesFinal[1]}')
+        st.write(f'Campeã: {listaSelecoes()[int(usuario[171])]}')    
+        if not horarioFinal:
+            for contadorUsuario in range(1, len(listaUsuarios), 1):
+                pontuacaoJogo = 0
+                listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFinal(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][169],listaUsuarios[contadorUsuario][170],usuario[169],usuario[170])
+                listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFinalSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][171],usuario[171])
+                st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
     return
 
 #-----------------------------------------------------------------------------#
