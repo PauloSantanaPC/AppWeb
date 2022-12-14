@@ -2438,6 +2438,59 @@ def placarJogos(nomeUsuario):
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
+    #=============================
+
+    #-----------------------------
+    st.subheader('Semi-finais')
+    #-----------------------------
+
+    opcoesSemi1 = ['Argentina','Croácia']
+    opcoesSemi2 = ['França','Marrocos']
+    opcoesSemi  = [opcoesSemi1,
+                   opcoesSemi2]
+    #-----------------------------
+    horarioSemi1 = horarioJogo(2022,12,13,16,0)
+    horarioSemi2 = horarioJogo(2022,12,14,16,0)
+    horarioSemi  = [horarioSemi1,
+                    horarioSemi2]
+    #-----------------------------
+    dataSemi1 = datetime(2022,12,13,16,0)
+    dataSemi2 = datetime(2022,12,14,16,0)
+    dataSemi  = [dataSemi1,
+                 dataSemi2]
+    #-----------------------------
+    for nomeJogo in range(2):
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesSemi[nomeJogo][0]} x {opcoesSemi[nomeJogo][1]} - {dataSemi[nomeJogo]}')
+        with st.form(key = 'incluirPlacarFaseEliminatoriasSemiJogo'+str(nomeJogo+1)):
+            placarSemi = st.selectbox('Qual será a seleção classificada?', options = opcoesSemi[nomeJogo], index = 0)
+            placarSemiSelecao1 = st.number_input(label = opcoesSemi[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            placarSemiSelecao2 = st.number_input(label = opcoesSemi[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoPlacarSemi = st.form_submit_button(label = 'PLacar')
+        if botaoPlacarSemi and horarioSemi[nomeJogo]:
+            if placarSemi == opcoesSemi[nomeJogo][0] and placarSemiSelecao1 < placarSemiSelecao2 or placarSemi == opcoesSemi[nomeJogo][1] and placarSemiSelecao2 < placarSemiSelecao1:
+                st.subheader('placar INVÁLIDO!')
+                st.write(f'Tente realizar as apostas novamente.')
+            else:
+                usuario[160+3*nomeJogo], usuario[161+3*nomeJogo] = placarSemiSelecao1, placarSemiSelecao2
+                usuario[162+3*nomeJogo] = listaSelecoes().index(placarSemi)
+                np.save(str(nomeUsuario),usuario)
+        elif botaoPlacarSemi and horarioSemi[nomeJogo]:
+            st.subheader('O jogo ainda não começou!')
+            st.write(f'Você NÃO pode postar o placar.')
+        if usuario[160+3*nomeJogo] != '' and usuario[162+3*nomeJogo] != '':
+            st.subheader('Fim de Jogo!')
+            st.subheader('Placar registrado.')
+            st.write(f'{opcoesSemi[nomeJogo][0]} {usuario[160+3*nomeJogo]} X {usuario[161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[162+3*nomeJogo])]}')    
+    #---------------------------------------------------
+            if not horarioSemi[nomeJogo]:
+                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                    pontuacaoJogo = 0
+                    listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][160+3*nomeJogo],listaUsuarios[contadorUsuario][161+3*nomeJogo],usuario[160+3*nomeJogo],usuario[161+3*nomeJogo])
+                    listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][162+3*nomeJogo],usuario[162+3*nomeJogo])
+                    st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
     return
 
 #-----------------------------------------------------------------------------#
