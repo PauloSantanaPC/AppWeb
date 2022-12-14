@@ -2068,16 +2068,16 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
             usuario[163], usuario[164] = apostaTerceiroSelecao1, apostaTerceiroSelecao2
             usuario[165] = listaSelecoes().index(apostaTerceiro)
             np.save(str(nomeUsuario),usuario)
-    elif botaoApostaSemi and not horarioSemi:
+    elif botaoApostaTerceiro and not horarioTerceiro:
         st.subheader('O jogo já começou!')
         st.write(f'Você NÃO pode realizar as apostas.')
     if usuario[163] != '' and usuario[164] != '':
         st.subheader('Aposta registrada!')
-        st.write(f'{opcoesSemi[0]} {usuario[163]} X {usuario[164]} {opcoesSemi[1]}')
+        st.write(f'{opcoesTerceiro[0]} {usuario[163]} X {usuario[164]} {opcoesTerceiro[1]}')
         st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[165])]}')
     if usuarioMestre[163] != '' and usuarioMestre[165] != '':
         st.subheader('Fim de jogo!')
-        st.write(f'{opcoesSemi[0]} {usuarioMestre[163]} X {usuarioMestre[164]} {opcoesSemi[1]}')
+        st.write(f'{opcoesTerceiro[0]} {usuarioMestre[163]} X {usuarioMestre[164]} {opcoesTerceiro[1]}')
         st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[165])]}')
 
     return usuario
