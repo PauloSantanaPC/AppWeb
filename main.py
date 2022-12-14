@@ -2065,20 +2065,20 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
             st.subheader('Apostas INVÁLIDAS!')
             st.write(f'Tente realizar as apostas novamente.')
         else:
-            usuario[163], usuario[164] = apostaTerceiroSelecao1, apostaTerceiroSelecao2
-            usuario[165] = listaSelecoes().index(apostaTerceiro)
+            usuario[166], usuario[167] = apostaTerceiroSelecao1, apostaTerceiroSelecao2
+            usuario[168] = listaSelecoes().index(apostaTerceiro)
             np.save(str(nomeUsuario),usuario)
     elif botaoApostaTerceiro and not horarioTerceiro:
         st.subheader('O jogo já começou!')
         st.write(f'Você NÃO pode realizar as apostas.')
-    if usuario[163] != '' and usuario[164] != '':
+    if usuario[166] != '' and usuario[167] != '':
         st.subheader('Aposta registrada!')
-        st.write(f'{opcoesTerceiro[0]} {usuario[163]} X {usuario[164]} {opcoesTerceiro[1]}')
-        st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[165])]}')
-    if usuarioMestre[163] != '' and usuarioMestre[165] != '':
+        st.write(f'{opcoesTerceiro[0]} {usuario[166]} X {usuario[167]} {opcoesTerceiro[1]}')
+        st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[168])]}')
+    if usuarioMestre[166] != '' and usuarioMestre[168] != '':
         st.subheader('Fim de jogo!')
-        st.write(f'{opcoesTerceiro[0]} {usuarioMestre[163]} X {usuarioMestre[164]} {opcoesTerceiro[1]}')
-        st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[165])]}')
+        st.write(f'{opcoesTerceiro[0]} {usuarioMestre[166]} X {usuarioMestre[167]} {opcoesTerceiro[1]}')
+        st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[168])]}')
 
     return usuario
 
@@ -2100,9 +2100,9 @@ def apostasTerceiroApostador(contadorUsuario):
 
     st.write(f'Terceira posição - {np.array(listaUsuarios)[contadorUsuario][0]}')
     if not horarioTerceiro:
-        if np.array(listaUsuarios)[contadorUsuario][163] != '':
-            st.write(f'{opcoesTerceiro[0]} {np.array(listaUsuarios)[contadorUsuario][163]}x{np.array(listaUsuarios)[contadorUsuario][164]} {opcoesSemi[1]}')
-            st.write(f'Terceiro: {listaSelecoes()[int(listaUsuarios[contadorUsuario][165])]}')
+        if np.array(listaUsuarios)[contadorUsuario][166] != '':
+            st.write(f'{opcoesTerceiro[0]} {np.array(listaUsuarios)[contadorUsuario][166]}x{np.array(listaUsuarios)[contadorUsuario][167]} {opcoesSemi[1]}')
+            st.write(f'Terceiro: {listaSelecoes()[int(listaUsuarios[contadorUsuario][168])]}')
         else:
             st.write(f'Aposta NÃO realizada.')
     
