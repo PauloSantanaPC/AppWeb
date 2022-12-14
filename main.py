@@ -1996,7 +1996,7 @@ def apostasSemi(usuario,nomeUsuario,usuarioMestre):
         if usuarioMestre[160+3*nomeJogo] != '' and usuarioMestre[162+3*nomeJogo] != '':
             st.subheader('Fim de jogo!')
             st.write(f'{opcoesSemi[nomeJogo][0]} {usuarioMestre[160+3*nomeJogo]} X {usuarioMestre[161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
-            st.write(f'Seleção classificada: {usuarioMestre[162+3*nomeJogo]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[162+3*nomeJogo])]}')
 
     return usuario
 
@@ -2465,7 +2465,7 @@ def placarJogos(nomeUsuario):
             placarSemi = st.selectbox('Qual será a seleção classificada?', options = opcoesSemi[nomeJogo], index = 0)
             placarSemiSelecao1 = st.number_input(label = opcoesSemi[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
             placarSemiSelecao2 = st.number_input(label = opcoesSemi[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
-            botaoPlacarSemi = st.form_submit_button(label = 'PLacar')
+            botaoPlacarSemi = st.form_submit_button(label = 'Placar')
         if botaoPlacarSemi and not horarioSemi[nomeJogo]:
             if placarSemi == opcoesSemi[nomeJogo][0] and placarSemiSelecao1 < placarSemiSelecao2 or placarSemi == opcoesSemi[nomeJogo][1] and placarSemiSelecao2 < placarSemiSelecao1:
                 st.subheader('placar INVÁLIDO!')
@@ -2482,7 +2482,6 @@ def placarJogos(nomeUsuario):
             st.subheader('Placar registrado.')
             st.write(f'{opcoesSemi[nomeJogo][0]} {usuario[160+3*nomeJogo]} X {usuario[161+3*nomeJogo]} {opcoesSemi[nomeJogo][1]}')
             st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[162+3*nomeJogo])]}')    
-    #---------------------------------------------------
             if not horarioSemi[nomeJogo]:
                 for contadorUsuario in range(1, len(listaUsuarios), 1):
                     pontuacaoJogo = 0
@@ -2490,6 +2489,52 @@ def placarJogos(nomeUsuario):
                     listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][162+3*nomeJogo],usuario[162+3*nomeJogo])
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    #=============================
+
+    #-----------------------------
+    st.subheader('Terceira posição')
+    #-----------------------------
+
+    #-----------------------------
+    opcoesTerceiro = ['Croácia','Marrocos']
+    #-----------------------------
+    horarioTerceiro = [horarioJogo(2022,12,17,12,0)]
+    #-----------------------------
+    dataTerceiro = datetime(2022,12,17,12,0)
+    #-----------------------------
+    
+    #-----------------------------
+    st.subheader(f'Disputa terceira posição - {opcoesTerceiro[0]} x {opcoesTerceiro[1]} - {dataTerceiro}')
+    with st.form(key = 'incluirPlacarFaseTerceiroColocado'):
+        placarTerceiro = st.selectbox('Qual seleção ficará na terceira posição?', options = opcoesTerceiro, index = 0)
+        placarTerceiroSelecao1 = st.number_input(label = opcoesTerceiro[0], min_value = 0, max_value = 10, step = 1, format = '%d')
+        placarTerceiroSelecao2 = st.number_input(label = opcoesTerceiro[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+        botaoPlacarTerceiro = st.form_submit_button(label = 'Placar')
+    if botaoPlacarTerceiro and not horarioTerceiro:
+        if placarTerceiro == opcoesTerceiro[0] and placarTerceiroSelecao1 < placarTerceiroSelecao2 or placarTerceiro == opcoesTerceiro[1] and placarTerceiroSelecao2 < placarTerceiroSelecao1:
+            st.subheader('placar INVÁLIDO!')
+            st.write(f'Tente realizar as apostas novamente.')
+        else:
+            usuario[163], usuario[164] = placarTerceiroSelecao1, placarTerceiroSelecao2
+            usuario[165] = listaSelecoes().index(placarTerceiro)
+            np.save(str(nomeUsuario),usuario)
+    elif botaoPlacarTerceiro and horarioTerceiro:
+        st.subheader('O jogo ainda não começou!')
+        st.write(f'Você NÃO pode postar o placar.')
+    if usuario[163] != '' and usuario[165] != '':
+        st.subheader('Fim de Jogo!')
+        st.subheader('Placar registrado.')
+        st.write(f'{opcoesTerceiro[0]} {usuario[163]} X {usuario[164]} {opcoesTerceiro[1]}')
+        st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[165])]}')    
+        if not horarioTerceiro[nomeJogo]:
+            for contadorUsuario in range(1, len(listaUsuarios), 1):
+                pontuacaoJogo = 0
+                listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][160+3*nomeJogo],listaUsuarios[contadorUsuario][161+3*nomeJogo],usuario[160+3*nomeJogo],usuario[161+3*nomeJogo])
+                listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][162+3*nomeJogo],usuario[162+3*nomeJogo])
+                st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
 
     return
 
