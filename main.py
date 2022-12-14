@@ -2074,11 +2074,11 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
     if usuario[166] != '' and usuario[167] != '':
         st.subheader('Aposta registrada!')
         st.write(f'{opcoesTerceiro[0]} {usuario[166]} X {usuario[167]} {opcoesTerceiro[1]}')
-        st.write(f'Aposta classificação: {listaSelecoes()[int(usuario[168])]}')
+        st.write(f'Aposta terceiro: {listaSelecoes()[int(usuario[168])]}')
     if usuarioMestre[166] != '' and usuarioMestre[168] != '':
         st.subheader('Fim de jogo!')
         st.write(f'{opcoesTerceiro[0]} {usuarioMestre[166]} X {usuarioMestre[167]} {opcoesTerceiro[1]}')
-        st.write(f'Seleção classificada: {listaSelecoes()[int(usuarioMestre[168])]}')
+        st.write(f'Terceira colocada: {listaSelecoes()[int(usuarioMestre[168])]}')
 
     return usuario
 
