@@ -2110,6 +2110,77 @@ def apostasTerceiroApostador(contadorUsuario):
 
 #-----------------------------------------------------------------------------#
 
+def apostasFinal(usuario,nomeUsuario,usuarioMestre):
+
+    #-----------------------------
+    st.subheader('FINAL DA COPA DO MUNDO')
+    #-----------------------------
+
+    #-----------------------------
+    opcoesFinal = ['Argentina','França']
+    #-----------------------------
+    horarioFinal = [horarioJogo(2022,12,18,12,0)]
+    #-----------------------------
+    dataFinal = datetime(2022,12,18,12,0)
+    #-----------------------------
+    
+    #-----------------------------
+    st.subheader(f'Final - {opcoesFinal[0]} x {opcoesFinal[1]} - {dataFinal}')
+    with st.form(key = 'incluirApostaFinalColocado'):
+        apostaFinal = st.selectbox('Qual será a seleção campeã mundial?', options = opcoesFinal, index = 0)
+        apostaFinalSelecao1 = st.number_input(label = opcoesFinal[0], min_value = 0, max_value = 10, step = 1, format = '%d')
+        apostaFinalSelecao2 = st.number_input(label = opcoesFinal[1], min_value = 0, max_value = 10, step = 1, format = '%d')
+        botaoApostaFinal = st.form_submit_button(label = 'Apostar')
+    if botaoApostaFinal and horarioFinal:
+        if apostaFinal == opcoesFinal[0] and apostaFinalSelecao1 < apostaFinalSelecao2 or apostaFinal == opcoesFinal[1] and apostaFinalSelecao2 < apostaFinalSelecao1:
+            st.subheader('Apostas INVÁLIDAS!')
+            st.write(f'Tente realizar as apostas novamente.')
+        else:
+            usuario[169], usuario[170] = apostaFinalSelecao1, apostaFinalSelecao2
+            usuario[171] = listaSelecoes().index(apostaFinal)
+            np.save(str(nomeUsuario),usuario)
+    elif botaoApostaFinal and not horarioFinal:
+        st.subheader('O jogo já começou!')
+        st.write(f'Você NÃO pode realizar as apostas.')
+    if usuario[169] != '' and usuario[170] != '':
+        st.subheader('Aposta registrada!')
+        st.write(f'{opcoesFinal[0]} {usuario[169]} X {usuario[170]} {opcoesFinal[1]}')
+        st.write(f'Aposta campeã: {listaSelecoes()[int(usuario[171])]}')
+    if usuarioMestre[169] != '' and usuarioMestre[171] != '':
+        st.subheader('Fim de jogo!')
+        st.write(f'{opcoesFinal[0]} {usuarioMestre[169]} X {usuarioMestre[170]} {opcoesFinal[1]}')
+        st.write(f'Campeã mundial: {listaSelecoes()[int(usuarioMestre[171])]}')
+
+    return usuario
+
+#-----------------------------------------------------------------------------#
+
+def apostasFinalApostador(contadorUsuario):
+
+    dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
+
+    #-----------------------------
+    st.subheader('FINAL DA COPA DO MUNDO')
+    #-----------------------------
+
+    #-----------------------------
+    opcoesFinal = ['Argentina','França']
+    #-----------------------------
+    horarioFinal = [horarioJogo(2022,12,18,12,0)]
+    #-----------------------------
+
+    st.write(f'Final - {np.array(listaUsuarios)[contadorUsuario][0]}')
+    if not horarioFinal:
+        if np.array(listaUsuarios)[contadorUsuario][169] != '':
+            st.write(f'{opcoesFinal[0]} {np.array(listaUsuarios)[contadorUsuario][169]}x{np.array(listaUsuarios)[contadorUsuario][170]} {opcoesSemi[1]}')
+            st.write(f'CAMPEÃ: {listaSelecoes()[int(listaUsuarios[contadorUsuario][171])]}')
+        else:
+            st.write(f'Aposta NÃO realizada.')
+    
+    return
+
+#-----------------------------------------------------------------------------#
+
 def placarJogos(nomeUsuario):
 
     classificacao = classificacaoInicial()
@@ -2729,6 +2800,7 @@ def main():
 
                     elif taskInterno == 'Apostas nas fases eliminatórias':
                         st.header('Apostas nas fases eliminatórias')
+                        usuario = apostasFinal(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasTerceiro(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasSemi(usuario,nomeUsuario,usuarioMestre)
                         usuario = apostasQuartas(usuario,nomeUsuario,usuarioMestre)
@@ -2752,6 +2824,7 @@ def main():
                             else:
                                 with tabs[contadorUsuario]:
                                     st.header(f'Resumo das apostas - {np.array(listaUsuarios)[contadorUsuario][0]}')                                    
+                                    apostasFinalApostador(contadorUsuario)
                                     apostasTerceiroApostador(contadorUsuario)
                                     apostasSemiApostador(contadorUsuario)
                                     apostasQuartasApostador(contadorUsuario)
