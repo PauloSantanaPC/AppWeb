@@ -2304,6 +2304,8 @@ def apostasFinalApostador(contadorUsuario):
 
 def placarJogos(nomeUsuario):
 
+    #=========================================================================#
+
     classificacao = classificacaoInicial()
     indiceUsuario = np.where(np.array(listaUsuarios)[:,0] == nomeUsuario)[0][0]
     usuario = listaUsuarios[indiceUsuario]
@@ -2316,6 +2318,8 @@ def placarJogos(nomeUsuario):
         listaUsuarios[contadorUsuario][7] = 0
         np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
     
+    #=========================================================================#
+
     classificadosGrupos = np.array(['Holanda','Senegal',
                                     'Inglaterra','Estados Unidos',
                                     'Argentina','Polônia',
@@ -2347,6 +2351,7 @@ def placarJogos(nomeUsuario):
         listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoGrupos
         np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
+    #=========================================================================#
 
     for nomeGrupo in range(len(grupos()[:,0])):
         st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -2555,6 +2560,8 @@ def placarJogos(nomeUsuario):
     df0.index = np.delete(np.array(listaUsuarios)[:,0],0)
     st.table(df0)
     
+    #=========================================================================#
+
     st.header('Oitavas de final')
     #-----------------------------
     opcoesOitavas1 = ['Holanda','Estados Unidos']
@@ -2639,7 +2646,7 @@ def placarJogos(nomeUsuario):
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
-    #=============================
+    #=========================================================================#
 
     st.subheader('Quartas de final')
     #-----------------------------
@@ -2701,7 +2708,7 @@ def placarJogos(nomeUsuario):
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
-    #=============================
+    #=========================================================================#
 
     #-----------------------------
     st.subheader('Semi-finais')
@@ -2753,7 +2760,7 @@ def placarJogos(nomeUsuario):
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
-    #=============================
+    #=========================================================================#
 
     #-----------------------------
     st.subheader('Terceira posição')
@@ -2798,7 +2805,7 @@ def placarJogos(nomeUsuario):
                 st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                 np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
-    #=============================
+    #=========================================================================#
 
     #-----------------------------
     st.subheader('FINAL DA COPA DO MUNDO')
@@ -2842,6 +2849,85 @@ def placarJogos(nomeUsuario):
                 listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFinalSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][171],usuario[171])
                 st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                 np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    #=========================================================================#
+
+    campea   = usuario[9]#['Argentina','França']
+    final    = np.array([usuario[9],usuario[10]])#np.array(['Argentina','França'])
+    terceira = usuario[11]#['Croácia','Marrocos']
+    
+    for contadorUsuario in range(1, len(listaUsuarios), 1):
+
+        if np.array(listaUsuarios)[contadorUsuario][0] == 'Paulo':
+            periodoCampea = inicio
+            periodoFinal  = inicio
+            periodoTerceira = semis
+        elif np.array(listaUsuarios)[contadorUsuario][0] == 'Bola':
+            periodoCampea = semis
+            periodoFinal  = semis
+            periodoTerceira = semis
+        elif np.array(listaUsuarios)[contadorUsuario][0] == 'Thiti':
+            periodoCampea = inicio
+            periodoFinal  = semis
+            periodoTerceira = semis
+        elif np.array(listaUsuarios)[contadorUsuario][0] == 'Marcos':
+            periodoCampea = semis
+            periodoFinal  = semis
+            periodoTerceira = semis
+        elif np.array(listaUsuarios)[contadorUsuario][0] == 'Rafa':
+            periodoCampea = semis
+            periodoFinal  = semis
+            periodoTerceira = semis
+        elif np.array(listaUsuarios)[contadorUsuario][0] == 'Taio':
+            periodoCampea = semis
+            periodoFinal  = semis
+            periodoTerceira = semis
+        #-----------------------------
+        pontuacaoCampea = 0
+        if np.array(listaUsuarios)[contadorUsuario][9] == campea and usuario[9] != '':
+            if periodoCampea == inicio:
+                pontuacaoCampea += 100
+            elif periodoCampea == oitavas:
+                pontuacaoCampea += 50
+            elif periodoCampea == quartas:
+                pontuacaoCampea += 25
+            elif periodoCampea == semis:
+                pontuacaoCampea += 20
+        else:
+            pontuacaoCampea += 0
+        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoCampea
+        #-----------------------------
+        pontuacaoFinal = 0
+        if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and usuario[10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and usuario[10] != '':
+            if periodoFinal == inicio:
+                pontuacaoFinal += 50
+            elif periodoFinal == oitavas:
+                pontuacaoFinal += 30
+            elif periodoFinal == quartas:
+                pontuacaoFinal += 20
+            elif periodoFinal == semis:
+                pontuacaoFinal += 15
+        else:
+            pontuacaoFinal += 0
+        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoFinal
+        #-----------------------------
+        pontuacaoTerceira = 0
+        if np.array(listaUsuarios)[contadorUsuario][11] == terceira and usuario[11] != '':
+            if periodoTerceira == inicio:
+                pontuacaoTerceira += 40
+            elif periodoTerceira == oitavas:
+                pontuacaoTerceira += 25
+            elif periodoTerceira == quartas:
+                pontuacaoTerceira += 15
+            elif periodoTerceira == semis:
+                pontuacaoTerceira += 10
+        else:
+            pontuacaoTerceira += 0
+        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
+        #-----------------------------
+        np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    #=========================================================================#
 
     return
 
