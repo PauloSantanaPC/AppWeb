@@ -1663,7 +1663,7 @@ def classificacaoBolaoGrupos():
             periodoTerceira = 'semis'
         #-----------------------------
         pontuacaoCampea = 0
-        if np.array(listaUsuarios)[contadorUsuario][9] == campea and usuario[9] != '':
+        if np.array(listaUsuarios)[contadorUsuario][9] == campea and np.array(listaUsuarios)[0][9] != '':
             if periodoCampea == 'inicio':
                 pontuacaoCampea += 100
             elif periodoCampea == 'oitavas':
@@ -1678,7 +1678,7 @@ def classificacaoBolaoGrupos():
         #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoCampea
         #-----------------------------
         pontuacaoFinal = 0
-        if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and usuario[10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and usuario[10] != '':
+        if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and np.array(listaUsuarios)[0][10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and np.array(listaUsuarios)[0][10] != '':
             if periodoFinal == 'inicio':
                 pontuacaoFinal += 50
             elif periodoFinal == 'oitavas':
@@ -1693,7 +1693,7 @@ def classificacaoBolaoGrupos():
         #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoFinal
         #-----------------------------
         pontuacaoTerceira = 0
-        if np.array(listaUsuarios)[contadorUsuario][11] == terceira and usuario[11] != '':
+        if np.array(listaUsuarios)[contadorUsuario][11] == terceira and np.array(listaUsuarios)[0][11] != '':
             if periodoTerceira == 'inicio':
                 pontuacaoTerceira += 40
             elif periodoTerceira == 'oitavas':
