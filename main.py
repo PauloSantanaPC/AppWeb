@@ -1583,7 +1583,7 @@ def classificacaoBolaoGrupos():
     #------------------
     
     campea   = np.array(listaUsuarios)[0][9]
-    final    = np.array([np.array(listaUsuarios)[0][9],np.array(listaUsuarios)[contadorUsuario][10]])
+    final    = np.array([np.array(listaUsuarios)[0][9],np.array(listaUsuarios)[0][10]])
     terceira = np.array(listaUsuarios)[0][11]
     pontuacaoCampeaUsuarios   = []
     pontuacaoFinalUsuarios    = []
