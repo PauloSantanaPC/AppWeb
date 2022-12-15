@@ -2895,7 +2895,7 @@ def placarJogos(nomeUsuario):
                 pontuacaoCampea += 20
         else:
             pontuacaoCampea += 0
-        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoCampea
+        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoCampea
         #-----------------------------
         pontuacaoFinal = 0
         if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and usuario[10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and usuario[10] != '':
@@ -2923,7 +2923,7 @@ def placarJogos(nomeUsuario):
                 pontuacaoTerceira += 10
         else:
             pontuacaoTerceira += 0
-        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
+        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
         #-----------------------------
         np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
