@@ -1631,12 +1631,6 @@ def classificacaoBolaoGrupos():
 
     #=========================================================================#
 
-    #campea   = np.array(listaUsuarios)[contadorUsuario][9]#['Argentina','França']
-    #final    = np.array([np.array(listaUsuarios)[contadorUsuario][9],np.array(listaUsuarios)[contadorUsuario][10]])#np.array(['Argentina','França'])
-    #terceira = np.array(listaUsuarios)[contadorUsuario][11]#['Croácia','Marrocos']
-    
-    #for contadorUsuario in range(1, len(listaUsuarios), 1):
-
         if np.array(listaUsuarios)[contadorUsuario][0] == 'Paulo':
             periodoCampea = 'inicio'
             periodoFinal  = 'inicio'
@@ -1674,8 +1668,11 @@ def classificacaoBolaoGrupos():
                 pontuacaoCampea += 20
         else:
             pontuacaoCampea += 0
-        pontuacaoCampeaUsuarios.append(pontuacaoCampea)
-        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoCampea
+        horario = horarioJogo(2022,12,18,16,0)
+        if horario:
+            pontuacaoCampeaUsuarios.append(pontuacaoCampea)
+        else:
+            pontuacaoCampeaUsuarios.append('-')
         #-----------------------------
         pontuacaoFinal = 0
         if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and np.array(listaUsuarios)[0][10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and np.array(listaUsuarios)[0][10] != '':
@@ -1689,8 +1686,11 @@ def classificacaoBolaoGrupos():
                 pontuacaoFinal += 15
         else:
             pontuacaoFinal += 0
-        pontuacaoFinalUsuarios.append(pontuacaoFinal)
-        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoFinal
+        horario = horarioJogo(2022,12,18,16,0)
+        if horario:
+            pontuacaoFinalUsuarios.append(pontuacaoFinal)
+        else:
+            pontuacaoFinalUsuarios.append('-')        
         #-----------------------------
         pontuacaoTerceira = 0
         if np.array(listaUsuarios)[contadorUsuario][11] == terceira and np.array(listaUsuarios)[0][11] != '':
@@ -1704,8 +1704,11 @@ def classificacaoBolaoGrupos():
                 pontuacaoTerceira += 10
         else:
             pontuacaoTerceira += 0
-        pontuacaoTerceiraUsuarios.append(pontuacaoTerceira)
-        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
+        horario = horarioJogo(2022,12,18,16,0)
+        if horario:
+            pontuacaoTerceiraUsuarios.append(pontuacaoTerceira)
+        else:
+            pontuacaoTerceiraUsuarios.append('-')
         #-----------------------------
 
     classificadosGrupos = np.array(['Holanda','Senegal',
