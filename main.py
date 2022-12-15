@@ -2859,39 +2859,39 @@ def placarJogos(nomeUsuario):
     for contadorUsuario in range(1, len(listaUsuarios), 1):
 
         if np.array(listaUsuarios)[contadorUsuario][0] == 'Paulo':
-            periodoCampea = inicio
-            periodoFinal  = inicio
-            periodoTerceira = semis
+            periodoCampea = 'inicio'
+            periodoFinal  = 'inicio'
+            periodoTerceira = 'semis'
         elif np.array(listaUsuarios)[contadorUsuario][0] == 'Bola':
-            periodoCampea = semis
-            periodoFinal  = semis
-            periodoTerceira = semis
+            periodoCampea = 'semis'
+            periodoFinal  = 'semis'
+            periodoTerceira = 'semis'
         elif np.array(listaUsuarios)[contadorUsuario][0] == 'Thiti':
-            periodoCampea = inicio
-            periodoFinal  = semis
-            periodoTerceira = semis
+            periodoCampea = 'inicio'
+            periodoFinal  = 'semis'
+            periodoTerceira = 'semis'
         elif np.array(listaUsuarios)[contadorUsuario][0] == 'Marcos':
-            periodoCampea = semis
-            periodoFinal  = semis
-            periodoTerceira = semis
+            periodoCampea = 'semis'
+            periodoFinal  = 'semis'
+            periodoTerceira = 'semis'
         elif np.array(listaUsuarios)[contadorUsuario][0] == 'Rafa':
-            periodoCampea = semis
-            periodoFinal  = semis
-            periodoTerceira = semis
+            periodoCampea = 'semis'
+            periodoFinal  = 'semis'
+            periodoTerceira = 'semis'
         elif np.array(listaUsuarios)[contadorUsuario][0] == 'Taio':
-            periodoCampea = semis
-            periodoFinal  = semis
-            periodoTerceira = semis
+            periodoCampea = 'semis'
+            periodoFinal  = 'semis'
+            periodoTerceira = 'semis'
         #-----------------------------
         pontuacaoCampea = 0
         if np.array(listaUsuarios)[contadorUsuario][9] == campea and usuario[9] != '':
-            if periodoCampea == inicio:
+            if periodoCampea == 'inicio':
                 pontuacaoCampea += 100
-            elif periodoCampea == oitavas:
+            elif periodoCampea == 'oitavas':
                 pontuacaoCampea += 50
-            elif periodoCampea == quartas:
+            elif periodoCampea == 'quartas':
                 pontuacaoCampea += 25
-            elif periodoCampea == semis:
+            elif periodoCampea == 'semis':
                 pontuacaoCampea += 20
         else:
             pontuacaoCampea += 0
@@ -2899,13 +2899,13 @@ def placarJogos(nomeUsuario):
         #-----------------------------
         pontuacaoFinal = 0
         if np.array(listaUsuarios)[contadorUsuario][9] == final[0] and np.array(listaUsuarios)[contadorUsuario][10] == final[1] and usuario[10] != '' or np.array(listaUsuarios)[contadorUsuario][9] == final[1] and np.array(listaUsuarios)[contadorUsuario][10] == final[0] and usuario[10] != '':
-            if periodoFinal == inicio:
+            if periodoFinal == 'inicio':
                 pontuacaoFinal += 50
-            elif periodoFinal == oitavas:
+            elif periodoFinal == 'oitavas':
                 pontuacaoFinal += 30
-            elif periodoFinal == quartas:
+            elif periodoFinal == 'quartas':
                 pontuacaoFinal += 20
-            elif periodoFinal == semis:
+            elif periodoFinal == 'semis':
                 pontuacaoFinal += 15
         else:
             pontuacaoFinal += 0
@@ -2913,13 +2913,13 @@ def placarJogos(nomeUsuario):
         #-----------------------------
         pontuacaoTerceira = 0
         if np.array(listaUsuarios)[contadorUsuario][11] == terceira and usuario[11] != '':
-            if periodoTerceira == inicio:
+            if periodoTerceira == 'inicio':
                 pontuacaoTerceira += 40
-            elif periodoTerceira == oitavas:
+            elif periodoTerceira == 'oitavas':
                 pontuacaoTerceira += 25
-            elif periodoTerceira == quartas:
+            elif periodoTerceira == 'quartas':
                 pontuacaoTerceira += 15
-            elif periodoTerceira == semis:
+            elif periodoTerceira == 'semis':
                 pontuacaoTerceira += 10
         else:
             pontuacaoTerceira += 0
