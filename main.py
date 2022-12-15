@@ -1090,6 +1090,127 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
             
     return usuario, pontuacao
 
+#-----------------------------------------------------------------------------#
+
+def resultadoApostadorFinal(usuario,pontuacao,golMandanteApostador,golVisitanteApostador,golMandanteJogo,golVisitanteJogo):
+    
+    '''
+    
+    Função que contabiliza os pontos do usuario para a final
+    
+    '''
+    
+    vitoria, empate, derrota = resultadoJogo(golMandanteJogo,golVisitanteJogo)
+    vitoriaApostador, empateApostador, derrotaApostador = resultadoJogo(golMandanteApostador,golVisitanteApostador)
+    if vitoria:
+        if vitoriaApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 50
+                pontuacao += 50
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 35
+                pontuacao += 35
+        elif derrotaApostador:
+            # erro
+            usuario[5] = int(usuario[5]) + 1
+            usuario[2] = int(usuario[2]) - 35
+            pontuacao += -35
+        elif empateApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 50
+            pontuacao += -50
+            
+    #-------------------------------------------------------------------------#
+            
+    elif empate:
+        if vitoriaApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        elif derrotaApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        elif empateApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 50
+                pontuacao += 50
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 35
+                pontuacao += 35
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 50
+            pontuacao += -50
+    
+    #-------------------------------------------------------------------------#
+    
+    elif derrota:
+        if vitoriaApostador:
+            # erro
+            usuario[5] = int(usuario[5]) + 1
+            usuario[2] = int(usuario[2]) - 35
+            pontuacao += -35
+        elif derrotaApostador:
+            if golMandanteJogo == golMandanteApostador and golVisitanteJogo == golVisitanteApostador:
+                # cravada
+                usuario[3] = int(usuario[3]) + 1
+                usuario[2] = int(usuario[2]) + 50
+                pontuacao += 50
+            else:
+                # acerto
+                usuario[4] = int(usuario[4]) + 1
+                usuario[2] = int(usuario[2]) + 35
+                pontuacao += 35
+        elif empateApostador:
+            # nada
+            usuario[6] = int(usuario[6]) + 1
+            usuario[2] = int(usuario[2]) + 0
+            pontuacao += 0
+        if golMandanteApostador == '':
+            # não apostou
+            usuario[7] = int(usuario[7]) + 1
+            usuario[2] = int(usuario[2]) - 50
+            pontuacao += -50
+            
+    return usuario, pontuacao
+
+#-----------------------------------------------------------------------------#
+
+def resultadoApostadorFinalSelecao(usuario,pontuacao,selecaoApostador,selecaoClassificada):
+    
+    '''
+    
+    Função que contabiliza os pontos do usuario para a final pela seleção classificada
+    
+    '''
+    
+    if selecaoClassificada == selecaoApostador:
+        usuario[2] = int(usuario[2]) + 75
+        pontuacao += 75
+    else:
+        usuario[2] = int(usuario[2]) + 0
+        pontuacao += 0
+            
+    return usuario, pontuacao
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #-----------------------------------------------------------------------------#
 #=============================================================================#
