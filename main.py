@@ -1669,7 +1669,7 @@ def classificacaoBolaoGrupos():
         else:
             pontuacaoCampea += 0
         horario = horarioJogo(2022,12,18,16,0)
-        if horario:
+        if not horario:
             pontuacaoCampeaUsuarios.append(pontuacaoCampea)
         else:
             pontuacaoCampeaUsuarios.append('-')
@@ -1686,8 +1686,8 @@ def classificacaoBolaoGrupos():
                 pontuacaoFinal += 15
         else:
             pontuacaoFinal += 0
-        horario = horarioJogo(2022,12,18,16,0)
-        if horario:
+
+        if not horario:
             pontuacaoFinalUsuarios.append(pontuacaoFinal)
         else:
             pontuacaoFinalUsuarios.append('-')        
@@ -1704,8 +1704,8 @@ def classificacaoBolaoGrupos():
                 pontuacaoTerceira += 10
         else:
             pontuacaoTerceira += 0
-        horario = horarioJogo(2022,12,18,16,0)
-        if horario:
+
+        if not horario:
             pontuacaoTerceiraUsuarios.append(pontuacaoTerceira)
         else:
             pontuacaoTerceiraUsuarios.append('-')
