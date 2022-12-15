@@ -1764,7 +1764,7 @@ def classificacaoBolaoGrupos():
                                 apostasViceCampeao,pontuacaoFinalUsuarios,
                                 apostasTerceiroColocado,pontuacaoTerceiraUsuarios]),
                       columns = colunas)
-    #dfa.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado']
+    dfa.index = ['Bolão','Campeão','Pontuação campeão','Vice-campeão','Pontuação final','Terceiro colocado','Pontuação terceiro']
     horarioSemi1 = horarioJogo(2022,12,13,16,0)
     if not horarioSemi1:
         st.table(dfa)
